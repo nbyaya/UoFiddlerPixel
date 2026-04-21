@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  *
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "THE BEER-WARE LICENSE" (啤酒软件授权协议)
+ * 只要您保留此声明，您就可以对本代码做任何处理。
+ * 如果将来我们相遇，并且您认为这些东西有价值，
+ * 您可以请我喝啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -31,7 +31,7 @@ namespace UoFiddler.Controls.UserControls
 {
     public partial class GumpControl : UserControl
     {
-        private Dictionary<string, string> idNames = new Dictionary<string, string>(); //XML
+        private Dictionary<string, string> idNames = new Dictionary<string, string>(); // XML
 
         #region [ GumpControl ]
         public GumpControl()
@@ -56,12 +56,12 @@ namespace UoFiddler.Controls.UserControls
         private bool _loaded;
         private bool _showFreeSlots;
         private GumpSearchForm _showForm; // _showForm
-        private AddressListForm addressListForm; // To list the addresses
+        private AddressListForm addressListForm; // 用于列出地址的窗体
 
         #region [ Reload ]
 
         /// <summary>
-        /// Reload when loaded (file changed)
+        /// 当加载后（文件更改）重新加载
         /// </summary> 
         private void Reload()
         {
@@ -111,20 +111,20 @@ namespace UoFiddler.Controls.UserControls
         #region [ LoadIdNamesFromXml ]
         private void LoadIdNamesFromXml()
         {
-            // Path to XML file
+            // XML 文件路径
             string xmlFilePath = Path.Combine(Application.StartupPath, "IDGumpNames.xml");
 
             XDocument doc;
 
-            // Check if the XML file exists
+            // 检查 XML 文件是否存在
             if (File.Exists(xmlFilePath))
             {
-                // Load the XML file
+                // 加载 XML 文件
                 doc = XDocument.Load(xmlFilePath);
             }
             else
             {
-                // Create a new XML file with the root element "IDNames"
+                // 创建带有根元素 "IDNames" 的新 XML 文件
                 doc = new XDocument(new XElement("IDNames"));
                 doc.Save(xmlFilePath);
             }
@@ -134,7 +134,7 @@ namespace UoFiddler.Controls.UserControls
                 string id = idElement.Attribute("value").Value;
                 string name = idElement.Attribute("name").Value;
 
-                // Add the name to the dictionary
+                // 将名称添加到字典中
                 idNames[id] = name;
             }
         }
@@ -304,16 +304,16 @@ namespace UoFiddler.Controls.UserControls
 
                 fontBrush = Brushes.Red;
             }
-            // Retrieving the name from the dictionary
+            // 从字典中检索名称
             string name = idNames.TryGetValue(i.ToString(), out string idName) ? idName : "";
 
-            // Drawing the ID, hex address and name
+            // 绘制 ID、十六进制地址和名称
             e.Graphics.DrawString($"0x{i:X} ({i}) {name}", Font, fontBrush,
                 new PointF(105,
                     e.Bounds.Y + ((e.Bounds.Height / 2) -
                                   (e.Graphics.MeasureString($"0x{i:X} ({i}) {name}", Font).Height / 2))));
 
-            // To list the addresses
+            // 用于列出地址
             if (e.Index == listBox.SelectedIndex)
             {
                 string address = itemString.Split('-')[0].Trim();
@@ -362,7 +362,7 @@ namespace UoFiddler.Controls.UserControls
                     pictureBox.BackgroundImage = bmp;
                     string name = idNames.TryGetValue(i.ToString(), out string idName) ? idName : "";
                     IDLabel.Text = $"ID: 0x{i:X} ({i}) {name}";
-                    SizeLabel.Text = $"Size: {bmp.Width},{bmp.Height}";
+                    SizeLabel.Text = $"大小: {bmp.Width},{bmp.Height}";
                 }
                 else
                 {
@@ -379,7 +379,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ JumpToMaleInvalistate ]
+        #region [ JumpToMaleFemaleInvalistate ]
         private void JumpToMaleFemaleInvalidate()
         {
             if (listBox.SelectedIndex == -1)
@@ -394,19 +394,19 @@ namespace UoFiddler.Controls.UserControls
             {
                 if (gumpId >= 60000)
                 {
-                    jumpToMaleFemale.Text = "Jump to Male";
+                    jumpToMaleFemale.Text = "跳转到男性";
                     jumpToMaleFemale.Enabled = HasGumpId(gumpId - 10000);
                 }
                 else
                 {
-                    jumpToMaleFemale.Text = "Jump to Female";
+                    jumpToMaleFemale.Text = "跳转到女性";
                     jumpToMaleFemale.Enabled = HasGumpId(gumpId + 10000);
                 }
             }
             else
             {
                 jumpToMaleFemale.Enabled = false;
-                jumpToMaleFemale.Text = "Jump to Male/Female";
+                jumpToMaleFemale.Text = "跳转到男性/女性";
             }
         }
         #endregion
@@ -422,9 +422,9 @@ namespace UoFiddler.Controls.UserControls
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = false;
-                dialog.Title = "Choose image file to replace";
+                dialog.Title = "选择要替换的图像文件";
                 dialog.CheckFileExists = true;
-                dialog.Filter = "Image files (*.tif;*.tiff;*.bmp;*.png)|*.tif;*.tiff;*.bmp;*.png";
+                dialog.Filter = "图像文件 (*.tif;*.tiff;*.bmp;*.png)|*.tif;*.tiff;*.bmp;*.png";
                 if (dialog.ShowDialog() != DialogResult.OK)
                 {
                     return;
@@ -439,7 +439,7 @@ namespace UoFiddler.Controls.UserControls
                         bitmap = Utils.ConvertBmp(bitmap);
                     }
 
-                    // Split the string at the hyphen location and use only the first part
+                    // 在连字符位置分割字符串，只使用第一部分
                     string itemString = listBox.Items[listBox.SelectedIndex].ToString();
                     string idString = itemString.Split('-')[0].Trim();
                     int i = int.Parse(idString);
@@ -453,7 +453,7 @@ namespace UoFiddler.Controls.UserControls
 
                     Options.ChangedUltimaClass["Gumps"] = true;
 
-                    // Play sound if isSoundMessageActive is true
+                    // 如果 isSoundMessageActive 为 true，则播放声音
                     if (isSoundMessageActive)
                     {
                         if (playCustomSound)
@@ -475,7 +475,7 @@ namespace UoFiddler.Controls.UserControls
         #region [ OnClickSave ]
         private void OnClickSave(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure? Will take a while", "Save", MessageBoxButtons.YesNo,
+            DialogResult result = MessageBox.Show("确定要保存吗？这需要一些时间", "保存", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (result != DialogResult.Yes)
             {
@@ -485,7 +485,7 @@ namespace UoFiddler.Controls.UserControls
             Cursor.Current = Cursors.WaitCursor;
             Gumps.Save(Options.OutputPath);
             Cursor.Current = Cursors.Default;
-            MessageBox.Show($"Saved to {Options.OutputPath}", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information,
+            MessageBox.Show($"已保存到 {Options.OutputPath}", "保存", MessageBoxButtons.OK, MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
             Options.ChangedUltimaClass["Gumps"] = false;
         }
@@ -494,12 +494,12 @@ namespace UoFiddler.Controls.UserControls
         #region [ OnClickRemove ]
         private void OnClickRemove(object sender, EventArgs e)
         {
-            // Split the string at the hyphen location and use only the first part
+            // 在连字符位置分割字符串，只使用第一部分
             string itemString = listBox.Items[listBox.SelectedIndex].ToString();
             string idString = itemString.Split('-')[0].Trim();
             int i = int.Parse(idString);
 
-            DialogResult result = MessageBox.Show($"Are you sure to remove {i}", "Remove", MessageBoxButtons.YesNo,
+            DialogResult result = MessageBox.Show($"确定要移除 {i} 吗？", "移除", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (result != DialogResult.Yes)
             {
@@ -517,7 +517,7 @@ namespace UoFiddler.Controls.UserControls
             listBox.Invalidate();
             Options.ChangedUltimaClass["Gumps"] = true;
 
-            // Play sound if isSoundMessageActive is true
+            // 如果 isSoundMessageActive 为 true，则播放声音
             if (isSoundMessageActive)
             {
                 if (playCustomSound)
@@ -536,7 +536,7 @@ namespace UoFiddler.Controls.UserControls
         #region [ OnClickFindFree ]
         private void OnClickFindFree(object sender, EventArgs e)
         {
-            // Split the string at the hyphen location and use only the first part
+            // 在连字符位置分割字符串，只使用第一部分
             string itemString = listBox.Items[listBox.SelectedIndex].ToString();
             string idString = itemString.Split('-')[0].Trim();
             int id = int.Parse(idString);
@@ -564,8 +564,8 @@ namespace UoFiddler.Controls.UserControls
                 }
             }
 
-            // If no empty ID was found and _showFreeSlots is enabled,
-            // a new ID is added to the end of the ListBox
+            // 如果未找到空 ID 且 _showFreeSlots 已启用，
+            // 则将新 ID 添加到 ListBox 末尾
             if (listBox.SelectedIndex == -1 && _showFreeSlots)
             {
                 int newId = Gumps.GetCount();
@@ -573,7 +573,7 @@ namespace UoFiddler.Controls.UserControls
                 listBox.SelectedIndex = listBox.Items.Count - 1;
             }
 
-            // Play sound if isSoundMessageActive is true
+            // 如果 isSoundMessageActive 为 true，则播放声音
             if (isSoundMessageActive)
             {
                 if (playCustomSound)
@@ -620,7 +620,7 @@ namespace UoFiddler.Controls.UserControls
                 return;
             }
 
-            // Split the string at the hyphen location and use only the first part
+            // 在连字符位置分割字符串，只使用第一部分
             string itemString = InsertText.Text;
             string idString = itemString.Split('-')[0].Trim();
             if (!Utils.ConvertStringToInt(idString, out int index, 0, Gumps.GetCount()))
@@ -637,9 +637,9 @@ namespace UoFiddler.Controls.UserControls
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = false;
-                dialog.Title = $"Choose image file to insert at 0x{index:X}";
+                dialog.Title = $"选择要在 0x{index:X} 处插入的图像文件";
                 dialog.CheckFileExists = true;
-                dialog.Filter = "Image files (*.tif;*.tiff;*.bmp;*.png)|*.tif;*.tiff;*.bmp;*.png";
+                dialog.Filter = "图像文件 (*.tif;*.tiff;*.bmp;*.png)|*.tif;*.tiff;*.bmp;*.png";
                 if (dialog.ShowDialog() != DialogResult.OK)
                 {
                     return;
@@ -758,8 +758,8 @@ namespace UoFiddler.Controls.UserControls
             }
 
             MessageBox.Show(
-                $"Gump saved to {fileName}",
-                "Saved",
+                $"Gump 已保存到 {fileName}",
+                "已保存",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
@@ -802,7 +802,7 @@ namespace UoFiddler.Controls.UserControls
 
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
             {
-                dialog.Description = "Select directory";
+                dialog.Description = "选择目录";
                 dialog.ShowNewFolderButton = true;
 
                 if (dialog.ShowDialog() != DialogResult.OK)
@@ -810,11 +810,11 @@ namespace UoFiddler.Controls.UserControls
                     return;
                 }
 
-                var progressBarDialog = new ProgressBarDialog2(listBox.Items.Count, $"Exporting Gumps to {fileExtension}", false);
+                var progressBarDialog = new ProgressBarDialog2(listBox.Items.Count, $"正在导出 Gump 到 {fileExtension}", false);
                 progressBarDialog.CancelClicked += () =>
                 {
-                    // Show message only in event
-                    MessageBox.Show("Export was aborted.", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // 仅在事件中显示消息
+                    MessageBox.Show("导出已中止。", "取消", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 };
 
                 progressBarDialog.Show();
@@ -831,7 +831,7 @@ namespace UoFiddler.Controls.UserControls
                         {
                             if (progressBarDialog.IsCancelled)
                             {
-                                break; // Abort
+                                break; // 中止
                             }
 
                             string itemString = listBox.Items[i].ToString();
@@ -860,7 +860,7 @@ namespace UoFiddler.Controls.UserControls
                             Invoke((Action)(() => progressBarDialog.OnChangeEvent()));
                         }
 
-                        // Mark process as complete
+                        // 标记进程完成
                         Invoke((Action)(() => progressBarDialog.MarkProcessFinished()));
                     }
                     finally
@@ -872,9 +872,9 @@ namespace UoFiddler.Controls.UserControls
 
                             if (!progressBarDialog.IsCancelled)
                             {
-                                MessageBox.Show($"All Gumps were saved in {dialog.SelectedPath}\n" +
-                                                $"Total number of exported images: {exportedCount}",
-                                    "Save completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show($"所有 Gump 已保存到 {dialog.SelectedPath}\n" +
+                                                $"导出的图像总数: {exportedCount}",
+                                    "保存完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }));
                     }
@@ -941,7 +941,7 @@ namespace UoFiddler.Controls.UserControls
 
         #region [ HasGumpId ]
 
-        public static bool HasGumpId(int gumpId) // HasGumpId is cross-class to identify items on Gumps with it.
+        public static bool HasGumpId(int gumpId) // HasGumpId 是跨类方法，用于识别其中的 Gump 项目。
         {
             if (!_refMarker._loaded)
             {
@@ -973,7 +973,7 @@ namespace UoFiddler.Controls.UserControls
 
             gumpId = gumpId < 60000 ? (gumpId % 10000) + 60000 : (gumpId % 10000) + 50000;
 
-            // Find the new gumpId in the listBox
+            // 在 listBox 中查找新的 gumpId
             for (int i = 0; i < listBox.Items.Count; i++)
             {
                 itemString = listBox.Items[i].ToString();
@@ -988,9 +988,9 @@ namespace UoFiddler.Controls.UserControls
         #endregion
 
         #region [ JumpToMaleFemale2_Click ]
-        // all in one Disabled
-        // Here is a method that combines three functions but one of them is deactivated.
-        // I left the function there as an example: 'JumpToMaleFemale, HasGumpId, JumpToMaleFemaleInvalidate'
+        // 全部合为一个（已禁用）
+        // 这里是一个将三个功能组合在一起的方法，但其中一个被停用。
+        // 我将该函数作为示例保留：'JumpToMaleFemale, HasGumpId, JumpToMaleFemaleInvalidate'
         private void JumpToMaleFemale2_Click(object sender, EventArgs e)
         {
             if (listBox.SelectedIndex == -1)
@@ -1002,13 +1002,13 @@ namespace UoFiddler.Controls.UserControls
             string idString = itemString.Split('-')[0].Trim();
             if (!int.TryParse(idString, out int gumpId))
             {
-                MessageBox.Show("Invalid Gump ID format.");
+                MessageBox.Show("无效的 Gump ID 格式。");
                 return;
             }
 
             gumpId = gumpId < 60000 ? (gumpId % 10000) + 60000 : (gumpId % 10000) + 50000;
 
-            // Find the new gumpId in the listBox
+            // 在 listBox 中查找新的 gumpId
             for (int i = 0; i < listBox.Items.Count; i++)
             {
                 itemString = listBox.Items[i].ToString();
@@ -1020,12 +1020,12 @@ namespace UoFiddler.Controls.UserControls
                 }
             }
 
-            // Update the button text and enabled state
+            // 更新按钮文本和启用状态
             if (gumpId >= 50000)
             {
                 if (gumpId >= 60000)
                 {
-                    jumpToMaleFemale.Text = "Jump to Male";
+                    jumpToMaleFemale.Text = "跳转到男性";
                     jumpToMaleFemale.Enabled = listBox.Items.Cast<object>().Any(id =>
                     {
                         if (int.TryParse(id.ToString(), out int intId))
@@ -1037,7 +1037,7 @@ namespace UoFiddler.Controls.UserControls
                 }
                 else
                 {
-                    jumpToMaleFemale.Text = "Jump to Female";
+                    jumpToMaleFemale.Text = "跳转到女性";
                     jumpToMaleFemale.Enabled = listBox.Items.Cast<object>().Any(id =>
                     {
                         if (int.TryParse(id.ToString(), out int intId))
@@ -1051,7 +1051,7 @@ namespace UoFiddler.Controls.UserControls
             else
             {
                 jumpToMaleFemale.Enabled = false;
-                jumpToMaleFemale.Text = "Jump to Male/Female";
+                jumpToMaleFemale.Text = "跳转到男性/女性";
             }
         }
         #endregion        
@@ -1093,7 +1093,7 @@ namespace UoFiddler.Controls.UserControls
                 string idString = parts[0].Trim();
                 string nameString = parts.Length > 1 ? parts[1].Trim() : "";
 
-                // Check if the ID or name matches the search query
+                // 检查 ID 或名称是否与搜索查询匹配
                 if (idString.ToLower() == searchQueryLower || nameString.ToLower().Contains(searchQueryLower))
                 {
                     _refMarker.listBox.SelectedIndex = i;
@@ -1101,7 +1101,7 @@ namespace UoFiddler.Controls.UserControls
                     return true;
                 }
 
-                // Check if the hex address matches the search query
+                // 检查十六进制地址是否与搜索查询匹配
                 if (Int32.TryParse(idString, out int id))
                 {
                     string hexId = id.ToString("x");
@@ -1142,8 +1142,8 @@ namespace UoFiddler.Controls.UserControls
 
             if (!Int32.TryParse(InsertStartingFromTb.Text, out int index))
             {
-                // Failed conversion, error handling here
-                MessageBox.Show("Please enter a valid integer.");
+                // 转换失败，在此进行错误处理
+                MessageBox.Show("请输入有效的整数。");
                 return;
             }
 
@@ -1151,9 +1151,9 @@ namespace UoFiddler.Controls.UserControls
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = true;
-                dialog.Title = $"Choose image file to insert at 0x{index:X}";
+                dialog.Title = $"选择要在 0x{index:X} 处插入的图像文件";
                 dialog.CheckFileExists = true;
-                dialog.Filter = "Image files (*.tif;*.tiff;*.bmp;*.png)|*.tif;*.tiff;*.bmp;*.png";
+                dialog.Filter = "图像文件 (*.tif;*.tiff;*.bmp;*.png)|*.tif;*.tiff;*.bmp;*.png";
                 if (dialog.ShowDialog() != DialogResult.OK)
                 {
                     return;
@@ -1179,10 +1179,10 @@ namespace UoFiddler.Controls.UserControls
 
         #region [ CheckForIndexes ]
         /// <summary>
-        /// Check if all the indexes from baseIndex to baseIndex + count are valid
+        /// 检查从 baseIndex 到 baseIndex + count 的所有索引是否有效
         /// </summary>
-        /// <param name="baseIndex">Starting Index</param>
-        /// <param name="count">Number of the indexes to check.</param>
+        /// <param name="baseIndex">起始索引</param>
+        /// <param name="count">要检查的索引数量。</param>
         /// <returns></returns>
 
         private bool CheckForIndexes(int baseIndex, int count)
@@ -1201,10 +1201,10 @@ namespace UoFiddler.Controls.UserControls
         #region [ AddSingleGump ]
 
         /// <summary>
-        /// Adds a single Gump.
+        /// 添加单个 Gump。
         /// </summary>
-        /// <param name="fileName">Filename of the gump to add</param>
-        /// <param name="index">Index where the gump shall be added.</param>
+        /// <param name="fileName">要添加的 gump 的文件名</param>
+        /// <param name="index">要添加 gump 的索引位置。</param>
         private void AddSingleGump(string fileName, int index)
         {
             using (var bmpTemp = new Bitmap(fileName))
@@ -1264,33 +1264,33 @@ namespace UoFiddler.Controls.UserControls
                     Bitmap originalBmp = Gumps.GetGump(i);
                     if (originalBmp != null)
                     {
-                        // Make a copy of the original image
+                        // 制作原始图像的副本
                         Bitmap bmp = new Bitmap(originalBmp);
 
-                        // Color change function built in
+                        // 内置颜色更改功能
                         for (int y = 0; y < bmp.Height; y++)
                         {
                             for (int x = 0; x < bmp.Width; x++)
                             {
                                 Color pixelColor = bmp.GetPixel(x, y);
-                                if (pixelColor.R == 211 && pixelColor.G == 211 && pixelColor.B == 211) // Check if the color of the pixel is #D3D3D3
+                                if (pixelColor.R == 211 && pixelColor.G == 211 && pixelColor.B == 211) // 检查像素颜色是否为 #D3D3D3
                                 {
-                                    bmp.SetPixel(x, y, Color.Black); // Change the color of the pixel to black
+                                    bmp.SetPixel(x, y, Color.Black); // 将像素颜色更改为黑色
                                 }
                             }
                         }
 
-                        // Convert the image to a 24-bit color depth
+                        // 将图像转换为 24 位颜色深度
                         Bitmap bmp24bit = new Bitmap(bmp.Width, bmp.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                         using (Graphics g = Graphics.FromImage(bmp24bit))
                         {
                             g.DrawImage(bmp, new Rectangle(0, 0, bmp24bit.Width, bmp24bit.Height));
                         }
 
-                        // Copy the graphic to the clipboard
+                        // 将图形复制到剪贴板
                         Clipboard.SetImage(bmp24bit);
 
-                        // Play sound if isSoundMessageActive is true
+                        // 如果 isSoundMessageActive 为 true，则播放声音
                         if (isSoundMessageActive)
                         {
                             if (playCustomSound)
@@ -1304,36 +1304,36 @@ namespace UoFiddler.Controls.UserControls
                             }
                         }
 
-                        // Only show a message if isSoundMessageActive is false
+                        // 仅在 isSoundMessageActive 为 false 时显示消息
                         if (!isSoundMessageActive)
                         {
-                            MessageBox.Show("The image has been copied to the clipboard!");
+                            MessageBox.Show("图像已复制到剪贴板！");
                         }
                     }
                     else
                     {
-                        // Only show a message if isSoundMessageActive is false
+                        // 仅在 isSoundMessageActive 为 false 时显示消息
                         if (!isSoundMessageActive)
                         {
-                            MessageBox.Show("No image to copy!");
+                            MessageBox.Show("没有可复制的图像！");
                         }
                     }
                 }
                 else
                 {
-                    // Only show a message if isSoundMessageActive is false
+                    // 仅在 isSoundMessageActive 为 false 时显示消息
                     if (!isSoundMessageActive)
                     {
-                        MessageBox.Show("No image to copy!");
+                        MessageBox.Show("没有可复制的图像！");
                     }
                 }
             }
             else
             {
-                // Only show a message if isSoundMessageActive is false
+                // 仅在 isSoundMessageActive 为 false 时显示消息
                 if (!isSoundMessageActive)
                 {
-                    MessageBox.Show("No image to copy!");
+                    MessageBox.Show("没有可复制的图像！");
                 }
             }
         }
@@ -1342,21 +1342,21 @@ namespace UoFiddler.Controls.UserControls
         #region [ ImportToolStripMenuItem = Import Import clipboard - Import graphics from clipboard ]
         private void ImportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Check if the clipboard contains an image
+            // 检查剪贴板是否包含图像
             if (Clipboard.ContainsImage())
             {
-                // Retrieve the image from the clipboard
+                // 从剪贴板检索图像
                 using (Bitmap bmp = new Bitmap(Clipboard.GetImage()))
                 {
-                    // Determine the position of the selected graphic in the listBox.
+                    // 确定所选图形在 listBox 中的位置。
                     string itemString = listBox.Items[listBox.SelectedIndex].ToString();
                     string idString = itemString.Split('-')[0].Trim();
                     if (Int32.TryParse(idString, out int index) && index >= 0 && index < Gumps.GetCount())
                     {
-                        // Create a new bitmap with the same size as the image from the clipboard
+                        // 创建一个与剪贴板图像大小相同的新位图
                         Bitmap newBmp = new Bitmap(bmp.Width, bmp.Height);
 
-                        // Define the colors to ignore
+                        // 定义要忽略的颜色
                         Color[] colorsToIgnore = new Color[]
                         {
                     Color.FromArgb(211, 211, 211), // #D3D3D3
@@ -1364,29 +1364,29 @@ namespace UoFiddler.Controls.UserControls
                     Color.FromArgb(255, 255, 255)  // #FFFFFF
                         };
 
-                        // Iterate through each pixel of the image
+                        // 遍历图像的每个像素
                         for (int x = 0; x < bmp.Width; x++)
                         {
                             for (int y = 0; y < bmp.Height; y++)
                             {
-                                // Get the color of the current pixel
+                                // 获取当前像素的颜色
                                 Color pixelColor = bmp.GetPixel(x, y);
 
-                                // Check if the color of the current pixel is one of the colors to ignore
+                                // 检查当前像素颜色是否属于要忽略的颜色之一
                                 if (colorsToIgnore.Contains(pixelColor))
                                 {
-                                    // Set the color of the current pixel to transparent
+                                    // 将当前像素颜色设置为透明
                                     newBmp.SetPixel(x, y, Color.Transparent);
                                 }
                                 else
                                 {
-                                    // Set the color of the current pixel to the color of the original image
+                                    // 将当前像素颜色设置为原始图像的颜色
                                     newBmp.SetPixel(x, y, pixelColor);
                                 }
                             }
                         }
 
-                        // Call the ReplaceGump method with the selected graphic ID and the new bitmap
+                        // 使用选定的图形 ID 和新位图调用 ReplaceGump 方法
                         Gumps.ReplaceGump(index, newBmp);
                         ControlEvents.FireGumpChangeEvent(this, index);
 
@@ -1395,7 +1395,7 @@ namespace UoFiddler.Controls.UserControls
 
                         Options.ChangedUltimaClass["Gumps"] = true;
 
-                        // Play sound if isSoundMessageActive is true
+                        // 如果 isSoundMessageActive 为 true，则播放声音
                         if (isSoundMessageActive)
                         {
                             if (playCustomSound)
@@ -1411,29 +1411,29 @@ namespace UoFiddler.Controls.UserControls
                     }
                     else
                     {
-                        MessageBox.Show("Invalid index.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("无效索引。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("No image in the clipboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("剪贴板中没有图像。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // Import und Export Strg+V and Strg+X
+        // 导入和导出 Ctrl+V 和 Ctrl+X
         private void GumpControl_KeyDown(object sender, KeyEventArgs e)
         {
-            // Check if the Ctrl+V key combination has been pressed
+            // 检查是否按下了 Ctrl+V 组合键
             if (e.Control && e.KeyCode == Keys.V)
             {
-                // Calling the importToolStripMenuItem_Click method to import the graphic from the clipboard.
+                // 调用 importToolStripMenuItem_Click 方法从剪贴板导入图形。
                 ImportToolStripMenuItem_Click(sender, e);
             }
-            // Checking if the Ctrl+X key combination has been pressed
+            // 检查是否按下了 Ctrl+X 组合键
             else if (e.Control && e.KeyCode == Keys.X)
             {
-                // Calling the copyToolStripMenuItem_Click method to import the graphic from the clipboard.
+                // 调用 copyToolStripMenuItem_Click 方法从剪贴板导入图形。
                 CopyToolStripMenuItem_Click(sender, e);
             }
         }
@@ -1455,22 +1455,22 @@ namespace UoFiddler.Controls.UserControls
         #region [ AddIDNamesToolStripMenuItem = Add Id Names Form ]
         private void AddIDNamesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Create a new shape
+            // 创建一个新窗体
             Form form = new Form
             {
                 Width = 300,
                 Height = 200,
-                Text = "Add ID name"
+                Text = "添加 ID 名称"
             };
 
-            // Create a TextBox for the ID
+            // 为 ID 创建一个 TextBox
             TextBox idTextBox = new TextBox
             {
                 Location = new Point(10, 10),
                 Width = 200,
-                Text = listBox.SelectedItem?.ToString().Split('-')[0].Trim() ?? "" //Set the text to the selected ID in the ListBox
+                Text = listBox.SelectedItem?.ToString().Split('-')[0].Trim() ?? "" // 将文本设置为 ListBox 中选定的 ID
             };
-            // Add an event handler to ignore non-numeric input
+            // 添加事件处理程序以忽略非数字输入
             idTextBox.KeyPress += (sender, e) =>
             {
                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -1480,19 +1480,19 @@ namespace UoFiddler.Controls.UserControls
             };
             form.Controls.Add(idTextBox);
 
-            // Create a TextBox for the name
+            // 为名称创建一个 TextBox
             TextBox nameTextBox = new TextBox
             {
                 Location = new Point(10, 40),
                 Width = 200,
-                Text = idNames.TryGetValue(idTextBox.Text, out string existingName) ? existingName : "" // Set the text to the existing name if one exists
+                Text = idNames.TryGetValue(idTextBox.Text, out string existingName) ? existingName : "" // 如果存在现有名称，则将其设置为文本
             };
             form.Controls.Add(nameTextBox);
 
-            // Create an OK button
+            // 创建一个“确定”按钮
             Button okButton = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Location = new Point(10, 70)
             };
 
@@ -1501,10 +1501,10 @@ namespace UoFiddler.Controls.UserControls
                 string id = idTextBox.Text;
                 string name = nameTextBox.Text;
 
-                // Update the XML file
+                // 更新 XML 文件
                 UpdateIdNameInXml(id, name);
 
-                // Update the ListBox
+                // 更新 ListBox
                 PopulateListBox(true);
 
                 form.Close();
@@ -1512,18 +1512,18 @@ namespace UoFiddler.Controls.UserControls
 
             form.Controls.Add(okButton);
 
-            // Create a delete button
+            // 创建一个删除按钮
             Button deleteButton = new Button
             {
-                Text = "Delete",
-                Location = new Point(okButton.Location.X + okButton.Width + 3, 70) // Position the button to the right of the OK button
+                Text = "删除",
+                Location = new Point(okButton.Location.X + okButton.Width + 3, 70) // 将按钮放置在“确定”按钮的右侧
             };
 
             deleteButton.Click += (sender, e) =>
             {
                 string id = idTextBox.Text;
 
-                // Delete the entry from the XML file
+                // 从 XML 文件中删除条目
                 UpdateIdNameInXml(id, "");
 
                 form.Close();
@@ -1531,10 +1531,10 @@ namespace UoFiddler.Controls.UserControls
 
             form.Controls.Add(deleteButton);
 
-            // Select the nameTextBox when the form is shown
+            // 当窗体显示时选中 nameTextBox
             form.Shown += (sender, e) => nameTextBox.Select();
 
-            // Display the shape
+            // 显示窗体
             form.ShowDialog();
         }
         #endregion
@@ -1542,7 +1542,7 @@ namespace UoFiddler.Controls.UserControls
         #region [ UpdateIdNameInXml ]
         private void UpdateIdNameInXml(string id, string name)
         {
-            // Pfad zur XML-Datei
+            // XML 文件路径
             string xmlFilePath = Path.Combine(Application.StartupPath, "IDGumpNames.xml");
 
             XDocument doc = XDocument.Load(xmlFilePath);
@@ -1563,31 +1563,31 @@ namespace UoFiddler.Controls.UserControls
                 doc.Root.Add(newIdElement);
             }
 
-            // Save the changes to the XML file
+            // 将更改保存到 XML 文件
             doc.Save(xmlFilePath);
 
-            // Update the dictionary
+            // 更新字典
             idNames[id] = name;
         }
         #endregion
 
         #region [ Sound Button ]
         private bool isSoundMessageActive = false;
-        private bool playCustomSound = false; // You can use it to select any sound
+        private bool playCustomSound = false; // 您可以使用它来选择任何声音
         private SoundPlayer player = new SoundPlayer();
 
         public void ToolStripButtonSoundMessage_Click(object sender, EventArgs e)
         {
-            // Toggle the state of isSoundMessageActive
+            // 切换 isSoundMessageActive 的状态
             isSoundMessageActive = !isSoundMessageActive;
 
-            // Change the background color of the button based on its state
+            // 根据状态更改按钮的背景颜色
             if (isSoundMessageActive)
             {
-                // Change the background color to blue when the button is active
+                // 当按钮激活时，将背景颜色更改为蓝色
                 toolStripButtonSoundMessage.BackColor = Color.Blue;
 
-                // Play sound
+                // 播放声音
                 if (playCustomSound)
                 {
                     player.Play();
@@ -1600,19 +1600,19 @@ namespace UoFiddler.Controls.UserControls
             }
             else
             {
-                // Change the background color to default when the button is not active
+                // 当按钮未激活时，将背景颜色更改为默认值
                 toolStripButtonSoundMessage.BackColor = default(Color);
             }
         }
         #endregion
 
         #region [ Mark ]
-        private string lastSelectedId = "50320"; // Default value
+        private string lastSelectedId = "50320"; // 默认值
 
         #region [ ListBox_MouseDouvleClick ]
         private void ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            // Save the selected ID value when an item in the ListBox is double-clicked
+            // 双击 ListBox 中的项目时，保存选定的 ID 值
             string itemString = listBox.SelectedItem.ToString();
             lastSelectedId = itemString.Split('-')[0].Trim();
 
@@ -1667,7 +1667,7 @@ namespace UoFiddler.Controls.UserControls
         private void CustomSoundToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Wave Sound File (*.wav)|*.wav";
+            openFileDialog.Filter = "波形声音文件 (*.wav)|*.wav";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -1732,39 +1732,39 @@ namespace UoFiddler.Controls.UserControls
         #region [ ExportAllGumpIDs ]
         private void ExportAllGumpIDs()
         {
-            var format = MessageBox.Show("What format do you want to export in? Decimal?", "Select format", MessageBoxButtons.YesNo) == DialogResult.Yes ? "Decimal" : "Hex";
-            var includeFree = MessageBox.Show("Would you also like to export the free IDs?", "Include free IDs", MessageBoxButtons.YesNo) == DialogResult.Yes;
+            var format = MessageBox.Show("您要以什么格式导出？十进制？", "选择格式", MessageBoxButtons.YesNo) == DialogResult.Yes ? "Decimal" : "Hex";
+            var includeFree = MessageBox.Show("是否也要导出空闲 ID？", "包含空闲 ID", MessageBoxButtons.YesNo) == DialogResult.Yes;
 
-            // Create the default filename with "GumpExport" and current date
+            // 使用 "GumpExport" 和当前日期创建默认文件名
             string defaultFileName = $"GumpExport_{DateTime.Now:yyyyMMdd}.txt";
 
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
-                Filter = "Text files (*.txt)|*.txt",
-                Title = "Gump IDs save",
-                FileName = defaultFileName  // Set the default file name
+                Filter = "文本文件 (*.txt)|*.txt",
+                Title = "Gump ID 保存",
+                FileName = defaultFileName  // 设置默认文件名
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
                 {
-                    int maxGumpID = Gumps.GetCount();  // Get the maximum Gump ID from the Gump mul file
+                    int maxGumpID = Gumps.GetCount();  // 从 Gump mul 文件中获取最大 Gump ID
                     for (int gumpId = 0; gumpId < maxGumpID; gumpId++)
                     {
-                        bool isOccupied = Gumps.IsValidIndex(gumpId);  // Check whether the Gump entry is occupied
+                        bool isOccupied = Gumps.IsValidIndex(gumpId);  // 检查 Gump 条目是否被占用
 
-                        // Skip free IDs if the user doesn't want to include them
+                        // 如果用户不想包含空闲 ID，则跳过空闲 ID
                         if (!isOccupied && !includeFree)
                             continue;
 
-                        // Convert the ID to the desired format (decimal or hexadecimal)
+                        // 将 ID 转换为所需格式（十进制或十六进制）
                         string formattedID = format == "Decimal" ? gumpId.ToString() : $"0x{gumpId:X}";
-                        writer.WriteLine($"{formattedID} - {(isOccupied ? "Gump Image" : "Free")}");
+                        writer.WriteLine($"{formattedID} - {(isOccupied ? "Gump 图像" : "空闲")}");
                     }
                 }
 
-                MessageBox.Show("The export was successfully completed!", "Export status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("导出成功完成！", "导出状态", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         #endregion
@@ -1774,7 +1774,7 @@ namespace UoFiddler.Controls.UserControls
         {
             using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
             {
-                folderDialog.Description = "Select the directory with the text file and Gump images";
+                folderDialog.Description = "选择包含文本文件和 Gump 图像的目录";
 
                 if (folderDialog.ShowDialog() != DialogResult.OK)
                 {
@@ -1785,8 +1785,8 @@ namespace UoFiddler.Controls.UserControls
 
                 OpenFileDialog openFileDialog = new OpenFileDialog
                 {
-                    Filter = "Text files (*.txt)|*.txt",
-                    Title = "Select the text file with the Gump addresses",
+                    Filter = "文本文件 (*.txt)|*.txt",
+                    Title = "选择包含 Gump 地址的文本文件",
                     InitialDirectory = selectedDirectory
                 };
 
@@ -1797,7 +1797,7 @@ namespace UoFiddler.Controls.UserControls
 
                 string textFilePath = openFileDialog.FileName;
 
-                // Read the text file
+                // 读取文本文件
                 string[] lines = File.ReadAllLines(textFilePath);
 
                 foreach (string line in lines)
@@ -1811,29 +1811,29 @@ namespace UoFiddler.Controls.UserControls
                     string gumpAddress = parts[0].Trim();
                     int gumpId;
 
-                    // Recognize hex or decimal
+                    // 识别十六进制或十进制
                     if (gumpAddress.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
                     {
                         if (!int.TryParse(gumpAddress.Substring(2), System.Globalization.NumberStyles.HexNumber, null, out gumpId))
                         {
-                            MessageBox.Show($"Invalid hex address: {gumpAddress}");
+                            MessageBox.Show($"无效的十六进制地址: {gumpAddress}");
                             continue;
                         }
                     }
                     else if (!int.TryParse(gumpAddress, out gumpId))
                     {
-                        MessageBox.Show($"Invalid decimal address: {gumpAddress}");
+                        MessageBox.Show($"无效的十进制地址: {gumpAddress}");
                         continue;
                     }
 
                     string imagePath = FindImageForGumpId(selectedDirectory, gumpAddress);
                     if (string.IsNullOrEmpty(imagePath))
                     {
-                        MessageBox.Show($"No image found for Gump ID: {gumpAddress}");
+                        MessageBox.Show($"未找到 Gump ID 的图像: {gumpAddress}");
                         continue;
                     }
 
-                    // Convert to BMP if necessary
+                    // 如果需要，转换为 BMP
                     using (var bmpTemp = new Bitmap(imagePath))
                     {
                         Bitmap bitmap = new Bitmap(bmpTemp);
@@ -1843,28 +1843,28 @@ namespace UoFiddler.Controls.UserControls
                             bitmap = Utils.ConvertBmp(bitmap);
                         }
 
-                        // Import the image to the Gump ID
+                        // 将图像导入到 Gump ID
                         Gumps.ReplaceGump(gumpId, bitmap);
 
-                        // Enable GumpChangeEvent to ensure the ListBox is updated
+                        // 触发 GumpChangeEvent 以确保 ListBox 更新
                         ControlEvents.FireGumpChangeEvent(this, gumpId);
 
-                        // Update the ListBox
+                        // 更新 ListBox
                         UpdateListBoxWithGump(gumpId);
                     }
                 }
 
-                PopulateListBox(false); // Here the ListBox is reloaded after the import
+                PopulateListBox(false); // 导入后重新加载 ListBox
 
-                // Force redraw the ListBox
+                // 强制重绘 ListBox
                 listBox.Invalidate();
-                MessageBox.Show("Import complete!", "Import status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("导入完成！", "导入状态", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         #endregion
 
         #region [ FindImageForGumpId ]
-        // Auxiliary method for image search
+        // 图像搜索的辅助方法
         private string FindImageForGumpId(string directory, string gumpAddress)
         {
             string[] imageFormats = { "bmp", "png", "jpg", "jpeg", "tif", "tiff" };
@@ -1882,7 +1882,7 @@ namespace UoFiddler.Controls.UserControls
         #endregion
 
         #region [ UpdateListBoxWithGump ]
-        // ListBox update
+        // ListBox 更新
         private void UpdateListBoxWithGump(int gumpId)
         {
             bool alreadyExists = false;
@@ -1891,7 +1891,7 @@ namespace UoFiddler.Controls.UserControls
                 string item = listBox.Items[i].ToString().Split('-')[0].Trim();
                 if (int.TryParse(item, System.Globalization.NumberStyles.HexNumber, null, out int listGumpId) && listGumpId == gumpId)
                 {
-                    listBox.Items[i] = $"0x{gumpId:X} - Replaced with new Gump";
+                    listBox.Items[i] = $"0x{gumpId:X} - 已替换为新 Gump";
                     alreadyExists = true;
                     break;
                 }
@@ -1899,7 +1899,7 @@ namespace UoFiddler.Controls.UserControls
 
             if (!alreadyExists)
             {
-                listBox.Items.Add($"0x{gumpId:X} - Replaced with new Gump");
+                listBox.Items.Add($"0x{gumpId:X} - 已替换为新 Gump");
             }
 
             listBox.Refresh();
@@ -1911,7 +1911,7 @@ namespace UoFiddler.Controls.UserControls
         {
             if (pictureBox.BackgroundImage == null)
             {
-                MessageBox.Show("No image available to mirror.");
+                MessageBox.Show("没有可用于镜像的图像。");
                 return;
             }
 

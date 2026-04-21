@@ -105,7 +105,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Helper
             // 
             MenuItem8.Name = "MenuItem8";
             MenuItem8.Size = new System.Drawing.Size(100, 22);
-            MenuItem8.Text = "Load";
+            MenuItem8.Text = "加载";
             MenuItem8.Click += MenuItem8_Click;
             // 
             // MenuItem2

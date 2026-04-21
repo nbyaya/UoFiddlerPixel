@@ -57,7 +57,7 @@ namespace UoFiddler.Plugin.MassImport
         {
             ToolStripMenuItem item = new ToolStripMenuItem
             {
-                Text = "Mass Import"
+                Text = "批量导入"
             };
             item.Click += ToolStripClick;
             toolStrip.DropDownItems.Add(item);

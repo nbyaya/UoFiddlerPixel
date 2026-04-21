@@ -11,7 +11,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         private void InitializeComponent()
         {
@@ -22,7 +22,7 @@
             this.tsStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
 
-            // Existing tabs
+            // 现有选项卡
             this.tabPageCreateMuls = new System.Windows.Forms.TabPage();
             this.tabPageReadMuls = new System.Windows.Forms.TabPage();
             this.tabPageTileData = new System.Windows.Forms.TabPage();
@@ -35,7 +35,7 @@
             this.tabPageSound = new System.Windows.Forms.TabPage();
             this.tabPageGump = new System.Windows.Forms.TabPage();
 
-            // New tabs
+            // 新增选项卡
             this.tabPageHues = new System.Windows.Forms.TabPage();
             this.tabPageMap = new System.Windows.Forms.TabPage();
             this.tabPageMulti = new System.Windows.Forms.TabPage();
@@ -45,7 +45,7 @@
             this.tabPageBatch = new System.Windows.Forms.TabPage();
             this.tabPageHexViewer = new System.Windows.Forms.TabPage();
 
-            // ── Tab 1: Create Muls controls ──────────────────────────────────
+            // ── 选项卡1: 创建 Muls 控件 ──────────────────────────────────
             this.grpCreateMulsDir = new System.Windows.Forms.GroupBox();
             this.BtFileOrder = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -69,7 +69,7 @@
             this.grpCreateOutput = new System.Windows.Forms.GroupBox();
             this.lbCreatedMul = new System.Windows.Forms.Label();
 
-            // ── Tab 2: Read Muls controls ────────────────────────────────────
+            // ── 选项卡2: 读取 Muls 控件 ────────────────────────────────────
             this.grpReadMulsActions = new System.Windows.Forms.GroupBox();
             this.BtnCountEntries = new System.Windows.Forms.Button();
             this.lblEntryCount = new System.Windows.Forms.Label();
@@ -81,7 +81,7 @@
             this.textBoxIndex = new System.Windows.Forms.TextBox();
             this.BtnReadArtIdx = new System.Windows.Forms.Button();
 
-            // ── Tab 3: TileData controls ─────────────────────────────────────
+            // ── 选项卡3: TileData 控件 ─────────────────────────────────────
             this.grpTileDataDir = new System.Windows.Forms.GroupBox();
             this.btnTileDataBrowse = new System.Windows.Forms.Button();
             this.tbDirTileData = new System.Windows.Forms.TextBox();
@@ -113,7 +113,7 @@
             this.lbTileDataCreate = new System.Windows.Forms.Label();
             this.checkBoxTileData = new System.Windows.Forms.CheckBox();
 
-            // ── Tab 4: ReadOut controls ──────────────────────────────────────
+            // ── 选项卡4: 读出控件 ──────────────────────────────────────
             this.grpReadOutActions = new System.Windows.Forms.GroupBox();
             this.ButtonReadTileData = new System.Windows.Forms.Button();
             this.ButtonReadLandTileData = new System.Windows.Forms.Button();
@@ -125,7 +125,7 @@
             this.lblReadOutIdxLbl = new System.Windows.Forms.Label();
             this.textBoxTileDataInfo = new System.Windows.Forms.TextBox();
 
-            // ── Tab 5: Texturen controls ─────────────────────────────────────
+            // ── 选项卡5: 纹理控件 ─────────────────────────────────────
             this.grpTexConfig = new System.Windows.Forms.GroupBox();
             this.lblTexCountLbl = new System.Windows.Forms.Label();
             this.tbIndexCountTexture = new System.Windows.Forms.TextBox();
@@ -138,7 +138,7 @@
             this.lbTextureCount = new System.Windows.Forms.Label();
             this.tbIndexCount = new System.Windows.Forms.Label();
 
-            // ── Tab 6: RadarColor controls ───────────────────────────────────
+            // ── 选项卡6: RadarColor 控件 ───────────────────────────────────
             this.grpRadarConfig = new System.Windows.Forms.GroupBox();
             this.lblRadarCountLbl = new System.Windows.Forms.Label();
             this.indexCountTextBox = new System.Windows.Forms.TextBox();
@@ -148,7 +148,7 @@
             this.grpRadarOutput = new System.Windows.Forms.GroupBox();
             this.lbRadarColor = new System.Windows.Forms.Label();
 
-            // ── Tab 7: Palette controls ──────────────────────────────────────
+            // ── 选项卡7: 调色板控件 ──────────────────────────────────────
             this.grpPaletteCreate = new System.Windows.Forms.GroupBox();
             this.BtCreatePalette = new System.Windows.Forms.Button();
             this.lbCreatePalette = new System.Windows.Forms.Label();
@@ -161,7 +161,7 @@
             this.grpPaletteValues = new System.Windows.Forms.GroupBox();
             this.textBoxRgbValues = new System.Windows.Forms.TextBox();
 
-            // ── Tab 8: Animation controls ────────────────────────────────────
+            // ── 选项卡8: 动画控件 ────────────────────────────────────
             this.grpAnimSource = new System.Windows.Forms.GroupBox();
             this.tbfilename = new System.Windows.Forms.TextBox();
             this.BtnBrowse = new System.Windows.Forms.Button();
@@ -194,7 +194,7 @@
             this.tbProcessAminidx = new System.Windows.Forms.TextBox();
             this.lblNewIdCount = new System.Windows.Forms.Label();
 
-            // ── Tab 9: Artmul controls ───────────────────────────────────────
+            // ── 选项卡9: Artmul 控件 ───────────────────────────────────────
             this.grpArtCreate = new System.Windows.Forms.GroupBox();
             this.lblArtCreateHint = new System.Windows.Forms.Label();
             this.BtnCreateArtIdx100K = new System.Windows.Forms.Button();
@@ -226,7 +226,7 @@
             this.grpArtLog = new System.Windows.Forms.GroupBox();
             this.infoARTIDXMULID = new System.Windows.Forms.TextBox();
 
-            // ── Tab 10: Sound controls ───────────────────────────────────────
+            // ── 选项卡10: 声音控件 ───────────────────────────────────────
             this.grpSoundConfig = new System.Windows.Forms.GroupBox();
             this.lblSoundCountLbl = new System.Windows.Forms.Label();
             this.SoundIDXMul = new System.Windows.Forms.TextBox();
@@ -237,7 +237,7 @@
             this.grpSoundOutput = new System.Windows.Forms.GroupBox();
             this.IndexSizeLabel = new System.Windows.Forms.Label();
 
-            // ── Tab 11: Gump controls ────────────────────────────────────────
+            // ── 选项卡11: Gump 控件 ────────────────────────────────────────
             this.grpGumpConfig = new System.Windows.Forms.GroupBox();
             this.lblGumpCountLbl = new System.Windows.Forms.Label();
             this.IndexSizeTextBox = new System.Windows.Forms.TextBox();
@@ -248,14 +248,14 @@
             this.grpGumpOutput = new System.Windows.Forms.GroupBox();
             this.gumpLabel = new System.Windows.Forms.Label();
 
-            // ── Tab 12: Hues controls ────────────────────────────────────────
+            // ── 选项卡12: Hues 控件 ────────────────────────────────────────
             this.grpHuesActions = new System.Windows.Forms.GroupBox();
             this.BtnCreateHues = new System.Windows.Forms.Button();
             this.BtnReadHues = new System.Windows.Forms.Button();
             this.grpHuesOutput = new System.Windows.Forms.GroupBox();
             this.lblHuesOutput = new System.Windows.Forms.Label();
 
-            // ── Tab 13: Map/Statics controls ─────────────────────────────────
+            // ── 选项卡13: Map/Statics 控件 ─────────────────────────────────
             this.grpMapConfig = new System.Windows.Forms.GroupBox();
             this.lblMapSizeComboLbl = new System.Windows.Forms.Label();
             this.comboMapSize = new System.Windows.Forms.ComboBox();
@@ -273,7 +273,7 @@
             this.grpMapOutput = new System.Windows.Forms.GroupBox();
             this.lblMapOutput = new System.Windows.Forms.Label();
 
-            // ── Tab 14: Multi controls ───────────────────────────────────────
+            // ── 选项卡14: Multi 控件 ───────────────────────────────────────
             this.grpMultiConfig = new System.Windows.Forms.GroupBox();
             this.lblMultiCountLbl = new System.Windows.Forms.Label();
             this.tbMultiCount = new System.Windows.Forms.TextBox();
@@ -286,7 +286,7 @@
             this.grpMultiOutput = new System.Windows.Forms.GroupBox();
             this.lblMultiOutput = new System.Windows.Forms.Label();
 
-            // ── Tab 15: Skills controls ──────────────────────────────────────
+            // ── 选项卡15: Skills 控件 ──────────────────────────────────────
             this.grpSkillsConfig = new System.Windows.Forms.GroupBox();
             this.lblSkillCountLbl = new System.Windows.Forms.Label();
             this.tbSkillCount = new System.Windows.Forms.TextBox();
@@ -298,7 +298,7 @@
             this.lblSkillsOutput = new System.Windows.Forms.Label();
             this.textBoxSkillsInfo = new System.Windows.Forms.TextBox();
 
-            // ── Tab 16: Validator controls ───────────────────────────────────
+            // ── 选项卡16: Validator 控件 ───────────────────────────────────
             this.grpValidatorActions = new System.Windows.Forms.GroupBox();
             this.BtnValidate = new System.Windows.Forms.Button();
             this.BtnCompareDirectories = new System.Windows.Forms.Button();
@@ -306,7 +306,7 @@
             this.grpValidatorOutput = new System.Windows.Forms.GroupBox();
             this.textBoxValidatorOutput = new System.Windows.Forms.TextBox();
 
-            // ── Tab 17: IDX Patcher controls ─────────────────────────────────
+            // ── 选项卡17: IDX Patcher 控件 ─────────────────────────────────
             this.grpPatcherFile = new System.Windows.Forms.GroupBox();
             this.lblPatchIdxLbl = new System.Windows.Forms.Label();
             this.tbPatchIdxPath = new System.Windows.Forms.TextBox();
@@ -331,7 +331,7 @@
             this.grpPatcherOutput = new System.Windows.Forms.GroupBox();
             this.textBoxPatcherOutput = new System.Windows.Forms.TextBox();
 
-            // ── Tab 18: Batch Setup controls ─────────────────────────────────
+            // ── 选项卡18: Batch Setup 控件 ─────────────────────────────────
             this.grpBatchConfig = new System.Windows.Forms.GroupBox();
             this.lblBatchMapWLbl = new System.Windows.Forms.Label();
             this.tbBatchMapW = new System.Windows.Forms.TextBox();
@@ -361,7 +361,7 @@
             this.grpBatchLog = new System.Windows.Forms.GroupBox();
             this.textBoxBatchLog = new System.Windows.Forms.TextBox();
 
-            // ── Tab 19: Hex Viewer controls ──────────────────────────────────
+            // ── 选项卡19: Hex Viewer 控件 ──────────────────────────────────
             this.grpHexFile = new System.Windows.Forms.GroupBox();
             this.lblHexFilePathLbl = new System.Windows.Forms.Label();
             this.tbHexFilePath = new System.Windows.Forms.TextBox();
@@ -381,7 +381,7 @@
             this.grpHexOutput = new System.Windows.Forms.GroupBox();
             this.textBoxHexOutput = new System.Windows.Forms.TextBox();
 
-            // Dialogs
+            // 对话框
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 
@@ -390,21 +390,21 @@
             this.SuspendLayout();
 
             // ════════════════════════════════════════════════════════════════
-            // FORM
+            // 窗体
             // ════════════════════════════════════════════════════════════════
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 700);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ARTMulIDXCreator";
-            this.Text = "ARTMulIDXCreator  -  UO MUL/IDX Tool  v2.0";
+            this.Text = "ARTMulIDXCreator  -  UO MUL/IDX 工具  v2.0";
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.tsStatusLabel });
             this.statusStrip1.Location = new System.Drawing.Point(0, 674);
             this.statusStrip1.Size = new System.Drawing.Size(960, 22);
-            this.tsStatusLabel.Text = "Bereit.";
+            this.tsStatusLabel.Text = "就绪。";
 
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Size = new System.Drawing.Size(954, 668);
@@ -431,21 +431,21 @@
             this.tabControl1.Controls.Add(this.tabPageHexViewer);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 1 – CREATE MULS
+            // 选项卡1 – 创建 Muls
             // ════════════════════════════════════════════════════════════════
-            this.tabPageCreateMuls.Text = "Create Muls";
+            this.tabPageCreateMuls.Text = "创建 Muls";
             this.tabPageCreateMuls.Size = new System.Drawing.Size(946, 638);
             this.tabPageCreateMuls.TabIndex = 0;
             this.tabPageCreateMuls.UseVisualStyleBackColor = true;
 
-            this.grpCreateMulsDir.Text = "1. Zielverzeichnis waehlen";
+            this.grpCreateMulsDir.Text = "1. 选择目标目录";
             this.grpCreateMulsDir.Location = new System.Drawing.Point(10, 10);
             this.grpCreateMulsDir.Size = new System.Drawing.Size(920, 65);
             this.grpCreateMulsDir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpCreateMulsDir.TabIndex = 0;
             this.tabPageCreateMuls.Controls.Add(this.grpCreateMulsDir);
 
-            this.BtFileOrder.Text = "Verzeichnis waehlen ...";
+            this.BtFileOrder.Text = "选择目录...";
             this.BtFileOrder.Location = new System.Drawing.Point(12, 25);
             this.BtFileOrder.Size = new System.Drawing.Size(185, 26);
             this.BtFileOrder.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -460,7 +460,7 @@
             this.textBox1.TabIndex = 1;
             this.grpCreateMulsDir.Controls.Add(this.textBox1);
 
-            this.lblDirInfo.Text = "Zielordner fuer artidx.MUL + art.MUL";
+            this.lblDirInfo.Text = "artidx.MUL + art.MUL 的目标文件夹";
             this.lblDirInfo.Location = new System.Drawing.Point(775, 30);
             this.lblDirInfo.AutoSize = true;
             this.lblDirInfo.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -468,7 +468,7 @@
             this.lblDirInfo.TabIndex = 2;
             this.grpCreateMulsDir.Controls.Add(this.lblDirInfo);
 
-            this.grpCreateMulsCount.Text = "2. Eintragszahl festlegen";
+            this.grpCreateMulsCount.Text = "2. 设置条目数";
             this.grpCreateMulsCount.Location = new System.Drawing.Point(10, 83);
             this.grpCreateMulsCount.Size = new System.Drawing.Size(920, 65);
             this.grpCreateMulsCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -482,7 +482,7 @@
             this.textBox2.TabIndex = 0;
             this.grpCreateMulsCount.Controls.Add(this.textBox2);
 
-            this.lblCountHint.Text = "Hex-Eingabe moeglich (z.B. 0x14F9C)  |  Standard Original-UO = 81884";
+            this.lblCountHint.Text = "允许十六进制输入（如 0x14F9C） | 标准原版 UO = 81884";
             this.lblCountHint.Location = new System.Drawing.Point(155, 31);
             this.lblCountHint.AutoSize = true;
             this.lblCountHint.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -490,14 +490,14 @@
             this.lblCountHint.TabIndex = 1;
             this.grpCreateMulsCount.Controls.Add(this.lblCountHint);
 
-            this.grpCreateMulsButtons.Text = "3. Erstellen  (alle Buttons erzeugen dasselbe Legacy-Format)";
+            this.grpCreateMulsButtons.Text = "3. 创建（所有按钮均生成相同的传统格式）";
             this.grpCreateMulsButtons.Location = new System.Drawing.Point(10, 156);
             this.grpCreateMulsButtons.Size = new System.Drawing.Size(560, 195);
             this.grpCreateMulsButtons.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpCreateMulsButtons.TabIndex = 2;
             this.tabPageCreateMuls.Controls.Add(this.grpCreateMulsButtons);
 
-            this.BtCreateARTIDXMul.Text = "Create (long)";
+            this.BtCreateARTIDXMul.Text = "创建 (long)";
             this.BtCreateARTIDXMul.Location = new System.Drawing.Point(12, 25);
             this.BtCreateARTIDXMul.Size = new System.Drawing.Size(150, 28);
             this.BtCreateARTIDXMul.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -505,7 +505,7 @@
             this.BtCreateARTIDXMul.Click += new System.EventHandler(this.BtCreateARTIDXMul_Click);
             this.grpCreateMulsButtons.Controls.Add(this.BtCreateARTIDXMul);
 
-            this.BtCreateARTIDXMul_Ulong.Text = "Create (ulong)";
+            this.BtCreateARTIDXMul_Ulong.Text = "创建 (ulong)";
             this.BtCreateARTIDXMul_Ulong.Location = new System.Drawing.Point(170, 25);
             this.BtCreateARTIDXMul_Ulong.Size = new System.Drawing.Size(150, 28);
             this.BtCreateARTIDXMul_Ulong.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -513,7 +513,7 @@
             this.BtCreateARTIDXMul_Ulong.Click += new System.EventHandler(this.BtCreateARTIDXMul_Ulong_Click);
             this.grpCreateMulsButtons.Controls.Add(this.BtCreateARTIDXMul_Ulong);
 
-            this.BtCreateARTIDXMul_uint.Text = "Create (uint)";
+            this.BtCreateARTIDXMul_uint.Text = "创建 (uint)";
             this.BtCreateARTIDXMul_uint.Location = new System.Drawing.Point(328, 25);
             this.BtCreateARTIDXMul_uint.Size = new System.Drawing.Size(150, 28);
             this.BtCreateARTIDXMul_uint.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -521,7 +521,7 @@
             this.BtCreateARTIDXMul_uint.Click += new System.EventHandler(this.BtCreateARTIDXMul_uint_Click);
             this.grpCreateMulsButtons.Controls.Add(this.BtCreateARTIDXMul_uint);
 
-            this.BtCreateARTIDXMul_Int.Text = "Create (int)";
+            this.BtCreateARTIDXMul_Int.Text = "创建 (int)";
             this.BtCreateARTIDXMul_Int.Location = new System.Drawing.Point(12, 61);
             this.BtCreateARTIDXMul_Int.Size = new System.Drawing.Size(150, 28);
             this.BtCreateARTIDXMul_Int.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -529,7 +529,7 @@
             this.BtCreateARTIDXMul_Int.Click += new System.EventHandler(this.BtCreateARTIDXMul_Int_Click);
             this.grpCreateMulsButtons.Controls.Add(this.BtCreateARTIDXMul_Int);
 
-            this.BtCreateARTIDXMul_Ushort.Text = "Create (ushort)";
+            this.BtCreateARTIDXMul_Ushort.Text = "创建 (ushort)";
             this.BtCreateARTIDXMul_Ushort.Location = new System.Drawing.Point(170, 61);
             this.BtCreateARTIDXMul_Ushort.Size = new System.Drawing.Size(150, 28);
             this.BtCreateARTIDXMul_Ushort.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -537,7 +537,7 @@
             this.BtCreateARTIDXMul_Ushort.Click += new System.EventHandler(this.BtCreateARTIDXMul_Ushort_Click);
             this.grpCreateMulsButtons.Controls.Add(this.BtCreateARTIDXMul_Ushort);
 
-            this.BtCreateARTIDXMul_Short.Text = "Create (short)";
+            this.BtCreateARTIDXMul_Short.Text = "创建 (short)";
             this.BtCreateARTIDXMul_Short.Location = new System.Drawing.Point(328, 61);
             this.BtCreateARTIDXMul_Short.Size = new System.Drawing.Size(150, 28);
             this.BtCreateARTIDXMul_Short.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -545,7 +545,7 @@
             this.BtCreateARTIDXMul_Short.Click += new System.EventHandler(this.BtCreateARTIDXMul_Short_Click);
             this.grpCreateMulsButtons.Controls.Add(this.BtCreateARTIDXMul_Short);
 
-            this.BtCreateARTIDXMul_Byte.Text = "Create (byte)";
+            this.BtCreateARTIDXMul_Byte.Text = "创建 (byte)";
             this.BtCreateARTIDXMul_Byte.Location = new System.Drawing.Point(12, 97);
             this.BtCreateARTIDXMul_Byte.Size = new System.Drawing.Size(150, 28);
             this.BtCreateARTIDXMul_Byte.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -553,14 +553,14 @@
             this.BtCreateARTIDXMul_Byte.Click += new System.EventHandler(this.BtCreateARTIDXMul_Byte_Click);
             this.grpCreateMulsButtons.Controls.Add(this.BtCreateARTIDXMul_Byte);
 
-            this.BtCreateARTIDXMul_Sbyte.Text = "Create (sbyte)";
+            this.BtCreateARTIDXMul_Sbyte.Text = "创建 (sbyte)";
             this.BtCreateARTIDXMul_Sbyte.Location = new System.Drawing.Point(170, 97);
             this.BtCreateARTIDXMul_Sbyte.Size = new System.Drawing.Size(150, 28);
             this.BtCreateARTIDXMul_Sbyte.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BtCreateARTIDXMul_Sbyte.TabIndex = 7;
             this.grpCreateMulsButtons.Controls.Add(this.BtCreateARTIDXMul_Sbyte);
 
-            this.lblButtonsNote.Text = "Alle 8 Buttons erzeugen identische Dateien im Legacy-IDX-Format. Die Typ-Bezeichnungen sind historisch.";
+            this.lblButtonsNote.Text = "所有 8 个按钮都生成相同的传统 IDX 格式文件。类型名称是历史遗留。";
             this.lblButtonsNote.Location = new System.Drawing.Point(12, 140);
             this.lblButtonsNote.Size = new System.Drawing.Size(530, 42);
             this.lblButtonsNote.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -568,14 +568,14 @@
             this.lblButtonsNote.TabIndex = 8;
             this.grpCreateMulsButtons.Controls.Add(this.lblButtonsNote);
 
-            this.grpRename.Text = "4. Optional: Umbenennen";
+            this.grpRename.Text = "4. 可选：重命名";
             this.grpRename.Location = new System.Drawing.Point(580, 156);
             this.grpRename.Size = new System.Drawing.Size(350, 120);
             this.grpRename.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpRename.TabIndex = 3;
             this.tabPageCreateMuls.Controls.Add(this.grpRename);
 
-            this.ComboBoxMuls.Items.AddRange(new object[] { "Texture" });
+            this.ComboBoxMuls.Items.AddRange(new object[] { "纹理" });
             this.ComboBoxMuls.Location = new System.Drawing.Point(12, 28);
             this.ComboBoxMuls.Size = new System.Drawing.Size(200, 23);
             this.ComboBoxMuls.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -583,7 +583,7 @@
             this.ComboBoxMuls.SelectedIndexChanged += new System.EventHandler(this.ComboBoxMuls_SelectedIndexChanged);
             this.grpRename.Controls.Add(this.ComboBoxMuls);
 
-            this.lblRenameHint.Text = "Texture: art.mul/artidx.mul wird umbenannt\r\nin texmaps.mul/texidx.mul";
+            this.lblRenameHint.Text = "纹理：art.mul/artidx.mul 将重命名为 texmaps.mul/texidx.mul";
             this.lblRenameHint.Location = new System.Drawing.Point(12, 56);
             this.lblRenameHint.AutoSize = true;
             this.lblRenameHint.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -591,7 +591,7 @@
             this.lblRenameHint.TabIndex = 1;
             this.grpRename.Controls.Add(this.lblRenameHint);
 
-            this.grpCreateOutput.Text = "Ausgabe";
+            this.grpCreateOutput.Text = "输出";
             this.grpCreateOutput.Location = new System.Drawing.Point(10, 360);
             this.grpCreateOutput.Size = new System.Drawing.Size(920, 65);
             this.grpCreateOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -607,21 +607,21 @@
             this.grpCreateOutput.Controls.Add(this.lbCreatedMul);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 2 – READ MULS
+            // 选项卡2 – 读取 Muls
             // ════════════════════════════════════════════════════════════════
-            this.tabPageReadMuls.Text = "Read Muls";
+            this.tabPageReadMuls.Text = "读取 Muls";
             this.tabPageReadMuls.Size = new System.Drawing.Size(946, 638);
             this.tabPageReadMuls.TabIndex = 1;
             this.tabPageReadMuls.UseVisualStyleBackColor = true;
 
-            this.grpReadMulsActions.Text = "Aktionen";
+            this.grpReadMulsActions.Text = "操作";
             this.grpReadMulsActions.Location = new System.Drawing.Point(10, 10);
             this.grpReadMulsActions.Size = new System.Drawing.Size(920, 70);
             this.grpReadMulsActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpReadMulsActions.TabIndex = 0;
             this.tabPageReadMuls.Controls.Add(this.grpReadMulsActions);
 
-            this.BtnCountEntries.Text = "Eintraege zaehlen";
+            this.BtnCountEntries.Text = "统计条目数";
             this.BtnCountEntries.Location = new System.Drawing.Point(12, 28);
             this.BtnCountEntries.Size = new System.Drawing.Size(155, 28);
             this.BtnCountEntries.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -637,14 +637,14 @@
             this.lblEntryCount.TabIndex = 1;
             this.grpReadMulsActions.Controls.Add(this.lblEntryCount);
 
-            this.grpReadMulsResult.Text = "Alle Eintraege lesen (max. 2000 Zeilen)";
+            this.grpReadMulsResult.Text = "读取所有条目（最多 2000 行）";
             this.grpReadMulsResult.Location = new System.Drawing.Point(10, 88);
             this.grpReadMulsResult.Size = new System.Drawing.Size(920, 360);
             this.grpReadMulsResult.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpReadMulsResult.TabIndex = 1;
             this.tabPageReadMuls.Controls.Add(this.grpReadMulsResult);
 
-            this.BtnShowInfo.Text = "Index gesamt lesen";
+            this.BtnShowInfo.Text = "读取整个索引";
             this.BtnShowInfo.Location = new System.Drawing.Point(12, 26);
             this.BtnShowInfo.Size = new System.Drawing.Size(175, 28);
             this.BtnShowInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -661,14 +661,14 @@
             this.textBoxInfo.TabIndex = 1;
             this.grpReadMulsResult.Controls.Add(this.textBoxInfo);
 
-            this.grpReadSingle.Text = "Einzelnen Eintrag lesen";
+            this.grpReadSingle.Text = "读取单个条目";
             this.grpReadSingle.Location = new System.Drawing.Point(10, 456);
             this.grpReadSingle.Size = new System.Drawing.Size(920, 65);
             this.grpReadSingle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpReadSingle.TabIndex = 2;
             this.tabPageReadMuls.Controls.Add(this.grpReadSingle);
 
-            this.lblIndexHint.Text = "Index-Nr:";
+            this.lblIndexHint.Text = "索引号：";
             this.lblIndexHint.Location = new System.Drawing.Point(12, 32);
             this.lblIndexHint.AutoSize = true;
             this.lblIndexHint.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -682,7 +682,7 @@
             this.textBoxIndex.TabIndex = 1;
             this.grpReadSingle.Controls.Add(this.textBoxIndex);
 
-            this.BtnReadArtIdx.Text = "Eintrag anzeigen";
+            this.BtnReadArtIdx.Text = "显示条目";
             this.BtnReadArtIdx.Location = new System.Drawing.Point(160, 27);
             this.BtnReadArtIdx.Size = new System.Drawing.Size(160, 28);
             this.BtnReadArtIdx.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -691,21 +691,21 @@
             this.grpReadSingle.Controls.Add(this.BtnReadArtIdx);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 3 – TILEDATA
+            // 选项卡3 – TileData
             // ════════════════════════════════════════════════════════════════
             this.tabPageTileData.Text = "TileData";
             this.tabPageTileData.Size = new System.Drawing.Size(946, 638);
             this.tabPageTileData.TabIndex = 2;
             this.tabPageTileData.UseVisualStyleBackColor = true;
 
-            this.grpTileDataDir.Text = "Verzeichnis";
+            this.grpTileDataDir.Text = "目录";
             this.grpTileDataDir.Location = new System.Drawing.Point(10, 10);
             this.grpTileDataDir.Size = new System.Drawing.Size(920, 58);
             this.grpTileDataDir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpTileDataDir.TabIndex = 0;
             this.tabPageTileData.Controls.Add(this.grpTileDataDir);
 
-            this.btnTileDataBrowse.Text = "Waehlen ...";
+            this.btnTileDataBrowse.Text = "选择...";
             this.btnTileDataBrowse.Location = new System.Drawing.Point(12, 22);
             this.btnTileDataBrowse.Size = new System.Drawing.Size(120, 26);
             this.btnTileDataBrowse.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -720,14 +720,14 @@
             this.tbDirTileData.TabIndex = 1;
             this.grpTileDataDir.Controls.Add(this.tbDirTileData);
 
-            this.grpTileDataConfig.Text = "Konfiguration  -  Gruppen x 32 = Tile-Eintraege";
+            this.grpTileDataConfig.Text = "配置 - 组数 x 32 = 图块条目数";
             this.grpTileDataConfig.Location = new System.Drawing.Point(10, 76);
             this.grpTileDataConfig.Size = new System.Drawing.Size(560, 125);
             this.grpTileDataConfig.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpTileDataConfig.TabIndex = 1;
             this.tabPageTileData.Controls.Add(this.grpTileDataConfig);
 
-            this.lblLandGroupsLbl.Text = "Land-Gruppen:";
+            this.lblLandGroupsLbl.Text = "地形组数：";
             this.lblLandGroupsLbl.Location = new System.Drawing.Point(12, 28);
             this.lblLandGroupsLbl.AutoSize = true;
             this.lblLandGroupsLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -741,7 +741,7 @@
             this.tblandTileGroups.TabIndex = 1;
             this.grpTileDataConfig.Controls.Add(this.tblandTileGroups);
 
-            this.lblLandGroupsHint.Text = "Standard: 512 x 32 = 16.384 Land-Tiles";
+            this.lblLandGroupsHint.Text = "标准：512 x 32 = 16,384 个地形图块";
             this.lblLandGroupsHint.Location = new System.Drawing.Point(245, 28);
             this.lblLandGroupsHint.AutoSize = true;
             this.lblLandGroupsHint.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -749,7 +749,7 @@
             this.lblLandGroupsHint.TabIndex = 2;
             this.grpTileDataConfig.Controls.Add(this.lblLandGroupsHint);
 
-            this.lblStaticGroupsLbl.Text = "Static-Gruppen:";
+            this.lblStaticGroupsLbl.Text = "静态组数：";
             this.lblStaticGroupsLbl.Location = new System.Drawing.Point(12, 62);
             this.lblStaticGroupsLbl.AutoSize = true;
             this.lblStaticGroupsLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -763,7 +763,7 @@
             this.tbstaticTileGroups.TabIndex = 4;
             this.grpTileDataConfig.Controls.Add(this.tbstaticTileGroups);
 
-            this.lblStaticGroupsHint.Text = "Standard: 2048 x 32 = 65.536 Static-Tiles";
+            this.lblStaticGroupsHint.Text = "标准：2048 x 32 = 65,536 个静态图块";
             this.lblStaticGroupsHint.Location = new System.Drawing.Point(245, 62);
             this.lblStaticGroupsHint.AutoSize = true;
             this.lblStaticGroupsHint.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -771,7 +771,7 @@
             this.lblStaticGroupsHint.TabIndex = 5;
             this.grpTileDataConfig.Controls.Add(this.lblStaticGroupsHint);
 
-            this.BtCreateTiledata.Text = "Tiledata.mul erstellen";
+            this.BtCreateTiledata.Text = "创建 Tiledata.mul";
             this.BtCreateTiledata.Location = new System.Drawing.Point(12, 90);
             this.BtCreateTiledata.Size = new System.Drawing.Size(200, 28);
             this.BtCreateTiledata.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -779,14 +779,14 @@
             this.BtCreateTiledata.Click += new System.EventHandler(this.BtCreateTiledata_Click);
             this.grpTileDataConfig.Controls.Add(this.BtCreateTiledata);
 
-            this.grpTileDataQuick.Text = "Schnell-Erstellung (Standard-Werte)";
+            this.grpTileDataQuick.Text = "快速创建（标准值）";
             this.grpTileDataQuick.Location = new System.Drawing.Point(580, 76);
             this.grpTileDataQuick.Size = new System.Drawing.Size(350, 125);
             this.grpTileDataQuick.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpTileDataQuick.TabIndex = 2;
             this.tabPageTileData.Controls.Add(this.grpTileDataQuick);
 
-            this.BtCreateTiledataEmpty.Text = "Standard leer  (512 / 2048)";
+            this.BtCreateTiledataEmpty.Text = "标准空文件 (512 / 2048)";
             this.BtCreateTiledataEmpty.Location = new System.Drawing.Point(10, 22);
             this.BtCreateTiledataEmpty.Size = new System.Drawing.Size(325, 26);
             this.BtCreateTiledataEmpty.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -794,7 +794,7 @@
             this.BtCreateTiledataEmpty.Click += new System.EventHandler(this.BtCreateTiledataEmpty_Click);
             this.grpTileDataQuick.Controls.Add(this.BtCreateTiledataEmpty);
 
-            this.BtCreateTiledataEmpty2.Text = "Komplett leer (Minimal)";
+            this.BtCreateTiledataEmpty2.Text = "完全空文件（最小）";
             this.BtCreateTiledataEmpty2.Location = new System.Drawing.Point(10, 55);
             this.BtCreateTiledataEmpty2.Size = new System.Drawing.Size(325, 26);
             this.BtCreateTiledataEmpty2.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -802,7 +802,7 @@
             this.BtCreateTiledataEmpty2.Click += new System.EventHandler(this.BtCreateTiledataEmpty2_Click);
             this.grpTileDataQuick.Controls.Add(this.BtCreateTiledataEmpty2);
 
-            this.BtCreateSimpleTiledata.Text = "Simple Tiledata";
+            this.BtCreateSimpleTiledata.Text = "简单 Tiledata";
             this.BtCreateSimpleTiledata.Location = new System.Drawing.Point(10, 88);
             this.BtCreateSimpleTiledata.Size = new System.Drawing.Size(325, 26);
             this.BtCreateSimpleTiledata.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -810,14 +810,14 @@
             this.BtCreateSimpleTiledata.Click += new System.EventHandler(this.BtCreateSimpleTiledata_Click);
             this.grpTileDataQuick.Controls.Add(this.BtCreateSimpleTiledata);
 
-            this.grpTileDataRead.Text = "Tiledata.mul lesen";
+            this.grpTileDataRead.Text = "读取 Tiledata.mul";
             this.grpTileDataRead.Location = new System.Drawing.Point(10, 209);
             this.grpTileDataRead.Size = new System.Drawing.Size(920, 80);
             this.grpTileDataRead.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpTileDataRead.TabIndex = 3;
             this.tabPageTileData.Controls.Add(this.grpTileDataRead);
 
-            this.BtTiledatainfo.Text = "Zusammenfassung";
+            this.BtTiledatainfo.Text = "摘要";
             this.BtTiledatainfo.Location = new System.Drawing.Point(12, 28);
             this.BtTiledatainfo.Size = new System.Drawing.Size(155, 28);
             this.BtTiledatainfo.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -825,7 +825,7 @@
             this.BtTiledatainfo.Click += new System.EventHandler(this.BtTiledatainfo_Click);
             this.grpTileDataRead.Controls.Add(this.BtTiledatainfo);
 
-            this.BtnCountTileDataEntries.Text = "Eintraege zaehlen";
+            this.BtnCountTileDataEntries.Text = "统计条目数";
             this.BtnCountTileDataEntries.Location = new System.Drawing.Point(180, 28);
             this.BtnCountTileDataEntries.Size = new System.Drawing.Size(150, 28);
             this.BtnCountTileDataEntries.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -841,7 +841,7 @@
             this.lblTileDataEntryCount.TabIndex = 2;
             this.grpTileDataRead.Controls.Add(this.lblTileDataEntryCount);
 
-            this.BtReadTileFlags.Text = "Flag-Namen anzeigen";
+            this.BtReadTileFlags.Text = "显示标志名称";
             this.BtReadTileFlags.Location = new System.Drawing.Point(700, 28);
             this.BtReadTileFlags.Size = new System.Drawing.Size(175, 28);
             this.BtReadTileFlags.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -849,14 +849,14 @@
             this.BtReadTileFlags.Click += new System.EventHandler(this.BtReadTileFlags_Click);
             this.grpTileDataRead.Controls.Add(this.BtReadTileFlags);
 
-            this.grpTileDataIndex.Text = "Einzeleintrag nach Index lesen";
+            this.grpTileDataIndex.Text = "按索引读取单个条目";
             this.grpTileDataIndex.Location = new System.Drawing.Point(10, 297);
             this.grpTileDataIndex.Size = new System.Drawing.Size(920, 90);
             this.grpTileDataIndex.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpTileDataIndex.TabIndex = 4;
             this.tabPageTileData.Controls.Add(this.grpTileDataIndex);
 
-            this.lblTiledataIndexHint.Text = "Index-Nr:";
+            this.lblTiledataIndexHint.Text = "索引号：";
             this.lblTiledataIndexHint.Location = new System.Drawing.Point(12, 36);
             this.lblTiledataIndexHint.AutoSize = true;
             this.lblTiledataIndexHint.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -869,7 +869,7 @@
             this.textBoxTiledataIndex.TabIndex = 1;
             this.grpTileDataIndex.Controls.Add(this.textBoxTiledataIndex);
 
-            this.BtReadIndexTiledata.Text = "Index lesen";
+            this.BtReadIndexTiledata.Text = "读取索引";
             this.BtReadIndexTiledata.Location = new System.Drawing.Point(205, 30);
             this.BtReadIndexTiledata.Size = new System.Drawing.Size(120, 28);
             this.BtReadIndexTiledata.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -877,7 +877,7 @@
             this.BtReadIndexTiledata.Click += new System.EventHandler(this.BtReadIndexTiledata_Click);
             this.grpTileDataIndex.Controls.Add(this.BtReadIndexTiledata);
 
-            this.BtReadLandTile.Text = "Land-Tile";
+            this.BtReadLandTile.Text = "地形图块";
             this.BtReadLandTile.Location = new System.Drawing.Point(335, 30);
             this.BtReadLandTile.Size = new System.Drawing.Size(120, 28);
             this.BtReadLandTile.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -885,7 +885,7 @@
             this.BtReadLandTile.Click += new System.EventHandler(this.BtReadLandTile_Click);
             this.grpTileDataIndex.Controls.Add(this.BtReadLandTile);
 
-            this.BtReadStaticTile.Text = "Static-Tile";
+            this.BtReadStaticTile.Text = "静态图块";
             this.BtReadStaticTile.Location = new System.Drawing.Point(465, 30);
             this.BtReadStaticTile.Size = new System.Drawing.Size(120, 28);
             this.BtReadStaticTile.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -893,7 +893,7 @@
             this.BtReadStaticTile.Click += new System.EventHandler(this.BtReadStaticTile_Click);
             this.grpTileDataIndex.Controls.Add(this.BtReadStaticTile);
 
-            this.BtSelectDirectory.Text = "Hex-Rohdaten";
+            this.BtSelectDirectory.Text = "十六进制原始数据";
             this.BtSelectDirectory.Location = new System.Drawing.Point(595, 30);
             this.BtSelectDirectory.Size = new System.Drawing.Size(120, 28);
             this.BtSelectDirectory.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -901,7 +901,7 @@
             this.BtSelectDirectory.Click += new System.EventHandler(this.BtTReadHexAndSelectDirectory_Click);
             this.grpTileDataIndex.Controls.Add(this.BtSelectDirectory);
 
-            this.grpTileDataOutput.Text = "Ausgabe";
+            this.grpTileDataOutput.Text = "输出";
             this.grpTileDataOutput.Location = new System.Drawing.Point(10, 395);
             this.grpTileDataOutput.Size = new System.Drawing.Size(920, 80);
             this.grpTileDataOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -916,7 +916,7 @@
             this.lbTileDataCreate.TabIndex = 0;
             this.grpTileDataOutput.Controls.Add(this.lbTileDataCreate);
 
-            this.checkBoxTileData.Text = "Original";
+            this.checkBoxTileData.Text = "原始";
             this.checkBoxTileData.Location = new System.Drawing.Point(10, 482);
             this.checkBoxTileData.AutoSize = true;
             this.checkBoxTileData.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -924,21 +924,21 @@
             this.tabPageTileData.Controls.Add(this.checkBoxTileData);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 4 – READOUT
+            // 选项卡4 – 读出
             // ════════════════════════════════════════════════════════════════
-            this.tabPageReadOut.Text = "ReadOut";
+            this.tabPageReadOut.Text = "读出";
             this.tabPageReadOut.Size = new System.Drawing.Size(946, 638);
             this.tabPageReadOut.TabIndex = 3;
             this.tabPageReadOut.UseVisualStyleBackColor = true;
 
-            this.grpReadOutActions.Text = "Tiledata.mul laden  (50 Eintraege je Klick | Leertaste = weitere 50)";
+            this.grpReadOutActions.Text = "加载 Tiledata.mul（每次点击 50 个条目 | 空格键 = 再加载 50）";
             this.grpReadOutActions.Location = new System.Drawing.Point(10, 10);
             this.grpReadOutActions.Size = new System.Drawing.Size(560, 62);
             this.grpReadOutActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpReadOutActions.TabIndex = 0;
             this.tabPageReadOut.Controls.Add(this.grpReadOutActions);
 
-            this.ButtonReadTileData.Text = "Hex-Positionen";
+            this.ButtonReadTileData.Text = "十六进制位置";
             this.ButtonReadTileData.Location = new System.Drawing.Point(12, 26);
             this.ButtonReadTileData.Size = new System.Drawing.Size(145, 26);
             this.ButtonReadTileData.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -946,7 +946,7 @@
             this.ButtonReadTileData.Click += new System.EventHandler(this.ButtonReadTileData_Click);
             this.grpReadOutActions.Controls.Add(this.ButtonReadTileData);
 
-            this.ButtonReadLandTileData.Text = "Land-Tiles";
+            this.ButtonReadLandTileData.Text = "地形图块";
             this.ButtonReadLandTileData.Location = new System.Drawing.Point(165, 26);
             this.ButtonReadLandTileData.Size = new System.Drawing.Size(145, 26);
             this.ButtonReadLandTileData.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -954,7 +954,7 @@
             this.ButtonReadLandTileData.Click += new System.EventHandler(this.ButtonReadLandTileData_Click);
             this.grpReadOutActions.Controls.Add(this.ButtonReadLandTileData);
 
-            this.ButtonReadStaticTileData.Text = "Static-Tiles";
+            this.ButtonReadStaticTileData.Text = "静态图块";
             this.ButtonReadStaticTileData.Location = new System.Drawing.Point(318, 26);
             this.ButtonReadStaticTileData.Size = new System.Drawing.Size(145, 26);
             this.ButtonReadStaticTileData.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -973,7 +973,7 @@
             this.listViewTileData.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListViewTileData_MouseClick);
             this.tabPageReadOut.Controls.Add(this.listViewTileData);
 
-            this.lblSelectedEntry.Text = "Ausgewaehlter Eintrag:";
+            this.lblSelectedEntry.Text = "选中的条目：";
             this.lblSelectedEntry.Location = new System.Drawing.Point(10, 440);
             this.lblSelectedEntry.AutoSize = true;
             this.lblSelectedEntry.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -988,14 +988,14 @@
             this.textBoxOutput.TabIndex = 3;
             this.tabPageReadOut.Controls.Add(this.textBoxOutput);
 
-            this.grpReadOutInfo.Text = "Detail-Ansicht";
+            this.grpReadOutInfo.Text = "详细信息";
             this.grpReadOutInfo.Location = new System.Drawing.Point(580, 10);
             this.grpReadOutInfo.Size = new System.Drawing.Size(356, 530);
             this.grpReadOutInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpReadOutInfo.TabIndex = 4;
             this.tabPageReadOut.Controls.Add(this.grpReadOutInfo);
 
-            this.lblReadOutIdxLbl.Text = "Index:";
+            this.lblReadOutIdxLbl.Text = "索引：";
             this.lblReadOutIdxLbl.Location = new System.Drawing.Point(10, 26);
             this.lblReadOutIdxLbl.AutoSize = true;
             this.lblReadOutIdxLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1012,21 +1012,21 @@
             this.grpReadOutInfo.Controls.Add(this.textBoxTileDataInfo);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 5 – TEXTUREN
+            // 选项卡5 – 纹理
             // ════════════════════════════════════════════════════════════════
-            this.tabPageTexturen.Text = "Texturen";
+            this.tabPageTexturen.Text = "纹理";
             this.tabPageTexturen.Size = new System.Drawing.Size(946, 638);
             this.tabPageTexturen.TabIndex = 4;
             this.tabPageTexturen.UseVisualStyleBackColor = true;
 
-            this.grpTexConfig.Text = "Konfiguration";
+            this.grpTexConfig.Text = "配置";
             this.grpTexConfig.Location = new System.Drawing.Point(10, 10);
             this.grpTexConfig.Size = new System.Drawing.Size(920, 95);
             this.grpTexConfig.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpTexConfig.TabIndex = 0;
             this.tabPageTexturen.Controls.Add(this.grpTexConfig);
 
-            this.lblTexCountLbl.Text = "Anzahl Index-Eintraege:";
+            this.lblTexCountLbl.Text = "索引条目数：";
             this.lblTexCountLbl.Location = new System.Drawing.Point(12, 30);
             this.lblTexCountLbl.AutoSize = true;
             this.lblTexCountLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1040,7 +1040,7 @@
             this.tbIndexCountTexture.TabIndex = 1;
             this.grpTexConfig.Controls.Add(this.tbIndexCountTexture);
 
-            this.lblTexCountHint.Text = "Standard: 16383 Eintraege.";
+            this.lblTexCountHint.Text = "标准：16383 个条目。";
             this.lblTexCountHint.Location = new System.Drawing.Point(310, 30);
             this.lblTexCountHint.AutoSize = true;
             this.lblTexCountHint.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -1048,7 +1048,7 @@
             this.lblTexCountHint.TabIndex = 2;
             this.grpTexConfig.Controls.Add(this.lblTexCountHint);
 
-            this.checkBoxTexture.Text = "Nur 2 Bilder am Anfang (Rest = schwarze Platzhalter)";
+            this.checkBoxTexture.Text = "仅前 2 个图像有效（其余为黑色占位符）";
             this.checkBoxTexture.Checked = true;
             this.checkBoxTexture.Location = new System.Drawing.Point(12, 60);
             this.checkBoxTexture.AutoSize = true;
@@ -1056,14 +1056,14 @@
             this.checkBoxTexture.TabIndex = 3;
             this.grpTexConfig.Controls.Add(this.checkBoxTexture);
 
-            this.grpTexActions.Text = "Aktionen";
+            this.grpTexActions.Text = "操作";
             this.grpTexActions.Location = new System.Drawing.Point(10, 113);
             this.grpTexActions.Size = new System.Drawing.Size(920, 75);
             this.grpTexActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpTexActions.TabIndex = 1;
             this.tabPageTexturen.Controls.Add(this.grpTexActions);
 
-            this.BtCreateTextur.Text = "TexMaps.mul + TexIdx.mul erstellen";
+            this.BtCreateTextur.Text = "创建 TexMaps.mul + TexIdx.mul";
             this.BtCreateTextur.Location = new System.Drawing.Point(12, 28);
             this.BtCreateTextur.Size = new System.Drawing.Size(280, 30);
             this.BtCreateTextur.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -1071,7 +1071,7 @@
             this.BtCreateTextur.Click += new System.EventHandler(this.BtCreateTextur_Click);
             this.grpTexActions.Controls.Add(this.BtCreateTextur);
 
-            this.BtCreateIndexes.Text = "Nur leere TexIdx.mul erstellen";
+            this.BtCreateIndexes.Text = "仅创建空的 TexIdx.mul";
             this.BtCreateIndexes.Location = new System.Drawing.Point(310, 28);
             this.BtCreateIndexes.Size = new System.Drawing.Size(255, 30);
             this.BtCreateIndexes.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1079,7 +1079,7 @@
             this.BtCreateIndexes.Click += new System.EventHandler(this.BtCreateIndexes_Click);
             this.grpTexActions.Controls.Add(this.BtCreateIndexes);
 
-            this.grpTexOutput.Text = "Ausgabe";
+            this.grpTexOutput.Text = "输出";
             this.grpTexOutput.Location = new System.Drawing.Point(10, 196);
             this.grpTexOutput.Size = new System.Drawing.Size(920, 65);
             this.grpTexOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1103,21 +1103,21 @@
             this.grpTexOutput.Controls.Add(this.tbIndexCount);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 6 – RADARCOLOR
+            // 选项卡6 – RadarColor
             // ════════════════════════════════════════════════════════════════
-            this.tabPageRadarColor.Text = "RadarColor";
+            this.tabPageRadarColor.Text = "雷达颜色";
             this.tabPageRadarColor.Size = new System.Drawing.Size(946, 638);
             this.tabPageRadarColor.TabIndex = 5;
             this.tabPageRadarColor.UseVisualStyleBackColor = true;
 
-            this.grpRadarConfig.Text = "Konfiguration  -  radarcol.mul";
+            this.grpRadarConfig.Text = "配置 - radarcol.mul";
             this.grpRadarConfig.Location = new System.Drawing.Point(10, 10);
             this.grpRadarConfig.Size = new System.Drawing.Size(920, 105);
             this.grpRadarConfig.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpRadarConfig.TabIndex = 0;
             this.tabPageRadarColor.Controls.Add(this.grpRadarConfig);
 
-            this.lblRadarCountLbl.Text = "Anzahl Farb-Eintraege:";
+            this.lblRadarCountLbl.Text = "颜色条目数：";
             this.lblRadarCountLbl.Location = new System.Drawing.Point(12, 32);
             this.lblRadarCountLbl.AutoSize = true;
             this.lblRadarCountLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1131,7 +1131,7 @@
             this.indexCountTextBox.TabIndex = 1;
             this.grpRadarConfig.Controls.Add(this.indexCountTextBox);
 
-            this.lblRadarCountHint.Text = "Jeder Eintrag = 2 Byte (16-bit RGB555). Standard UO: 82374 Eintraege";
+            this.lblRadarCountHint.Text = "每个条目 = 2 字节（16 位 RGB555）。标准 UO：82374 个条目";
             this.lblRadarCountHint.Location = new System.Drawing.Point(315, 32);
             this.lblRadarCountHint.AutoSize = true;
             this.lblRadarCountHint.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -1139,14 +1139,14 @@
             this.lblRadarCountHint.TabIndex = 2;
             this.grpRadarConfig.Controls.Add(this.lblRadarCountHint);
 
-            this.grpRadarActions.Text = "Aktion";
+            this.grpRadarActions.Text = "操作";
             this.grpRadarActions.Location = new System.Drawing.Point(10, 123);
             this.grpRadarActions.Size = new System.Drawing.Size(920, 65);
             this.grpRadarActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpRadarActions.TabIndex = 1;
             this.tabPageRadarColor.Controls.Add(this.grpRadarActions);
 
-            this.CreateFileButtonRadarColor.Text = "radarcol.mul erstellen";
+            this.CreateFileButtonRadarColor.Text = "创建 radarcol.mul";
             this.CreateFileButtonRadarColor.Location = new System.Drawing.Point(12, 22);
             this.CreateFileButtonRadarColor.Size = new System.Drawing.Size(220, 30);
             this.CreateFileButtonRadarColor.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -1154,7 +1154,7 @@
             this.CreateFileButtonRadarColor.Click += new System.EventHandler(this.CreateFileButtonRadarColor_Click);
             this.grpRadarActions.Controls.Add(this.CreateFileButtonRadarColor);
 
-            this.grpRadarOutput.Text = "Ausgabe";
+            this.grpRadarOutput.Text = "输出";
             this.grpRadarOutput.Location = new System.Drawing.Point(10, 196);
             this.grpRadarOutput.Size = new System.Drawing.Size(920, 65);
             this.grpRadarOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1170,21 +1170,21 @@
             this.grpRadarOutput.Controls.Add(this.lbRadarColor);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 7 – PALETTE
+            // 选项卡7 – 调色板
             // ════════════════════════════════════════════════════════════════
-            this.tabPagePalette.Text = "Palette";
+            this.tabPagePalette.Text = "调色板";
             this.tabPagePalette.Size = new System.Drawing.Size(946, 638);
             this.tabPagePalette.TabIndex = 6;
             this.tabPagePalette.UseVisualStyleBackColor = true;
 
-            this.grpPaletteCreate.Text = "Palette erstellen  -  256 Farben";
+            this.grpPaletteCreate.Text = "创建调色板 - 256 色";
             this.grpPaletteCreate.Location = new System.Drawing.Point(10, 10);
             this.grpPaletteCreate.Size = new System.Drawing.Size(920, 95);
             this.grpPaletteCreate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpPaletteCreate.TabIndex = 0;
             this.tabPagePalette.Controls.Add(this.grpPaletteCreate);
 
-            this.BtCreatePalette.Text = "Graustufen-Palette";
+            this.BtCreatePalette.Text = "灰度调色板";
             this.BtCreatePalette.Location = new System.Drawing.Point(12, 25);
             this.BtCreatePalette.Size = new System.Drawing.Size(180, 30);
             this.BtCreatePalette.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1192,7 +1192,7 @@
             this.BtCreatePalette.Click += new System.EventHandler(this.BtCreatePalette_Click);
             this.grpPaletteCreate.Controls.Add(this.BtCreatePalette);
 
-            this.lbCreatePalette.Text = "256 Graustufen  (#000 bis #FFF)";
+            this.lbCreatePalette.Text = "256 级灰度（#000 至 #FFF）";
             this.lbCreatePalette.Location = new System.Drawing.Point(200, 31);
             this.lbCreatePalette.AutoSize = true;
             this.lbCreatePalette.Font = new System.Drawing.Font("Segoe UI", 8.5F);
@@ -1200,7 +1200,7 @@
             this.lbCreatePalette.TabIndex = 1;
             this.grpPaletteCreate.Controls.Add(this.lbCreatePalette);
 
-            this.BtCreatePaletteFull.Text = "UO-Standard-Palette";
+            this.BtCreatePaletteFull.Text = "UO 标准调色板";
             this.BtCreatePaletteFull.Location = new System.Drawing.Point(12, 60);
             this.BtCreatePaletteFull.Size = new System.Drawing.Size(180, 30);
             this.BtCreatePaletteFull.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1208,7 +1208,7 @@
             this.BtCreatePaletteFull.Click += new System.EventHandler(this.BtCreatePaletteFull_Click);
             this.grpPaletteCreate.Controls.Add(this.BtCreatePaletteFull);
 
-            this.lbCreateColorPalette.Text = "UO-definierte Farben + Graustufenauffuellung bis 256";
+            this.lbCreateColorPalette.Text = "UO 定义的颜色 + 灰度填充至 256 色";
             this.lbCreateColorPalette.Location = new System.Drawing.Point(200, 66);
             this.lbCreateColorPalette.AutoSize = true;
             this.lbCreateColorPalette.Font = new System.Drawing.Font("Segoe UI", 8.5F);
@@ -1216,14 +1216,14 @@
             this.lbCreateColorPalette.TabIndex = 3;
             this.grpPaletteCreate.Controls.Add(this.lbCreateColorPalette);
 
-            this.grpPaletteLoad.Text = "Palette laden und vorschauen";
+            this.grpPaletteLoad.Text = "加载并预览调色板";
             this.grpPaletteLoad.Location = new System.Drawing.Point(10, 113);
             this.grpPaletteLoad.Size = new System.Drawing.Size(920, 195);
             this.grpPaletteLoad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpPaletteLoad.TabIndex = 1;
             this.tabPagePalette.Controls.Add(this.grpPaletteLoad);
 
-            this.LoadPaletteButton.Text = "Palette.mul laden ...";
+            this.LoadPaletteButton.Text = "加载 Palette.mul ...";
             this.LoadPaletteButton.Location = new System.Drawing.Point(12, 26);
             this.LoadPaletteButton.Size = new System.Drawing.Size(200, 30);
             this.LoadPaletteButton.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1231,7 +1231,7 @@
             this.LoadPaletteButton.Click += new System.EventHandler(this.LoadPaletteButton_Click);
             this.grpPaletteLoad.Controls.Add(this.LoadPaletteButton);
 
-            this.lblPalettePreview.Text = "Vorschau (256 Farben):";
+            this.lblPalettePreview.Text = "预览（256 色）：";
             this.lblPalettePreview.Location = new System.Drawing.Point(12, 65);
             this.lblPalettePreview.AutoSize = true;
             this.lblPalettePreview.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1245,7 +1245,7 @@
             this.pictureBoxPalette.TabStop = false;
             this.grpPaletteLoad.Controls.Add(this.pictureBoxPalette);
 
-            this.grpPaletteValues.Text = "RGB-Werte aller 256 Farben";
+            this.grpPaletteValues.Text = "全部 256 色的 RGB 值";
             this.grpPaletteValues.Location = new System.Drawing.Point(10, 316);
             this.grpPaletteValues.Size = new System.Drawing.Size(920, 230);
             this.grpPaletteValues.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1262,14 +1262,14 @@
             this.grpPaletteValues.Controls.Add(this.textBoxRgbValues);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 8 – ANIMATION
+            // 选项卡8 – 动画
             // ════════════════════════════════════════════════════════════════
-            this.tabPageAnimation.Text = "Animation";
+            this.tabPageAnimation.Text = "动画";
             this.tabPageAnimation.Size = new System.Drawing.Size(946, 638);
             this.tabPageAnimation.TabIndex = 7;
             this.tabPageAnimation.UseVisualStyleBackColor = true;
 
-            this.grpAnimSource.Text = "1. Quell-Datei  (Anim.idx)";
+            this.grpAnimSource.Text = "1. 源文件 (Anim.idx)";
             this.grpAnimSource.Location = new System.Drawing.Point(10, 10);
             this.grpAnimSource.Size = new System.Drawing.Size(460, 62);
             this.grpAnimSource.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1282,7 +1282,7 @@
             this.tbfilename.TabIndex = 0;
             this.grpAnimSource.Controls.Add(this.tbfilename);
 
-            this.BtnBrowse.Text = "laden ...";
+            this.BtnBrowse.Text = "加载 ...";
             this.BtnBrowse.Location = new System.Drawing.Point(340, 25);
             this.BtnBrowse.Size = new System.Drawing.Size(108, 26);
             this.BtnBrowse.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1290,7 +1290,7 @@
             this.BtnBrowse.Click += new System.EventHandler(this.BtnBrowseClick);
             this.grpAnimSource.Controls.Add(this.BtnBrowse);
 
-            this.grpAnimOutput.Text = "2. Ziel-Verzeichnis und Dateiname";
+            this.grpAnimOutput.Text = "2. 目标目录和文件名";
             this.grpAnimOutput.Location = new System.Drawing.Point(480, 10);
             this.grpAnimOutput.Size = new System.Drawing.Size(456, 62);
             this.grpAnimOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1303,7 +1303,7 @@
             this.txtOutputDirectory.TabIndex = 0;
             this.grpAnimOutput.Controls.Add(this.txtOutputDirectory);
 
-            this.BtnSetOutputDirectory.Text = "waehlen";
+            this.BtnSetOutputDirectory.Text = "选择";
             this.BtnSetOutputDirectory.Location = new System.Drawing.Point(240, 25);
             this.BtnSetOutputDirectory.Size = new System.Drawing.Size(90, 26);
             this.BtnSetOutputDirectory.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1311,7 +1311,7 @@
             this.BtnSetOutputDirectory.Click += new System.EventHandler(this.BtnSetOutputDirectoryClick);
             this.grpAnimOutput.Controls.Add(this.BtnSetOutputDirectory);
 
-            this.lblAnimSuffixLbl.Text = "Suffix:";
+            this.lblAnimSuffixLbl.Text = "后缀：";
             this.lblAnimSuffixLbl.Location = new System.Drawing.Point(340, 31);
             this.lblAnimSuffixLbl.AutoSize = true;
             this.lblAnimSuffixLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1324,14 +1324,14 @@
             this.txtOutputFilename.TabIndex = 3;
             this.grpAnimOutput.Controls.Add(this.txtOutputFilename);
 
-            this.grpAnimCreature.Text = "3. Creature-Einstellungen";
+            this.grpAnimCreature.Text = "3. 生物设置";
             this.grpAnimCreature.Location = new System.Drawing.Point(10, 80);
             this.grpAnimCreature.Size = new System.Drawing.Size(460, 145);
             this.grpAnimCreature.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpAnimCreature.TabIndex = 2;
             this.tabPageAnimation.Controls.Add(this.grpAnimCreature);
 
-            this.lblOrigIDHint.Text = "Quell-Creature-ID (Hex):";
+            this.lblOrigIDHint.Text = "源生物 ID（十六进制）：";
             this.lblOrigIDHint.Location = new System.Drawing.Point(12, 30);
             this.lblOrigIDHint.AutoSize = true;
             this.lblOrigIDHint.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1344,7 +1344,7 @@
             this.txtOrigCreatureID.TabIndex = 1;
             this.grpAnimCreature.Controls.Add(this.txtOrigCreatureID);
 
-            this.lblHexWarning.Text = "Achtung: Hex-Eingabe! z.B. 0A = ID 10";
+            this.lblHexWarning.Text = "注意：十六进制输入！例如 0A = ID 10";
             this.lblHexWarning.Location = new System.Drawing.Point(12, 55);
             this.lblHexWarning.AutoSize = true;
             this.lblHexWarning.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
@@ -1352,7 +1352,7 @@
             this.lblHexWarning.TabIndex = 2;
             this.grpAnimCreature.Controls.Add(this.lblHexWarning);
 
-            this.lblCopyCountHint.Text = "Anzahl Kopien (oder Checkbox):";
+            this.lblCopyCountHint.Text = "副本数量（或复选框）：";
             this.lblCopyCountHint.Location = new System.Drawing.Point(12, 80);
             this.lblCopyCountHint.AutoSize = true;
             this.lblCopyCountHint.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1372,42 +1372,42 @@
             this.panelCheckbox.TabIndex = 5;
             this.grpAnimCreature.Controls.Add(this.panelCheckbox);
 
-            this.lbCopys.Text = "Schnellwahl:";
+            this.lbCopys.Text = "快速选择：";
             this.lbCopys.Location = new System.Drawing.Point(5, 6);
             this.lbCopys.AutoSize = true;
             this.lbCopys.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lbCopys.TabIndex = 0;
             this.panelCheckbox.Controls.Add(this.lbCopys);
 
-            this.chkLowDetail.Text = "LowDetail x65";
+            this.chkLowDetail.Text = "低细节 x65";
             this.chkLowDetail.Location = new System.Drawing.Point(90, 5);
             this.chkLowDetail.AutoSize = true;
             this.chkLowDetail.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.chkLowDetail.TabIndex = 1;
             this.panelCheckbox.Controls.Add(this.chkLowDetail);
 
-            this.chkHighDetail.Text = "HighDetail x110";
+            this.chkHighDetail.Text = "高细节 x110";
             this.chkHighDetail.Location = new System.Drawing.Point(200, 5);
             this.chkHighDetail.AutoSize = true;
             this.chkHighDetail.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.chkHighDetail.TabIndex = 2;
             this.panelCheckbox.Controls.Add(this.chkHighDetail);
 
-            this.chkHuman.Text = "Human x175";
+            this.chkHuman.Text = "人类 x175";
             this.chkHuman.Location = new System.Drawing.Point(320, 5);
             this.chkHuman.AutoSize = true;
             this.chkHuman.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.chkHuman.TabIndex = 3;
             this.panelCheckbox.Controls.Add(this.chkHuman);
 
-            this.grpAnimActions.Text = "4. Aktionen";
+            this.grpAnimActions.Text = "4. 操作";
             this.grpAnimActions.Location = new System.Drawing.Point(480, 80);
             this.grpAnimActions.Size = new System.Drawing.Size(456, 145);
             this.grpAnimActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpAnimActions.TabIndex = 3;
             this.tabPageAnimation.Controls.Add(this.grpAnimActions);
 
-            this.BtnNewAnimIDXFiles.Text = "Anim IDX erstellen (neu)";
+            this.BtnNewAnimIDXFiles.Text = "创建动画 IDX（新版）";
             this.BtnNewAnimIDXFiles.Location = new System.Drawing.Point(10, 25);
             this.BtnNewAnimIDXFiles.Size = new System.Drawing.Size(260, 28);
             this.BtnNewAnimIDXFiles.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -1415,7 +1415,7 @@
             this.BtnNewAnimIDXFiles.Click += new System.EventHandler(this.BtnProcessClick);
             this.grpAnimActions.Controls.Add(this.BtnNewAnimIDXFiles);
 
-            this.BtnProcessClickOld.Text = "Anim IDX erstellen (Alt)";
+            this.BtnProcessClickOld.Text = "创建动画 IDX（旧版）";
             this.BtnProcessClickOld.Location = new System.Drawing.Point(10, 61);
             this.BtnProcessClickOld.Size = new System.Drawing.Size(260, 28);
             this.BtnProcessClickOld.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1423,7 +1423,7 @@
             this.BtnProcessClickOld.Click += new System.EventHandler(this.BtnProcessClickOldVersion);
             this.grpAnimActions.Controls.Add(this.BtnProcessClickOld);
 
-            this.Button1.Text = "Leere anim.mul erstellen";
+            this.Button1.Text = "创建空的 anim.mul";
             this.Button1.Location = new System.Drawing.Point(10, 97);
             this.Button1.Size = new System.Drawing.Size(260, 28);
             this.Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1431,14 +1431,14 @@
             this.Button1.Click += new System.EventHandler(this.BtnSingleEmptyAnimMul_Click);
             this.grpAnimActions.Controls.Add(this.Button1);
 
-            this.grpAnimInfo.Text = "Anim.idx lesen und analysieren";
+            this.grpAnimInfo.Text = "读取并分析 Anim.idx";
             this.grpAnimInfo.Location = new System.Drawing.Point(10, 235);
             this.grpAnimInfo.Size = new System.Drawing.Size(460, 100);
             this.grpAnimInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpAnimInfo.TabIndex = 4;
             this.tabPageAnimation.Controls.Add(this.grpAnimInfo);
 
-            this.ReadAnimIdx.Text = "Eintraege anzeigen";
+            this.ReadAnimIdx.Text = "显示条目";
             this.ReadAnimIdx.Location = new System.Drawing.Point(12, 28);
             this.ReadAnimIdx.Size = new System.Drawing.Size(175, 28);
             this.ReadAnimIdx.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1446,7 +1446,7 @@
             this.ReadAnimIdx.Click += new System.EventHandler(this.ReadAnimIdx_Click);
             this.grpAnimInfo.Controls.Add(this.ReadAnimIdx);
 
-            this.btnCountIndices.Text = "Eintraege zaehlen";
+            this.btnCountIndices.Text = "统计条目数";
             this.btnCountIndices.Location = new System.Drawing.Point(200, 28);
             this.btnCountIndices.Size = new System.Drawing.Size(150, 28);
             this.btnCountIndices.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1454,7 +1454,7 @@
             this.btnCountIndices.Click += new System.EventHandler(this.BtnCountIndices_Click);
             this.grpAnimInfo.Controls.Add(this.btnCountIndices);
 
-            this.BtnLoadAnimationMulData.Text = "Anim.mul + .idx laden";
+            this.BtnLoadAnimationMulData.Text = "加载 Anim.mul + .idx";
             this.BtnLoadAnimationMulData.Location = new System.Drawing.Point(12, 62);
             this.BtnLoadAnimationMulData.Size = new System.Drawing.Size(200, 28);
             this.BtnLoadAnimationMulData.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1469,7 +1469,7 @@
             this.txtData.TabIndex = 3;
             this.grpAnimInfo.Controls.Add(this.txtData);
 
-            this.grpAnimLog.Text = "Log / Ausgabe";
+            this.grpAnimLog.Text = "日志 / 输出";
             this.grpAnimLog.Location = new System.Drawing.Point(10, 343);
             this.grpAnimLog.Size = new System.Drawing.Size(926, 250);
             this.grpAnimLog.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1485,7 +1485,7 @@
             this.tbProcessAminidx.TabIndex = 0;
             this.grpAnimLog.Controls.Add(this.tbProcessAminidx);
 
-            this.lblNewIdCount.Text = "Erstellte IDs: 0";
+            this.lblNewIdCount.Text = "已创建 ID：0";
             this.lblNewIdCount.Location = new System.Drawing.Point(824, 24);
             this.lblNewIdCount.AutoSize = true;
             this.lblNewIdCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1494,21 +1494,21 @@
             this.grpAnimLog.Controls.Add(this.lblNewIdCount);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 9 – ARTMUL
+            // 选项卡9 – Artmul
             // ════════════════════════════════════════════════════════════════
             this.tabPageArtmul.Text = "Artmul";
             this.tabPageArtmul.Size = new System.Drawing.Size(946, 638);
             this.tabPageArtmul.TabIndex = 8;
             this.tabPageArtmul.UseVisualStyleBackColor = true;
 
-            this.grpArtCreate.Text = "Schnell-Erstellung  -  vordefinierte Groessen";
+            this.grpArtCreate.Text = "快速创建 - 预定义大小";
             this.grpArtCreate.Location = new System.Drawing.Point(10, 10);
             this.grpArtCreate.Size = new System.Drawing.Size(295, 260);
             this.grpArtCreate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpArtCreate.TabIndex = 0;
             this.tabPageArtmul.Controls.Add(this.grpArtCreate);
 
-            this.lblArtCreateHint.Text = "Speichern-Dialog oeffnet sich automatisch.\r\nartidx.mul + art.mul werden erstellt.";
+            this.lblArtCreateHint.Text = "保存对话框将自动打开。\r\n将创建 artidx.mul + art.mul。";
             this.lblArtCreateHint.Location = new System.Drawing.Point(12, 22);
             this.lblArtCreateHint.AutoSize = true;
             this.lblArtCreateHint.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -1516,7 +1516,7 @@
             this.lblArtCreateHint.TabIndex = 0;
             this.grpArtCreate.Controls.Add(this.lblArtCreateHint);
 
-            this.BtnCreateArtIdx100K.Text = "100.000 Eintraege";
+            this.BtnCreateArtIdx100K.Text = "100,000 个条目";
             this.BtnCreateArtIdx100K.Location = new System.Drawing.Point(12, 55);
             this.BtnCreateArtIdx100K.Size = new System.Drawing.Size(265, 28);
             this.BtnCreateArtIdx100K.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1524,7 +1524,7 @@
             this.BtnCreateArtIdx100K.Click += new System.EventHandler(this.BtnCreateArtIdx100K_Click);
             this.grpArtCreate.Controls.Add(this.BtnCreateArtIdx100K);
 
-            this.BtnCreateArtIdx150K.Text = "150.000 Eintraege";
+            this.BtnCreateArtIdx150K.Text = "150,000 个条目";
             this.BtnCreateArtIdx150K.Location = new System.Drawing.Point(12, 89);
             this.BtnCreateArtIdx150K.Size = new System.Drawing.Size(265, 28);
             this.BtnCreateArtIdx150K.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1532,7 +1532,7 @@
             this.BtnCreateArtIdx150K.Click += new System.EventHandler(this.BtnCreateArtIdx150K_Click);
             this.grpArtCreate.Controls.Add(this.BtnCreateArtIdx150K);
 
-            this.BtnCreateArtIdx200K.Text = "200.000 Eintraege";
+            this.BtnCreateArtIdx200K.Text = "200,000 个条目";
             this.BtnCreateArtIdx200K.Location = new System.Drawing.Point(12, 123);
             this.BtnCreateArtIdx200K.Size = new System.Drawing.Size(265, 28);
             this.BtnCreateArtIdx200K.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1540,7 +1540,7 @@
             this.BtnCreateArtIdx200K.Click += new System.EventHandler(this.BtnCreateArtIdx200K_Click);
             this.grpArtCreate.Controls.Add(this.BtnCreateArtIdx200K);
 
-            this.BtnCreateArtIdx250K.Text = "250.000 Eintraege";
+            this.BtnCreateArtIdx250K.Text = "250,000 个条目";
             this.BtnCreateArtIdx250K.Location = new System.Drawing.Point(12, 157);
             this.BtnCreateArtIdx250K.Size = new System.Drawing.Size(265, 28);
             this.BtnCreateArtIdx250K.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1548,7 +1548,7 @@
             this.BtnCreateArtIdx250K.Click += new System.EventHandler(this.BtnCreateArtIdx250K_Click);
             this.grpArtCreate.Controls.Add(this.BtnCreateArtIdx250K);
 
-            this.BtnCreateArtIdx500K.Text = "500.000 Eintraege";
+            this.BtnCreateArtIdx500K.Text = "500,000 个条目";
             this.BtnCreateArtIdx500K.Location = new System.Drawing.Point(12, 191);
             this.BtnCreateArtIdx500K.Size = new System.Drawing.Size(265, 28);
             this.BtnCreateArtIdx500K.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1556,7 +1556,7 @@
             this.BtnCreateArtIdx500K.Click += new System.EventHandler(this.BtnCreateArtIdx500K_Click);
             this.grpArtCreate.Controls.Add(this.BtnCreateArtIdx500K);
 
-            this.BtnCreateArtIdx.Text = "1.000.000 Eintraege";
+            this.BtnCreateArtIdx.Text = "1,000,000 个条目";
             this.BtnCreateArtIdx.Location = new System.Drawing.Point(12, 225);
             this.BtnCreateArtIdx.Size = new System.Drawing.Size(265, 28);
             this.BtnCreateArtIdx.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1564,14 +1564,14 @@
             this.BtnCreateArtIdx.Click += new System.EventHandler(this.BtnCreateArtIdx_Click);
             this.grpArtCreate.Controls.Add(this.BtnCreateArtIdx);
 
-            this.grpArtCustom.Text = "Freie Groesse eingeben";
+            this.grpArtCustom.Text = "输入自定义大小";
             this.grpArtCustom.Location = new System.Drawing.Point(315, 10);
             this.grpArtCustom.Size = new System.Drawing.Size(275, 155);
             this.grpArtCustom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpArtCustom.TabIndex = 1;
             this.tabPageArtmul.Controls.Add(this.grpArtCustom);
 
-            this.lblArtCustomHint.Text = "Eintragszahl (Dezimal oder Hex 0x...):";
+            this.lblArtCustomHint.Text = "条目数（十进制或十六进制 0x...）：";
             this.lblArtCustomHint.Location = new System.Drawing.Point(12, 25);
             this.lblArtCustomHint.AutoSize = true;
             this.lblArtCustomHint.Font = new System.Drawing.Font("Segoe UI", 8.5F);
@@ -1585,7 +1585,7 @@
             this.tbxNewIndex.TabIndex = 1;
             this.grpArtCustom.Controls.Add(this.tbxNewIndex);
 
-            this.Button2.Text = "Erstellen";
+            this.Button2.Text = "创建";
             this.Button2.Location = new System.Drawing.Point(12, 76);
             this.Button2.Size = new System.Drawing.Size(150, 28);
             this.Button2.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -1593,7 +1593,7 @@
             this.Button2.Click += new System.EventHandler(this.BtnCreateNewArtidx);
             this.grpArtCustom.Controls.Add(this.Button2);
 
-            this.lblOldVersionHint.Text = "Alt-Format (2003-Stil):";
+            this.lblOldVersionHint.Text = "旧版格式（2003 风格）：";
             this.lblOldVersionHint.Location = new System.Drawing.Point(12, 112);
             this.lblOldVersionHint.AutoSize = true;
             this.lblOldVersionHint.Font = new System.Drawing.Font("Segoe UI", 8.5F);
@@ -1601,7 +1601,7 @@
             this.lblOldVersionHint.TabIndex = 3;
             this.grpArtCustom.Controls.Add(this.lblOldVersionHint);
 
-            this.BtCreateOldVersionArtidx.Text = "Old Variant 2003";
+            this.BtCreateOldVersionArtidx.Text = "旧版 2003 变体";
             this.BtCreateOldVersionArtidx.Location = new System.Drawing.Point(12, 128);
             this.BtCreateOldVersionArtidx.Size = new System.Drawing.Size(150, 22);
             this.BtCreateOldVersionArtidx.Font = new System.Drawing.Font("Segoe UI", 8.5F);
@@ -1609,14 +1609,14 @@
             this.BtCreateOldVersionArtidx.Click += new System.EventHandler(this.BtnCreateOldVersionArtidx);
             this.grpArtCustom.Controls.Add(this.BtCreateOldVersionArtidx);
 
-            this.grpArtSplit.Text = "Arts-Anteil + LandTiles-Anteil definieren";
+            this.grpArtSplit.Text = "定义物品部分 + 地形部分的数量";
             this.grpArtSplit.Location = new System.Drawing.Point(315, 173);
             this.grpArtSplit.Size = new System.Drawing.Size(390, 140);
             this.grpArtSplit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpArtSplit.TabIndex = 2;
             this.tabPageArtmul.Controls.Add(this.grpArtSplit);
 
-            this.lblArtSplitHint.Text = "Bedingung: ArtsCount + LandTilesCount = Index (Gesamt)";
+            this.lblArtSplitHint.Text = "条件：物品数 + 地形数 = 索引总数";
             this.lblArtSplitHint.Location = new System.Drawing.Point(12, 22);
             this.lblArtSplitHint.AutoSize = true;
             this.lblArtSplitHint.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
@@ -1624,7 +1624,7 @@
             this.lblArtSplitHint.TabIndex = 0;
             this.grpArtSplit.Controls.Add(this.lblArtSplitHint);
 
-            this.lblArtSplitTotalLbl.Text = "Gesamt-Index:";
+            this.lblArtSplitTotalLbl.Text = "索引总数：";
             this.lblArtSplitTotalLbl.Location = new System.Drawing.Point(12, 48);
             this.lblArtSplitTotalLbl.AutoSize = true;
             this.lblArtSplitTotalLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1638,7 +1638,7 @@
             this.tbxNewIndex2.TabIndex = 2;
             this.grpArtSplit.Controls.Add(this.tbxNewIndex2);
 
-            this.lbArtsCount.Text = "ArtsCount:";
+            this.lbArtsCount.Text = "物品数：";
             this.lbArtsCount.Location = new System.Drawing.Point(125, 48);
             this.lbArtsCount.AutoSize = true;
             this.lbArtsCount.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1652,7 +1652,7 @@
             this.tbxArtsCount.TabIndex = 4;
             this.grpArtSplit.Controls.Add(this.tbxArtsCount);
 
-            this.lbLandTilesCount.Text = "LandTiles:";
+            this.lbLandTilesCount.Text = "地形数：";
             this.lbLandTilesCount.Location = new System.Drawing.Point(240, 48);
             this.lbLandTilesCount.AutoSize = true;
             this.lbLandTilesCount.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1666,7 +1666,7 @@
             this.tbxLandTilesCount.TabIndex = 6;
             this.grpArtSplit.Controls.Add(this.tbxLandTilesCount);
 
-            this.Button3.Text = "Erstellen";
+            this.Button3.Text = "创建";
             this.Button3.Location = new System.Drawing.Point(12, 100);
             this.Button3.Size = new System.Drawing.Size(150, 28);
             this.Button3.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -1674,14 +1674,14 @@
             this.Button3.Click += new System.EventHandler(this.BtnCreateNewArtidx2);
             this.grpArtSplit.Controls.Add(this.Button3);
 
-            this.grpArtRead.Text = "Artidx.mul lesen";
+            this.grpArtRead.Text = "读取 Artidx.mul";
             this.grpArtRead.Location = new System.Drawing.Point(615, 10);
             this.grpArtRead.Size = new System.Drawing.Size(320, 130);
             this.grpArtRead.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpArtRead.TabIndex = 3;
             this.tabPageArtmul.Controls.Add(this.grpArtRead);
 
-            this.lblArtReadHint.Text = "Datei waehlen, Info erscheint im Log:";
+            this.lblArtReadHint.Text = "选择文件，信息将显示在日志中：";
             this.lblArtReadHint.Location = new System.Drawing.Point(12, 22);
             this.lblArtReadHint.AutoSize = true;
             this.lblArtReadHint.Font = new System.Drawing.Font("Segoe UI", 8.5F);
@@ -1689,7 +1689,7 @@
             this.lblArtReadHint.TabIndex = 0;
             this.grpArtRead.Controls.Add(this.lblArtReadHint);
 
-            this.ReadArtmul.Text = "Zusammenfassung";
+            this.ReadArtmul.Text = "摘要";
             this.ReadArtmul.Location = new System.Drawing.Point(12, 42);
             this.ReadArtmul.Size = new System.Drawing.Size(290, 28);
             this.ReadArtmul.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1697,7 +1697,7 @@
             this.ReadArtmul.Click += new System.EventHandler(this.BtnReadArtIdx_Click);
             this.grpArtRead.Controls.Add(this.ReadArtmul);
 
-            this.ReadArtmul2.Text = "Detailliste (300 Zeilen)";
+            this.ReadArtmul2.Text = "详细列表（300 行）";
             this.ReadArtmul2.Location = new System.Drawing.Point(12, 76);
             this.ReadArtmul2.Size = new System.Drawing.Size(290, 28);
             this.ReadArtmul2.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1713,7 +1713,7 @@
             this.lblIndexCount.TabIndex = 4;
             this.tabPageArtmul.Controls.Add(this.lblIndexCount);
 
-            this.grpArtLog.Text = "Log / Ausgabe";
+            this.grpArtLog.Text = "日志 / 输出";
             this.grpArtLog.Location = new System.Drawing.Point(10, 322);
             this.grpArtLog.Size = new System.Drawing.Size(926, 280);
             this.grpArtLog.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1730,21 +1730,21 @@
             this.grpArtLog.Controls.Add(this.infoARTIDXMULID);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 10 – SOUND
+            // 选项卡10 – 声音
             // ════════════════════════════════════════════════════════════════
-            this.tabPageSound.Text = "Sound";
+            this.tabPageSound.Text = "声音";
             this.tabPageSound.Size = new System.Drawing.Size(946, 638);
             this.tabPageSound.TabIndex = 9;
             this.tabPageSound.UseVisualStyleBackColor = true;
 
-            this.grpSoundConfig.Text = "Konfiguration  -  SoundIdx.mul + Sound.mul";
+            this.grpSoundConfig.Text = "配置 - SoundIdx.mul + Sound.mul";
             this.grpSoundConfig.Location = new System.Drawing.Point(10, 10);
             this.grpSoundConfig.Size = new System.Drawing.Size(920, 115);
             this.grpSoundConfig.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpSoundConfig.TabIndex = 0;
             this.tabPageSound.Controls.Add(this.grpSoundConfig);
 
-            this.lblSoundCountLbl.Text = "Anzahl Sound-Slots:";
+            this.lblSoundCountLbl.Text = "声音槽位数：";
             this.lblSoundCountLbl.Location = new System.Drawing.Point(12, 35);
             this.lblSoundCountLbl.AutoSize = true;
             this.lblSoundCountLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1758,7 +1758,7 @@
             this.SoundIDXMul.TabIndex = 1;
             this.grpSoundConfig.Controls.Add(this.SoundIDXMul);
 
-            this.lblSoundCountHint.Text = "Standard UO: 4095 Slots\r\nJeder Slot = 12 Byte Index + 1024 Byte Platzhalter-Ton";
+            this.lblSoundCountHint.Text = "标准 UO：4095 个槽位\r\n每个槽位 = 12 字节索引 + 1024 字节占位音效";
             this.lblSoundCountHint.Location = new System.Drawing.Point(290, 28);
             this.lblSoundCountHint.AutoSize = true;
             this.lblSoundCountHint.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -1766,14 +1766,14 @@
             this.lblSoundCountHint.TabIndex = 2;
             this.grpSoundConfig.Controls.Add(this.lblSoundCountHint);
 
-            this.grpSoundActions.Text = "Aktionen";
+            this.grpSoundActions.Text = "操作";
             this.grpSoundActions.Location = new System.Drawing.Point(10, 133);
             this.grpSoundActions.Size = new System.Drawing.Size(920, 70);
             this.grpSoundActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpSoundActions.TabIndex = 1;
             this.tabPageSound.Controls.Add(this.grpSoundActions);
 
-            this.CreateOrgSoundMul.Text = "SoundIdx.mul + Sound.mul erstellen";
+            this.CreateOrgSoundMul.Text = "创建 SoundIdx.mul + Sound.mul";
             this.CreateOrgSoundMul.Location = new System.Drawing.Point(12, 22);
             this.CreateOrgSoundMul.Size = new System.Drawing.Size(300, 30);
             this.CreateOrgSoundMul.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -1781,7 +1781,7 @@
             this.CreateOrgSoundMul.Click += new System.EventHandler(this.CreateOrgSoundMul_Click);
             this.grpSoundActions.Controls.Add(this.CreateOrgSoundMul);
 
-            this.ReadIndexSize.Text = "Eintraege zaehlen";
+            this.ReadIndexSize.Text = "统计条目数";
             this.ReadIndexSize.Location = new System.Drawing.Point(325, 22);
             this.ReadIndexSize.Size = new System.Drawing.Size(160, 30);
             this.ReadIndexSize.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1789,7 +1789,7 @@
             this.ReadIndexSize.Click += new System.EventHandler(this.ReadIndexSize_Click);
             this.grpSoundActions.Controls.Add(this.ReadIndexSize);
 
-            this.grpSoundOutput.Text = "Ausgabe";
+            this.grpSoundOutput.Text = "输出";
             this.grpSoundOutput.Location = new System.Drawing.Point(10, 211);
             this.grpSoundOutput.Size = new System.Drawing.Size(920, 60);
             this.grpSoundOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1805,21 +1805,21 @@
             this.grpSoundOutput.Controls.Add(this.IndexSizeLabel);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 11 – GUMP
+            // 选项卡11 – Gump
             // ════════════════════════════════════════════════════════════════
             this.tabPageGump.Text = "Gump";
             this.tabPageGump.Size = new System.Drawing.Size(946, 638);
             this.tabPageGump.TabIndex = 10;
             this.tabPageGump.UseVisualStyleBackColor = true;
 
-            this.grpGumpConfig.Text = "Konfiguration  -  GUMPIDX.MUL + GUMPART.MUL";
+            this.grpGumpConfig.Text = "配置 - GUMPIDX.MUL + GUMPART.MUL";
             this.grpGumpConfig.Location = new System.Drawing.Point(10, 10);
             this.grpGumpConfig.Size = new System.Drawing.Size(920, 115);
             this.grpGumpConfig.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpGumpConfig.TabIndex = 0;
             this.tabPageGump.Controls.Add(this.grpGumpConfig);
 
-            this.lblGumpCountLbl.Text = "Anzahl Gump-Eintraege:";
+            this.lblGumpCountLbl.Text = "Gump 条目数：";
             this.lblGumpCountLbl.Location = new System.Drawing.Point(12, 35);
             this.lblGumpCountLbl.AutoSize = true;
             this.lblGumpCountLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1833,7 +1833,7 @@
             this.IndexSizeTextBox.TabIndex = 1;
             this.grpGumpConfig.Controls.Add(this.IndexSizeTextBox);
 
-            this.lblGumpCountHint.Text = "Standard UO: 65535 Eintraege\r\nJeder Eintrag = 12 Byte in GUMPIDX.MUL.";
+            this.lblGumpCountHint.Text = "标准 UO：65535 个条目\r\n每个条目在 GUMPIDX.MUL 中占用 12 字节。";
             this.lblGumpCountHint.Location = new System.Drawing.Point(310, 28);
             this.lblGumpCountHint.AutoSize = true;
             this.lblGumpCountHint.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -1841,14 +1841,14 @@
             this.lblGumpCountHint.TabIndex = 2;
             this.grpGumpConfig.Controls.Add(this.lblGumpCountHint);
 
-            this.grpGumpActions.Text = "Aktionen";
+            this.grpGumpActions.Text = "操作";
             this.grpGumpActions.Location = new System.Drawing.Point(10, 133);
             this.grpGumpActions.Size = new System.Drawing.Size(920, 70);
             this.grpGumpActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpGumpActions.TabIndex = 1;
             this.tabPageGump.Controls.Add(this.grpGumpActions);
 
-            this.CreateGumpButton.Text = "GUMPIDX.MUL + GUMPART.MUL erstellen";
+            this.CreateGumpButton.Text = "创建 GUMPIDX.MUL + GUMPART.MUL";
             this.CreateGumpButton.Location = new System.Drawing.Point(12, 22);
             this.CreateGumpButton.Size = new System.Drawing.Size(330, 30);
             this.CreateGumpButton.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -1856,7 +1856,7 @@
             this.CreateGumpButton.Click += new System.EventHandler(this.CreateGumpButton_Click);
             this.grpGumpActions.Controls.Add(this.CreateGumpButton);
 
-            this.ReadGumpButton.Text = "Eintraege zaehlen";
+            this.ReadGumpButton.Text = "统计条目数";
             this.ReadGumpButton.Location = new System.Drawing.Point(355, 22);
             this.ReadGumpButton.Size = new System.Drawing.Size(160, 30);
             this.ReadGumpButton.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1864,7 +1864,7 @@
             this.ReadGumpButton.Click += new System.EventHandler(this.ReadGumpButton_Click);
             this.grpGumpActions.Controls.Add(this.ReadGumpButton);
 
-            this.grpGumpOutput.Text = "Ausgabe";
+            this.grpGumpOutput.Text = "输出";
             this.grpGumpOutput.Location = new System.Drawing.Point(10, 211);
             this.grpGumpOutput.Size = new System.Drawing.Size(920, 60);
             this.grpGumpOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1880,21 +1880,21 @@
             this.grpGumpOutput.Controls.Add(this.gumpLabel);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 12 – HUES
+            // 选项卡12 – Hues
             // ════════════════════════════════════════════════════════════════
-            this.tabPageHues.Text = "Hues";
+            this.tabPageHues.Text = "色调";
             this.tabPageHues.Size = new System.Drawing.Size(946, 638);
             this.tabPageHues.TabIndex = 11;
             this.tabPageHues.UseVisualStyleBackColor = true;
 
-            this.grpHuesActions.Text = "Aktionen  -  hues.mul  (3000 x 88 Byte Farbpaletten)";
+            this.grpHuesActions.Text = "操作 - hues.mul（3000 个 x 88 字节的色板）";
             this.grpHuesActions.Location = new System.Drawing.Point(10, 10);
             this.grpHuesActions.Size = new System.Drawing.Size(920, 75);
             this.grpHuesActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpHuesActions.TabIndex = 0;
             this.tabPageHues.Controls.Add(this.grpHuesActions);
 
-            this.BtnCreateHues.Text = "Leere hues.mul erstellen (3000 Eintraege)";
+            this.BtnCreateHues.Text = "创建空的 hues.mul（3000 个条目）";
             this.BtnCreateHues.Location = new System.Drawing.Point(12, 28);
             this.BtnCreateHues.Size = new System.Drawing.Size(320, 30);
             this.BtnCreateHues.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -1902,7 +1902,7 @@
             this.BtnCreateHues.Click += new System.EventHandler(this.BtnCreateHues_Click);
             this.grpHuesActions.Controls.Add(this.BtnCreateHues);
 
-            this.BtnReadHues.Text = "hues.mul lesen";
+            this.BtnReadHues.Text = "读取 hues.mul";
             this.BtnReadHues.Location = new System.Drawing.Point(345, 28);
             this.BtnReadHues.Size = new System.Drawing.Size(180, 30);
             this.BtnReadHues.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1910,7 +1910,7 @@
             this.BtnReadHues.Click += new System.EventHandler(this.BtnReadHues_Click);
             this.grpHuesActions.Controls.Add(this.BtnReadHues);
 
-            this.grpHuesOutput.Text = "Ausgabe";
+            this.grpHuesOutput.Text = "输出";
             this.grpHuesOutput.Location = new System.Drawing.Point(10, 93);
             this.grpHuesOutput.Size = new System.Drawing.Size(920, 510);
             this.grpHuesOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -1926,21 +1926,21 @@
             this.grpHuesOutput.Controls.Add(this.lblHuesOutput);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 13 – MAP / STATICS
+            // 选项卡13 – 地图 / 静态
             // ════════════════════════════════════════════════════════════════
-            this.tabPageMap.Text = "Map/Statics";
+            this.tabPageMap.Text = "地图/静态";
             this.tabPageMap.Size = new System.Drawing.Size(946, 638);
             this.tabPageMap.TabIndex = 12;
             this.tabPageMap.UseVisualStyleBackColor = true;
 
-            this.grpMapConfig.Text = "Kartenkonfiguration";
+            this.grpMapConfig.Text = "地图配置";
             this.grpMapConfig.Location = new System.Drawing.Point(10, 10);
             this.grpMapConfig.Size = new System.Drawing.Size(920, 175);
             this.grpMapConfig.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpMapConfig.TabIndex = 0;
             this.tabPageMap.Controls.Add(this.grpMapConfig);
 
-            this.lblMapSizeComboLbl.Text = "Voreinstellung:";
+            this.lblMapSizeComboLbl.Text = "预设：";
             this.lblMapSizeComboLbl.Location = new System.Drawing.Point(12, 30);
             this.lblMapSizeComboLbl.AutoSize = true;
             this.lblMapSizeComboLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1955,7 +1955,7 @@
             this.comboMapSize.SelectedIndexChanged += new System.EventHandler(this.ComboMapSize_SelectedIndexChanged);
             this.grpMapConfig.Controls.Add(this.comboMapSize);
 
-            this.lblMapWidthLbl.Text = "Breite (Tiles):";
+            this.lblMapWidthLbl.Text = "宽度（图块）：";
             this.lblMapWidthLbl.Location = new System.Drawing.Point(12, 65);
             this.lblMapWidthLbl.AutoSize = true;
             this.lblMapWidthLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1970,7 +1970,7 @@
             this.tbMapWidth.TextChanged += new System.EventHandler(this.TbMapWidth_TextChanged);
             this.grpMapConfig.Controls.Add(this.tbMapWidth);
 
-            this.lblMapHeightLbl.Text = "Hoehe (Tiles):";
+            this.lblMapHeightLbl.Text = "高度（图块）：";
             this.lblMapHeightLbl.Location = new System.Drawing.Point(240, 65);
             this.lblMapHeightLbl.AutoSize = true;
             this.lblMapHeightLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1985,7 +1985,7 @@
             this.tbMapHeight.TextChanged += new System.EventHandler(this.TbMapWidth_TextChanged);
             this.grpMapConfig.Controls.Add(this.tbMapHeight);
 
-            this.lblMapIndexLbl.Text = "Karten-Index:";
+            this.lblMapIndexLbl.Text = "地图索引：";
             this.lblMapIndexLbl.Location = new System.Drawing.Point(480, 65);
             this.lblMapIndexLbl.AutoSize = true;
             this.lblMapIndexLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2007,14 +2007,14 @@
             this.lblMapSizeInfo.TabIndex = 8;
             this.grpMapConfig.Controls.Add(this.lblMapSizeInfo);
 
-            this.grpMapActions.Text = "Aktionen";
+            this.grpMapActions.Text = "操作";
             this.grpMapActions.Location = new System.Drawing.Point(10, 193);
             this.grpMapActions.Size = new System.Drawing.Size(920, 75);
             this.grpMapActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpMapActions.TabIndex = 1;
             this.tabPageMap.Controls.Add(this.grpMapActions);
 
-            this.BtnCreateMap.Text = "Nur map*.mul erstellen";
+            this.BtnCreateMap.Text = "仅创建 map*.mul";
             this.BtnCreateMap.Location = new System.Drawing.Point(12, 28);
             this.BtnCreateMap.Size = new System.Drawing.Size(220, 30);
             this.BtnCreateMap.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -2022,7 +2022,7 @@
             this.BtnCreateMap.Click += new System.EventHandler(this.BtnCreateMap_Click);
             this.grpMapActions.Controls.Add(this.BtnCreateMap);
 
-            this.BtnCreateStatics.Text = "Nur statics*.mul + staidx*.mul";
+            this.BtnCreateStatics.Text = "仅创建 statics*.mul + staidx*.mul";
             this.BtnCreateStatics.Location = new System.Drawing.Point(245, 28);
             this.BtnCreateStatics.Size = new System.Drawing.Size(255, 30);
             this.BtnCreateStatics.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2030,7 +2030,7 @@
             this.BtnCreateStatics.Click += new System.EventHandler(this.BtnCreateStatics_Click);
             this.grpMapActions.Controls.Add(this.BtnCreateStatics);
 
-            this.BtnCreateMapAndStatics.Text = "Map + Statics zusammen erstellen";
+            this.BtnCreateMapAndStatics.Text = "同时创建地图 + 静态文件";
             this.BtnCreateMapAndStatics.Location = new System.Drawing.Point(515, 28);
             this.BtnCreateMapAndStatics.Size = new System.Drawing.Size(295, 30);
             this.BtnCreateMapAndStatics.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2038,7 +2038,7 @@
             this.BtnCreateMapAndStatics.Click += new System.EventHandler(this.BtnCreateMapAndStatics_Click);
             this.grpMapActions.Controls.Add(this.BtnCreateMapAndStatics);
 
-            this.grpMapOutput.Text = "Ausgabe";
+            this.grpMapOutput.Text = "输出";
             this.grpMapOutput.Location = new System.Drawing.Point(10, 276);
             this.grpMapOutput.Size = new System.Drawing.Size(920, 330);
             this.grpMapOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -2054,21 +2054,21 @@
             this.grpMapOutput.Controls.Add(this.lblMapOutput);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 14 – MULTI
+            // 选项卡14 – Multi
             // ════════════════════════════════════════════════════════════════
-            this.tabPageMulti.Text = "Multi";
+            this.tabPageMulti.Text = "多重";
             this.tabPageMulti.Size = new System.Drawing.Size(946, 638);
             this.tabPageMulti.TabIndex = 13;
             this.tabPageMulti.UseVisualStyleBackColor = true;
 
-            this.grpMultiConfig.Text = "Konfiguration  -  multi.mul + multi.idx";
+            this.grpMultiConfig.Text = "配置 - multi.mul + multi.idx";
             this.grpMultiConfig.Location = new System.Drawing.Point(10, 10);
             this.grpMultiConfig.Size = new System.Drawing.Size(920, 110);
             this.grpMultiConfig.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpMultiConfig.TabIndex = 0;
             this.tabPageMulti.Controls.Add(this.grpMultiConfig);
 
-            this.lblMultiCountLbl.Text = "Anzahl Multi-Eintraege:";
+            this.lblMultiCountLbl.Text = "Multi 条目数：";
             this.lblMultiCountLbl.Location = new System.Drawing.Point(12, 30);
             this.lblMultiCountLbl.AutoSize = true;
             this.lblMultiCountLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2082,7 +2082,7 @@
             this.tbMultiCount.TabIndex = 1;
             this.grpMultiConfig.Controls.Add(this.tbMultiCount);
 
-            this.lblMultiIndexLbl.Text = "Lese-Index:";
+            this.lblMultiIndexLbl.Text = "读取索引：";
             this.lblMultiIndexLbl.Location = new System.Drawing.Point(12, 65);
             this.lblMultiIndexLbl.AutoSize = true;
             this.lblMultiIndexLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2096,21 +2096,21 @@
             this.tbMultiIndex.TabIndex = 3;
             this.grpMultiConfig.Controls.Add(this.tbMultiIndex);
 
-            this.checkBoxMultiHS.Text = "HighSeas-Format (16 Byte pro Tile statt 12)";
+            this.checkBoxMultiHS.Text = "HighSeas 格式（每个图块 16 字节而非 12）";
             this.checkBoxMultiHS.Location = new System.Drawing.Point(210, 63);
             this.checkBoxMultiHS.AutoSize = true;
             this.checkBoxMultiHS.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.checkBoxMultiHS.TabIndex = 4;
             this.grpMultiConfig.Controls.Add(this.checkBoxMultiHS);
 
-            this.grpMultiActions.Text = "Aktionen";
+            this.grpMultiActions.Text = "操作";
             this.grpMultiActions.Location = new System.Drawing.Point(10, 128);
             this.grpMultiActions.Size = new System.Drawing.Size(920, 75);
             this.grpMultiActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpMultiActions.TabIndex = 1;
             this.tabPageMulti.Controls.Add(this.grpMultiActions);
 
-            this.BtnCreateMulti.Text = "multi.mul + multi.idx erstellen";
+            this.BtnCreateMulti.Text = "创建 multi.mul + multi.idx";
             this.BtnCreateMulti.Location = new System.Drawing.Point(12, 28);
             this.BtnCreateMulti.Size = new System.Drawing.Size(280, 30);
             this.BtnCreateMulti.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -2118,7 +2118,7 @@
             this.BtnCreateMulti.Click += new System.EventHandler(this.BtnCreateMulti_Click);
             this.grpMultiActions.Controls.Add(this.BtnCreateMulti);
 
-            this.BtnReadMulti.Text = "Multi-Eintrag lesen";
+            this.BtnReadMulti.Text = "读取 Multi 条目";
             this.BtnReadMulti.Location = new System.Drawing.Point(305, 28);
             this.BtnReadMulti.Size = new System.Drawing.Size(200, 30);
             this.BtnReadMulti.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2126,7 +2126,7 @@
             this.BtnReadMulti.Click += new System.EventHandler(this.BtnReadMulti_Click);
             this.grpMultiActions.Controls.Add(this.BtnReadMulti);
 
-            this.grpMultiOutput.Text = "Ausgabe";
+            this.grpMultiOutput.Text = "输出";
             this.grpMultiOutput.Location = new System.Drawing.Point(10, 211);
             this.grpMultiOutput.Size = new System.Drawing.Size(920, 400);
             this.grpMultiOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -2142,21 +2142,21 @@
             this.grpMultiOutput.Controls.Add(this.lblMultiOutput);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 15 – SKILLS
+            // 选项卡15 – 技能
             // ════════════════════════════════════════════════════════════════
-            this.tabPageSkills.Text = "Skills";
+            this.tabPageSkills.Text = "技能";
             this.tabPageSkills.Size = new System.Drawing.Size(946, 638);
             this.tabPageSkills.TabIndex = 14;
             this.tabPageSkills.UseVisualStyleBackColor = true;
 
-            this.grpSkillsConfig.Text = "Konfiguration  -  skills.mul + skills.idx";
+            this.grpSkillsConfig.Text = "配置 - skills.mul + skills.idx";
             this.grpSkillsConfig.Location = new System.Drawing.Point(10, 10);
             this.grpSkillsConfig.Size = new System.Drawing.Size(920, 75);
             this.grpSkillsConfig.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpSkillsConfig.TabIndex = 0;
             this.tabPageSkills.Controls.Add(this.grpSkillsConfig);
 
-            this.lblSkillCountLbl.Text = "Anzahl Skills (leere Variante):";
+            this.lblSkillCountLbl.Text = "技能数量（空版本）：";
             this.lblSkillCountLbl.Location = new System.Drawing.Point(12, 32);
             this.lblSkillCountLbl.AutoSize = true;
             this.lblSkillCountLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2170,14 +2170,14 @@
             this.tbSkillCount.TabIndex = 1;
             this.grpSkillsConfig.Controls.Add(this.tbSkillCount);
 
-            this.grpSkillsActions.Text = "Aktionen";
+            this.grpSkillsActions.Text = "操作";
             this.grpSkillsActions.Location = new System.Drawing.Point(10, 93);
             this.grpSkillsActions.Size = new System.Drawing.Size(920, 75);
             this.grpSkillsActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpSkillsActions.TabIndex = 1;
             this.tabPageSkills.Controls.Add(this.grpSkillsActions);
 
-            this.BtnCreateDefaultSkills.Text = "Standard-Skills erstellen (58 UO-Skills)";
+            this.BtnCreateDefaultSkills.Text = "创建标准技能（58 个 UO 技能）";
             this.BtnCreateDefaultSkills.Location = new System.Drawing.Point(12, 28);
             this.BtnCreateDefaultSkills.Size = new System.Drawing.Size(310, 30);
             this.BtnCreateDefaultSkills.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -2185,7 +2185,7 @@
             this.BtnCreateDefaultSkills.Click += new System.EventHandler(this.BtnCreateDefaultSkills_Click);
             this.grpSkillsActions.Controls.Add(this.BtnCreateDefaultSkills);
 
-            this.BtnCreateEmptySkills.Text = "Leere Skills erstellen";
+            this.BtnCreateEmptySkills.Text = "创建空技能文件";
             this.BtnCreateEmptySkills.Location = new System.Drawing.Point(335, 28);
             this.BtnCreateEmptySkills.Size = new System.Drawing.Size(200, 30);
             this.BtnCreateEmptySkills.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2193,7 +2193,7 @@
             this.BtnCreateEmptySkills.Click += new System.EventHandler(this.BtnCreateEmptySkills_Click);
             this.grpSkillsActions.Controls.Add(this.BtnCreateEmptySkills);
 
-            this.BtnReadSkills.Text = "Skills lesen";
+            this.BtnReadSkills.Text = "读取技能文件";
             this.BtnReadSkills.Location = new System.Drawing.Point(548, 28);
             this.BtnReadSkills.Size = new System.Drawing.Size(160, 30);
             this.BtnReadSkills.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2201,7 +2201,7 @@
             this.BtnReadSkills.Click += new System.EventHandler(this.BtnReadSkills_Click);
             this.grpSkillsActions.Controls.Add(this.BtnReadSkills);
 
-            this.grpSkillsOutput.Text = "Ausgabe";
+            this.grpSkillsOutput.Text = "输出";
             this.grpSkillsOutput.Location = new System.Drawing.Point(10, 176);
             this.grpSkillsOutput.Size = new System.Drawing.Size(920, 435);
             this.grpSkillsOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -2226,21 +2226,21 @@
             this.grpSkillsOutput.Controls.Add(this.textBoxSkillsInfo);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 16 – VALIDATOR
+            // 选项卡16 – 验证器
             // ════════════════════════════════════════════════════════════════
-            this.tabPageValidator.Text = "Validator";
+            this.tabPageValidator.Text = "验证器";
             this.tabPageValidator.Size = new System.Drawing.Size(946, 638);
             this.tabPageValidator.TabIndex = 15;
             this.tabPageValidator.UseVisualStyleBackColor = true;
 
-            this.grpValidatorActions.Text = "IDX <-> MUL Konsistenz-Pruefung";
+            this.grpValidatorActions.Text = "IDX <-> MUL 一致性检查";
             this.grpValidatorActions.Location = new System.Drawing.Point(10, 10);
             this.grpValidatorActions.Size = new System.Drawing.Size(920, 80);
             this.grpValidatorActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpValidatorActions.TabIndex = 0;
             this.tabPageValidator.Controls.Add(this.grpValidatorActions);
 
-            this.BtnValidate.Text = "IDX + MUL validieren";
+            this.BtnValidate.Text = "验证 IDX + MUL";
             this.BtnValidate.Location = new System.Drawing.Point(12, 28);
             this.BtnValidate.Size = new System.Drawing.Size(220, 30);
             this.BtnValidate.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -2248,7 +2248,7 @@
             this.BtnValidate.Click += new System.EventHandler(this.BtnValidate_Click);
             this.grpValidatorActions.Controls.Add(this.BtnValidate);
 
-            this.BtnCompareDirectories.Text = "Zwei Verzeichnisse vergleichen";
+            this.BtnCompareDirectories.Text = "比较两个目录";
             this.BtnCompareDirectories.Location = new System.Drawing.Point(245, 28);
             this.BtnCompareDirectories.Size = new System.Drawing.Size(270, 30);
             this.BtnCompareDirectories.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2264,7 +2264,7 @@
             this.lblValidatorStatus.TabIndex = 2;
             this.grpValidatorActions.Controls.Add(this.lblValidatorStatus);
 
-            this.grpValidatorOutput.Text = "Ergebnis";
+            this.grpValidatorOutput.Text = "结果";
             this.grpValidatorOutput.Location = new System.Drawing.Point(10, 98);
             this.grpValidatorOutput.Size = new System.Drawing.Size(920, 512);
             this.grpValidatorOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -2281,21 +2281,21 @@
             this.grpValidatorOutput.Controls.Add(this.textBoxValidatorOutput);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 17 – IDX PATCHER
+            // 选项卡17 – IDX 修补器
             // ════════════════════════════════════════════════════════════════
-            this.tabPageIdxPatcher.Text = "IDX Patcher";
+            this.tabPageIdxPatcher.Text = "IDX 修补器";
             this.tabPageIdxPatcher.Size = new System.Drawing.Size(946, 638);
             this.tabPageIdxPatcher.TabIndex = 16;
             this.tabPageIdxPatcher.UseVisualStyleBackColor = true;
 
-            this.grpPatcherFile.Text = "IDX-Datei";
+            this.grpPatcherFile.Text = "IDX 文件";
             this.grpPatcherFile.Location = new System.Drawing.Point(10, 10);
             this.grpPatcherFile.Size = new System.Drawing.Size(920, 65);
             this.grpPatcherFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpPatcherFile.TabIndex = 0;
             this.tabPageIdxPatcher.Controls.Add(this.grpPatcherFile);
 
-            this.lblPatchIdxLbl.Text = "IDX-Datei:";
+            this.lblPatchIdxLbl.Text = "IDX 文件：";
             this.lblPatchIdxLbl.Location = new System.Drawing.Point(12, 30);
             this.lblPatchIdxLbl.AutoSize = true;
             this.lblPatchIdxLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2316,14 +2316,14 @@
             this.BtnPatchBrowseIdx.Click += new System.EventHandler(this.BtnPatchBrowseIdx_Click);
             this.grpPatcherFile.Controls.Add(this.BtnPatchBrowseIdx);
 
-            this.grpPatcherEdit.Text = "Eintrag bearbeiten";
+            this.grpPatcherEdit.Text = "编辑条目";
             this.grpPatcherEdit.Location = new System.Drawing.Point(10, 83);
             this.grpPatcherEdit.Size = new System.Drawing.Size(920, 100);
             this.grpPatcherEdit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpPatcherEdit.TabIndex = 1;
             this.tabPageIdxPatcher.Controls.Add(this.grpPatcherEdit);
 
-            this.lblPatchIndexLbl.Text = "Index:";
+            this.lblPatchIndexLbl.Text = "索引：";
             this.lblPatchIndexLbl.Location = new System.Drawing.Point(12, 30);
             this.lblPatchIndexLbl.AutoSize = true;
             this.lblPatchIndexLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2337,7 +2337,7 @@
             this.tbPatchIndex.TabIndex = 1;
             this.grpPatcherEdit.Controls.Add(this.tbPatchIndex);
 
-            this.lblPatchLookupLbl.Text = "Lookup:";
+            this.lblPatchLookupLbl.Text = "查找：";
             this.lblPatchLookupLbl.Location = new System.Drawing.Point(170, 30);
             this.lblPatchLookupLbl.AutoSize = true;
             this.lblPatchLookupLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2351,7 +2351,7 @@
             this.tbPatchLookup.TabIndex = 3;
             this.grpPatcherEdit.Controls.Add(this.tbPatchLookup);
 
-            this.lblPatchSizeLbl.Text = "Size:";
+            this.lblPatchSizeLbl.Text = "大小：";
             this.lblPatchSizeLbl.Location = new System.Drawing.Point(380, 30);
             this.lblPatchSizeLbl.AutoSize = true;
             this.lblPatchSizeLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2365,7 +2365,7 @@
             this.tbPatchSize.TabIndex = 5;
             this.grpPatcherEdit.Controls.Add(this.tbPatchSize);
 
-            this.lblPatchUnknownLbl.Text = "Unknown:";
+            this.lblPatchUnknownLbl.Text = "未知：";
             this.lblPatchUnknownLbl.Location = new System.Drawing.Point(550, 30);
             this.lblPatchUnknownLbl.AutoSize = true;
             this.lblPatchUnknownLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2379,7 +2379,7 @@
             this.tbPatchUnknown.TabIndex = 7;
             this.grpPatcherEdit.Controls.Add(this.tbPatchUnknown);
 
-            this.BtnPatchEntry.Text = "Eintrag patchen";
+            this.BtnPatchEntry.Text = "修补条目";
             this.BtnPatchEntry.Location = new System.Drawing.Point(12, 58);
             this.BtnPatchEntry.Size = new System.Drawing.Size(180, 28);
             this.BtnPatchEntry.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -2387,7 +2387,7 @@
             this.BtnPatchEntry.Click += new System.EventHandler(this.BtnPatchEntry_Click);
             this.grpPatcherEdit.Controls.Add(this.BtnPatchEntry);
 
-            this.BtnClearEntry.Text = "Eintrag leeren";
+            this.BtnClearEntry.Text = "清空条目";
             this.BtnClearEntry.Location = new System.Drawing.Point(205, 58);
             this.BtnClearEntry.Size = new System.Drawing.Size(160, 28);
             this.BtnClearEntry.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2395,14 +2395,14 @@
             this.BtnClearEntry.Click += new System.EventHandler(this.BtnClearEntry_Click);
             this.grpPatcherEdit.Controls.Add(this.BtnClearEntry);
 
-            this.grpPatcherRange.Text = "Eintraege-Bereich lesen";
+            this.grpPatcherRange.Text = "读取条目范围";
             this.grpPatcherRange.Location = new System.Drawing.Point(10, 191);
             this.grpPatcherRange.Size = new System.Drawing.Size(920, 75);
             this.grpPatcherRange.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpPatcherRange.TabIndex = 2;
             this.tabPageIdxPatcher.Controls.Add(this.grpPatcherRange);
 
-            this.lblPatchRangeFromLbl.Text = "Von Index:";
+            this.lblPatchRangeFromLbl.Text = "起始索引：";
             this.lblPatchRangeFromLbl.Location = new System.Drawing.Point(12, 30);
             this.lblPatchRangeFromLbl.AutoSize = true;
             this.lblPatchRangeFromLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2416,7 +2416,7 @@
             this.tbPatchRangeFrom.TabIndex = 1;
             this.grpPatcherRange.Controls.Add(this.tbPatchRangeFrom);
 
-            this.lblPatchRangeCountLbl.Text = "Anzahl:";
+            this.lblPatchRangeCountLbl.Text = "数量：";
             this.lblPatchRangeCountLbl.Location = new System.Drawing.Point(200, 30);
             this.lblPatchRangeCountLbl.AutoSize = true;
             this.lblPatchRangeCountLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2430,7 +2430,7 @@
             this.tbPatchRangeCount.TabIndex = 3;
             this.grpPatcherRange.Controls.Add(this.tbPatchRangeCount);
 
-            this.BtnReadRange.Text = "Bereich anzeigen";
+            this.BtnReadRange.Text = "显示范围";
             this.BtnReadRange.Location = new System.Drawing.Point(360, 25);
             this.BtnReadRange.Size = new System.Drawing.Size(180, 28);
             this.BtnReadRange.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2438,7 +2438,7 @@
             this.BtnReadRange.Click += new System.EventHandler(this.BtnReadRange_Click);
             this.grpPatcherRange.Controls.Add(this.BtnReadRange);
 
-            this.grpPatcherOutput.Text = "Ausgabe";
+            this.grpPatcherOutput.Text = "输出";
             this.grpPatcherOutput.Location = new System.Drawing.Point(10, 274);
             this.grpPatcherOutput.Size = new System.Drawing.Size(920, 337);
             this.grpPatcherOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -2455,22 +2455,22 @@
             this.grpPatcherOutput.Controls.Add(this.textBoxPatcherOutput);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 18 – BATCH SETUP
+            // 选项卡18 – 批量设置
             // ════════════════════════════════════════════════════════════════
-            this.tabPageBatch.Text = "Batch Setup";
+            this.tabPageBatch.Text = "批量设置";
             this.tabPageBatch.Size = new System.Drawing.Size(946, 638);
             this.tabPageBatch.TabIndex = 17;
             this.tabPageBatch.UseVisualStyleBackColor = true;
 
-            this.grpBatchConfig.Text = "Konfiguration  -  alle Shard-Dateien auf einmal erstellen";
+            this.grpBatchConfig.Text = "配置 - 一次性创建所有分片文件";
             this.grpBatchConfig.Location = new System.Drawing.Point(10, 10);
             this.grpBatchConfig.Size = new System.Drawing.Size(920, 280);
             this.grpBatchConfig.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpBatchConfig.TabIndex = 0;
             this.tabPageBatch.Controls.Add(this.grpBatchConfig);
 
-            // Row 1
-            this.lblBatchMapWLbl.Text = "Map Breite:";
+            // 第1行
+            this.lblBatchMapWLbl.Text = "地图宽度：";
             this.lblBatchMapWLbl.Location = new System.Drawing.Point(12, 28);
             this.lblBatchMapWLbl.AutoSize = true;
             this.lblBatchMapWLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2484,7 +2484,7 @@
             this.tbBatchMapW.TabIndex = 1;
             this.grpBatchConfig.Controls.Add(this.tbBatchMapW);
 
-            this.lblBatchMapHLbl.Text = "Hoehe:";
+            this.lblBatchMapHLbl.Text = "高度：";
             this.lblBatchMapHLbl.Location = new System.Drawing.Point(200, 28);
             this.lblBatchMapHLbl.AutoSize = true;
             this.lblBatchMapHLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2498,7 +2498,7 @@
             this.tbBatchMapH.TabIndex = 3;
             this.grpBatchConfig.Controls.Add(this.tbBatchMapH);
 
-            this.lblBatchMapIdxLbl.Text = "Map-Index:";
+            this.lblBatchMapIdxLbl.Text = "地图索引：";
             this.lblBatchMapIdxLbl.Location = new System.Drawing.Point(360, 28);
             this.lblBatchMapIdxLbl.AutoSize = true;
             this.lblBatchMapIdxLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2512,8 +2512,8 @@
             this.tbBatchMapIdx.TabIndex = 5;
             this.grpBatchConfig.Controls.Add(this.tbBatchMapIdx);
 
-            // Row 2
-            this.lblBatchArtLbl.Text = "Art-Eintraege:";
+            // 第2行
+            this.lblBatchArtLbl.Text = "物品条目数：";
             this.lblBatchArtLbl.Location = new System.Drawing.Point(12, 62);
             this.lblBatchArtLbl.AutoSize = true;
             this.lblBatchArtLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2527,7 +2527,7 @@
             this.tbBatchArtCount.TabIndex = 7;
             this.grpBatchConfig.Controls.Add(this.tbBatchArtCount);
 
-            this.lblBatchSoundLbl.Text = "Sound-Slots:";
+            this.lblBatchSoundLbl.Text = "声音槽位数：";
             this.lblBatchSoundLbl.Location = new System.Drawing.Point(215, 62);
             this.lblBatchSoundLbl.AutoSize = true;
             this.lblBatchSoundLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2541,7 +2541,7 @@
             this.tbBatchSoundCount.TabIndex = 9;
             this.grpBatchConfig.Controls.Add(this.tbBatchSoundCount);
 
-            this.lblBatchGumpLbl.Text = "Gump-Eintraege:";
+            this.lblBatchGumpLbl.Text = "Gump 条目数：";
             this.lblBatchGumpLbl.Location = new System.Drawing.Point(420, 62);
             this.lblBatchGumpLbl.AutoSize = true;
             this.lblBatchGumpLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2555,7 +2555,7 @@
             this.tbBatchGumpCount.TabIndex = 11;
             this.grpBatchConfig.Controls.Add(this.tbBatchGumpCount);
 
-            this.lblBatchMultiLbl.Text = "Multi-Eintraege:";
+            this.lblBatchMultiLbl.Text = "Multi 条目数：";
             this.lblBatchMultiLbl.Location = new System.Drawing.Point(640, 62);
             this.lblBatchMultiLbl.AutoSize = true;
             this.lblBatchMultiLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2569,8 +2569,8 @@
             this.tbBatchMultiCount.TabIndex = 13;
             this.grpBatchConfig.Controls.Add(this.tbBatchMultiCount);
 
-            // Row 3
-            this.lblBatchTileLandLbl.Text = "TileData Land-Gruppen:";
+            // 第3行
+            this.lblBatchTileLandLbl.Text = "TileData 地形组数：";
             this.lblBatchTileLandLbl.Location = new System.Drawing.Point(12, 97);
             this.lblBatchTileLandLbl.AutoSize = true;
             this.lblBatchTileLandLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2584,7 +2584,7 @@
             this.tbBatchTileLand.TabIndex = 15;
             this.grpBatchConfig.Controls.Add(this.tbBatchTileLand);
 
-            this.lblBatchTileStaticLbl.Text = "Static-Gruppen:";
+            this.lblBatchTileStaticLbl.Text = "静态组数：";
             this.lblBatchTileStaticLbl.Location = new System.Drawing.Point(300, 97);
             this.lblBatchTileStaticLbl.AutoSize = true;
             this.lblBatchTileStaticLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2598,8 +2598,8 @@
             this.tbBatchTileStatic.TabIndex = 17;
             this.grpBatchConfig.Controls.Add(this.tbBatchTileStatic);
 
-            // Row 4 – Skills
-            this.checkBoxBatchSkills.Text = "Skills erstellen";
+            // 第4行 – 技能
+            this.checkBoxBatchSkills.Text = "创建技能";
             this.checkBoxBatchSkills.Checked = true;
             this.checkBoxBatchSkills.Location = new System.Drawing.Point(12, 130);
             this.checkBoxBatchSkills.AutoSize = true;
@@ -2607,7 +2607,7 @@
             this.checkBoxBatchSkills.TabIndex = 18;
             this.grpBatchConfig.Controls.Add(this.checkBoxBatchSkills);
 
-            this.checkBoxBatchDefaultSkills.Text = "Standard-Skills (58 UO-Skills)";
+            this.checkBoxBatchDefaultSkills.Text = "标准技能（58 个 UO 技能）";
             this.checkBoxBatchDefaultSkills.Checked = true;
             this.checkBoxBatchDefaultSkills.Location = new System.Drawing.Point(155, 130);
             this.checkBoxBatchDefaultSkills.AutoSize = true;
@@ -2615,7 +2615,7 @@
             this.checkBoxBatchDefaultSkills.TabIndex = 19;
             this.grpBatchConfig.Controls.Add(this.checkBoxBatchDefaultSkills);
 
-            this.lblBatchSkillCountLbl.Text = "Skill-Anzahl (leer):";
+            this.lblBatchSkillCountLbl.Text = "技能数量（空）：";
             this.lblBatchSkillCountLbl.Location = new System.Drawing.Point(400, 131);
             this.lblBatchSkillCountLbl.AutoSize = true;
             this.lblBatchSkillCountLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2629,14 +2629,14 @@
             this.tbBatchSkillCount.TabIndex = 21;
             this.grpBatchConfig.Controls.Add(this.tbBatchSkillCount);
 
-            this.grpBatchActions.Text = "Ausfuehren";
+            this.grpBatchActions.Text = "执行";
             this.grpBatchActions.Location = new System.Drawing.Point(10, 298);
             this.grpBatchActions.Size = new System.Drawing.Size(920, 70);
             this.grpBatchActions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpBatchActions.TabIndex = 1;
             this.tabPageBatch.Controls.Add(this.grpBatchActions);
 
-            this.btnBatchCreate.Text = "ALLE DATEIEN ERSTELLEN";
+            this.btnBatchCreate.Text = "创建所有文件";
             this.btnBatchCreate.Location = new System.Drawing.Point(12, 22);
             this.btnBatchCreate.Size = new System.Drawing.Size(300, 35);
             this.btnBatchCreate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -2655,7 +2655,7 @@
             this.lblBatchStatus.TabIndex = 1;
             this.grpBatchActions.Controls.Add(this.lblBatchStatus);
 
-            this.grpBatchLog.Text = "Fortschritts-Log";
+            this.grpBatchLog.Text = "进度日志";
             this.grpBatchLog.Location = new System.Drawing.Point(10, 376);
             this.grpBatchLog.Size = new System.Drawing.Size(920, 235);
             this.grpBatchLog.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -2672,21 +2672,21 @@
             this.grpBatchLog.Controls.Add(this.textBoxBatchLog);
 
             // ════════════════════════════════════════════════════════════════
-            // TAB 19 – HEX VIEWER
+            // 选项卡19 – 十六进制查看器
             // ════════════════════════════════════════════════════════════════
-            this.tabPageHexViewer.Text = "Hex Viewer";
+            this.tabPageHexViewer.Text = "十六进制查看器";
             this.tabPageHexViewer.Size = new System.Drawing.Size(946, 638);
             this.tabPageHexViewer.TabIndex = 18;
             this.tabPageHexViewer.UseVisualStyleBackColor = true;
 
-            this.grpHexFile.Text = "Datei waehlen";
+            this.grpHexFile.Text = "选择文件";
             this.grpHexFile.Location = new System.Drawing.Point(10, 10);
             this.grpHexFile.Size = new System.Drawing.Size(920, 90);
             this.grpHexFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpHexFile.TabIndex = 0;
             this.tabPageHexViewer.Controls.Add(this.grpHexFile);
 
-            this.lblHexFilePathLbl.Text = "Datei:";
+            this.lblHexFilePathLbl.Text = "文件：";
             this.lblHexFilePathLbl.Location = new System.Drawing.Point(12, 28);
             this.lblHexFilePathLbl.AutoSize = true;
             this.lblHexFilePathLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2699,7 +2699,7 @@
             this.tbHexFilePath.TabIndex = 1;
             this.grpHexFile.Controls.Add(this.tbHexFilePath);
 
-            this.BtnHexBrowse.Text = "Oeffnen ...";
+            this.BtnHexBrowse.Text = "打开 ...";
             this.BtnHexBrowse.Location = new System.Drawing.Point(785, 23);
             this.BtnHexBrowse.Size = new System.Drawing.Size(120, 26);
             this.BtnHexBrowse.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2715,14 +2715,14 @@
             this.lblHexFileInfo.TabIndex = 3;
             this.grpHexFile.Controls.Add(this.lblHexFileInfo);
 
-            this.grpHexRead.Text = "Hex lesen";
+            this.grpHexRead.Text = "读取十六进制";
             this.grpHexRead.Location = new System.Drawing.Point(10, 108);
             this.grpHexRead.Size = new System.Drawing.Size(920, 75);
             this.grpHexRead.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpHexRead.TabIndex = 1;
             this.tabPageHexViewer.Controls.Add(this.grpHexRead);
 
-            this.lblHexOffsetLbl.Text = "Offset (0x...):";
+            this.lblHexOffsetLbl.Text = "偏移量 (0x...)：";
             this.lblHexOffsetLbl.Location = new System.Drawing.Point(12, 30);
             this.lblHexOffsetLbl.AutoSize = true;
             this.lblHexOffsetLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2736,7 +2736,7 @@
             this.tbHexOffset.TabIndex = 1;
             this.grpHexRead.Controls.Add(this.tbHexOffset);
 
-            this.lblHexLengthLbl.Text = "Laenge (Bytes):";
+            this.lblHexLengthLbl.Text = "长度（字节）：";
             this.lblHexLengthLbl.Location = new System.Drawing.Point(255, 30);
             this.lblHexLengthLbl.AutoSize = true;
             this.lblHexLengthLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2750,7 +2750,7 @@
             this.tbHexLength.TabIndex = 3;
             this.grpHexRead.Controls.Add(this.tbHexLength);
 
-            this.BtnHexRead.Text = "Hex lesen";
+            this.BtnHexRead.Text = "读取十六进制";
             this.BtnHexRead.Location = new System.Drawing.Point(475, 25);
             this.BtnHexRead.Size = new System.Drawing.Size(140, 28);
             this.BtnHexRead.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -2758,7 +2758,7 @@
             this.BtnHexRead.Click += new System.EventHandler(this.BtnHexRead_Click);
             this.grpHexRead.Controls.Add(this.BtnHexRead);
 
-            this.BtnHexFileInfo.Text = "Datei-Info";
+            this.BtnHexFileInfo.Text = "文件信息";
             this.BtnHexFileInfo.Location = new System.Drawing.Point(625, 25);
             this.BtnHexFileInfo.Size = new System.Drawing.Size(140, 28);
             this.BtnHexFileInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2766,14 +2766,14 @@
             this.BtnHexFileInfo.Click += new System.EventHandler(this.BtnHexFileInfo_Click);
             this.grpHexRead.Controls.Add(this.BtnHexFileInfo);
 
-            this.grpHexSearch.Text = "Byte-Pattern suchen";
+            this.grpHexSearch.Text = "搜索字节模式";
             this.grpHexSearch.Location = new System.Drawing.Point(10, 191);
             this.grpHexSearch.Size = new System.Drawing.Size(920, 70);
             this.grpHexSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.grpHexSearch.TabIndex = 2;
             this.tabPageHexViewer.Controls.Add(this.grpHexSearch);
 
-            this.lblHexPatternLbl.Text = "Hex-Pattern (z.B. FF00AB):";
+            this.lblHexPatternLbl.Text = "十六进制模式（例如 FF00AB）：";
             this.lblHexPatternLbl.Location = new System.Drawing.Point(12, 28);
             this.lblHexPatternLbl.AutoSize = true;
             this.lblHexPatternLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -2786,7 +2786,7 @@
             this.tbHexPattern.TabIndex = 1;
             this.grpHexSearch.Controls.Add(this.tbHexPattern);
 
-            this.BtnHexSearch.Text = "Suchen";
+            this.BtnHexSearch.Text = "搜索";
             this.BtnHexSearch.Location = new System.Drawing.Point(480, 23);
             this.BtnHexSearch.Size = new System.Drawing.Size(140, 28);
             this.BtnHexSearch.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -2794,7 +2794,7 @@
             this.BtnHexSearch.Click += new System.EventHandler(this.BtnHexSearch_Click);
             this.grpHexSearch.Controls.Add(this.BtnHexSearch);
 
-            this.grpHexOutput.Text = "Ausgabe";
+            this.grpHexOutput.Text = "输出";
             this.grpHexOutput.Location = new System.Drawing.Point(10, 269);
             this.grpHexOutput.Size = new System.Drawing.Size(920, 342);
             this.grpHexOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -2811,7 +2811,7 @@
             this.grpHexOutput.Controls.Add(this.textBoxHexOutput);
 
             // ════════════════════════════════════════════════════════════════
-            // RESUME
+            // 恢复布局
             // ════════════════════════════════════════════════════════════════
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPalette)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -2821,7 +2821,7 @@
 
         #endregion
 
-        // ── Field Declarations ───────────────────────────────────────────────
+        // ── 字段声明 ───────────────────────────────────────────────
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusLabel;
@@ -2829,7 +2829,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
 
-        // Existing tabs
+        // 现有选项卡
         private System.Windows.Forms.TabPage tabPageCreateMuls;
         private System.Windows.Forms.TabPage tabPageReadMuls;
         private System.Windows.Forms.TabPage tabPageTileData;
@@ -2842,7 +2842,7 @@
         private System.Windows.Forms.TabPage tabPageSound;
         private System.Windows.Forms.TabPage tabPageGump;
 
-        // New tabs
+        // 新增选项卡
         private System.Windows.Forms.TabPage tabPageHues;
         private System.Windows.Forms.TabPage tabPageMap;
         private System.Windows.Forms.TabPage tabPageMulti;
@@ -2852,7 +2852,7 @@
         private System.Windows.Forms.TabPage tabPageBatch;
         private System.Windows.Forms.TabPage tabPageHexViewer;
 
-        // Tab 1
+        // 选项卡1
         private System.Windows.Forms.GroupBox grpCreateMulsDir, grpCreateMulsCount, grpCreateMulsButtons, grpRename, grpCreateOutput;
         private System.Windows.Forms.TextBox textBox1, textBox2;
         private System.Windows.Forms.Button BtFileOrder;
@@ -2863,13 +2863,13 @@
         private System.Windows.Forms.ComboBox ComboBoxMuls;
         private System.Windows.Forms.Label lbCreatedMul;
 
-        // Tab 2
+        // 选项卡2
         private System.Windows.Forms.GroupBox grpReadMulsActions, grpReadMulsResult, grpReadSingle;
         private System.Windows.Forms.Button BtnCountEntries, BtnShowInfo, BtnReadArtIdx;
         private System.Windows.Forms.Label lblEntryCount, lblIndexHint;
         private System.Windows.Forms.TextBox textBoxInfo, textBoxIndex;
 
-        // Tab 3
+        // 选项卡3
         private System.Windows.Forms.GroupBox grpTileDataDir, grpTileDataConfig, grpTileDataQuick;
         private System.Windows.Forms.GroupBox grpTileDataRead, grpTileDataIndex, grpTileDataOutput;
         private System.Windows.Forms.TextBox tbDirTileData, tblandTileGroups, tbstaticTileGroups;
@@ -2883,14 +2883,14 @@
         private System.Windows.Forms.Label lbTileDataCreate;
         private System.Windows.Forms.CheckBox checkBoxTileData;
 
-        // Tab 4
+        // 选项卡4
         private System.Windows.Forms.GroupBox grpReadOutActions, grpReadOutInfo;
         private System.Windows.Forms.Button ButtonReadTileData, ButtonReadLandTileData, ButtonReadStaticTileData;
         private System.Windows.Forms.Label lblSelectedEntry, lblReadOutIdxLbl;
         private System.Windows.Forms.ListView listViewTileData;
         private System.Windows.Forms.TextBox textBoxOutput, textBoxTileDataInfo;
 
-        // Tab 5
+        // 选项卡5
         private System.Windows.Forms.GroupBox grpTexConfig, grpTexActions, grpTexOutput;
         private System.Windows.Forms.Label lblTexCountLbl;
         private System.Windows.Forms.TextBox tbIndexCountTexture;
@@ -2898,21 +2898,21 @@
         private System.Windows.Forms.CheckBox checkBoxTexture;
         private System.Windows.Forms.Button BtCreateTextur, BtCreateIndexes;
 
-        // Tab 6
+        // 选项卡6
         private System.Windows.Forms.GroupBox grpRadarConfig, grpRadarActions, grpRadarOutput;
         private System.Windows.Forms.Label lblRadarCountLbl;
         private System.Windows.Forms.TextBox indexCountTextBox;
         private System.Windows.Forms.Label lblRadarCountHint, lbRadarColor;
         private System.Windows.Forms.Button CreateFileButtonRadarColor;
 
-        // Tab 7
+        // 选项卡7
         private System.Windows.Forms.GroupBox grpPaletteCreate, grpPaletteLoad, grpPaletteValues;
         private System.Windows.Forms.Button BtCreatePalette, BtCreatePaletteFull, LoadPaletteButton;
         private System.Windows.Forms.Label lbCreatePalette, lbCreateColorPalette, lblPalettePreview;
         private System.Windows.Forms.PictureBox pictureBoxPalette;
         private System.Windows.Forms.TextBox textBoxRgbValues;
 
-        // Tab 8
+        // 选项卡8
         private System.Windows.Forms.GroupBox grpAnimSource, grpAnimOutput, grpAnimCreature;
         private System.Windows.Forms.GroupBox grpAnimActions, grpAnimInfo, grpAnimLog;
         private System.Windows.Forms.TextBox tbfilename, txtOutputDirectory, txtOutputFilename;
@@ -2927,7 +2927,7 @@
         private System.Windows.Forms.TextBox txtData, tbProcessAminidx;
         private System.Windows.Forms.Label lblNewIdCount;
 
-        // Tab 9
+        // 选项卡9
         private System.Windows.Forms.GroupBox grpArtCreate, grpArtCustom, grpArtSplit, grpArtRead, grpArtLog;
         private System.Windows.Forms.Button BtnCreateArtIdx, BtnCreateArtIdx100K, BtnCreateArtIdx150K;
         private System.Windows.Forms.Button BtnCreateArtIdx200K, BtnCreateArtIdx250K, BtnCreateArtIdx500K;
@@ -2939,26 +2939,26 @@
         private System.Windows.Forms.Label lblIndexCount;
         private System.Windows.Forms.TextBox infoARTIDXMULID;
 
-        // Tab 10
+        // 选项卡10
         private System.Windows.Forms.GroupBox grpSoundConfig, grpSoundActions, grpSoundOutput;
         private System.Windows.Forms.Label lblSoundCountLbl;
         private System.Windows.Forms.TextBox SoundIDXMul;
         private System.Windows.Forms.Label lblSoundCountHint, IndexSizeLabel;
         private System.Windows.Forms.Button CreateOrgSoundMul, ReadIndexSize;
 
-        // Tab 11
+        // 选项卡11
         private System.Windows.Forms.GroupBox grpGumpConfig, grpGumpActions, grpGumpOutput;
         private System.Windows.Forms.Label lblGumpCountLbl;
         private System.Windows.Forms.TextBox IndexSizeTextBox;
         private System.Windows.Forms.Label lblGumpCountHint, gumpLabel;
         private System.Windows.Forms.Button CreateGumpButton, ReadGumpButton;
 
-        // Tab 12 – Hues
+        // 选项卡12 – Hues
         private System.Windows.Forms.GroupBox grpHuesActions, grpHuesOutput;
         private System.Windows.Forms.Button BtnCreateHues, BtnReadHues;
         private System.Windows.Forms.Label lblHuesOutput;
 
-        // Tab 13 – Map/Statics
+        // 选项卡13 – 地图/静态
         private System.Windows.Forms.GroupBox grpMapConfig, grpMapActions, grpMapOutput;
         private System.Windows.Forms.Label lblMapSizeComboLbl;
         private System.Windows.Forms.ComboBox comboMapSize;
@@ -2971,7 +2971,7 @@
         private System.Windows.Forms.Label lblMapSizeInfo, lblMapOutput;
         private System.Windows.Forms.Button BtnCreateMap, BtnCreateStatics, BtnCreateMapAndStatics;
 
-        // Tab 14 – Multi
+        // 选项卡14 – Multi
         private System.Windows.Forms.GroupBox grpMultiConfig, grpMultiActions, grpMultiOutput;
         private System.Windows.Forms.Label lblMultiCountLbl;
         private System.Windows.Forms.TextBox tbMultiCount;
@@ -2981,7 +2981,7 @@
         private System.Windows.Forms.Button BtnCreateMulti, BtnReadMulti;
         private System.Windows.Forms.Label lblMultiOutput;
 
-        // Tab 15 – Skills
+        // 选项卡15 – 技能
         private System.Windows.Forms.GroupBox grpSkillsConfig, grpSkillsActions, grpSkillsOutput;
         private System.Windows.Forms.Label lblSkillCountLbl;
         private System.Windows.Forms.TextBox tbSkillCount;
@@ -2989,13 +2989,13 @@
         private System.Windows.Forms.Label lblSkillsOutput;
         private System.Windows.Forms.TextBox textBoxSkillsInfo;
 
-        // Tab 16 – Validator
+        // 选项卡16 – 验证器
         private System.Windows.Forms.GroupBox grpValidatorActions, grpValidatorOutput;
         private System.Windows.Forms.Button BtnValidate, BtnCompareDirectories;
         private System.Windows.Forms.Label lblValidatorStatus;
         private System.Windows.Forms.TextBox textBoxValidatorOutput;
 
-        // Tab 17 – IDX Patcher
+        // 选项卡17 – IDX 修补器
         private System.Windows.Forms.GroupBox grpPatcherFile, grpPatcherEdit, grpPatcherRange, grpPatcherOutput;
         private System.Windows.Forms.Label lblPatchIdxLbl;
         private System.Windows.Forms.TextBox tbPatchIdxPath;
@@ -3016,7 +3016,7 @@
         private System.Windows.Forms.Button BtnReadRange;
         private System.Windows.Forms.TextBox textBoxPatcherOutput;
 
-        // Tab 18 – Batch Setup
+        // 选项卡18 – 批量设置
         private System.Windows.Forms.GroupBox grpBatchConfig, grpBatchActions, grpBatchLog;
         private System.Windows.Forms.Label lblBatchMapWLbl;
         private System.Windows.Forms.TextBox tbBatchMapW;
@@ -3043,7 +3043,7 @@
         private System.Windows.Forms.Label lblBatchStatus;
         private System.Windows.Forms.TextBox textBoxBatchLog;
 
-        // Tab 19 – Hex Viewer
+        // 选项卡19 – 十六进制查看器
         private System.Windows.Forms.GroupBox grpHexFile, grpHexRead, grpHexSearch, grpHexOutput;
         private System.Windows.Forms.Label lblHexFilePathLbl;
         private System.Windows.Forms.TextBox tbHexFilePath;

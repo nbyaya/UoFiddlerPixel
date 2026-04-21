@@ -2,10 +2,10 @@
 //  *
 //  * $Author: Nikodemus
 //  * 
-//  * "THE WINE-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a wine in return.
+//  * "葡萄酒许可证"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯葡萄酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -33,56 +33,56 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             InitializeComponent();
 
-            // Update the lbDaysTo and lbWeekendDays and lbWorkingDays labels when the application starts
+            // 应用程序启动时更新 lbDaysTo、lbWeekendDays 和 lbWorkingDays 标签
             UpdateDaysTo();
             UpdateWeekendDays();
             UpdateWorkingDays();
 
-            // Displays the current calendar week when the application starts
-            lbCalendarWeek.Text = "Calendar Week: " + GetCalendarWeek(DateTime.Now).ToString();
+            // 应用程序启动时显示当前日历周
+            lbCalendarWeek.Text = "日历周: " + GetCalendarWeek(DateTime.Now).ToString();
 
-            // Displays the current date when the application starts
-            lbDate.Text = "Current Date: " + DateTime.Now.ToShortDateString();
+            // 应用程序启动时显示当前日期
+            lbDate.Text = "当前日期: " + DateTime.Now.ToShortDateString();
 
             timer1 = new Timer();
-            timer1.Interval = 1000; // Sets the interval to 1 second
-            timer1.Tick += new EventHandler(this.timer1_Tick); // Adds an event handler
-            timer1.Start(); // Starts the timer
+            timer1.Interval = 1000; // 设置间隔为1秒
+            timer1.Tick += new EventHandler(this.timer1_Tick); // 添加事件处理程序
+            timer1.Start(); // 启动计时器
 
-            // Sets the highlighted data
+            // 设置高亮日期
             monthCalendar1.BoldedDates = GetNotedDates().ToArray();
 
-            // Creates a new ToolTip control
+            // 创建一个新的 ToolTip 控件
             toolTip = new ToolTip();
             toolTip.OwnerDraw = true;
             toolTip.Draw += new DrawToolTipEventHandler(toolTip_Draw);
             toolTip.Popup += new PopupEventHandler(toolTip_Popup);
 
-            // Erstellt einen neuen Timer
+            // 创建一个新的计时器
             Timer timer = new Timer();
-            timer.Interval = 1000; // Sets the interval to 1 second
+            timer.Interval = 1000; // 设置间隔为1秒
             timer.Tick += (sender, e) =>
             {
-                // Gets the selected date
+                // 获取选中的日期
                 string date = monthCalendar1.SelectionStart.ToShortDateString();
 
-                // Gets the note for the selected date
+                // 获取选中日期的备注
                 string note = GetNoteForDate(date);
 
-                // Sets the tooltip text
+                // 设置工具提示文本
                 toolTip.SetToolTip(monthCalendar1, note);
 
-                // Stops the timer
+                // 停止计时器
                 timer.Stop();
             };
 
-            // Fügt den MouseHover- und MouseLeave-Ereignishandler hinzu
+            // 添加 MouseHover 和 MouseLeave 事件处理程序
             monthCalendar1.MouseHover += (sender, e) => timer.Start();
             monthCalendar1.MouseLeave += (sender, e) => timer.Stop();
         }
 
-        #region calendar week
-        // Function for calculating the calendar week
+        #region 日历周
+        // 计算日历周的函数
         public static int GetCalendarWeek(DateTime date)
         {
             CultureInfo currentCulture = CultureInfo.CurrentCulture;
@@ -95,60 +95,60 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #region monthCalendar_DateChange
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            // Displays the selected date in the label
-            lbDate.Text = "Selected Date: " + monthCalendar1.SelectionStart.ToShortDateString();
+            // 在标签中显示选中的日期
+            lbDate.Text = "选中日期: " + monthCalendar1.SelectionStart.ToShortDateString();
 
-            // Calculates the calendar week of the selected date and displays it in the label
+            // 计算选中日期的日历周并在标签中显示
             int calendarWeek = GetCalendarWeek(monthCalendar1.SelectionStart);
-            lbCalendarWeek.Text = "Calendar Week: " + calendarWeek.ToString();
+            lbCalendarWeek.Text = "日历周: " + calendarWeek.ToString();
 
-            // Update the lbDaysTo label
+            // 更新 lbDaysTo 标签
             UpdateDaysTo();
 
-            // Update the lbWeekendDays label
+            // 更新 lbWeekendDays 标签
             UpdateWeekendDays();
 
-            // Update the lbWorkingDays label
+            // 更新 lbWorkingDays 标签
             UpdateWorkingDays();
         }
         #endregion
 
-        #region Timer
+        #region 计时器
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // Updates the lbTime label with the current time every second
-            lbTime.Text = "Time: " + DateTime.Now.ToString("HH:mm:ss");
+            // 每秒更新 lbTime 标签为当前时间
+            lbTime.Text = "时间: " + DateTime.Now.ToString("HH:mm:ss");
         }
         #endregion
 
         #region monthCalendarForm_DateSelected
         private void monthCalendarForm_DateSelected(object sender, DateRangeEventArgs e)
         {
-            // Creates a new shape Form
+            // 创建一个新的窗体
             Form noteForm = new Form();
-            noteForm.Text = "Note for " + monthCalendar1.SelectionStart.ToShortDateString();
+            noteForm.Text = "备注 - " + monthCalendar1.SelectionStart.ToShortDateString();
 
-            // Always puts the form in the foreground
+            // 始终将窗体置于最前
             noteForm.TopMost = true;
 
-            // Creates a new RichTextBox
+            // 创建一个新的 RichTextBox
             RichTextBox richTextBox = new RichTextBox();
             richTextBox.Dock = DockStyle.Fill;
             noteForm.Controls.Add(richTextBox);
 
-            // Get the path of the executable file
+            // 获取可执行文件的路径
             string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            // Get the directory of the executable file
+            // 获取可执行文件所在的目录
             string exeDirectory = Path.GetDirectoryName(exePath);
 
-            // Define the directory path
+            // 定义目录路径
             string directoryPath = Path.Combine(exeDirectory, "Data", "Calendar");
-            Directory.CreateDirectory(directoryPath); // Creates the directory if it does not exist
+            Directory.CreateDirectory(directoryPath); // 如果目录不存在则创建
 
-            // Define the file path
+            // 定义文件路径
             string filePath = Path.Combine(directoryPath, "CalendarDateNotes.xml");
 
-            // Define the date
+            // 定义日期
             string date = monthCalendar1.SelectionStart.ToShortDateString();
 
             XDocument doc;
@@ -167,13 +167,13 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 richTextBox.Text = note.Element("text").Value;
             }
 
-            // Creates a new save button
+            // 创建一个新的保存按钮
             Button saveButton = new Button();
-            saveButton.Text = "Save";
+            saveButton.Text = "保存";
             saveButton.Dock = DockStyle.Bottom;
             saveButton.Click += (sender, e) =>
             {
-                // Saves the text from the RichTextBox to an XML file
+                // 将 RichTextBox 中的文本保存到 XML 文件
                 if (note == null)
                 {
                     doc.Root.Add(new XElement("note", new XElement("date", date), new XElement("text", richTextBox.Text)));
@@ -184,62 +184,62 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 }
                 try
                 {
-                    doc.Save(filePath);// Save to the specified file path
+                    doc.Save(filePath); // 保存到指定的文件路径
                 }
                 catch (Exception ex)
                 {
-                    // Handle the exception
-                    MessageBox.Show("An error occurred while saving the file: " + ex.Message);
+                    // 处理异常
+                    MessageBox.Show("保存文件时出错: " + ex.Message);
                 }
 
-                // Updates the highlighted dates in the MonthCalendar control
+                // 更新 MonthCalendar 控件中的高亮日期
                 monthCalendar1.BoldedDates = GetNotedDates().ToArray();
 
-                // Closes the form
+                // 关闭窗体
                 noteForm.Close();
             };
             noteForm.Controls.Add(saveButton);
 
-            // Creates a new delete button
+            // 创建一个新的删除按钮
             Button deleteButton = new Button();
-            deleteButton.Text = "Delete";
+            deleteButton.Text = "删除";
             deleteButton.Dock = DockStyle.Bottom;
             deleteButton.Click += (sender, e) =>
             {
-                // Deletes the entry from the XML file if it exists
+                // 如果存在则从 XML 文件中删除条目
                 if (note != null)
                 {
                     note.Remove();
-                    doc.Save(filePath); // Save to the specified file path
+                    doc.Save(filePath); // 保存到指定的文件路径
 
-                    // Updates the highlighted dates in the MonthCalendar control
+                    // 更新 MonthCalendar 控件中的高亮日期
                     monthCalendar1.BoldedDates = GetNotedDates().ToArray();
                 }
 
-                // Closes the form
+                // 关闭窗体
                 noteForm.Close();
             };
             noteForm.Controls.Add(deleteButton);
 
-            // Displays the shape
+            // 显示窗体
             noteForm.Show();
         }
         #endregion
 
-        #region Hervorgehobene daten 
+        #region 高亮日期
         private List<DateTime> GetNotedDates()
         {
             List<DateTime> notedDates = new List<DateTime>();
 
-            // Get the path of the executable file
+            // 获取可执行文件的路径
             string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            // Get the directory of the executable file
+            // 获取可执行文件所在的目录
             string exeDirectory = Path.GetDirectoryName(exePath);
 
-            // Define the directory path
+            // 定义目录路径
             string directoryPath = Path.Combine(exeDirectory, "Data", "Calendar");
 
-            // Define the file path
+            // 定义文件路径
             string filePath = Path.Combine(directoryPath, "CalendarDateNotes.xml");
 
             try
@@ -256,16 +256,16 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                         }
                         catch (FormatException ex)
                         {
-                            // Handle the exception
-                            MessageBox.Show("Ein Fehler ist aufgetreten beim Parsen des Datums: " + ex.Message);
+                            // 处理异常
+                            MessageBox.Show("解析日期时出错: " + ex.Message);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Handle the exception
-                MessageBox.Show("Ein Fehler ist aufgetreten beim Laden der XML-Datei: " + ex.Message);
+                // 处理异常
+                MessageBox.Show("加载 XML 文件时出错: " + ex.Message);
             }
 
             return notedDates;
@@ -275,29 +275,29 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #region monthCalendar1_MouseHover
         private void monthCalendar1_MouseHover(object sender, EventArgs e)
         {
-            // Gets the selected date
+            // 获取选中的日期
             string date = monthCalendar1.SelectionStart.ToShortDateString();
 
-            // Gets the note for the selected date
+            // 获取选中日期的备注
             string note = GetNoteForDate(date);
 
-            // Sets the tooltip text
+            // 设置工具提示文本
             toolTip.SetToolTip(monthCalendar1, note);
         }
         #endregion
 
-        #region Tooltip
+        #region 工具提示
         private string GetNoteForDate(string date)
         {
-            // Get the path of the executable file
+            // 获取可执行文件的路径
             string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            // Get the directory of the executable file
+            // 获取可执行文件所在的目录
             string exeDirectory = Path.GetDirectoryName(exePath);
 
-            // Define the directory path
+            // 定义目录路径
             string directoryPath = Path.Combine(exeDirectory, "Data", "Calendar");
 
-            // Define the file path
+            // 定义文件路径
             string filePath = Path.Combine(directoryPath, "CalendarDateNotes.xml");
 
             XDocument doc;
@@ -330,68 +330,68 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #region lbDaysTo
         private void UpdateDaysTo()
         {
-            // Get the selected date
+            // 获取选中的日期
             DateTime selectedDate = monthCalendar1.SelectionStart;
 
-            // Calculate the difference between the current date and the selected date
+            // 计算当前日期与选中日期的差值
             TimeSpan difference = selectedDate - DateTime.Now;
 
-            // Update the lbDaysTo label
-            lbDaysTo.Text = "Days to Selected Date: " + difference.Days.ToString();
+            // 更新 lbDaysTo 标签
+            lbDaysTo.Text = "距离选中日期还有: " + difference.Days.ToString() + " 天";
         }
         #endregion
 
         #region lbWeekendDays
         private void UpdateWeekendDays()
         {
-            // Get the current date
+            // 获取当前日期
             DateTime currentDate = DateTime.Now;
 
-            // Get the end of the year
+            // 获取年底
             DateTime endOfYear = new DateTime(currentDate.Year, 12, 31);
 
-            // Initialize a counter for the weekend days
+            // 初始化周末天数计数器
             int weekendDays = 0;
 
-            // Iterate through all days until the end of the year
+            // 遍历到年底的所有天数
             for (DateTime date = currentDate; date <= endOfYear; date = date.AddDays(1))
             {
-                // Check if the day is a weekend day
+                // 检查是否为周末
                 if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
                 {
                     weekendDays++;
                 }
             }
 
-            // Update the lbWeekendDays label
-            lbWeekendDays.Text = "Remaining Weekend Days: " + weekendDays.ToString();
+            // 更新 lbWeekendDays 标签
+            lbWeekendDays.Text = "剩余周末天数: " + weekendDays.ToString();
         }
         #endregion
 
         #region lbWorkingDays
         private void UpdateWorkingDays()
         {
-            // Get the current date
+            // 获取当前日期
             DateTime currentDate = DateTime.Now;
 
-            // Get the end of the year
+            // 获取年底
             DateTime endOfYear = new DateTime(currentDate.Year, 12, 31);
 
-            // Initialize a counter for the working days
+            // 初始化工作日天数计数器
             int workingDays = 0;
 
-            // Iterate through all days until the end of the year
+            // 遍历到年底的所有天数
             for (DateTime date = currentDate; date <= endOfYear; date = date.AddDays(1))
             {
-                // Check if the day is a working day
+                // 检查是否为工作日
                 if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
                 {
                     workingDays++;
                 }
             }
 
-            // Update the lbWorkingDays label
-            lbWorkingDays.Text = "Remaining Working Days: " + workingDays.ToString();
+            // 更新 lbWorkingDays 标签
+            lbWorkingDays.Text = "剩余工作日天数: " + workingDays.ToString();
         }
         #endregion
     }

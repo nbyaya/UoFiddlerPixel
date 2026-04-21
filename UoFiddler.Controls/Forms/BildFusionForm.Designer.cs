@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.Forms
     partial class BildFusionForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Controls.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -45,9 +45,6 @@ namespace UoFiddler.Controls.Forms
             pictureBox256x256 = new System.Windows.Forms.PictureBox();
             comboBoxRubberStamp = new System.Windows.Forms.ComboBox();
             panelPixturebox = new System.Windows.Forms.Panel();
-            checkBox3 = new System.Windows.Forms.CheckBox();
-            checkBox2 = new System.Windows.Forms.CheckBox();
-            checkBox1 = new System.Windows.Forms.CheckBox();
             btnGenerateColorCodes = new System.Windows.Forms.Button();
             richTextBox1 = new System.Windows.Forms.RichTextBox();
             btLoadTilesIntoTiles = new System.Windows.Forms.Button();
@@ -62,8 +59,6 @@ namespace UoFiddler.Controls.Forms
             lb64x64 = new System.Windows.Forms.Label();
             btClipboard = new System.Windows.Forms.Button();
             panelMenu = new System.Windows.Forms.Panel();
-            btClearAll = new System.Windows.Forms.Button();
-            checkBoxAll = new System.Windows.Forms.CheckBox();
             btDirSaveOrder = new System.Windows.Forms.Button();
             btViewLoadBackground = new System.Windows.Forms.Button();
             lb2to1Load = new System.Windows.Forms.Label();
@@ -156,9 +151,6 @@ namespace UoFiddler.Controls.Forms
             // panelPixturebox
             // 
             panelPixturebox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelPixturebox.Controls.Add(checkBox3);
-            panelPixturebox.Controls.Add(checkBox2);
-            panelPixturebox.Controls.Add(checkBox1);
             panelPixturebox.Controls.Add(btnGenerateColorCodes);
             panelPixturebox.Controls.Add(richTextBox1);
             panelPixturebox.Controls.Add(btLoadTilesIntoTiles);
@@ -175,62 +167,32 @@ namespace UoFiddler.Controls.Forms
             panelPixturebox.Size = new System.Drawing.Size(552, 385);
             panelPixturebox.TabIndex = 6;
             // 
-            // checkBox3
-            // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new System.Drawing.Point(520, 94);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new System.Drawing.Size(32, 19);
-            checkBox3.TabIndex = 17;
-            checkBox3.Text = "3";
-            checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new System.Drawing.Point(520, 69);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new System.Drawing.Size(32, 19);
-            checkBox2.TabIndex = 16;
-            checkBox2.Text = "2";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new System.Drawing.Point(520, 44);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(32, 19);
-            checkBox1.TabIndex = 15;
-            checkBox1.Text = "1";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
             // btnGenerateColorCodes
             // 
-            btnGenerateColorCodes.Location = new System.Drawing.Point(226, 321);
+            btnGenerateColorCodes.Location = new System.Drawing.Point(278, 321);
             btnGenerateColorCodes.Name = "btnGenerateColorCodes";
             btnGenerateColorCodes.Size = new System.Drawing.Size(75, 23);
             btnGenerateColorCodes.TabIndex = 14;
-            btnGenerateColorCodes.Text = "Colors";
+            btnGenerateColorCodes.Text = "生成颜色";
             btnGenerateColorCodes.UseVisualStyleBackColor = true;
             btnGenerateColorCodes.Click += btnGenerateColorCodes_Click;
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new System.Drawing.Point(307, 306);
+            richTextBox1.Location = new System.Drawing.Point(359, 306);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new System.Drawing.Size(207, 68);
+            richTextBox1.Size = new System.Drawing.Size(155, 68);
             richTextBox1.TabIndex = 13;
             richTextBox1.Text = "";
             richTextBox1.MouseUp += richTextBox1_MouseUp;
             // 
             // btLoadTilesIntoTiles
             // 
-            btLoadTilesIntoTiles.Location = new System.Drawing.Point(169, 350);
+            btLoadTilesIntoTiles.Location = new System.Drawing.Point(221, 350);
             btLoadTilesIntoTiles.Name = "btLoadTilesIntoTiles";
             btLoadTilesIntoTiles.Size = new System.Drawing.Size(132, 23);
             btLoadTilesIntoTiles.TabIndex = 11;
-            btLoadTilesIntoTiles.Text = "Texture  into Texture";
+            btLoadTilesIntoTiles.Text = "纹理 → 纹理";
             btLoadTilesIntoTiles.UseVisualStyleBackColor = true;
             btLoadTilesIntoTiles.Click += btLoadTilesIntoTiles_Click;
             // 
@@ -253,7 +215,7 @@ namespace UoFiddler.Controls.Forms
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(118, 45);
             label2.TabIndex = 10;
-            label2.Text = "White is transparent, \r\nand black represents \r\nthe transition.";
+            label2.Text = "白色为透明色，\r\n黑色代表过渡。";
             // 
             // btCutTexture
             // 
@@ -261,7 +223,7 @@ namespace UoFiddler.Controls.Forms
             btCutTexture.Name = "btCutTexture";
             btCutTexture.Size = new System.Drawing.Size(111, 23);
             btCutTexture.TabIndex = 7;
-            btCutTexture.Text = "Make Texture";
+            btCutTexture.Text = "生成纹理";
             btCutTexture.UseVisualStyleBackColor = true;
             btCutTexture.Click += btCutTexture_Click;
             // 
@@ -271,7 +233,7 @@ namespace UoFiddler.Controls.Forms
             btLoadForeground.Name = "btLoadForeground";
             btLoadForeground.Size = new System.Drawing.Size(111, 23);
             btLoadForeground.TabIndex = 9;
-            btLoadForeground.Text = "Load Foreground";
+            btLoadForeground.Text = "加载前景";
             btLoadForeground.UseVisualStyleBackColor = true;
             btLoadForeground.Click += btLoadForeground_Click;
             // 
@@ -281,7 +243,7 @@ namespace UoFiddler.Controls.Forms
             btLoadTexture.Name = "btLoadTexture";
             btLoadTexture.Size = new System.Drawing.Size(111, 23);
             btLoadTexture.TabIndex = 8;
-            btLoadTexture.Text = "Load Backend";
+            btLoadTexture.Text = "加载背景";
             btLoadTexture.UseVisualStyleBackColor = true;
             btLoadTexture.Click += btLoadTexture_Click;
             // 
@@ -291,7 +253,7 @@ namespace UoFiddler.Controls.Forms
             BtTextureCut.Name = "BtTextureCut";
             BtTextureCut.Size = new System.Drawing.Size(111, 23);
             BtTextureCut.TabIndex = 6;
-            BtTextureCut.Text = "3 x Cut Texture";
+            BtTextureCut.Text = "3× 裁剪纹理";
             BtTextureCut.UseVisualStyleBackColor = true;
             BtTextureCut.Click += BtTextureCut_Click;
             // 
@@ -328,15 +290,13 @@ namespace UoFiddler.Controls.Forms
             btClipboard.Name = "btClipboard";
             btClipboard.Size = new System.Drawing.Size(84, 23);
             btClipboard.TabIndex = 6;
-            btClipboard.Text = "Clipboard";
+            btClipboard.Text = "剪贴板";
             btClipboard.UseVisualStyleBackColor = true;
             btClipboard.Click += btClipboard_Click;
             // 
             // panelMenu
             // 
             panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelMenu.Controls.Add(btClearAll);
-            panelMenu.Controls.Add(checkBoxAll);
             panelMenu.Controls.Add(btClipboard);
             panelMenu.Controls.Add(btDirSaveOrder);
             panelMenu.Controls.Add(btViewLoadBackground);
@@ -373,33 +333,13 @@ namespace UoFiddler.Controls.Forms
             panelMenu.Size = new System.Drawing.Size(218, 452);
             panelMenu.TabIndex = 7;
             // 
-            // btClearAll
-            // 
-            btClearAll.Location = new System.Drawing.Point(10, 190);
-            btClearAll.Name = "btClearAll";
-            btClearAll.Size = new System.Drawing.Size(75, 23);
-            btClearAll.TabIndex = 35;
-            btClearAll.Text = "Clear All";
-            btClearAll.UseVisualStyleBackColor = true;
-            btClearAll.Click += btClearAll_Click;
-            // 
-            // checkBoxAll
-            // 
-            checkBoxAll.AutoSize = true;
-            checkBoxAll.Location = new System.Drawing.Point(120, 190);
-            checkBoxAll.Name = "checkBoxAll";
-            checkBoxAll.Size = new System.Drawing.Size(40, 19);
-            checkBoxAll.TabIndex = 34;
-            checkBoxAll.Text = "All";
-            checkBoxAll.UseVisualStyleBackColor = true;
-            // 
             // btDirSaveOrder
             // 
             btDirSaveOrder.Location = new System.Drawing.Point(108, 418);
             btDirSaveOrder.Name = "btDirSaveOrder";
             btDirSaveOrder.Size = new System.Drawing.Size(46, 23);
             btDirSaveOrder.TabIndex = 33;
-            btDirSaveOrder.Text = "Dir";
+            btDirSaveOrder.Text = "目录";
             btDirSaveOrder.UseVisualStyleBackColor = true;
             btDirSaveOrder.Click += btDirSaveOrder_Click;
             // 
@@ -409,7 +349,7 @@ namespace UoFiddler.Controls.Forms
             btViewLoadBackground.Name = "btViewLoadBackground";
             btViewLoadBackground.Size = new System.Drawing.Size(43, 23);
             btViewLoadBackground.TabIndex = 32;
-            btViewLoadBackground.Text = "view";
+            btViewLoadBackground.Text = "查看";
             btViewLoadBackground.UseVisualStyleBackColor = true;
             btViewLoadBackground.Click += btViewLoadBackground_Click;
             // 
@@ -420,7 +360,7 @@ namespace UoFiddler.Controls.Forms
             lb2to1Load.Name = "lb2to1Load";
             lb2to1Load.Size = new System.Drawing.Size(31, 15);
             lb2to1Load.TabIndex = 31;
-            lb2to1Load.Text = "2 x 1";
+            lb2to1Load.Text = "2×1";
             // 
             // lbSingleLoad
             // 
@@ -429,7 +369,7 @@ namespace UoFiddler.Controls.Forms
             lbSingleLoad.Name = "lbSingleLoad";
             lbSingleLoad.Size = new System.Drawing.Size(74, 15);
             lbSingleLoad.TabIndex = 30;
-            lbSingleLoad.Text = "Single Load :";
+            lbSingleLoad.Text = "单张加载 :";
             // 
             // label1
             // 
@@ -438,7 +378,7 @@ namespace UoFiddler.Controls.Forms
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(61, 15);
             label1.TabIndex = 29;
-            label1.Text = "Directory :";
+            label1.Text = "目录 :";
             // 
             // lbBackgroundImage
             // 
@@ -447,7 +387,7 @@ namespace UoFiddler.Controls.Forms
             lbBackgroundImage.Name = "lbBackgroundImage";
             lbBackgroundImage.Size = new System.Drawing.Size(107, 15);
             lbBackgroundImage.TabIndex = 28;
-            lbBackgroundImage.Text = "Background Image";
+            lbBackgroundImage.Text = "背景图像";
             // 
             // lbForegroundImage
             // 
@@ -456,7 +396,7 @@ namespace UoFiddler.Controls.Forms
             lbForegroundImage.Name = "lbForegroundImage";
             lbForegroundImage.Size = new System.Drawing.Size(105, 15);
             lbForegroundImage.TabIndex = 27;
-            lbForegroundImage.Text = "Foreground image";
+            lbForegroundImage.Text = "前景图像";
             // 
             // btBackgroundImageLoad
             // 
@@ -464,7 +404,7 @@ namespace UoFiddler.Controls.Forms
             btBackgroundImageLoad.Name = "btBackgroundImageLoad";
             btBackgroundImageLoad.Size = new System.Drawing.Size(47, 23);
             btBackgroundImageLoad.TabIndex = 26;
-            btBackgroundImageLoad.Text = "Dir";
+            btBackgroundImageLoad.Text = "目录";
             btBackgroundImageLoad.UseVisualStyleBackColor = true;
             btBackgroundImageLoad.Click += btBackgroundImageLoad_Click;
             // 
@@ -474,7 +414,7 @@ namespace UoFiddler.Controls.Forms
             btMirror.Name = "btMirror";
             btMirror.Size = new System.Drawing.Size(84, 23);
             btMirror.TabIndex = 23;
-            btMirror.Text = "Mirror";
+            btMirror.Text = "镜像";
             btMirror.UseVisualStyleBackColor = true;
             btMirror.Click += btMirror_Click;
             // 
@@ -485,7 +425,7 @@ namespace UoFiddler.Controls.Forms
             lbDir.Name = "lbDir";
             lbDir.Size = new System.Drawing.Size(61, 15);
             lbDir.TabIndex = 22;
-            lbDir.Text = "Directory :";
+            lbDir.Text = "目录 :";
             // 
             // tbDirBackgroundImage
             // 
@@ -511,7 +451,7 @@ namespace UoFiddler.Controls.Forms
             btViewLoad.Name = "btViewLoad";
             btViewLoad.Size = new System.Drawing.Size(43, 23);
             btViewLoad.TabIndex = 21;
-            btViewLoad.Text = "view";
+            btViewLoad.Text = "查看";
             btViewLoad.UseVisualStyleBackColor = true;
             btViewLoad.Click += btViewLoad_Click;
             // 
@@ -528,7 +468,7 @@ namespace UoFiddler.Controls.Forms
             btLoadRubberStamp.Name = "btLoadRubberStamp";
             btLoadRubberStamp.Size = new System.Drawing.Size(43, 23);
             btLoadRubberStamp.TabIndex = 19;
-            btLoadRubberStamp.Text = "Dir";
+            btLoadRubberStamp.Text = "目录";
             btLoadRubberStamp.UseVisualStyleBackColor = true;
             btLoadRubberStamp.Click += btLoadRubberStamp_Click;
             // 
@@ -573,7 +513,7 @@ namespace UoFiddler.Controls.Forms
             btLoadSingleForeground.Name = "btLoadSingleForeground";
             btLoadSingleForeground.Size = new System.Drawing.Size(84, 23);
             btLoadSingleForeground.TabIndex = 15;
-            btLoadSingleForeground.Text = "Foreground";
+            btLoadSingleForeground.Text = "前景";
             btLoadSingleForeground.UseVisualStyleBackColor = true;
             btLoadSingleForeground.Click += btLoadSingleForeground_Click;
             // 
@@ -583,7 +523,7 @@ namespace UoFiddler.Controls.Forms
             btLoadSingleBackground.Name = "btLoadSingleBackground";
             btLoadSingleBackground.Size = new System.Drawing.Size(84, 23);
             btLoadSingleBackground.TabIndex = 14;
-            btLoadSingleBackground.Text = "Background";
+            btLoadSingleBackground.Text = "背景";
             btLoadSingleBackground.UseVisualStyleBackColor = true;
             btLoadSingleBackground.Click += btLoadSingleBackground_Click;
             // 
@@ -594,7 +534,7 @@ namespace UoFiddler.Controls.Forms
             lbRotate.Name = "lbRotate";
             lbRotate.Size = new System.Drawing.Size(77, 15);
             lbRotate.TabIndex = 13;
-            lbRotate.Text = "Rotate Image";
+            lbRotate.Text = "旋转图像";
             // 
             // lbForeground
             // 
@@ -603,7 +543,7 @@ namespace UoFiddler.Controls.Forms
             lbForeground.Name = "lbForeground";
             lbForeground.Size = new System.Drawing.Size(75, 15);
             lbForeground.TabIndex = 12;
-            lbForeground.Text = "Foreground :";
+            lbForeground.Text = "前景 :";
             // 
             // lbbackground
             // 
@@ -612,7 +552,7 @@ namespace UoFiddler.Controls.Forms
             lbbackground.Name = "lbbackground";
             lbbackground.Size = new System.Drawing.Size(77, 15);
             lbbackground.TabIndex = 11;
-            lbbackground.Text = "Background :";
+            lbbackground.Text = "背景 :";
             // 
             // btLeftOverlayImage
             // 
@@ -620,7 +560,7 @@ namespace UoFiddler.Controls.Forms
             btLeftOverlayImage.Name = "btLeftOverlayImage";
             btLeftOverlayImage.Size = new System.Drawing.Size(46, 23);
             btLeftOverlayImage.TabIndex = 10;
-            btLeftOverlayImage.Text = "Left";
+            btLeftOverlayImage.Text = "左移";
             btLeftOverlayImage.UseVisualStyleBackColor = true;
             btLeftOverlayImage.Click += btLeftOverlayImage_Click;
             // 
@@ -630,7 +570,7 @@ namespace UoFiddler.Controls.Forms
             btRightOverlayImage.Name = "btRightOverlayImage";
             btRightOverlayImage.Size = new System.Drawing.Size(43, 23);
             btRightOverlayImage.TabIndex = 9;
-            btRightOverlayImage.Text = "Right";
+            btRightOverlayImage.Text = "右移";
             btRightOverlayImage.UseVisualStyleBackColor = true;
             btRightOverlayImage.Click += btRightOverlayImage_Click;
             // 
@@ -640,7 +580,7 @@ namespace UoFiddler.Controls.Forms
             btLeftBackgroundImage.Name = "btLeftBackgroundImage";
             btLeftBackgroundImage.Size = new System.Drawing.Size(46, 23);
             btLeftBackgroundImage.TabIndex = 8;
-            btLeftBackgroundImage.Text = "Left";
+            btLeftBackgroundImage.Text = "左移";
             btLeftBackgroundImage.UseVisualStyleBackColor = true;
             btLeftBackgroundImage.Click += btLeftBackgroundImage_Click;
             // 
@@ -650,7 +590,7 @@ namespace UoFiddler.Controls.Forms
             btRightBackgroundImage.Name = "btRightBackgroundImage";
             btRightBackgroundImage.Size = new System.Drawing.Size(43, 23);
             btRightBackgroundImage.TabIndex = 7;
-            btRightBackgroundImage.Text = "Right";
+            btRightBackgroundImage.Text = "右移";
             btRightBackgroundImage.UseVisualStyleBackColor = true;
             btRightBackgroundImage.Click += btRightBackgroundImage_Click;
             // 
@@ -660,7 +600,7 @@ namespace UoFiddler.Controls.Forms
             btSave64x64.Name = "btSave64x64";
             btSave64x64.Size = new System.Drawing.Size(43, 23);
             btSave64x64.TabIndex = 3;
-            btSave64x64.Text = "Save";
+            btSave64x64.Text = "保存";
             btSave64x64.UseVisualStyleBackColor = true;
             btSave64x64.Click += btSave_Click;
             // 
@@ -670,7 +610,7 @@ namespace UoFiddler.Controls.Forms
             btLoad.Name = "btLoad";
             btLoad.Size = new System.Drawing.Size(43, 23);
             btLoad.TabIndex = 6;
-            btLoad.Text = "Load";
+            btLoad.Text = "加载";
             btLoad.UseVisualStyleBackColor = true;
             btLoad.Click += btLoad_Click;
             // 
@@ -703,7 +643,7 @@ namespace UoFiddler.Controls.Forms
             trackBarLabel.Name = "trackBarLabel";
             trackBarLabel.Size = new System.Drawing.Size(39, 15);
             trackBarLabel.TabIndex = 10;
-            trackBarLabel.Text = "Color:";
+            trackBarLabel.Text = "颜色:";
             // 
             // lbNr
             // 
@@ -712,7 +652,7 @@ namespace UoFiddler.Controls.Forms
             lbNr.Name = "lbNr";
             lbNr.Size = new System.Drawing.Size(26, 15);
             lbNr.TabIndex = 11;
-            lbNr.Text = "Pos";
+            lbNr.Text = "位置";
             // 
             // lbColors
             // 
@@ -721,7 +661,7 @@ namespace UoFiddler.Controls.Forms
             lbColors.Name = "lbColors";
             lbColors.Size = new System.Drawing.Size(47, 15);
             lbColors.TabIndex = 12;
-            lbColors.Text = "Colors :";
+            lbColors.Text = "颜色 :";
             // 
             // lbFading
             // 
@@ -730,7 +670,7 @@ namespace UoFiddler.Controls.Forms
             lbFading.Name = "lbFading";
             lbFading.Size = new System.Drawing.Size(49, 15);
             lbFading.TabIndex = 13;
-            lbFading.Text = "Fading :";
+            lbFading.Text = "淡入淡出 :";
             // 
             // trackBarSharp
             // 
@@ -751,7 +691,7 @@ namespace UoFiddler.Controls.Forms
             lbSharp.Name = "lbSharp";
             lbSharp.Size = new System.Drawing.Size(43, 15);
             lbSharp.TabIndex = 15;
-            lbSharp.Text = "Sharp :";
+            lbSharp.Text = "锐化 :";
             // 
             // BildFusionForm
             // 
@@ -771,7 +711,7 @@ namespace UoFiddler.Controls.Forms
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "BildFusionForm";
-            Text = "Texture Picture Fusion";
+            Text = "纹理图像融合";
             ((System.ComponentModel.ISupportInitialize)pictureBox64x64).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox128x128).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox256x256).EndInit();
@@ -846,10 +786,5 @@ namespace UoFiddler.Controls.Forms
         private System.Windows.Forms.Button btLoadTilesIntoTiles;
         private System.Windows.Forms.Button btnGenerateColorCodes;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.CheckBox checkBoxAll;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button btClearAll;
     }
 }

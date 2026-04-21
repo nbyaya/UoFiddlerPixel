@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -33,33 +33,33 @@ namespace UoFiddler.Plugin.ExamplePlugin
         }
 
         /// <summary>
-        /// Name of the plugin
+        /// 插件名称
         /// </summary>
         public override string Name { get; } = "PluginTest";
 
         /// <summary>
-        /// Description of the Plugin's purpose
+        /// 插件用途描述
         /// </summary>
-        public override string Description { get; } = "This is example plugin.";
+        public override string Description { get; } = "这是一个示例插件。";
 
         /// <summary>
-        /// Author of the plugin
+        /// 插件作者
         /// </summary>
         public override string Author { get; } = "Turley";
 
         /// <summary>
-        /// Version of the plugin
+        /// 插件版本
         /// </summary>
         public override string Version { get; } = "1.0.0";
 
         /// <summary>
-        /// Host of the plugin.
+        /// 插件宿主。
         /// </summary>
         public override IPluginHost Host { get; set; }
 
         public override void Initialize()
         {
-            // make something useful
+            // 做一些有用的事情
             _ = Files.RootDir;
         }
 
@@ -71,8 +71,8 @@ namespace UoFiddler.Plugin.ExamplePlugin
         {
             TabPage page = new TabPage
             {
-                Tag = tabControl.TabCount + 1, // at end used for undock/dock feature to define the order
-                Text = "PluginTest"
+                Tag = tabControl.TabCount + 1, // 用于定义顺序的停靠/取消停靠功能
+                Text = "插件测试"
             };
             page.Controls.Add(new ExampleControl());
             tabControl.TabPages.Add(page);
@@ -82,7 +82,7 @@ namespace UoFiddler.Plugin.ExamplePlugin
         {
             ToolStripMenuItem item = new ToolStripMenuItem
             {
-                Text = "PluginTest"
+                Text = "插件测试"
             };
             item.Click += ItemClick;
             toolStrip.DropDownItems.Add(item);
@@ -99,7 +99,7 @@ namespace UoFiddler.Plugin.ExamplePlugin
 
             ToolStripMenuItem exportItemDescItem = new ToolStripMenuItem
             {
-                Text = "Export selected to itemdesc.cfg"
+                Text = "将所选内容导出到 itemdesc.cfg"
             };
             exportItemDescItem.Click += ExportToItemDescClicked;
             strip.Items.Add(exportItemDescItem);
@@ -108,7 +108,7 @@ namespace UoFiddler.Plugin.ExamplePlugin
 
             ToolStripMenuItem exportOffsetItem = new ToolStripMenuItem
             {
-                Text = "Export all items to offset.cfg"
+                Text = "将所有物品导出到 offset.cfg"
             };
             exportOffsetItem.Click += ExportToOffsetClicked;
             strip.Items.Add(exportOffsetItem);
@@ -121,13 +121,13 @@ namespace UoFiddler.Plugin.ExamplePlugin
 
             string fileName = Path.Combine(Options.OutputPath, "offset.cfg");
 
-            string inputMessage = "Do you want to export all items to offset.cfg?\r\n"
-                                  + "It may take some time (around 10-20 seconds).\r\n\r\n"
-                                  + "Export will replace existing file located at: "
+            string inputMessage = "是否要将所有物品导出到 offset.cfg？\r\n"
+                                  + "可能需要一些时间（大约 10-20 秒）。\r\n\r\n"
+                                  + "导出将替换位于以下位置的现有文件："
                                   + fileName
-                                  + "\r\n\r\nContinue?\r\n";
+                                  + "\r\n\r\n继续？\r\n";
 
-            if (MessageBox.Show(inputMessage, "Export all items to offset.cfg?", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show(inputMessage, "将所有物品导出到 offset.cfg？", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 return;
             }
@@ -153,7 +153,7 @@ namespace UoFiddler.Plugin.ExamplePlugin
 
             File.WriteAllText(fileName, sb.ToString());
 
-            MessageBox.Show("Done!");
+            MessageBox.Show("完成！");
         }
 
         private void ExportToItemDescClicked(object sender, EventArgs e)

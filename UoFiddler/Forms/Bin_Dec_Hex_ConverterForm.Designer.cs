@@ -2,10 +2,10 @@
 //  *
 //  * $Author: Turley
 //  * 
-//  * "THE BEER-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer in return.
+//  * "啤酒许可证"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯啤酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Forms
     partial class Bin_Dec_Hex_ConverterForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -113,7 +113,7 @@ namespace UoFiddler.Forms
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(43, 15);
             label1.TabIndex = 3;
-            label1.Text = "Binary:";
+            label1.Text = "二进制:";
             // 
             // label2
             // 
@@ -122,7 +122,7 @@ namespace UoFiddler.Forms
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(53, 15);
             label2.TabIndex = 4;
-            label2.Text = "Decimal:";
+            label2.Text = "十进制:";
             // 
             // label3
             // 
@@ -131,7 +131,7 @@ namespace UoFiddler.Forms
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(79, 15);
             label3.TabIndex = 5;
-            label3.Text = "Hexadecimal:";
+            label3.Text = "十六进制:";
             // 
             // bt_0Binär
             // 
@@ -419,7 +419,7 @@ namespace UoFiddler.Forms
             Bt_Delete_fields.Name = "Bt_Delete_fields";
             Bt_Delete_fields.Size = new System.Drawing.Size(113, 23);
             Bt_Delete_fields.TabIndex = 34;
-            Bt_Delete_fields.Text = "Delete fields";
+            Bt_Delete_fields.Text = "删除字段";
             Bt_Delete_fields.UseVisualStyleBackColor = true;
             Bt_Delete_fields.Click += Bt_Delete_fields_Click;
             // 
@@ -438,7 +438,7 @@ namespace UoFiddler.Forms
             bt_Listing_Clear.Name = "bt_Listing_Clear";
             bt_Listing_Clear.Size = new System.Drawing.Size(75, 23);
             bt_Listing_Clear.TabIndex = 37;
-            bt_Listing_Clear.Text = "Clear";
+            bt_Listing_Clear.Text = "清除";
             bt_Listing_Clear.UseVisualStyleBackColor = true;
             bt_Listing_Clear.Click += bt_Listing_Clear_Click;
             // 
@@ -487,7 +487,7 @@ namespace UoFiddler.Forms
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "Bin_Dec_Hex_ConverterForm";
-            Text = "Binary Decimal Hexadecimal Converter";
+            Text = "二进制 十进制 十六进制 转换器";
             FormClosed += Bin_Dec_Hex_ConverterForm_FormClosed;
             Load += Bin_Dec_Hex_ConverterForm_Load;
             ResumeLayout(false);

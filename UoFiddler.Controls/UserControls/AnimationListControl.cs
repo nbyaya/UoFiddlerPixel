@@ -1,11 +1,11 @@
-﻿/***************************************************************************
+/***************************************************************************
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -37,102 +37,102 @@ namespace UoFiddler.Controls.UserControls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
         }
 
-        #region [ GetActionNames ]
+        #region [ 获取动作名称 ]
         public string[][] GetActionNames { get; } = {
-            // Monster
+            // 怪物
             new[]
             {
-                "Walk",
-                "Idle",
-                "Die1",
-                "Die2",
-                "Attack1",
-                "Attack2",
-                "Attack3",
-                "AttackBow",
-                "AttackCrossBow",
-                "AttackThrow",
-                "GetHit",
-                "Pillage",
-                "Stomp",
-                "Cast2",
-                "Cast3",
-                "BlockRight",
-                "BlockLeft",
-                "Idle",
-                "Fidget",
-                "Fly",
-                "TakeOff",
-                "GetHitInAir"
+                "行走",
+                "空闲",
+                "死亡1",
+                "死亡2",
+                "攻击1",
+                "攻击2",
+                "攻击3",
+                "弓攻击",
+                "弩攻击",
+                "投掷攻击",
+                "受击",
+                "掠夺",
+                "踩踏",
+                "施法2",
+                "施法3",
+                "右格挡",
+                "左格挡",
+                "空闲",
+                "烦躁",
+                "飞行",
+                "起飞",
+                "空中受击"
             },
-            // Sea
+            // 海洋生物
             new[]
             {
-                "Walk",
-                "Run",
-                "Idle",
-                "Idle",
-                "Fidget",
-                "Attack1",
-                "Attack2",
-                "GetHit",
-                "Die1"
+                "行走",
+                "奔跑",
+                "空闲",
+                "空闲",
+                "烦躁",
+                "攻击1",
+                "攻击2",
+                "受击",
+                "死亡1"
             },
-            // Animal
+            // 动物
             new[]
             {
-                "Walk",
-                "Run",
-                "Idle",
-                "Eat",
-                "Alert",
-                "Attack1",
-                "Attack2",
-                "GetHit",
-                "Die1",
-                "Idle",
-                "Fidget",
-                "LieDown",
-                "Die2"
+                "行走",
+                "奔跑",
+                "空闲",
+                "进食",
+                "警觉",
+                "攻击1",
+                "攻击2",
+                "受击",
+                "死亡1",
+                "空闲",
+                "烦躁",
+                "躺下",
+                "死亡2"
             },
-            // Human
+            // 人类
             new[]
             {
-                "Walk_01",
-                "WalkStaff_01",
-                "Run_01",
-                "RunStaff_01",
-                "Idle_01",
-                "Idle_01",
-                "Fidget_Yawn_Stretch_01",
-                "CombatIdle1H_01",
-                "CombatIdle1H_01",
-                "AttackSlash1H_01",
-                "AttackPierce1H_01",
-                "AttackBash1H_01",
-                "AttackBash2H_01",
-                "AttackSlash2H_01",
-                "AttackPierce2H_01",
-                "CombatAdvance_1H_01",
-                "Spell1",
-                "Spell2",
-                "AttackBow_01",
-                "AttackCrossbow_01",
-                "GetHit_Fr_Hi_01",
-                "Die_Hard_Fwd_01",
-                "Die_Hard_Back_01",
-                "Horse_Walk_01",
-                "Horse_Run_01",
-                "Horse_Idle_01",
-                "Horse_Attack1H_SlashRight_01",
-                "Horse_AttackBow_01",
-                "Horse_AttackCrossbow_01",
-                "Horse_Attack2H_SlashRight_01",
-                "Block_Shield_Hard_01",
-                "Punch_Punch_Jab_01",
-                "Bow_Lesser_01",
-                "Salute_Armed1h_01",
-                "Ingest_Eat_01"
+                "行走_01",
+                "持杖行走_01",
+                "奔跑_01",
+                "持杖奔跑_01",
+                "空闲_01",
+                "空闲_01",
+                "打哈欠/伸懒腰_01",
+                "单手战斗空闲_01",
+                "单手战斗空闲_01",
+                "单手挥砍攻击_01",
+                "单手穿刺攻击_01",
+                "单手钝击攻击_01",
+                "双手钝击攻击_01",
+                "双手挥砍攻击_01",
+                "双手穿刺攻击_01",
+                "单手战斗前进_01",
+                "法术1",
+                "法术2",
+                "弓攻击_01",
+                "弩攻击_01",
+                "受击_前/高_01",
+                "死亡_硬直前倒_01",
+                "死亡_硬直后倒_01",
+                "骑马行走_01",
+                "骑马奔跑_01",
+                "骑马空闲_01",
+                "骑马单手右挥砍攻击_01",
+                "骑马弓攻击_01",
+                "骑马弩攻击_01",
+                "骑马双手右挥砍攻击_01",
+                "盾牌格挡_硬_01",
+                "拳击_刺拳_01",
+                "鞠躬_小_01",
+                "单手武器敬礼_01",
+                "进食_吞咽_01"
             }
         };
         #endregion
@@ -153,9 +153,9 @@ namespace UoFiddler.Controls.UserControls
         private int _displayType;
         private bool _loaded;
 
-        #region  [ Reload ]
+        #region  [ 重新加载 ]
         /// <summary>
-        /// ReLoads if loaded
+        /// 如果已加载则重新加载
         /// </summary>
         private void Reload()
         {
@@ -228,9 +228,9 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ ChangeHue ]
+        #region [ 更改色调 ]
         /// <summary>
-        /// Changes Hue of current Mob
+        /// 更改当前生物的色调
         /// </summary>
         /// <param name="select"></param>
         public void ChangeHue(int select)
@@ -240,9 +240,9 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ IsAlreadyDefine ]
+        #region [ 是否已定义 ]
         /// <summary>
-        /// Is Graphic already in TreeView
+        /// 图形是否已经在树视图中
         /// </summary>
         /// <param name="graphic"></param>
         /// <returns></returns>
@@ -253,9 +253,9 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ AddGraphic ]
+        #region [ 添加图形 ]
         /// <summary>
-        /// Adds Graphic with type and name to List
+        /// 将图形及其类型和名称添加到列表中
         /// </summary>
         /// <param name="graphic"></param>
         /// <param name="type"></param>
@@ -307,7 +307,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ Animate ]
+        #region [ 动画 ]
         private bool Animate
         {
             get => _animate;
@@ -326,7 +326,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ StopAnimation ]
+        #region [ 停止动画 ]
         private void StopAnimation()
         {
             if (_timer != null)
@@ -353,7 +353,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ CurrentSelect ]
+        #region [ 当前选中 ]
         private int CurrentSelect
         {
             get => _currentSelect;
@@ -376,7 +376,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ SetPicture ]
+        #region [ 设置图片 ]
         private void SetPicture()
         {
             _frames = null;
@@ -410,9 +410,9 @@ namespace UoFiddler.Controls.UserControls
                     if (_frames[0].Bitmap != null)
                     {
                         _mainPicture = new Bitmap(_frames[0].Bitmap);
-                        BaseGraphicLabel.Text = $"BaseGraphic: {body} (0x{body:X})";
-                        GraphicLabel.Text = $"Graphic: {_currentSelect} (0x{_currentSelect:X})";
-                        HueLabel.Text = $"Hue: {hue + 1} (0x{hue + 1:X})";
+                        BaseGraphicLabel.Text = $"基础图形: {body} (0x{body:X})";
+                        GraphicLabel.Text = $"图形: {_currentSelect} (0x{_currentSelect:X})";
+                        HueLabel.Text = $"色调: {hue + 1} (0x{hue + 1:X})";
                     }
                     else
                     {
@@ -427,7 +427,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ Bitmap DoAnimation ]
+        #region [ Bitmap 动画 ]
         private Bitmap DoAnimation()
         {
             if (_timer != null)
@@ -455,9 +455,9 @@ namespace UoFiddler.Controls.UserControls
                 return null;
             }
 
-            BaseGraphicLabel.Text = $"BaseGraphic: {body} (0x{body:X})";
-            GraphicLabel.Text = $"Graphic: {_currentSelect} (0x{_currentSelect:X})";
-            HueLabel.Text = $"Hue: {hue + 1} (0x{hue + 1:X})";
+            BaseGraphicLabel.Text = $"基础图形: {body} (0x{body:X})";
+            GraphicLabel.Text = $"图形: {_currentSelect} (0x{_currentSelect:X})";
+            HueLabel.Text = $"色调: {hue + 1} (0x{hue + 1:X})";
             int count = _frames.Length;
             _animationList = new Bitmap[count];
 
@@ -466,7 +466,7 @@ namespace UoFiddler.Controls.UserControls
                 _animationList[i] = _frames[i].Bitmap;
             }
 
-            // Check invalid count with division by 0
+            // 检查无效计数，防止除零
             if (count <= 0)
             {
                 count = 1;
@@ -480,13 +480,13 @@ namespace UoFiddler.Controls.UserControls
             _timer.Start();
             _frameIndex = 0;
 
-            LoadListViewFrames(); // Reload frames
+            LoadListViewFrames(); // 重新加载帧
 
             return _animationList[0] != null ? new Bitmap(_animationList[0]) : null;
         }
         #endregion
 
-        #region [ AnimTick ]
+        #region [ 动画时钟 ]
         private void AnimTick(object sender, EventArgs e)
         {
             ++_frameIndex;
@@ -528,7 +528,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ Load Dsiplay Frame and more listView1 ]
+        #region [ 加载显示帧和更多 listView1 ]
         private void TreeViewMobs_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (e.Node.Parent != null)
@@ -547,8 +547,8 @@ namespace UoFiddler.Controls.UserControls
                         _displayType = 1;
                         LoadListView();
                     }
-                    
-                    // Here, call the DoAnimation() method to initialize _animationList
+
+                    // 在此调用 DoAnimation() 方法来初始化 _animationList
                     DoAnimation();
                 }
                 else
@@ -566,7 +566,7 @@ namespace UoFiddler.Controls.UserControls
                         LoadListView();
                     }
 
-                    // Here, call the DoAnimation() method to initialize _animationList
+                    // 在此调用 DoAnimation() 方法来初始化 _animationList
                     DoAnimation();
                 }
             }
@@ -585,20 +585,20 @@ namespace UoFiddler.Controls.UserControls
                 TreeViewMobs.SelectedNode = e.Node.Nodes[0];
             }
 
-            // Here you can add the code to update the text of the toolStripStatusAnimLabel
+            // 这里可以添加代码来更新 toolStripStatusAnimLabel 的文本
             string fileName = Animations.GetFileName(_currentSelect);
-            toolStripStatusAminLabel.Text = $"Source: {fileName}";
+            toolStripStatusAminLabel.Text = $"源文件: {fileName}";
         }
         #endregion
 
-        #region [ Animate_Click ]
+        #region [ 动画按钮点击 ]
         private void Animate_Click(object sender, EventArgs e)
         {
             Animate = !Animate;
         }
         #endregion
 
-        #region [ LoadXml ]
+        #region [ 加载Xml ]
         private bool LoadXml()
         {
             string fileName = Path.Combine(Options.AppDataPath, "Animationlist.xml");
@@ -619,7 +619,7 @@ namespace UoFiddler.Controls.UserControls
                 }
                 catch (XmlException ex)
                 {
-                    MessageBox.Show("There was a problem loading the XML file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("加载 XML 文件时出现问题：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
@@ -628,7 +628,7 @@ namespace UoFiddler.Controls.UserControls
                 TreeNode node;
                 TreeNode typeNode;
 
-                TreeNode rootNode = new TreeNode("Mobs")
+                TreeNode rootNode = new TreeNode("生物")
                 {
                     Name = "Mobs",
                     Tag = -1
@@ -662,7 +662,7 @@ namespace UoFiddler.Controls.UserControls
                     }
                 }
 
-                rootNode = new TreeNode("Equipment")
+                rootNode = new TreeNode("装备")
                 {
                     Name = "Equipment",
                     Tag = -2
@@ -707,7 +707,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ LoadListView ]
+        #region [ 加载列表视图 ]
         private void LoadListView()
         {
             listView.BeginUpdate();
@@ -730,7 +730,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ SelectChanged_listView ]
+        #region [ listView 选择更改 ]
         private void SelectChanged_listView(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count > 0)
@@ -740,14 +740,14 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ ListView_DoubleClick ]
+        #region [ ListView 双击 ]
         private void ListView_DoubleClick(object sender, MouseEventArgs e)
         {
             tabControl1.SelectTab(tabPage1);
         }
         #endregion
 
-        #region [ ListViewDrawItem ]       
+        #region [ ListView 绘制项 ]       
         private void ListViewDrawItem(object sender, DrawListViewItemEventArgs e)
         {
             int graphic = (int)e.Item.Tag;
@@ -796,7 +796,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ OnClick_Hue ]
+        #region [ 色调按钮点击 ]
         private HuePopUpForm _showForm;
         private void OnClick_Hue(object sender, EventArgs e)
         {
@@ -814,7 +814,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ LoadListViewFrames ]
+        #region [ 加载列表视图帧 ]
         private void LoadListViewFrames()
         {
             if (_animationList == null || _animationList.Length == 0)
@@ -838,12 +838,12 @@ namespace UoFiddler.Controls.UserControls
             finally
             {
                 listView1.EndUpdate();
-                listView1.Invalidate(); // Make sure the ListView is updated
+                listView1.Invalidate(); // 确保 ListView 更新
             }
         }
         #endregion
 
-        #region [ Frames_ListView_DrawItem ]
+        #region [ 帧列表视图绘制项 ]
         private void Frames_ListView_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
             if (_animationList == null)
@@ -864,10 +864,10 @@ namespace UoFiddler.Controls.UserControls
                 height = e.Bounds.Height;
             }
 
-            // Verify that the current item is selected
+            // 验证当前项是否被选中
             if (listView1.SelectedItems.Contains(e.Item))
             {
-                // Change the background color of the selected item
+                // 更改选中项的背景颜色
                 e.Graphics.FillRectangle(Brushes.LightBlue, e.Bounds);
             }
 
@@ -881,19 +881,19 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ OnScrollFacing ]
+        #region [ 滚动条方向 ]
         private void OnScrollFacing(object sender, EventArgs e)
         {
             _facing = (FacingBar.Value - 3) & 7;
             CurrentSelect = CurrentSelect;
 
-            // Reload frames for the currently selected element
+            // 为当前选中的元素重新加载帧
             DoAnimation();
 
             if (tabControl1.SelectedTab == tabPage3)
             {
                 LoadListViewFrames();
-                listView1.Invalidate(); // Ensures that the ListView is updated
+                listView1.Invalidate(); // 确保 ListView 更新
             }
             else
             {
@@ -903,7 +903,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ tabControl1_Selected ]
+        #region [ 选项卡选择更改 ]
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
             if (e.TabPage == tabPage3)
@@ -919,7 +919,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ OnClick_Sort ]
+        #region [ 排序按钮点击 ]
         private void OnClick_Sort(object sender, EventArgs e)
         {
             _sortAlpha = !_sortAlpha;
@@ -939,7 +939,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ OnClickRemove ]
+        #region [ 移除按钮点击 ]
         private void OnClickRemove(object sender, EventArgs e)
         {
             TreeNode node = TreeViewMobs.SelectedNode;
@@ -958,7 +958,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ OnClickAnimationEdit ]
+        #region [ 动画编辑按钮点击 ]
         private AnimationEditForm _animEditFormEntry;
         private void OnClickAnimationEdit(object sender, EventArgs e)
         {
@@ -968,12 +968,12 @@ namespace UoFiddler.Controls.UserControls
             }
 
             _animEditFormEntry = new AnimationEditForm();
-            //animEditEntry.TopMost = true; // TODO: should it be topMost?
+            //animEditEntry.TopMost = true; // TODO: 是否应该置顶？
             _animEditFormEntry.Show();
         }
         #endregion
 
-        #region [ OnClickFindNewEntries ]
+        #region [ 查找新条目按钮点击 ]
         private AnimationListNewEntriesForm _animNewEntryForm;
         private void OnClickFindNewEntries(object sender, EventArgs e)
         {
@@ -990,7 +990,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ RewriteXml ]
+        #region [ 重写Xml ]
         private void RewriteXml(object sender, EventArgs e)
         {
             TreeViewMobs.BeginUpdate();
@@ -1004,19 +1004,19 @@ namespace UoFiddler.Controls.UserControls
                 TreeViewMobs.EndUpdate();
             }
 
-            string fileName = Path.Combine(Options.OutputPath, "Animationlist.xml"); //Correct save path
+            string fileName = Path.Combine(Options.OutputPath, "Animationlist.xml"); // 正确的保存路径
 
             XmlDocument dom = new XmlDocument();
             XmlDeclaration decl = dom.CreateXmlDeclaration("1.0", "utf-8", null);
             dom.AppendChild(decl);
             XmlElement sr = dom.CreateElement("Graphics");
-            XmlComment comment = dom.CreateComment("Entries in Mob tab");
+            XmlComment comment = dom.CreateComment("生物选项卡中的条目");
             sr.AppendChild(comment);
-            comment = dom.CreateComment("Name=Displayed name");
+            comment = dom.CreateComment("Name=显示的名称");
             sr.AppendChild(comment);
-            comment = dom.CreateComment("body=Graphic");
+            comment = dom.CreateComment("body=图形");
             sr.AppendChild(comment);
-            comment = dom.CreateComment("type=0:Monster, 1:Sea, 2:Animal, 3:Human/Equipment");
+            comment = dom.CreateComment("type=0:怪物, 1:海洋生物, 2:动物, 3:人类/装备");
             sr.AppendChild(comment);
 
             XmlElement elem;
@@ -1041,15 +1041,15 @@ namespace UoFiddler.Controls.UserControls
 
             dom.AppendChild(sr);
 
-            // Save the XML file in the Options.OutputPath directory
+            // 将 XML 文件保存到 Options.OutputPath 目录
             dom.Save(fileName);
 
-            MessageBox.Show("XML saved", "Rewrite", MessageBoxButtons.OK, MessageBoxIcon.Information,
+            MessageBox.Show("XML 已保存", "重写", MessageBoxButtons.OK, MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
         }
         #endregion
 
-        #region [ RewriteXml2 ]
+        #region [ 重写Xml2 ]
         private void RewriteXml2(object sender, EventArgs e)
         {
             TreeViewMobs.BeginUpdate();
@@ -1063,12 +1063,12 @@ namespace UoFiddler.Controls.UserControls
                 TreeViewMobs.EndUpdate();
             }
 
-            string fileName = Path.Combine(Options.OutputPath, "Animationlist.xml"); // Correct save path
+            string fileName = Path.Combine(Options.OutputPath, "Animationlist.xml"); // 正确的保存路径
 
             string CleanNodeName(string nodeName)
             {
-                // Check if the node name contains (0x1), (0x2), etc.
-                // If yes, then remove them and the ID inside the parentheses
+                // 检查节点名称是否包含 (0x1)、(0x2) 等
+                // 如果有，则删除它们以及括号内的 ID
                 int index;
                 while ((index = nodeName.IndexOf(" (0x")) >= 0)
                 {
@@ -1081,20 +1081,20 @@ namespace UoFiddler.Controls.UserControls
             XmlDeclaration decl = dom.CreateXmlDeclaration("1.0", "utf-8", null);
             dom.AppendChild(decl);
             XmlElement sr = dom.CreateElement("Graphics");
-            XmlComment comment = dom.CreateComment("Entries in Mob tab");
+            XmlComment comment = dom.CreateComment("生物选项卡中的条目");
             sr.AppendChild(comment);
-            comment = dom.CreateComment("Name=Displayed name");
+            comment = dom.CreateComment("Name=显示的名称");
             sr.AppendChild(comment);
-            comment = dom.CreateComment("body=Graphic");
+            comment = dom.CreateComment("body=图形");
             sr.AppendChild(comment);
-            comment = dom.CreateComment("type=0:Monster, 1:Sea, 2:Animal, 3:Human/Equipment");
+            comment = dom.CreateComment("type=0:怪物, 1:海洋生物, 2:动物, 3:人类/装备");
             sr.AppendChild(comment);
 
             XmlElement elem;
             foreach (TreeNode node in TreeViewMobs.Nodes[0].Nodes)
             {
                 string nodeNameCleaned = CleanNodeName(node.Text);
-                int nodeId = ((int[])node.Tag)[0]; // Assuming the ID is stored in the first element of the node.Tag array
+                int nodeId = ((int[])node.Tag)[0]; // 假设 ID 存储在 node.Tag 数组的第一个元素中
                 elem = dom.CreateElement("Mob");
                 elem.SetAttribute("name", $"{nodeNameCleaned}");
                 elem.SetAttribute("body", nodeId.ToString());
@@ -1106,7 +1106,7 @@ namespace UoFiddler.Controls.UserControls
             foreach (TreeNode node in TreeViewMobs.Nodes[1].Nodes)
             {
                 string nodeNameCleaned = CleanNodeName(node.Text);
-                int nodeId = ((int[])node.Tag)[0]; // Assuming the ID is stored in the first element of the node.Tag array
+                int nodeId = ((int[])node.Tag)[0]; // 假设 ID 存储在 node.Tag 数组的第一个元素中
                 elem = dom.CreateElement("Equip");
                 elem.SetAttribute("name", $"{nodeNameCleaned} ({nodeId})");
                 elem.SetAttribute("body", nodeId.ToString());
@@ -1116,46 +1116,74 @@ namespace UoFiddler.Controls.UserControls
 
             dom.AppendChild(sr);
 
-            // Save the XML file in the Options.OutputPath directory
+            // 将 XML 文件保存到 Options.OutputPath 目录
             dom.Save(fileName);
 
-            MessageBox.Show("XML saved", "Rewrite", MessageBoxButtons.OK, MessageBoxIcon.Information,
+            MessageBox.Show("XML 已保存", "重写", MessageBoxButtons.OK, MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
         }
         #endregion
 
-        #region [ Extract_Image_ClickBmp ]
+        #region [ 提取图像为Bmp ]
         private void Extract_Image_ClickBmp(object sender, EventArgs e)
         {
             ExtractImage(ImageFormat.Bmp);
         }
         #endregion
 
-        #region [ Extract_Image_ClickTiff ]
+        #region [ 提取图像为Tiff ]
         private void Extract_Image_ClickTiff(object sender, EventArgs e)
         {
             ExtractImage(ImageFormat.Tiff);
         }
         #endregion
 
-        #region [ Extract_Image_ClickJpg ]
+        #region [ 提取图像为Jpg ]
         private void Extract_Image_ClickJpg(object sender, EventArgs e)
         {
             ExtractImage(ImageFormat.Jpeg);
         }
         #endregion
 
-        #region [ Extract_Image_ClickPng ]
+        #region [ 提取图像为Png ]
         private void Extract_Image_ClickPng(object sender, EventArgs e)
         {
             ExtractImage(ImageFormat.Png);
         }
         #endregion
 
-        #region [ ExtractImage ]
+        #region [ 提取图像 ]
+        /*private void ExtractImage(ImageFormat imageFormat)
+        {
+            string what = "Mob";
+            if (_displayType == 1)
+            {
+                what = "Equipment";
+            }
+
+            string fileExtension = Utils.GetFileExtensionFor(imageFormat);
+            string fileName = Path.Combine(Options.OutputPath, $"{what} {_currentSelect}.{fileExtension}");
+
+            Bitmap sourceBitmap = Animate ? _animationList[0] : _mainPicture;
+            using (Bitmap newBitmap = new Bitmap(sourceBitmap.Width, sourceBitmap.Height))
+            {
+                using (Graphics newGraph = Graphics.FromImage(newBitmap))
+                {
+                    newGraph.FillRectangle(Brushes.White, 0, 0, newBitmap.Width, newBitmap.Height);
+                    newGraph.DrawImage(sourceBitmap, new Point(0, 0));
+                    newGraph.Save();
+                }
+
+                newBitmap.Save(fileName, imageFormat);
+            }
+
+            MessageBox.Show($"{what} saved to {fileName}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1);
+        }*/
+
         private void ExtractImage(ImageFormat imageFormat)
         {
-            string what = _displayType == 1 ? "Equipment" : "Mob";
+            string what = _displayType == 1 ? "装备" : "生物";
             string fileExtension = Utils.GetFileExtensionFor(imageFormat);
             string fileName = Path.Combine(Options.OutputPath, $"{what} {_currentSelect}.{fileExtension}");
 
@@ -1174,48 +1202,48 @@ namespace UoFiddler.Controls.UserControls
 
             PlayCustomSound();
 
-            MessageBox.Show($"{what} saved to {fileName}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.None);
+            MessageBox.Show($"{what} 已保存至 {fileName}", "已保存", MessageBoxButtons.OK, MessageBoxIcon.None);
         }
         #endregion
 
-        #region [ OnClickExtractAnimBmp ]
+        #region [ 提取动画为Bmp ]
         private void OnClickExtractAnimBmp(object sender, EventArgs e)
         {
             ExportAnimationFrames(ImageFormat.Bmp);
         }
         #endregion
 
-        #region [ OnClickExtractAnimTiff ]
+        #region [ 提取动画为Tiff ]
         private void OnClickExtractAnimTiff(object sender, EventArgs e)
         {
             ExportAnimationFrames(ImageFormat.Tiff);
         }
         #endregion
 
-        #region [ OnClickExtractAnimJpg ]
+        #region [ 提取动画为Jpg ]
         private void OnClickExtractAnimJpg(object sender, EventArgs e)
         {
             ExportAnimationFrames(ImageFormat.Jpeg);
         }
         #endregion
 
-        #region [ OnClickExtractAnimPng ]
+        #region [ 提取动画为Png ]
         private void OnClickExtractAnimPng(object sender, EventArgs e)
         {
             ExportAnimationFrames(ImageFormat.Png);
         }
         #endregion
 
-        #region [ ExportAnimationFrames ]
+        #region [ 导出动画帧 ]
         private void ExportAnimationFrames(ImageFormat imageFormat)
         {
             if (listView1.Items.Count == 0)
             {
-                MessageBox.Show("No animation frames available to export.", "Error", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("没有可导出的动画帧。", "错误", MessageBoxButtons.OK, MessageBoxIcon.None);
                 return;
             }
 
-            string what = _displayType == 1 ? "Equipment" : "Mob";
+            string what = _displayType == 1 ? "装备" : "生物";
             string fileExtension = Utils.GetFileExtensionFor(imageFormat);
             string fileName = Path.Combine(Options.OutputPath, $"{what} {_currentSelect}");
 
@@ -1246,44 +1274,44 @@ namespace UoFiddler.Controls.UserControls
 
                 PlayCustomSound();
 
-                MessageBox.Show($"{exportedCount} frames exported successfully to '{fileName}-X.{fileExtension}'", "Export Completed", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show($"{exportedCount} 帧已成功导出到 '{fileName}-X.{fileExtension}'", "导出完成", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while exporting frames: {ex.Message}", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show($"导出帧时出错：{ex.Message}", "导出错误", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
         #endregion
 
-        #region [ OnClickExportFrameBmp ]
+        #region [ 导出单帧为Bmp ]
         private void OnClickExportFrameBmp(object sender, EventArgs e)
         {
             ExportSingleFrame(ImageFormat.Bmp);
         }
         #endregion
 
-        #region [ OnClickExportFrameTiff ]
+        #region [ 导出单帧为Tiff ]
         private void OnClickExportFrameTiff(object sender, EventArgs e)
         {
             ExportSingleFrame(ImageFormat.Tiff);
         }
         #endregion
 
-        #region [ OnClickExportFrameJpg ]
+        #region [ 导出单帧为Jpg ]
         private void OnClickExportFrameJpg(object sender, EventArgs e)
         {
             ExportSingleFrame(ImageFormat.Jpeg);
         }
         #endregion
 
-        #region [ OnClickExportFramePng ]
+        #region [ 导出单帧为Png ]
         private void OnClickExportFramePng(object sender, EventArgs e)
         {
             ExportSingleFrame(ImageFormat.Png);
         }
         #endregion
 
-        #region [ ExportSingleFrame ]
+        #region [ 导出单帧 ]
         private void ExportSingleFrame(ImageFormat imageFormat)
         {
             if (listView1.SelectedItems.Count < 1)
@@ -1291,10 +1319,10 @@ namespace UoFiddler.Controls.UserControls
                 return;
             }
 
-            string what = "Mob";
+            string what = "生物";
             if (_displayType == 1)
             {
-                what = "Equipment";
+                what = "装备";
             }
 
             string fileExtension = Utils.GetFileExtensionFor(imageFormat);
@@ -1315,61 +1343,61 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ OnClickCopyFrameToClipboard ]
+        #region [ 复制帧到剪贴板 ]
         private void CopyFrameToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Check if a frame is selected in listView1
+            // 检查 listView1 中是否选中了帧
             if (listView1.SelectedItems.Count > 0)
             {
-                // Copy the selected frame to the clipboard
+                // 将选中的帧复制到剪贴板
                 int selectedFrameIndex = (int)listView1.SelectedItems[0].Tag;
                 if (selectedFrameIndex >= 0 && selectedFrameIndex < _animationList.Length)
                 {
                     Clipboard.SetImage(_animationList[selectedFrameIndex]);
 
-                    // Display a MessageBox to confirm that the graphic was copied
-                    MessageBox.Show("The graphic was copied to the clipboard.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // 显示消息框确认图形已复制
+                    MessageBox.Show("图形已复制到剪贴板。", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
         #endregion
 
-        #region [ importImage ]
+        #region [ 导入图像 ]
         private void ImportImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Check if a frame is selected in listView1
+            // 检查 listView1 中是否选中了帧
             if (listView1.SelectedItems.Count > 0)
             {
-                // Check if there is an image in the cache
+                // 检查缓存中是否有图像
                 if (Clipboard.ContainsImage())
                 {
                     int selectedFrameIndex = (int)listView1.SelectedItems[0].Tag;
                     if (selectedFrameIndex >= 0 && selectedFrameIndex < _animationList.Length)
                     {
-                        // Import the graphic from the clipboard into the selected ListViewItem (frame).
+                        // 从剪贴板导入图形到选中的 ListViewItem（帧）
                         Image imageFromClipboard = Clipboard.GetImage();
                         _animationList[selectedFrameIndex] = (Bitmap)imageFromClipboard;
 
-                        // Here you can carry out further actions, e.g. B. View or save the updated graphic
+                        // 这里可以执行进一步的操作，例如查看或保存更新后的图形
                         // ...
 
-                        // Refresh the ListView to show the changes
+                        // 刷新 ListView 以显示更改
                         LoadListViewFrames();
 
-                        // Display a MessageBox to confirm the graphic was imported
-                        MessageBox.Show("The graphic has been imported and saved in the frame.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // 显示消息框确认图形已导入
+                        MessageBox.Show("图形已导入并保存在帧中。", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    // If there is no image in the cache, display an error message
-                    MessageBox.Show("There is no image in the cache.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // 如果缓存中没有图像，显示错误消息
+                    MessageBox.Show("缓存中没有图像。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
         #endregion
 
-        #region [ animationlistEditToolStripMenuItem ]
+        #region [ 动画列表编辑 ]
         private AnimationListEditorForm _editorForm = null;
 
         private void AnimationlistEditToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1383,41 +1411,42 @@ namespace UoFiddler.Controls.UserControls
             }
             else
             {
-                // The shape is already open, so let's bring it to the foreground
+                // 窗体已打开，将其置于前台
                 _editorForm.BringToFront();
             }
         }
         #endregion
 
-        #region [ LoadFramesFromListView ]
+        #region [ 从列表视图加载帧 ]
         private void LoadFramesFromListView()
         {
-            // Number of entries in the ListView
+            // ListView 中的条目数
             int count = listView1.Items.Count;
 
-            // Initialize the _frames array with the number of entries in the ListView
+            // 使用 ListView 中的条目数初始化 _frames 数组
             _frames = new AnimationFrame[count];
 
             for (int i = 0; i < count; i++)
             {
-                // Get the tag of the ListView item that represents the index of the frame
+                // 获取 ListView 项的标签，该标签代表帧的索引
                 int frameIndex = (int)listView1.Items[i].Tag;
 
-                // Load the corresponding frame from _animationList
+                // 从 _animationList 加载对应的帧
                 Bitmap frameBitmap = _animationList[frameIndex];
 
-                // Initialize the AnimationFrame with the bitmap
+                // 用位图初始化 AnimationFrame
                 _frames[i] = new AnimationFrame { Bitmap = frameBitmap };
             }
         }
         #endregion
 
-        #region [ ExportAnimatedGif ]
-        private void ExportAnimatedGif(bool looping)
+        #region [ 导出动画GIF ]
+        /*private void ExportAnimatedGif(bool looping)
         {
+            // 检查帧是否已加载
             if (_frames == null || _frames.Length == 0)
             {
-                MessageBox.Show("Frames not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("帧未加载。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -1425,12 +1454,14 @@ namespace UoFiddler.Controls.UserControls
             string outputFile = Path.Combine(Options.OutputPath, baseFileName);
             int fileIndex = 1;
 
+            // 检查路径是否存在且可写
             if (!Directory.Exists(Options.OutputPath))
             {
-                MessageBox.Show($"OutputPath {Options.OutputPath} does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show($"输出路径 {Options.OutputPath} 不存在。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // 如果文件已存在，则递增文件名
             while (File.Exists(outputFile))
             {
                 outputFile = Path.Combine(Options.OutputPath, $"{(_displayType == 1 ? "Equipment" : "Mob")} {_currentSelect} ({fileIndex}).gif");
@@ -1479,18 +1510,93 @@ namespace UoFiddler.Controls.UserControls
                     }
                 }
 
-                PlayCustomSound();
-
-                MessageBox.Show($"InGame Anim saved in {outputFile}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show($"游戏内动画已保存至 {outputFile}", "已保存", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error creating GIF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show($"创建 GIF 时出错：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }*/
+
+        private void ExportAnimatedGif(bool looping)
+        {
+            if (_frames == null || _frames.Length == 0)
+            {
+                MessageBox.Show("帧未加载。", "错误", MessageBoxButtons.OK, MessageBoxIcon.None);
+                return;
+            }
+
+            string baseFileName = $"{(_displayType == 1 ? "装备" : "生物")} {_currentSelect}.gif";
+            string outputFile = Path.Combine(Options.OutputPath, baseFileName);
+            int fileIndex = 1;
+
+            if (!Directory.Exists(Options.OutputPath))
+            {
+                MessageBox.Show($"输出路径 {Options.OutputPath} 不存在。", "错误", MessageBoxButtons.OK, MessageBoxIcon.None);
+                return;
+            }
+
+            while (File.Exists(outputFile))
+            {
+                outputFile = Path.Combine(Options.OutputPath, $"{(_displayType == 1 ? "装备" : "生物")} {_currentSelect} ({fileIndex}).gif");
+                fileIndex++;
+            }
+
+            try
+            {
+                var maxFrameSize = new Size(0, 0);
+
+                foreach (var frame in _frames)
+                {
+                    if (frame?.Bitmap != null)
+                    {
+                        maxFrameSize.Width = Math.Max(maxFrameSize.Width, frame.Bitmap.Width);
+                        maxFrameSize.Height = Math.Max(maxFrameSize.Height, frame.Bitmap.Height);
+                    }
+                }
+
+                using (var gif = AnimatedGif.AnimatedGif.Create(outputFile, delay: 150))
+                {
+                    foreach (var frame in _frames)
+                    {
+                        if (frame?.Bitmap == null)
+                        {
+                            continue;
+                        }
+
+                        using (Bitmap target = new Bitmap(maxFrameSize.Width, maxFrameSize.Height))
+                        {
+                            using (Graphics g = Graphics.FromImage(target))
+                            {
+                                g.DrawImage(frame.Bitmap, 0, 0);
+                            }
+                            gif.AddFrame(target, delay: -1, quality: GifQuality.Bit8);
+                        }
+                    }
+                }
+
+                if (!looping)
+                {
+                    using (var stream = new FileStream(outputFile, FileMode.Open, FileAccess.Write))
+                    {
+                        stream.Seek(28, SeekOrigin.Begin);
+                        stream.WriteByte(0);
+                    }
+                }
+
+                PlayCustomSound();
+
+                MessageBox.Show($"游戏内动画已保存至 {outputFile}", "已保存", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"创建 GIF 时出错：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
         #endregion
 
-        #region [ PlayCustomSound ]
+        #region [ 播放自定义音效 ]
         private void PlayCustomSound()
         {
             string soundFilePath = Path.Combine(Application.StartupPath, "Sound.wav");
@@ -1504,16 +1610,16 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ OnClickExtractAnimGifLooping ]
+        #region [ 提取动画GIF（循环） ]
         private void OnClickExtractAnimGifLooping(object sender, EventArgs e)
         {
-            // Load frames from the ListView
+            // 从 ListView 加载帧
             LoadFramesFromListView();
             ExportAnimatedGif(true);
         }
         #endregion
 
-        #region [ OnClickExtractAnimGifNoLooping ]
+        #region [ 提取动画GIF（不循环） ]
         private void OnClickExtractAnimGifNoLooping(object sender, EventArgs e)
         {
             LoadFramesFromListView();
@@ -1521,16 +1627,16 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ XMLEditorToolStripMenuItem_Click ]
+        #region [ XML编辑器 ]
         private EditorXML _editorXmlInstance;
 
         private void xMLEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string outputPath = Options.OutputPath; // Let's get the output path from the options.
+            string outputPath = Options.OutputPath; // 从选项获取输出路径
 
             if (_editorXmlInstance == null || _editorXmlInstance.IsDisposed)
             {
-                // Passing the outputPath to the constructor
+                // 将 outputPath 传递给构造函数
                 _editorXmlInstance = new EditorXML(outputPath);
                 _editorXmlInstance.Show();
             }
@@ -1542,7 +1648,7 @@ namespace UoFiddler.Controls.UserControls
 
         #endregion
 
-        #region [  frameToolStripMenuItem_Click ]
+        #region [ 显示帧边框 ]
         private bool PaintEventAttached = false;
 
         private void frameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1558,258 +1664,59 @@ namespace UoFiddler.Controls.UserControls
                 PaintEventAttached = false;
             }
 
-            MainPictureBox.Invalidate(); // Instant redrawing of the PictureBox
+            MainPictureBox.Invalidate(); // 立即重绘 PictureBox
         }
         #endregion
 
-        #region [ DrawFrameBounds ]
+        #region [ 绘制帧边界 ]
         private void DrawFrameBounds(object sender, PaintEventArgs e)
         {
             if (_animationList == null || _animationList.Length == 0 || listView1.SelectedItems.Count == 0)
-                return; // If no frames are available or no frame is selected
+                return; // 如果没有帧或没有选中帧
 
-            // Determine the index of the currently selected frame
+            // 确定当前选中的帧的索引
             if (!(listView1.SelectedItems[0].Tag is int index) || index < 0 || index >= _animationList.Length)
                 return;
 
             Bitmap currentFrame = _animationList[index];
 
-            // Calculating the position within the PictureBox
+            // 计算在 PictureBox 中的位置
             int frameWidth = currentFrame.Width;
             int frameHeight = currentFrame.Height;
 
-            // Determine the actual position of the frame (e.g., if it is not in the top left corner).
+            // 确定帧的实际位置（例如，如果不是左上角对齐）
             int x = (MainPictureBox.ClientSize.Width - frameWidth) / 2;
             int y = (MainPictureBox.ClientSize.Height - frameHeight) / 2;
 
-            using (Pen pen = new Pen(Color.Red, 2)) // Red border with a width of 2 pixels
+            using (Pen pen = new Pen(Color.Red, 2)) // 红色边框，2 像素宽
             {
                 e.Graphics.DrawRectangle(pen, x, y, frameWidth - 1, frameHeight - 1);
             }
         }
         #endregion
 
-        #region [ ListView1_SelectedIndexChanged ]
-        // This method ensures that the frame is updated when the frame changes.
+        #region [ listView1 选中索引更改 ]
+        // 此方法确保当帧更改时更新边框
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (PaintEventAttached)
             {
-                MainPictureBox.Invalidate(); // Force redraw PictureBox
+                MainPictureBox.Invalidate(); // 强制重绘 PictureBox
             }
         }
         #endregion
 
-        #region [ OnClickSaveMissingEntries ]
 
-        private void OnClickSaveMissingEntries(object sender, EventArgs e)
-        {
-            // ── 1. Scan with hourglass ──────────────────────────────────────────
-            Cursor.Current = Cursors.WaitCursor;
-            List<AnimationListMissingForm.MissingEntry> missing;
-
-            try
-            {
-                missing = ScanAllMulFiles();
-            }
-            finally
-            {
-                Cursor.Current = Cursors.Default;
-            }
-
-            if (missing.Count == 0)
-            {
-                MessageBox.Show(
-                    "All animations from the .mul files are already included.\n" +
-                    "present in the animationlist.xml.",
-                    "No difference",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                return;
-            }
-
-            // ── 2. Load existing XML ──────────────────────────────────────
-            string sourcePath = Path.Combine(Options.AppDataPath, "Animationlist.xml");
-            XmlDocument dom = LoadXmlDocument(sourcePath);
-            if (dom == null) return;
-
-            XmlElement root = dom["Graphics"];
-            if (root == null)
-            {
-                MessageBox.Show("Invalid XML format.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // ── 3. Select mode ──────────────────────────────────────────────
-            DialogResult mode = MessageBox.Show(
-                $"{missing.Count} missing animations found.\n\n" +
-                "How would you like to proceed??\n\n" +
-                "[Yes]    → Go through step by step\n" +
-                "           (Watch animation, Name + Typ determine yourself)\n\n" +
-                "[No]  → Take over all at once\n" +
-                "           (Auto-Name, suggested Typ, save immediately)",
-                "Choose approach",
-                MessageBoxButtons.YesNoCancel,
-                MessageBoxIcon.Question);
-
-            if (mode == DialogResult.Cancel)
-                return;
-
-            if (mode == DialogResult.Yes)
-            {
-                // ── Open step-by-step form ─────────────────────
-                var form = new AnimationListMissingForm(missing, dom, root, sourcePath);
-                form.ShowDialog(this);
-            }
-            else
-            {
-                // ── Write all at once ────────────────────────────────
-                int mobCount = 0, equipCount = 0;
-                foreach (var entry in missing)
-                {
-                    string autoName = Animations.GetFileName(entry.GraphicId)
-                                      ?? $"anim_{entry.GraphicId}";
-                    string name = $"{autoName} ({entry.GraphicId})";
-                    string tag = entry.SuggestedType == 3 ? "Equip" : "Mob";
-
-                    XmlElement elem = dom.CreateElement(tag);
-                    elem.SetAttribute("name", name);
-                    elem.SetAttribute("body", entry.GraphicId.ToString());
-                    elem.SetAttribute("type", entry.SuggestedType.ToString());
-                    root.AppendChild(elem);
-
-                    if (tag == "Equip") equipCount++; else mobCount++;
-                }
-
-                using (SaveFileDialog dlg = new SaveFileDialog())
-                {
-                    dlg.Title = "Animationlist.xml save";
-                    dlg.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
-                    dlg.FileName = "Animationlist.xml";
-                    dlg.InitialDirectory = Options.OutputPath ?? Options.AppDataPath;
-
-                    if (dlg.ShowDialog() == DialogResult.OK)
-                    {
-                        dom.Save(dlg.FileName);
-                        MessageBox.Show(
-                            $"Saved: {mobCount}x <Mob>  +  {equipCount}x <Equip>\n\n{dlg.FileName}",
-                            "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-        }
-        #endregion
-
-        #region [ ScanAllMulFiles ]
-        /// <summary>
-        /// Scans all body IDs 0–0xFFFF against the .mul files.
-        /// Returns only IDs that are NOT in the XML.
-        /// SuggestedType is determined by checking all 4 types.
-        /// </summary>
-        private List<AnimationListMissingForm.MissingEntry> ScanAllMulFiles()
-        {
-            HashSet<int> inXml = LoadXmlBodyIds();
-            var result = new List<AnimationListMissingForm.MissingEntry>();
-
-            for (int graphic = 0; graphic < 0x10000; graphic++)
-            {
-                if (inXml.Contains(graphic)) continue;
-
-                // At least Action 0 must be present.
-                if (!Animations.IsActionDefined(graphic, 0, 0)) continue;
-
-                // Determine the best type: which type has the most defined actions?
-                int bestType = 0;
-                int bestCount = 0;
-
-                for (int type = 0; type <= 3; type++)
-                {
-                    int defined = 0;
-                    int total = GetActionNames[type].GetLength(0);
-                    for (int action = 0; action < total; action++)
-                    {
-                        if (Animations.IsActionDefined(graphic, action, 0))
-                            defined++;
-                    }
-                    if (defined > bestCount)
-                    {
-                        bestCount = defined;
-                        bestType = type;
-                    }
-                }
-
-                result.Add(new AnimationListMissingForm.MissingEntry
-                {
-                    GraphicId = graphic,
-                    SuggestedType = bestType
-                });
-            }
-
-            return result;
-        }
-        #endregion
-
-        #region [ LoadXmlBodyIds ] // Loads all body IDs from the existing XML into a HashSet for quick lookup.
-        private HashSet<int> LoadXmlBodyIds()
-        {
-            var ids = new HashSet<int>();
-            string filePath = Path.Combine(Options.AppDataPath, "Animationlist.xml");
-            if (!File.Exists(filePath)) return ids;
-
-            try
-            {
-                XmlDocument dom = new XmlDocument();
-                dom.Load(filePath);
-                XmlElement root = dom["Graphics"];
-                if (root == null) return ids;
-
-                foreach (XmlElement el in root.SelectNodes("Mob"))
-                    if (int.TryParse(el.GetAttribute("body"), out int b)) ids.Add(b);
-
-                foreach (XmlElement el in root.SelectNodes("Equip"))
-                    if (int.TryParse(el.GetAttribute("body"), out int b)) ids.Add(b);
-            }
-            catch { }
-
-            return ids;
-        }
-        #endregion
-
-        #region [ LoadXmlDocument ] // Loads the XML or creates a new one with a standard structure if it does not exist or is invalid.
-        private XmlDocument LoadXmlDocument(string filePath)
-        {
-            XmlDocument dom = new XmlDocument();
-            if (File.Exists(filePath))
-            {
-                try { dom.Load(filePath); return dom; }
-                catch (XmlException ex)
-                {
-                    MessageBox.Show($"Loading error:\n{ex.Message}", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
-                }
-            }
-            dom.AppendChild(dom.CreateXmlDeclaration("1.0", "utf-8", null));
-            XmlElement root = dom.CreateElement("Graphics");
-            root.AppendChild(dom.CreateComment("Entries in Mob tab"));
-            root.AppendChild(dom.CreateComment("Name=Displayed name"));
-            root.AppendChild(dom.CreateComment("body=Graphic"));
-            root.AppendChild(dom.CreateComment("type=0:Monster, 1:Sea, 2:Animal, 3:Human/Equipment"));
-            dom.AppendChild(root);
-            return dom;
-        }
-        #endregion
     }
 
-    #region [ class AlphaSorter ] // The TreeView is sorted alphabetically, but Mob and Equipment always remain at the top.
+    #region [ class AlphaSorter ]
     public class AlphaSorter : IComparer
     {
         public int Compare(object x, object y)
         {
             TreeNode tx = x as TreeNode;
             TreeNode ty = y as TreeNode;
-            if (tx.Parent == null) // don't change Mob and Equipment
+            if (tx.Parent == null) // 不更改“生物”和“装备”的顺序
             {
                 return (int)tx.Tag == -1 ? -1 : 1;
             }
@@ -1855,16 +1762,6 @@ namespace UoFiddler.Controls.UserControls
 
             return 1;
         }
-    }
-    #endregion
-
-    #region [ MissingXmlEntry – Hilfsklasse ]
-    public class MissingXmlEntry
-    {
-        public int GraphicId { get; set; }
-        public int Type { get; set; }
-        public string Name { get; set; }
-        public string XmlTag { get; set; }  // "Mob" oder "Equip"
     }
     #endregion
 }

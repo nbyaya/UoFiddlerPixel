@@ -289,7 +289,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "IsoTiloSlicer";
-            Text = "IsoTiloSlicer";
+            Text = "等厚切片机";
 
             Controls.Add(pnlLeft);
             Controls.Add(picImagePreview);

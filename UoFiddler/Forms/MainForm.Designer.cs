@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -16,14 +16,14 @@ namespace UoFiddler.Forms
     partial class MainForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -33,11 +33,11 @@ namespace UoFiddler.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -234,7 +234,7 @@ namespace UoFiddler.Forms
             UnDockToolStripMenuItem.Image = Properties.Resources.notepad;
             UnDockToolStripMenuItem.Name = "UnDockToolStripMenuItem";
             UnDockToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            UnDockToolStripMenuItem.Text = "UnDock";
+            UnDockToolStripMenuItem.Text = "取消停靠";
             UnDockToolStripMenuItem.Click += OnClickUnDock;
             // 
             // SwitchLogoImageToolStripMenuItem
@@ -243,7 +243,7 @@ namespace UoFiddler.Forms
             SwitchLogoImageToolStripMenuItem.Image = Properties.Resources._32x32;
             SwitchLogoImageToolStripMenuItem.Name = "SwitchLogoImageToolStripMenuItem";
             SwitchLogoImageToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            SwitchLogoImageToolStripMenuItem.Text = "Switch Logo Image";
+            SwitchLogoImageToolStripMenuItem.Text = "切换徽标图像";
             // 
             // toolStripComboBoxImage
             // 
@@ -256,7 +256,7 @@ namespace UoFiddler.Forms
             ColorBackgroundToolStripMenuItem.Image = Properties.Resources.Color;
             ColorBackgroundToolStripMenuItem.Name = "ColorBackgroundToolStripMenuItem";
             ColorBackgroundToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            ColorBackgroundToolStripMenuItem.Text = "Color Background";
+            ColorBackgroundToolStripMenuItem.Text = "背景颜色";
             ColorBackgroundToolStripMenuItem.Click += ColorBackgroundToolStripMenuItem_Click;
             // 
             // ResetBackgroundToolStripMenuItem
@@ -264,7 +264,7 @@ namespace UoFiddler.Forms
             ResetBackgroundToolStripMenuItem.Image = Properties.Resources.reset_2_;
             ResetBackgroundToolStripMenuItem.Name = "ResetBackgroundToolStripMenuItem";
             ResetBackgroundToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            ResetBackgroundToolStripMenuItem.Text = "Reset Background";
+            ResetBackgroundToolStripMenuItem.Text = "重置背景";
             ResetBackgroundToolStripMenuItem.Click += ResetColorToolStripMenuItem_Click;
             // 
             // toolStripSeparator5
@@ -277,7 +277,7 @@ namespace UoFiddler.Forms
             ultimaOnlineDirToolStripMenuItem.Image = Properties.Resources.ultima_online;
             ultimaOnlineDirToolStripMenuItem.Name = "ultimaOnlineDirToolStripMenuItem";
             ultimaOnlineDirToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            ultimaOnlineDirToolStripMenuItem.Text = "Ultima Online Dir";
+            ultimaOnlineDirToolStripMenuItem.Text = "Ultima Online 目录";
             ultimaOnlineDirToolStripMenuItem.Click += ultimaOnlineDirToolStripMenuItem_Click;
             // 
             // DirectoryToolStripMenuItem
@@ -285,8 +285,8 @@ namespace UoFiddler.Forms
             DirectoryToolStripMenuItem.Image = Properties.Resources.Directory;
             DirectoryToolStripMenuItem.Name = "DirectoryToolStripMenuItem";
             DirectoryToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            DirectoryToolStripMenuItem.Text = "Output Path";
-            DirectoryToolStripMenuItem.ToolTipText = "Opens the directory in Explorer that was specified in Options.";
+            DirectoryToolStripMenuItem.Text = "输出路径";
+            DirectoryToolStripMenuItem.ToolTipText = "在资源管理器中打开在选项里指定的目录。";
             DirectoryToolStripMenuItem.Click += DirectoryToolStripMenuItem_Click;
             // 
             // TempDirToolStripMenuItem
@@ -294,7 +294,7 @@ namespace UoFiddler.Forms
             TempDirToolStripMenuItem.Image = Properties.Resources.Directory;
             TempDirToolStripMenuItem.Name = "TempDirToolStripMenuItem";
             TempDirToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            TempDirToolStripMenuItem.Text = "Temp Dir";
+            TempDirToolStripMenuItem.Text = "临时目录";
             TempDirToolStripMenuItem.Click += TempDirToolStripMenuItem_Click;
             // 
             // toolStripSeparator6
@@ -307,7 +307,7 @@ namespace UoFiddler.Forms
             NotesToolStripMenuItem.Image = Properties.Resources.notepad;
             NotesToolStripMenuItem.Name = "NotesToolStripMenuItem";
             NotesToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            NotesToolStripMenuItem.Text = "Notes";
+            NotesToolStripMenuItem.Text = "笔记";
             NotesToolStripMenuItem.Click += NotesToolStripMenuItem_Click;
             // 
             // ScreenshotToolStripMenuItem
@@ -315,8 +315,8 @@ namespace UoFiddler.Forms
             ScreenshotToolStripMenuItem.Image = Properties.Resources.animation_edit_3_;
             ScreenshotToolStripMenuItem.Name = "ScreenshotToolStripMenuItem";
             ScreenshotToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            ScreenshotToolStripMenuItem.Text = "Screenshot";
-            ScreenshotToolStripMenuItem.ToolTipText = "Takes a screenshot of the application and copies it to clipbord";
+            ScreenshotToolStripMenuItem.Text = "截图";
+            ScreenshotToolStripMenuItem.ToolTipText = "截取应用程序的屏幕截图并复制到剪贴板";
             ScreenshotToolStripMenuItem.Click += ScreenshotToolStripMenuItem_Click;
             // 
             // toolStripSeparator8
@@ -329,8 +329,8 @@ namespace UoFiddler.Forms
             startSoundToolStripMenuItem.Image = Properties.Resources.play_musik_icon_1_;
             startSoundToolStripMenuItem.Name = "startSoundToolStripMenuItem";
             startSoundToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            startSoundToolStripMenuItem.Text = "Start Sound";
-            startSoundToolStripMenuItem.ToolTipText = "Play MP3 Sound";
+            startSoundToolStripMenuItem.Text = "播放声音";
+            startSoundToolStripMenuItem.ToolTipText = "播放 MP3 声音";
             startSoundToolStripMenuItem.Click += soundPlayToolStripMenuItem_Click;
             // 
             // stopSoundToolStripMenuItem
@@ -338,8 +338,8 @@ namespace UoFiddler.Forms
             stopSoundToolStripMenuItem.Image = Properties.Resources.stop_musik_icon_1_;
             stopSoundToolStripMenuItem.Name = "stopSoundToolStripMenuItem";
             stopSoundToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            stopSoundToolStripMenuItem.Text = "Stop Sound";
-            stopSoundToolStripMenuItem.ToolTipText = "Stop Mp3 Sound";
+            stopSoundToolStripMenuItem.Text = "停止声音";
+            stopSoundToolStripMenuItem.ToolTipText = "停止 MP3 声音";
             stopSoundToolStripMenuItem.Click += stopSoundToolStripMenuItem_Click;
             // 
             // loadDirToolStripMenuItem
@@ -347,8 +347,8 @@ namespace UoFiddler.Forms
             loadDirToolStripMenuItem.Image = Properties.Resources.dir_musik_icon;
             loadDirToolStripMenuItem.Name = "loadDirToolStripMenuItem";
             loadDirToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            loadDirToolStripMenuItem.Text = "Load Dir";
-            loadDirToolStripMenuItem.ToolTipText = "Load DIr New";
+            loadDirToolStripMenuItem.Text = "加载目录";
+            loadDirToolStripMenuItem.ToolTipText = "加载新目录";
             loadDirToolStripMenuItem.Click += newDirLoadToolStripMenuItem_Click;
             // 
             // StartTab
@@ -364,7 +364,7 @@ namespace UoFiddler.Forms
             StartTab.Size = new System.Drawing.Size(906, 598);
             StartTab.TabIndex = 10;
             StartTab.Tag = 0;
-            StartTab.Text = "Start";
+            StartTab.Text = "开始";
             // 
             // Versionlabel
             // 
@@ -378,7 +378,7 @@ namespace UoFiddler.Forms
             Versionlabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             Versionlabel.Size = new System.Drawing.Size(45, 15);
             Versionlabel.TabIndex = 1;
-            Versionlabel.Text = "Version";
+            Versionlabel.Text = "版本";
             Versionlabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             Versionlabel.Click += Versionlabel_Click;
             // 
@@ -392,7 +392,7 @@ namespace UoFiddler.Forms
             MultisTab.Size = new System.Drawing.Size(906, 598);
             MultisTab.TabIndex = 1;
             MultisTab.Tag = 1;
-            MultisTab.Text = "Multis";
+            MultisTab.Text = "多重";
             MultisTab.UseVisualStyleBackColor = true;
             // 
             // multisControl
@@ -414,7 +414,7 @@ namespace UoFiddler.Forms
             AnimationTab.Size = new System.Drawing.Size(906, 598);
             AnimationTab.TabIndex = 0;
             AnimationTab.Tag = 2;
-            AnimationTab.Text = "Animations";
+            AnimationTab.Text = "动画";
             AnimationTab.UseVisualStyleBackColor = true;
             // 
             // animationsControl
@@ -436,7 +436,7 @@ namespace UoFiddler.Forms
             ItemsTab.Size = new System.Drawing.Size(906, 598);
             ItemsTab.TabIndex = 2;
             ItemsTab.Tag = 3;
-            ItemsTab.Text = "Items";
+            ItemsTab.Text = "物品";
             ItemsTab.UseVisualStyleBackColor = true;
             // 
             // itemShowControl
@@ -459,7 +459,7 @@ namespace UoFiddler.Forms
             LandTilesTab.Size = new System.Drawing.Size(906, 598);
             LandTilesTab.TabIndex = 3;
             LandTilesTab.Tag = 4;
-            LandTilesTab.Text = "Land Tiles";
+            LandTilesTab.Text = "地形图块";
             LandTilesTab.UseVisualStyleBackColor = true;
             // 
             // landTilesControl
@@ -482,7 +482,7 @@ namespace UoFiddler.Forms
             TextureTab.Size = new System.Drawing.Size(906, 598);
             TextureTab.TabIndex = 11;
             TextureTab.Tag = 5;
-            TextureTab.Text = "Textures";
+            TextureTab.Text = "纹理";
             TextureTab.UseVisualStyleBackColor = true;
             // 
             // textureControl
@@ -505,7 +505,7 @@ namespace UoFiddler.Forms
             GumpsTab.Size = new System.Drawing.Size(906, 598);
             GumpsTab.TabIndex = 4;
             GumpsTab.Tag = 6;
-            GumpsTab.Text = "Gumps";
+            GumpsTab.Text = "界面图片";
             GumpsTab.UseVisualStyleBackColor = true;
             // 
             // gumpsControl
@@ -527,7 +527,7 @@ namespace UoFiddler.Forms
             SoundsTab.Size = new System.Drawing.Size(906, 598);
             SoundsTab.TabIndex = 5;
             SoundsTab.Tag = 7;
-            SoundsTab.Text = "Sounds";
+            SoundsTab.Text = "声音";
             SoundsTab.UseVisualStyleBackColor = true;
             // 
             // soundControl
@@ -549,7 +549,7 @@ namespace UoFiddler.Forms
             HuesTab.Size = new System.Drawing.Size(906, 598);
             HuesTab.TabIndex = 6;
             HuesTab.Tag = 8;
-            HuesTab.Text = "Hues";
+            HuesTab.Text = "色调";
             HuesTab.UseVisualStyleBackColor = true;
             // 
             // hueControl
@@ -573,7 +573,7 @@ namespace UoFiddler.Forms
             FontsTab.Size = new System.Drawing.Size(906, 598);
             FontsTab.TabIndex = 7;
             FontsTab.Tag = 9;
-            FontsTab.Text = "Fonts";
+            FontsTab.Text = "字体";
             FontsTab.UseVisualStyleBackColor = true;
             // 
             // fontsControl
@@ -595,7 +595,7 @@ namespace UoFiddler.Forms
             ClilocTab.Size = new System.Drawing.Size(906, 598);
             ClilocTab.TabIndex = 8;
             ClilocTab.Tag = 10;
-            ClilocTab.Text = "CliLoc";
+            ClilocTab.Text = "文本";
             ClilocTab.UseVisualStyleBackColor = true;
             // 
             // clilocControl
@@ -617,7 +617,7 @@ namespace UoFiddler.Forms
             MapTab.Size = new System.Drawing.Size(906, 598);
             MapTab.TabIndex = 9;
             MapTab.Tag = 11;
-            MapTab.Text = "Map";
+            MapTab.Text = "地图";
             MapTab.UseVisualStyleBackColor = true;
             // 
             // mapControl
@@ -638,7 +638,7 @@ namespace UoFiddler.Forms
             LightTab.Size = new System.Drawing.Size(906, 598);
             LightTab.TabIndex = 12;
             LightTab.Tag = 12;
-            LightTab.Text = "Light";
+            LightTab.Text = "光照";
             LightTab.UseVisualStyleBackColor = true;
             // 
             // lightControl
@@ -659,7 +659,7 @@ namespace UoFiddler.Forms
             SpeechTab.Size = new System.Drawing.Size(906, 598);
             SpeechTab.TabIndex = 17;
             SpeechTab.Tag = 13;
-            SpeechTab.Text = "Speech";
+            SpeechTab.Text = "语音";
             SpeechTab.UseVisualStyleBackColor = true;
             // 
             // speechControl
@@ -681,7 +681,7 @@ namespace UoFiddler.Forms
             SkillsTab.Size = new System.Drawing.Size(906, 598);
             SkillsTab.TabIndex = 15;
             SkillsTab.Tag = 14;
-            SkillsTab.Text = "Skills";
+            SkillsTab.Text = "技能";
             SkillsTab.UseVisualStyleBackColor = true;
             // 
             // skillsControl
@@ -702,7 +702,7 @@ namespace UoFiddler.Forms
             AnimDataTab.Size = new System.Drawing.Size(906, 598);
             AnimDataTab.TabIndex = 18;
             AnimDataTab.Tag = 15;
-            AnimDataTab.Text = "AnimData";
+            AnimDataTab.Text = "动画数据";
             AnimDataTab.UseVisualStyleBackColor = true;
             // 
             // animdataControl
@@ -724,7 +724,7 @@ namespace UoFiddler.Forms
             MultiMapTab.Size = new System.Drawing.Size(906, 598);
             MultiMapTab.TabIndex = 14;
             MultiMapTab.Tag = 16;
-            MultiMapTab.Text = "MultiMap/Facets";
+            MultiMapTab.Text = "多重地图/面";
             MultiMapTab.UseVisualStyleBackColor = true;
             // 
             // multimapControl
@@ -746,7 +746,7 @@ namespace UoFiddler.Forms
             DressTab.Size = new System.Drawing.Size(906, 598);
             DressTab.TabIndex = 13;
             DressTab.Tag = 17;
-            DressTab.Text = "Dress";
+            DressTab.Text = "装扮";
             DressTab.UseVisualStyleBackColor = true;
             // 
             // dressControl
@@ -767,7 +767,7 @@ namespace UoFiddler.Forms
             TileDataTab.Size = new System.Drawing.Size(906, 598);
             TileDataTab.TabIndex = 16;
             TileDataTab.Tag = 18;
-            TileDataTab.Text = "TileData";
+            TileDataTab.Text = "图块数据";
             TileDataTab.UseVisualStyleBackColor = true;
             // 
             // tileDataControl
@@ -788,7 +788,7 @@ namespace UoFiddler.Forms
             RadarColTab.Size = new System.Drawing.Size(906, 598);
             RadarColTab.TabIndex = 19;
             RadarColTab.Tag = 19;
-            RadarColTab.Text = "RadarColor";
+            RadarColTab.Text = "雷达颜色";
             RadarColTab.UseVisualStyleBackColor = true;
             // 
             // radarColControl
@@ -810,7 +810,7 @@ namespace UoFiddler.Forms
             SkillGrpTab.Size = new System.Drawing.Size(906, 598);
             SkillGrpTab.TabIndex = 20;
             SkillGrpTab.Tag = 20;
-            SkillGrpTab.Text = "SkillGrp";
+            SkillGrpTab.Text = "技能组";
             SkillGrpTab.UseVisualStyleBackColor = true;
             // 
             // skillGroupControl
@@ -839,14 +839,14 @@ namespace UoFiddler.Forms
             SettingsMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             SettingsMenu.Name = "SettingsMenu";
             SettingsMenu.Size = new System.Drawing.Size(62, 22);
-            SettingsMenu.Text = "Settings";
+            SettingsMenu.Text = "设置";
             // 
             // AlwaysOnTopMenuitem
             // 
             AlwaysOnTopMenuitem.CheckOnClick = true;
             AlwaysOnTopMenuitem.Name = "AlwaysOnTopMenuitem";
             AlwaysOnTopMenuitem.Size = new System.Drawing.Size(152, 22);
-            AlwaysOnTopMenuitem.Text = "Always On Top";
+            AlwaysOnTopMenuitem.Text = "总在最前";
             AlwaysOnTopMenuitem.Click += OnClickAlwaysTop;
             // 
             // optionsToolStripMenuItem
@@ -854,7 +854,7 @@ namespace UoFiddler.Forms
             optionsToolStripMenuItem.Image = Properties.Resources.optionen;
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            optionsToolStripMenuItem.Text = "Options..";
+            optionsToolStripMenuItem.Text = "选项..";
             optionsToolStripMenuItem.Click += OnClickOptions;
             // 
             // pathSettingsMenuItem
@@ -862,7 +862,7 @@ namespace UoFiddler.Forms
             pathSettingsMenuItem.Image = Properties.Resources.path_settings;
             pathSettingsMenuItem.Name = "pathSettingsMenuItem";
             pathSettingsMenuItem.Size = new System.Drawing.Size(152, 22);
-            pathSettingsMenuItem.Text = "Path Settings..";
+            pathSettingsMenuItem.Text = "路径设置..";
             pathSettingsMenuItem.Click += Click_path;
             // 
             // tsSettingsSeparator
@@ -876,7 +876,7 @@ namespace UoFiddler.Forms
             reloadFilesMenuItem.Image = Properties.Resources.reload_files;
             reloadFilesMenuItem.Name = "reloadFilesMenuItem";
             reloadFilesMenuItem.Size = new System.Drawing.Size(152, 22);
-            reloadFilesMenuItem.Text = "Reload Files";
+            reloadFilesMenuItem.Text = "重新加载文件";
             reloadFilesMenuItem.Click += ReloadFiles;
             // 
             // toolStripDropDownButtonView
@@ -886,7 +886,7 @@ namespace UoFiddler.Forms
             toolStripDropDownButtonView.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripDropDownButtonView.Name = "toolStripDropDownButtonView";
             toolStripDropDownButtonView.Size = new System.Drawing.Size(45, 22);
-            toolStripDropDownButtonView.Text = "View";
+            toolStripDropDownButtonView.Text = "视图";
             // 
             // ToggleViewStart
             // 
@@ -895,7 +895,7 @@ namespace UoFiddler.Forms
             ToggleViewStart.Name = "ToggleViewStart";
             ToggleViewStart.Size = new System.Drawing.Size(164, 22);
             ToggleViewStart.Tag = 0;
-            ToggleViewStart.Text = "Start";
+            ToggleViewStart.Text = "开始";
             ToggleViewStart.Click += ToggleView;
             // 
             // ToggleViewMulti
@@ -905,7 +905,7 @@ namespace UoFiddler.Forms
             ToggleViewMulti.Name = "ToggleViewMulti";
             ToggleViewMulti.Size = new System.Drawing.Size(164, 22);
             ToggleViewMulti.Tag = 1;
-            ToggleViewMulti.Text = "Multi";
+            ToggleViewMulti.Text = "多重";
             ToggleViewMulti.Click += ToggleView;
             // 
             // ToggleViewAnimations
@@ -915,7 +915,7 @@ namespace UoFiddler.Forms
             ToggleViewAnimations.Name = "ToggleViewAnimations";
             ToggleViewAnimations.Size = new System.Drawing.Size(164, 22);
             ToggleViewAnimations.Tag = 2;
-            ToggleViewAnimations.Text = "Animations";
+            ToggleViewAnimations.Text = "动画";
             ToggleViewAnimations.Click += ToggleView;
             // 
             // ToggleViewItems
@@ -925,7 +925,7 @@ namespace UoFiddler.Forms
             ToggleViewItems.Name = "ToggleViewItems";
             ToggleViewItems.Size = new System.Drawing.Size(164, 22);
             ToggleViewItems.Tag = 3;
-            ToggleViewItems.Text = "Items";
+            ToggleViewItems.Text = "物品";
             ToggleViewItems.Click += ToggleView;
             // 
             // ToggleViewLandTiles
@@ -935,7 +935,7 @@ namespace UoFiddler.Forms
             ToggleViewLandTiles.Name = "ToggleViewLandTiles";
             ToggleViewLandTiles.Size = new System.Drawing.Size(164, 22);
             ToggleViewLandTiles.Tag = 4;
-            ToggleViewLandTiles.Text = "LandTiles";
+            ToggleViewLandTiles.Text = "地形图块";
             ToggleViewLandTiles.Click += ToggleView;
             // 
             // ToggleViewTexture
@@ -945,7 +945,7 @@ namespace UoFiddler.Forms
             ToggleViewTexture.Name = "ToggleViewTexture";
             ToggleViewTexture.Size = new System.Drawing.Size(164, 22);
             ToggleViewTexture.Tag = 5;
-            ToggleViewTexture.Text = "Texture";
+            ToggleViewTexture.Text = "纹理";
             ToggleViewTexture.Click += ToggleView;
             // 
             // ToggleViewGumps
@@ -955,7 +955,7 @@ namespace UoFiddler.Forms
             ToggleViewGumps.Name = "ToggleViewGumps";
             ToggleViewGumps.Size = new System.Drawing.Size(164, 22);
             ToggleViewGumps.Tag = 6;
-            ToggleViewGumps.Text = "Gumps";
+            ToggleViewGumps.Text = "界面图片";
             ToggleViewGumps.Click += ToggleView;
             // 
             // ToggleViewSounds
@@ -965,7 +965,7 @@ namespace UoFiddler.Forms
             ToggleViewSounds.Name = "ToggleViewSounds";
             ToggleViewSounds.Size = new System.Drawing.Size(164, 22);
             ToggleViewSounds.Tag = 7;
-            ToggleViewSounds.Text = "Sounds";
+            ToggleViewSounds.Text = "声音";
             ToggleViewSounds.Click += ToggleView;
             // 
             // ToggleViewHue
@@ -975,7 +975,7 @@ namespace UoFiddler.Forms
             ToggleViewHue.Name = "ToggleViewHue";
             ToggleViewHue.Size = new System.Drawing.Size(164, 22);
             ToggleViewHue.Tag = 8;
-            ToggleViewHue.Text = "Hue";
+            ToggleViewHue.Text = "色调";
             ToggleViewHue.Click += ToggleView;
             // 
             // ToggleViewFonts
@@ -985,7 +985,7 @@ namespace UoFiddler.Forms
             ToggleViewFonts.Name = "ToggleViewFonts";
             ToggleViewFonts.Size = new System.Drawing.Size(164, 22);
             ToggleViewFonts.Tag = 9;
-            ToggleViewFonts.Text = "Fonts";
+            ToggleViewFonts.Text = "字体";
             ToggleViewFonts.Click += ToggleView;
             // 
             // ToggleViewCliloc
@@ -995,7 +995,7 @@ namespace UoFiddler.Forms
             ToggleViewCliloc.Name = "ToggleViewCliloc";
             ToggleViewCliloc.Size = new System.Drawing.Size(164, 22);
             ToggleViewCliloc.Tag = 10;
-            ToggleViewCliloc.Text = "Cliloc";
+            ToggleViewCliloc.Text = "文本";
             ToggleViewCliloc.Click += ToggleView;
             // 
             // ToggleViewMap
@@ -1005,7 +1005,7 @@ namespace UoFiddler.Forms
             ToggleViewMap.Name = "ToggleViewMap";
             ToggleViewMap.Size = new System.Drawing.Size(164, 22);
             ToggleViewMap.Tag = 11;
-            ToggleViewMap.Text = "Map";
+            ToggleViewMap.Text = "地图";
             ToggleViewMap.Click += ToggleView;
             // 
             // ToggleViewLight
@@ -1015,7 +1015,7 @@ namespace UoFiddler.Forms
             ToggleViewLight.Name = "ToggleViewLight";
             ToggleViewLight.Size = new System.Drawing.Size(164, 22);
             ToggleViewLight.Tag = 12;
-            ToggleViewLight.Text = "Light";
+            ToggleViewLight.Text = "光照";
             ToggleViewLight.Click += ToggleView;
             // 
             // ToggleViewSpeech
@@ -1025,7 +1025,7 @@ namespace UoFiddler.Forms
             ToggleViewSpeech.Name = "ToggleViewSpeech";
             ToggleViewSpeech.Size = new System.Drawing.Size(164, 22);
             ToggleViewSpeech.Tag = 13;
-            ToggleViewSpeech.Text = "Speech";
+            ToggleViewSpeech.Text = "语音";
             ToggleViewSpeech.Click += ToggleView;
             // 
             // ToggleViewSkills
@@ -1035,7 +1035,7 @@ namespace UoFiddler.Forms
             ToggleViewSkills.Name = "ToggleViewSkills";
             ToggleViewSkills.Size = new System.Drawing.Size(164, 22);
             ToggleViewSkills.Tag = 14;
-            ToggleViewSkills.Text = "Skills";
+            ToggleViewSkills.Text = "技能";
             ToggleViewSkills.Click += ToggleView;
             // 
             // ToggleViewAnimData
@@ -1045,7 +1045,7 @@ namespace UoFiddler.Forms
             ToggleViewAnimData.Name = "ToggleViewAnimData";
             ToggleViewAnimData.Size = new System.Drawing.Size(164, 22);
             ToggleViewAnimData.Tag = 15;
-            ToggleViewAnimData.Text = "AnimData";
+            ToggleViewAnimData.Text = "动画数据";
             ToggleViewAnimData.Click += ToggleView;
             // 
             // ToggleViewMultiMap
@@ -1055,7 +1055,7 @@ namespace UoFiddler.Forms
             ToggleViewMultiMap.Name = "ToggleViewMultiMap";
             ToggleViewMultiMap.Size = new System.Drawing.Size(164, 22);
             ToggleViewMultiMap.Tag = 16;
-            ToggleViewMultiMap.Text = "MultiMap/Facets";
+            ToggleViewMultiMap.Text = "多重地图/面";
             ToggleViewMultiMap.Click += ToggleView;
             // 
             // ToggleViewDress
@@ -1065,7 +1065,7 @@ namespace UoFiddler.Forms
             ToggleViewDress.Name = "ToggleViewDress";
             ToggleViewDress.Size = new System.Drawing.Size(164, 22);
             ToggleViewDress.Tag = 17;
-            ToggleViewDress.Text = "Dress";
+            ToggleViewDress.Text = "装扮";
             ToggleViewDress.Click += ToggleView;
             // 
             // ToggleViewTileData
@@ -1075,7 +1075,7 @@ namespace UoFiddler.Forms
             ToggleViewTileData.Name = "ToggleViewTileData";
             ToggleViewTileData.Size = new System.Drawing.Size(164, 22);
             ToggleViewTileData.Tag = 18;
-            ToggleViewTileData.Text = "TileData";
+            ToggleViewTileData.Text = "图块数据";
             ToggleViewTileData.Click += ToggleView;
             // 
             // ToggleViewRadarColor
@@ -1085,7 +1085,7 @@ namespace UoFiddler.Forms
             ToggleViewRadarColor.Name = "ToggleViewRadarColor";
             ToggleViewRadarColor.Size = new System.Drawing.Size(164, 22);
             ToggleViewRadarColor.Tag = 19;
-            ToggleViewRadarColor.Text = "RadarColor";
+            ToggleViewRadarColor.Text = "雷达颜色";
             ToggleViewRadarColor.Click += ToggleView;
             // 
             // ToggleViewSkillGrp
@@ -1095,7 +1095,7 @@ namespace UoFiddler.Forms
             ToggleViewSkillGrp.Name = "ToggleViewSkillGrp";
             ToggleViewSkillGrp.Size = new System.Drawing.Size(164, 22);
             ToggleViewSkillGrp.Tag = 20;
-            ToggleViewSkillGrp.Text = "SkillGrp";
+            ToggleViewSkillGrp.Text = "技能组";
             ToggleViewSkillGrp.Click += ToggleView;
             // 
             // ExternToolsDropDown
@@ -1105,14 +1105,14 @@ namespace UoFiddler.Forms
             ExternToolsDropDown.ImageTransparentColor = System.Drawing.Color.Magenta;
             ExternToolsDropDown.Name = "ExternToolsDropDown";
             ExternToolsDropDown.Size = new System.Drawing.Size(83, 22);
-            ExternToolsDropDown.Text = "Extern Tools";
+            ExternToolsDropDown.Text = "外部工具";
             // 
             // manageToolStripMenuItem
             // 
             manageToolStripMenuItem.Image = Properties.Resources.path_settings;
             manageToolStripMenuItem.Name = "manageToolStripMenuItem";
             manageToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            manageToolStripMenuItem.Text = "Manage..";
+            manageToolStripMenuItem.Text = "管理..";
             manageToolStripMenuItem.Click += OnClickToolManage;
             // 
             // toolStripDropDownButtonPlugins
@@ -1122,14 +1122,14 @@ namespace UoFiddler.Forms
             toolStripDropDownButtonPlugins.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripDropDownButtonPlugins.Name = "toolStripDropDownButtonPlugins";
             toolStripDropDownButtonPlugins.Size = new System.Drawing.Size(59, 22);
-            toolStripDropDownButtonPlugins.Text = "Plugins";
+            toolStripDropDownButtonPlugins.Text = "插件";
             // 
             // manageToolStripMenuItem1
             // 
             manageToolStripMenuItem1.Image = Properties.Resources.path_settings;
             manageToolStripMenuItem1.Name = "manageToolStripMenuItem1";
             manageToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
-            manageToolStripMenuItem1.Text = "Manage..";
+            manageToolStripMenuItem1.Text = "管理..";
             manageToolStripMenuItem1.Click += OnClickManagePlugins;
             // 
             // tsPluginsSeparator
@@ -1144,15 +1144,15 @@ namespace UoFiddler.Forms
             toolStripDropDownButtonHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripDropDownButtonHelp.Name = "toolStripDropDownButtonHelp";
             toolStripDropDownButtonHelp.Size = new System.Drawing.Size(45, 22);
-            toolStripDropDownButtonHelp.Text = "Help";
-            toolStripDropDownButtonHelp.ToolTipText = "Help";
+            toolStripDropDownButtonHelp.Text = "帮助";
+            toolStripDropDownButtonHelp.ToolTipText = "帮助";
             // 
             // toolStripMenuItemHelp
             // 
             toolStripMenuItemHelp.Image = Properties.Resources.Help;
             toolStripMenuItemHelp.Name = "toolStripMenuItemHelp";
             toolStripMenuItemHelp.Size = new System.Drawing.Size(141, 22);
-            toolStripMenuItemHelp.Text = "Help";
+            toolStripMenuItemHelp.Text = "帮助";
             toolStripMenuItemHelp.Click += ToolStripMenuItemHelp_Click;
             // 
             // fileFormatGermanToolStripMenuItem
@@ -1161,14 +1161,14 @@ namespace UoFiddler.Forms
             fileFormatGermanToolStripMenuItem.Image = Properties.Resources.Help;
             fileFormatGermanToolStripMenuItem.Name = "fileFormatGermanToolStripMenuItem";
             fileFormatGermanToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            fileFormatGermanToolStripMenuItem.Text = "File Format";
+            fileFormatGermanToolStripMenuItem.Text = "文件格式";
             // 
             // fileFormatGermanToolStripMenuItem1
             // 
             fileFormatGermanToolStripMenuItem1.Image = Properties.Resources.Directory;
             fileFormatGermanToolStripMenuItem1.Name = "fileFormatGermanToolStripMenuItem1";
             fileFormatGermanToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
-            fileFormatGermanToolStripMenuItem1.Text = "File Format German";
+            fileFormatGermanToolStripMenuItem1.Text = "文件格式 (德语)";
             fileFormatGermanToolStripMenuItem1.Click += ToolStripMenuItemFileFormatsGerman_Click;
             // 
             // fileFormatEnglischToolStripMenuItem
@@ -1176,7 +1176,7 @@ namespace UoFiddler.Forms
             fileFormatEnglischToolStripMenuItem.Image = Properties.Resources.Directory;
             fileFormatEnglischToolStripMenuItem.Name = "fileFormatEnglischToolStripMenuItem";
             fileFormatEnglischToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            fileFormatEnglischToolStripMenuItem.Text = "File Format Englisch";
+            fileFormatEnglischToolStripMenuItem.Text = "文件格式 (英语)";
             fileFormatEnglischToolStripMenuItem.Click += ToolStripMenuItemFileFormatsEnglisch_Click;
             // 
             // animationsToolStripMenuItem
@@ -1184,7 +1184,7 @@ namespace UoFiddler.Forms
             animationsToolStripMenuItem.Image = Properties.Resources.animation_monster_oder_pet;
             animationsToolStripMenuItem.Name = "animationsToolStripMenuItem";
             animationsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            animationsToolStripMenuItem.Text = "Animations";
+            animationsToolStripMenuItem.Text = "动画";
             animationsToolStripMenuItem.Click += AnimationsToolStripMenuItem_Click;
             // 
             // animationInstallToolStripMenuItem
@@ -1192,7 +1192,7 @@ namespace UoFiddler.Forms
             animationInstallToolStripMenuItem.Image = Properties.Resources.Directory;
             animationInstallToolStripMenuItem.Name = "animationInstallToolStripMenuItem";
             animationInstallToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            animationInstallToolStripMenuItem.Text = "Animation Install German";
+            animationInstallToolStripMenuItem.Text = "动画安装 (德语)";
             animationInstallToolStripMenuItem.Click += AnimationInstallToolStripMenuItem_Click;
             // 
             // animationInstallEnglischToolStripMenuItem
@@ -1200,7 +1200,7 @@ namespace UoFiddler.Forms
             animationInstallEnglischToolStripMenuItem.Image = Properties.Resources.Directory;
             animationInstallEnglischToolStripMenuItem.Name = "animationInstallEnglischToolStripMenuItem";
             animationInstallEnglischToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            animationInstallEnglischToolStripMenuItem.Text = "Animation Install Englisch";
+            animationInstallEnglischToolStripMenuItem.Text = "动画安装 (英语)";
             animationInstallEnglischToolStripMenuItem.Click += AnimationInstallEnglischToolStripMenuItem_Click;
             // 
             // binaryDecimalHexadecimalConverterToolStripMenuItem
@@ -1208,8 +1208,8 @@ namespace UoFiddler.Forms
             binaryDecimalHexadecimalConverterToolStripMenuItem.Image = Properties.Resources.calculator;
             binaryDecimalHexadecimalConverterToolStripMenuItem.Name = "binaryDecimalHexadecimalConverterToolStripMenuItem";
             binaryDecimalHexadecimalConverterToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            binaryDecimalHexadecimalConverterToolStripMenuItem.Text = "Converter";
-            binaryDecimalHexadecimalConverterToolStripMenuItem.ToolTipText = "Calculator for Binary, Decimal, and Hexadecimal";
+            binaryDecimalHexadecimalConverterToolStripMenuItem.Text = "转换器";
+            binaryDecimalHexadecimalConverterToolStripMenuItem.ToolTipText = "二进制、十进制和十六进制计算器";
             binaryDecimalHexadecimalConverterToolStripMenuItem.Click += BinaryDecimalHexadecimalConverterToolStripMenuItem_Click_1;
             // 
             // convertLineToolStripMenuItem
@@ -1217,8 +1217,8 @@ namespace UoFiddler.Forms
             convertLineToolStripMenuItem.Image = Properties.Resources.calculator;
             convertLineToolStripMenuItem.Name = "convertLineToolStripMenuItem";
             convertLineToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            convertLineToolStripMenuItem.Text = "Convert Line";
-            convertLineToolStripMenuItem.ToolTipText = "Paragraph-to-Line Converter";
+            convertLineToolStripMenuItem.Text = "行转换器";
+            convertLineToolStripMenuItem.ToolTipText = "段落转行转换器";
             convertLineToolStripMenuItem.Click += ConvertLineToolStripMenuItem_Click;
             // 
             // toolStripSeparator7
@@ -1231,8 +1231,8 @@ namespace UoFiddler.Forms
             alarmClockToolStripMenuItem.Image = Properties.Resources.uhr;
             alarmClockToolStripMenuItem.Name = "alarmClockToolStripMenuItem";
             alarmClockToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            alarmClockToolStripMenuItem.Text = "Alarm Clock";
-            alarmClockToolStripMenuItem.ToolTipText = "Alarm Clock";
+            alarmClockToolStripMenuItem.Text = "闹钟";
+            alarmClockToolStripMenuItem.ToolTipText = "闹钟";
             alarmClockToolStripMenuItem.Click += AlarmClockToolStripMenuItem_Click;
             // 
             // calendarToolStripMenuItem
@@ -1240,8 +1240,8 @@ namespace UoFiddler.Forms
             calendarToolStripMenuItem.Image = Properties.Resources.calendar_week;
             calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
             calendarToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            calendarToolStripMenuItem.Text = "Calendar";
-            calendarToolStripMenuItem.ToolTipText = "Calendar";
+            calendarToolStripMenuItem.Text = "日历";
+            calendarToolStripMenuItem.ToolTipText = "日历";
             calendarToolStripMenuItem.Click += CalendarToolStripMenuItem_Click;
             // 
             // notPadToolStripMenuItem
@@ -1249,8 +1249,8 @@ namespace UoFiddler.Forms
             notPadToolStripMenuItem.Image = Properties.Resources.notepad;
             notPadToolStripMenuItem.Name = "notPadToolStripMenuItem";
             notPadToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            notPadToolStripMenuItem.Text = "NotPad";
-            notPadToolStripMenuItem.ToolTipText = "NotePad";
+            notPadToolStripMenuItem.Text = "记事本";
+            notPadToolStripMenuItem.ToolTipText = "记事本";
             notPadToolStripMenuItem.Click += NotPadToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
@@ -1263,8 +1263,8 @@ namespace UoFiddler.Forms
             toolStripMenuItemAbout.Image = Properties.Resources.About;
             toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
             toolStripMenuItemAbout.Size = new System.Drawing.Size(141, 22);
-            toolStripMenuItemAbout.Text = "About";
-            toolStripMenuItemAbout.ToolTipText = "About";
+            toolStripMenuItemAbout.Text = "关于";
+            toolStripMenuItemAbout.ToolTipText = "关于";
             toolStripMenuItemAbout.Click += ToolStripMenuItemAbout_Click;
             // 
             // changelogToolStripMenuItem
@@ -1272,8 +1272,8 @@ namespace UoFiddler.Forms
             changelogToolStripMenuItem.Image = Properties.Resources.Changelog;
             changelogToolStripMenuItem.Name = "changelogToolStripMenuItem";
             changelogToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            changelogToolStripMenuItem.Text = "Changelog";
-            changelogToolStripMenuItem.ToolTipText = "Changelog";
+            changelogToolStripMenuItem.Text = "更新日志";
+            changelogToolStripMenuItem.ToolTipText = "更新日志";
             changelogToolStripMenuItem.Click += ChangelogToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
@@ -1308,7 +1308,7 @@ namespace UoFiddler.Forms
             toolStripMenuItemLinks.Image = Properties.Resources.Links;
             toolStripMenuItemLinks.Name = "toolStripMenuItemLinks";
             toolStripMenuItemLinks.Size = new System.Drawing.Size(141, 22);
-            toolStripMenuItemLinks.Text = "Links";
+            toolStripMenuItemLinks.Text = "链接";
             // 
             // uodevuofreeshardsdeToolStripMenuItem
             // 

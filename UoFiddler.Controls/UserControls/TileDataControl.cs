@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: Turley
+ * $作者: Turley
  *
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要您保留此声明，就可以对此软件做任何您想做的事情。
+ * 如果我们有一天相遇，并且您认为这个软件值得，
+ * 您可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -32,6 +32,51 @@ namespace UoFiddler.Controls.UserControls
     {
         private Image _image;        
 
+        // TileFlag中英文映射字典
+        private static readonly Dictionary<string, string> TileFlagTranslations = new Dictionary<string, string>
+        {
+            {"Background", "背景"},
+            {"Weapon", "武器"},
+            {"Transparent", "透明"},
+            {"Translucent", "半透明"},
+            {"Wall", "墙壁"},
+            {"Damaging", "造成伤害"},
+            {"Impassable", "不可通行"},
+            {"Wet", "潮湿"},
+            {"Unknown1", "未知1"},
+            {"Surface", "表面"},
+            {"Bridge", "桥梁"},
+            {"Generic", "通用"},
+            {"Window", "窗户"},
+            {"NoShoot", "不可射击"},
+            {"ArticleA", "冠词A"},
+            {"ArticleAn", "冠词An"},
+            {"ArticleThe", "冠词The"},
+            {"Foliage", "植物"},
+            {"PartialHue", "部分色调"},
+            {"NoHouse", "不可建造房屋"},
+            {"Map", "地图"},
+            {"Container", "容器"},
+            {"Wearable", "可穿戴"},
+            {"LightSource", "光源"},
+            {"Animation", "动画"},
+            {"HoverOver", "悬停时高亮"},
+            {"NoDiagonal", "无对角线"},
+            {"Armor", "护甲"},
+            {"Roof", "屋顶"},
+            {"Door", "门"},
+            {"StairBack", "楼梯背面"},
+            {"StairRight", "楼梯右侧"},
+            {"AlphaBlend", "Alpha混合"},
+            {"UseNewArt", "使用新艺术"},
+            {"ArtUsed", "艺术已使用"},
+            {"Unused8", "未使用8"},
+            {"NoShadow", "无阴影"},
+            {"PixelBleed", "像素出血"},
+            {"PlayAnimOnce", "动画仅播放一次"},
+            {"MultiMovable", "可多重移动"}
+        };
+
         #region [ TileDataControl ]
         public TileDataControl()
         {
@@ -42,7 +87,7 @@ namespace UoFiddler.Controls.UserControls
 
             toolStripComboBox1.ComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             toolStripComboBox1.ComboBox.DrawItem += new DrawItemEventHandler(ToolStripComboBox1_DrawItem);
-            LoadImages();  // Call the method to load the images
+            LoadImages();  // 调用加载图像的方法
 
             toolStripComboBox1.SelectedIndexChanged += ToolStripComboBox1_SelectedIndexChanged;
 
@@ -58,7 +103,7 @@ namespace UoFiddler.Controls.UserControls
 
             LabelDecimalAdress.Text = "";
 
-            tbClassicUOPfad.Text = Properties.Settings.Default.CUOTestPath; // Load Settings path
+            tbClassicUOPfad.Text = Properties.Settings.Default.CUOTestPath; // 加载设置路径
         }
         #endregion
 
@@ -74,16 +119,18 @@ namespace UoFiddler.Controls.UserControls
                 int maxLength = Art.IsUOAHS() ? enumNames.Length : (enumNames.Length / 2) + 1;
                 for (int i = 1; i < maxLength; ++i)
                 {
-                    checkedListBox2.Items.Add(enumNames[i], false);
+                    string englishName = enumNames[i];
+                    string chineseName = GetChineseTileFlagName(englishName);
+                    checkedListBox2.Items.Add(chineseName, false);
                 }
 
-                // TODO: for now we present all flags. Needs research if landtiles have only selected flags or all of them?
-                // TODO: looks like only small subset is used but it is still different then these 5 below
-                //checkedListBox2.Items.Add(Enum.GetName(typeof(TileFlag), TileFlag.Damaging), false);
-                //checkedListBox2.Items.Add(Enum.GetName(typeof(TileFlag), TileFlag.Wet), false);
-                //checkedListBox2.Items.Add(Enum.GetName(typeof(TileFlag), TileFlag.Impassable), false);
-                //checkedListBox2.Items.Add(Enum.GetName(typeof(TileFlag), TileFlag.Wall), false);
-                //checkedListBox2.Items.Add(Enum.GetName(typeof(TileFlag), TileFlag.NoDiagonal), false);
+                // TODO: 目前我们呈现所有标志。需要研究土地瓦片是否只使用选定的标志还是全部？
+                // TODO: 看起来只使用了一小部分，但仍然与下面这5个不同
+                //checkedListBox2.Items.Add(GetChineseTileFlagName("Damaging"), false);
+                //checkedListBox2.Items.Add(GetChineseTileFlagName("Wet"), false);
+                //checkedListBox2.Items.Add(GetChineseTileFlagName("Impassable"), false);
+                //checkedListBox2.Items.Add(GetChineseTileFlagName("Wall"), false);
+                //checkedListBox2.Items.Add(GetChineseTileFlagName("NoDiagonal"), false);
             }
             finally
             {
@@ -92,7 +139,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region ItemControl Select PiictureBox refresh
+        #region ItemControl 选择 PictureBox 刷新
         public void RefreshPictureBoxItem()
         {
             pictureBoxItem.Refresh();
@@ -111,7 +158,9 @@ namespace UoFiddler.Controls.UserControls
                 int maxLength = Art.IsUOAHS() ? enumNames.Length : (enumNames.Length / 2) + 1;
                 for (int i = 1; i < maxLength; ++i)
                 {
-                    checkedListBox1.Items.Add(enumNames[i], false);
+                    string englishName = enumNames[i];
+                    string chineseName = GetChineseTileFlagName(englishName);
+                    checkedListBox1.Items.Add(chineseName, false);
                 }
             }
             finally
@@ -121,9 +170,34 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        private Settings _copiedSettings = null; // Global variable to store the copied settings
-        private List<TreeNode> _selectedNodes = new List<TreeNode>(); // Veriable for multiple selection
-        private LandSettings _copiedLandSettings = null; // Global variable for the copied country settings
+        #region [ GetChineseTileFlagName ]
+        private string GetChineseTileFlagName(string englishName)
+        {
+            if (TileFlagTranslations.TryGetValue(englishName, out string chineseName))
+            {
+                return chineseName;
+            }
+            return englishName; // 如果没有找到对应的翻译，返回原英文名称
+        }
+        #endregion
+
+        #region [ GetEnglishTileFlagName ]
+        private string GetEnglishTileFlagName(string chineseName)
+        {
+            foreach (var pair in TileFlagTranslations)
+            {
+                if (pair.Value == chineseName)
+                {
+                    return pair.Key;
+                }
+            }
+            return chineseName; // 如果没有找到对应的英文，返回原中文名称
+        }
+        #endregion
+
+        private Settings _copiedSettings = null; // 存储复制设置的全局变量
+        private List<TreeNode> _selectedNodes = new List<TreeNode>(); // 多选变量
+        private LandSettings _copiedLandSettings = null; // 存储复制土地设置的全局变量
 
         private static TileDataControl _refMarker;
         private bool _changingIndex;
@@ -487,7 +561,7 @@ namespace UoFiddler.Controls.UserControls
                         Tag = i
                     };
                 }
-                treeViewItem.Nodes.Add(new TreeNode("AOS - ML", nodes));
+                treeViewItem.Nodes.Add(new TreeNode("黑暗纪元 - 月光遗迹：AOS - ML", nodes));
 
                 if (TileData.ItemTable.Length > 0x4000) // SA
                 {
@@ -500,7 +574,7 @@ namespace UoFiddler.Controls.UserControls
                             Tag = j
                         };
                     }
-                    treeViewItem.Nodes.Add(new TreeNode("Stygian Abyss", nodes));
+                    treeViewItem.Nodes.Add(new TreeNode("冥河深渊-Stygian Abyss", nodes));
                 }
 
                 if (TileData.ItemTable.Length > 0x8000) // AHS
@@ -514,7 +588,7 @@ namespace UoFiddler.Controls.UserControls
                             Tag = j
                         };
                     }
-                    treeViewItem.Nodes.Add(new TreeNode("Adventures High Seas", nodes));
+                    treeViewItem.Nodes.Add(new TreeNode("无尽的航程-Adventures High Seas", nodes));
                 }
                 else
                 {
@@ -564,7 +638,7 @@ namespace UoFiddler.Controls.UserControls
                 return;
             }
 
-            if (index > 0x3FFF) // items
+            if (index > 0x3FFF) // 物品
             {
                 if (treeViewItem.SelectedNode == null)
                 {
@@ -630,34 +704,34 @@ namespace UoFiddler.Controls.UserControls
                 return;
             }
 
-            // Check whether the Ctrl key is pressed
+            // 检查是否按下了Ctrl键
             bool isCtrlPressed = (Control.ModifierKeys & Keys.Control) == Keys.Control;
 
             if (isCtrlPressed)
             {
-                // Multi-select: Add or remove nodes from the list
+                // 多选：从列表中添加或删除节点
                 if (_selectedNodes.Contains(e.Node))
                 {
-                    // Remove the node if it is already selected
+                    // 如果节点已被选中，则移除
                     _selectedNodes.Remove(e.Node);
-                    e.Node.BackColor = treeViewItem.BackColor;  // Deselect
+                    e.Node.BackColor = treeViewItem.BackColor;  // 取消选中
                 }
                 else
                 {
-                    // Adding the node if it is not already selected
+                    // 如果节点未选中，则添加
                     _selectedNodes.Add(e.Node);
-                    e.Node.BackColor = Color.LightBlue;  // Visual highlighting
+                    e.Node.BackColor = Color.LightBlue;  // 视觉高亮
                 }
             }
             else
             {
-                // Normal selection without Ctrl: Delete previous selection
+                // 没有按Ctrl的正常选择：清除之前的选择
                 ClearPreviousSelection();
                 _selectedNodes.Add(e.Node);
-                e.Node.BackColor = Color.LightBlue;  // Visual highlighting
+                e.Node.BackColor = Color.LightBlue;  // 视觉高亮
             }
 
-            // Apply logic to all selected nodes
+            // 对所有选中的节点应用逻辑
             foreach (var node in _selectedNodes)
             {
                 ApplySettingsToNode(node);
@@ -670,7 +744,7 @@ namespace UoFiddler.Controls.UserControls
         {
             foreach (TreeNode node in _selectedNodes)
             {
-                node.BackColor = treeViewItem.BackColor; // Reset the background color to default
+                node.BackColor = treeViewItem.BackColor; // 将背景色重置为默认
             }
             _selectedNodes.Clear();
         }
@@ -679,7 +753,7 @@ namespace UoFiddler.Controls.UserControls
         #region [ ApplySettingsToNode ]
         private void ApplySettingsToNode(TreeNode node)
         {
-            // Old logic
+            // 旧逻辑
             int index = (int)node.Tag;
 
             Bitmap bit = Art.GetStatic(index);
@@ -695,9 +769,9 @@ namespace UoFiddler.Controls.UserControls
                 pictureBoxItem.Image?.Dispose();
                 pictureBoxItem.Image = newBit;
 
-                _originalImage = pictureBoxItem.Image; // Update the original image -> Zoom
+                _originalImage = pictureBoxItem.Image; // 更新原始图像 -> 缩放
 
-                // Update the image in the Zoom form
+                // 更新缩放窗体中的图像
                 if (_zoomForm != null && _zoomForm.Visible)
                 {
                     UpdateZoomFormImage();
@@ -728,7 +802,13 @@ namespace UoFiddler.Controls.UserControls
             int maxLength = Art.IsUOAHS() ? enumValues.Length : (enumValues.Length / 2) + 1;
             for (int i = 1; i < maxLength; ++i)
             {
-                checkedListBox1.SetItemChecked(i - 1, (data.Flags & (TileFlag)enumValues.GetValue(i)) != 0);
+                string englishName = Enum.GetName(typeof(TileFlag), enumValues.GetValue(i));
+                string chineseName = GetChineseTileFlagName(englishName);
+                int itemIndex = checkedListBox1.Items.IndexOf(chineseName);
+                if (itemIndex >= 0)
+                {
+                    checkedListBox1.SetItemChecked(itemIndex, (data.Flags & (TileFlag)enumValues.GetValue(i)) != 0);
+                }
             }
             _changingIndex = false;
         }
@@ -773,7 +853,13 @@ namespace UoFiddler.Controls.UserControls
             int maxLength = Art.IsUOAHS() ? enumValues.Length : (enumValues.Length / 2) + 1;
             for (int i = 1; i < maxLength; ++i)
             {
-                checkedListBox2.SetItemChecked(i - 1, (data.Flags & (TileFlag)enumValues.GetValue(i)) != 0);
+                string englishName = Enum.GetName(typeof(TileFlag), enumValues.GetValue(i));
+                string chineseName = GetChineseTileFlagName(englishName);
+                int itemIndex = checkedListBox2.Items.IndexOf(chineseName);
+                if (itemIndex >= 0)
+                {
+                    checkedListBox2.SetItemChecked(itemIndex, (data.Flags & (TileFlag)enumValues.GetValue(i)) != 0);
+                }
             }
 
             _changingIndex = false;
@@ -786,7 +872,7 @@ namespace UoFiddler.Controls.UserControls
             string path = Options.OutputPath;
             string fileName = Path.Combine(path, "tiledata.mul");
             TileData.SaveTileData(fileName);
-            MessageBox.Show($"TileData saved to {fileName}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information,
+            MessageBox.Show($"TileData已保存到 {fileName}", "已保存", MessageBoxButtons.OK, MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
             Options.ChangedUltimaClass["TileData"] = false;
         }
@@ -795,16 +881,16 @@ namespace UoFiddler.Controls.UserControls
         #region [ OnClickSaveChanges ] 
         private void OnClickSaveChanges(object sender, EventArgs e)
         {
-            if (tabcontrol.SelectedIndex == 0) // items
+            if (tabcontrol.SelectedIndex == 0) // 物品
             {
-                // Check whether nodes have been marked
+                // 检查是否有节点被标记
                 if (_selectedNodes.Count == 0)
                 {
-                    MessageBox.Show("No nodes selected.");
+                    MessageBox.Show("未选择任何节点。");
                     return;
                 }
 
-                // Save changes for each selected node
+                // 为每个选中的节点保存更改
                 foreach (TreeNode node in _selectedNodes)
                 {
                     if (node?.Tag == null)
@@ -878,29 +964,33 @@ namespace UoFiddler.Controls.UserControls
                         item.Unk3 = byteRes;
                     }
 
-                    // Set flags
+                    // 设置标志
                     item.Flags = TileFlag.None;
-                    Array enumValues = Enum.GetValues(typeof(TileFlag));
                     for (int i = 0; i < checkedListBox1.Items.Count; ++i)
                     {
                         if (checkedListBox1.GetItemChecked(i))
                         {
-                            item.Flags |= (TileFlag)enumValues.GetValue(i + 1);
+                            string chineseName = checkedListBox1.Items[i].ToString();
+                            string englishName = GetEnglishTileFlagName(chineseName);
+                            if (Enum.TryParse(englishName, out TileFlag flag))
+                            {
+                                item.Flags |= flag;
+                            }
                         }
                     }
 
                     TileData.ItemTable[index] = item;
-                    node.ForeColor = Color.Red; // Set the node to "changed"
+                    node.ForeColor = Color.Red; // 将节点标记为"已更改"
 
-                    // Trigger events and option changes
+                    // 触发事件和选项更改
                     Options.ChangedUltimaClass["TileData"] = true;
                     ControlEvents.FireTileDataChangeEvent(this, index + 0x4000);
                 }
 
-                // Save note
+                // 保存提示
                 if (_toolStripButton7IsActive && memorySaveWarningToolStripMenuItem.Checked)
                 {
-                    if (_playCustomSound) // If Sound instead of MessageBox
+                    if (_playCustomSound) // 如果使用声音而不是消息框
                     {
                         SoundPlayer player = new SoundPlayer();
                         player.SoundLocation = "sound.wav";
@@ -908,13 +998,13 @@ namespace UoFiddler.Controls.UserControls
                     }
                     else
                     {
-                        // Note about saving
-                        MessageBox.Show("Changes saved to memory. Click 'Save Tiledata' to write to file.", "Saved",
+                        // 关于保存的提示
+                        MessageBox.Show("更改已保存到内存。点击'保存Tiledata'写入文件。", "已保存",
                             MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
                 }
             }
-            else // land
+            else // 土地
             {
                 if (treeViewLand.SelectedNode == null)
                 {
@@ -937,12 +1027,16 @@ namespace UoFiddler.Controls.UserControls
                 }
 
                 land.Flags = TileFlag.None;
-                Array enumValues = Enum.GetValues(typeof(TileFlag));
                 for (int i = 0; i < checkedListBox2.Items.Count; ++i)
                 {
                     if (checkedListBox2.GetItemChecked(i))
                     {
-                        land.Flags |= (TileFlag)enumValues.GetValue(i + 1);
+                        string chineseName = checkedListBox2.Items[i].ToString();
+                        string englishName = GetEnglishTileFlagName(chineseName);
+                        if (Enum.TryParse(englishName, out TileFlag flag))
+                        {
+                            land.Flags |= flag;
+                        }
                     }
                 }
 
@@ -961,7 +1055,7 @@ namespace UoFiddler.Controls.UserControls
                     }
                     else
                     {
-                        MessageBox.Show("Changes saved to memory. Click 'Save Tiledata' to write to file.", "Saved",
+                        MessageBox.Show("更改已保存到内存。点击'保存Tiledata'写入文件。", "已保存",
                             MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
                 }
@@ -1501,35 +1595,37 @@ namespace UoFiddler.Controls.UserControls
 
             int index = (int)treeViewItem.SelectedNode.Tag;
             ItemData item = TileData.ItemTable[index];
-            Array enumValues = Enum.GetValues(typeof(TileFlag));
-
-            TileFlag changeFlag = (TileFlag)enumValues.GetValue(e.Index + 1);
-
-            if ((item.Flags & changeFlag) != 0) // better double check
+            string chineseName = checkedListBox1.Items[e.Index].ToString();
+            string englishName = GetEnglishTileFlagName(chineseName);
+            
+            if (Enum.TryParse(englishName, out TileFlag changeFlag))
             {
-                if (e.NewValue != CheckState.Unchecked)
+                if ((item.Flags & changeFlag) != 0) // 最好再检查一次
                 {
-                    return;
-                }
+                    if (e.NewValue != CheckState.Unchecked)
+                    {
+                        return;
+                    }
 
-                item.Flags ^= changeFlag;
-                TileData.ItemTable[index] = item;
-                treeViewItem.SelectedNode.ForeColor = Color.Red;
-                Options.ChangedUltimaClass["TileData"] = true;
-                ControlEvents.FireTileDataChangeEvent(this, index + 0x4000);
-            }
-            else if ((item.Flags & changeFlag) == 0)
-            {
-                if (e.NewValue != CheckState.Checked)
+                    item.Flags ^= changeFlag;
+                    TileData.ItemTable[index] = item;
+                    treeViewItem.SelectedNode.ForeColor = Color.Red;
+                    Options.ChangedUltimaClass["TileData"] = true;
+                    ControlEvents.FireTileDataChangeEvent(this, index + 0x4000);
+                }
+                else if ((item.Flags & changeFlag) == 0)
                 {
-                    return;
-                }
+                    if (e.NewValue != CheckState.Checked)
+                    {
+                        return;
+                    }
 
-                item.Flags |= changeFlag;
-                TileData.ItemTable[index] = item;
-                treeViewItem.SelectedNode.ForeColor = Color.Red;
-                Options.ChangedUltimaClass["TileData"] = true;
-                ControlEvents.FireTileDataChangeEvent(this, index + 0x4000);
+                    item.Flags |= changeFlag;
+                    TileData.ItemTable[index] = item;
+                    treeViewItem.SelectedNode.ForeColor = Color.Red;
+                    Options.ChangedUltimaClass["TileData"] = true;
+                    ControlEvents.FireTileDataChangeEvent(this, index + 0x4000);
+                }
             }
         }
         #endregion
@@ -1559,59 +1655,37 @@ namespace UoFiddler.Controls.UserControls
 
             int index = (int)treeViewLand.SelectedNode.Tag;
             LandData land = TileData.LandTable[index];
-            TileFlag changeFlag;
-            switch (e.Index)
+            string chineseName = checkedListBox2.Items[e.Index].ToString();
+            string englishName = GetEnglishTileFlagName(chineseName);
+            
+            if (Enum.TryParse(englishName, out TileFlag changeFlag))
             {
-                case 0:
-                    changeFlag = TileFlag.Damaging;
-                    break;
-
-                case 1:
-                    changeFlag = TileFlag.Wet;
-                    break;
-
-                case 2:
-                    changeFlag = TileFlag.Impassable;
-                    break;
-
-                case 3:
-                    changeFlag = TileFlag.Wall;
-                    break;
-
-                case 4:
-                    changeFlag = TileFlag.NoDiagonal;
-                    break;
-
-                default:
-                    changeFlag = TileFlag.None;
-                    break;
-            }
-
-            if ((land.Flags & changeFlag) != 0)
-            {
-                if (e.NewValue != CheckState.Unchecked)
+                if ((land.Flags & changeFlag) != 0)
                 {
-                    return;
-                }
+                    if (e.NewValue != CheckState.Unchecked)
+                    {
+                        return;
+                    }
 
-                land.Flags ^= changeFlag;
-                TileData.LandTable[index] = land;
-                treeViewLand.SelectedNode.ForeColor = Color.Red;
-                Options.ChangedUltimaClass["TileData"] = true;
-                ControlEvents.FireTileDataChangeEvent(this, index);
-            }
-            else if ((land.Flags & changeFlag) == 0)
-            {
-                if (e.NewValue != CheckState.Checked)
+                    land.Flags ^= changeFlag;
+                    TileData.LandTable[index] = land;
+                    treeViewLand.SelectedNode.ForeColor = Color.Red;
+                    Options.ChangedUltimaClass["TileData"] = true;
+                    ControlEvents.FireTileDataChangeEvent(this, index);
+                }
+                else if ((land.Flags & changeFlag) == 0)
                 {
-                    return;
-                }
+                    if (e.NewValue != CheckState.Checked)
+                    {
+                        return;
+                    }
 
-                land.Flags |= changeFlag;
-                TileData.LandTable[index] = land;
-                treeViewLand.SelectedNode.ForeColor = Color.Red;
-                Options.ChangedUltimaClass["TileData"] = true;
-                ControlEvents.FireTileDataChangeEvent(this, index);
+                    land.Flags |= changeFlag;
+                    TileData.LandTable[index] = land;
+                    treeViewLand.SelectedNode.ForeColor = Color.Red;
+                    Options.ChangedUltimaClass["TileData"] = true;
+                    ControlEvents.FireTileDataChangeEvent(this, index);
+                }
             }
         }
         #endregion
@@ -1620,17 +1694,17 @@ namespace UoFiddler.Controls.UserControls
         private void OnClickExport(object sender, EventArgs e)
         {
             string path = Options.OutputPath;
-            if (tabcontrol.SelectedIndex == 0) // items
+            if (tabcontrol.SelectedIndex == 0) // 物品
             {
                 string fileName = Path.Combine(path, "ItemData.csv");
                 TileData.ExportItemDataToCsv(fileName);
-                MessageBox.Show($"ItemData saved to {fileName}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show($"ItemData已保存到 {fileName}", "已保存", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 string fileName = Path.Combine(path, "LandData.csv");
                 TileData.ExportLandDataToCsv(fileName);
-                MessageBox.Show($"LandData saved to {fileName}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show($"LandData已保存到 {fileName}", "已保存", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }
         #endregion
@@ -1641,7 +1715,7 @@ namespace UoFiddler.Controls.UserControls
 
         private void OnClickSearch(object sender, EventArgs e)
         {
-            if (tabcontrol.SelectedIndex == 0) // items
+            if (tabcontrol.SelectedIndex == 0) // 物品
             {
                 if (_showForm1?.IsDisposed == false)
                 {
@@ -1654,7 +1728,7 @@ namespace UoFiddler.Controls.UserControls
                 };
                 _showForm1.Show();
             }
-            else // land tiles
+            else // 土地瓦片
             {
                 if (_showForm2?.IsDisposed == false)
                 {
@@ -1682,7 +1756,7 @@ namespace UoFiddler.Controls.UserControls
             var found = ItemsControl.SearchGraphic(index);
             if (!found)
             {
-                MessageBox.Show("You need to load Items tab first.", "Information");
+                MessageBox.Show("您需要先加载物品选项卡。", "信息");
             }
         }
         #endregion
@@ -1699,7 +1773,7 @@ namespace UoFiddler.Controls.UserControls
             var found = LandTilesControl.SearchGraphic(index);
             if (!found)
             {
-                MessageBox.Show("You need to load LandTiles tab first.", "Information");
+                MessageBox.Show("您需要先加载LandTiles选项卡。", "信息");
             }
         }
         #endregion
@@ -1736,14 +1810,14 @@ namespace UoFiddler.Controls.UserControls
             OpenFileDialog dialog = new OpenFileDialog
             {
                 Multiselect = false,
-                Title = "Choose csv file to import",
+                Title = "选择要导入的csv文件",
                 CheckFileExists = true,
-                Filter = "csv files (*.csv)|*.csv"
+                Filter = "csv 文件 (*.csv)|*.csv"
             };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 Options.ChangedUltimaClass["TileData"] = true;
-                if (tabcontrol.SelectedIndex == 0) // items
+                if (tabcontrol.SelectedIndex == 0) // 物品
                 {
                     TileData.ImportItemDataFromCsv(dialog.FileName);
                     AfterSelectTreeViewItem(this, new TreeViewEventArgs(treeViewItem.SelectedNode));
@@ -1779,7 +1853,7 @@ namespace UoFiddler.Controls.UserControls
         #region [ OnItemDataNodeExpanded ]
         private void OnItemDataNodeExpanded(object sender, TreeViewCancelEventArgs e)
         {
-            // workaround for 65536 items microsoft bug
+            // 解决65536个项目的微软bug的变通方法
             if (treeViewItem.Nodes.Count == 3)
             {
                 treeViewItem.CollapseAll();
@@ -1872,8 +1946,8 @@ namespace UoFiddler.Controls.UserControls
 
         #region [ TextBoxTexID_DoubleClick ]
         /// <summary>
-        /// DoubleClick event handler on the TextBoxTexID. Sets the TexID to the Tag value of the node
-        /// i.e. 0x256 (598) lava -> 598.
+        /// TextBoxTexID上的双击事件处理程序。将TexID设置为节点的Tag值
+        /// 即 0x256 (598) 熔岩 -> 598。
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1896,18 +1970,18 @@ namespace UoFiddler.Controls.UserControls
 
         #region [ SetTextureMenuItem ]
         /// <summary>
-        /// Click event handler on the "Set Textures" menu item. Sets all the land tiles TextureId to their index.
-        /// This is written under the assumption that LandTileID == TextureId for every LandTile.
+        /// "设置纹理"菜单项的点击事件处理程序。将所有土地瓦片的TextureId设置为其索引。
+        /// 这是在假设每个LandTileID == TextureId的情况下编写的。
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void SetTextureMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                "Do you want to set TexID for all land tiles?\n\n" +
-                "This operation assumes that land tile index value is equal to texture index value.\n\n" +
-                "It will only consider land tiles where TexID is 0.\n\nContinue?",
-                "Set textures",
+                "您要为所有土地瓦片设置TexID吗？\n\n" +
+                "此操作假设土地瓦片索引值等于纹理索引值。\n\n" +
+                "它只会考虑TexID为0的土地瓦片。\n\n继续吗？",
+                "设置纹理",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (result != DialogResult.Yes)
             {
@@ -1935,11 +2009,11 @@ namespace UoFiddler.Controls.UserControls
                 Options.ChangedUltimaClass["TileData"] = true;
             }
 
-            MessageBox.Show(updated > 0 ? $"Updated {updated} land tile(s)." : "Nothing was updated.", "Set textures");
+            MessageBox.Show(updated > 0 ? $"已更新 {updated} 个土地瓦片。" : "没有更新任何内容。", "设置纹理");
         }
         #endregion
 
-        #region ToolStripComboBox and More
+        #region ToolStripComboBox 及更多
 
         #region LoadImages
         void LoadImages()
@@ -1958,8 +2032,8 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region [ Define Dictionary with Bitmap instead of Icon ]
-        // Define Dictionary with Bitmap instead of Icon
+        #region [ 定义使用Bitmap而不是Icon的字典 ]
+        // 定义使用Bitmap而不是Icon的字典
         Dictionary<string, Bitmap> _icons = new Dictionary<string, Bitmap>();
         #endregion
 
@@ -1968,11 +2042,11 @@ namespace UoFiddler.Controls.UserControls
         {
             e.DrawBackground();
             string name = toolStripComboBox1.Items[e.Index].ToString();
-            // First draw the text
+            // 首先绘制文本
             e.Graphics.DrawString(name, e.Font, new SolidBrush(e.ForeColor), e.Bounds.Left, e.Bounds.Top);
-            if (_icons.TryGetValue(name, out Bitmap bitmap))  // Use TryGetValue to check and get the image
+            if (_icons.TryGetValue(name, out Bitmap bitmap))  // 使用TryGetValue检查并获取图像
             {
-                // Scale the image to the height of the line
+                // 将图像缩放到行的高度
                 int width = Convert.ToInt32(e.Graphics.MeasureString(name, e.Font).Width);
                 Rectangle destRect = new Rectangle(e.Bounds.Left + width, e.Bounds.Top, e.Bounds.Height, e.Bounds.Height);
                 e.Graphics.DrawImage(bitmap, destRect);
@@ -1983,7 +2057,7 @@ namespace UoFiddler.Controls.UserControls
         #region [ ToolStripComboBox1_SelectedIndexChanged ]
         private void ToolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Set all elements to unchecked
+            // 将所有元素设置为未选中
             for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
                 checkedListBox1.SetItemChecked(i, false);
@@ -1993,7 +2067,7 @@ namespace UoFiddler.Controls.UserControls
             {
                 checkedListBox2.SetItemChecked(i, false);
             }
-            // Update the Checked items and the Weight and Height values ​​based on the selected preset
+            // 根据选定的预设更新选中的项目和重量和高度值
             if (toolStripComboBox1.SelectedItem != null)
             {
                 string selectedItem = toolStripComboBox1.SelectedItem.ToString();
@@ -2002,244 +2076,244 @@ namespace UoFiddler.Controls.UserControls
                     case "Wall":  //1
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "20";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Wall"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Wall")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
                         break;
                     case "Door-E-L": //2
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "20";
                         textBoxQuality.Text = "1";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Wall"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Door"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Wall")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Door")), true);
                         break;
                     case "Door-E-R": //3
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "20";
                         textBoxQuality.Text = "2";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Wall"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Door"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Wall")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Door")), true);
                         break;
                     case "Door-S-L": //4
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "20";
                         textBoxQuality.Text = "2";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Wall"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Door"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Wall")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Door")), true);
                         break;
                     case "Door-S-R": //5
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "20";
                         textBoxQuality.Text = "3";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Wall"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Door"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Wall")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Door")), true);
                         break;
                     case "Window": //6
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "20";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Wall"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Window"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Wall")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Window")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
                         break;
                     case "Roof": //7
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "3";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Roof"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Roof")), true);
                         break;
                     case "Floor": //8
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "0";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Background"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Bridge"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Background")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Bridge")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
                         break;
                     case "Water": //9
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "0";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Background"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Translucent"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Background")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Translucent")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
                         break;
                     case "Stairs-W": //10
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "5";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Bridge"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("StairBack"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Bridge")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("StairBack")), true);
                         break;
                     case "Stairs-N": //11
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "5";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Bridge"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("StairBack"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("StairRight"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Bridge")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("StairBack")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("StairRight")), true);
                         break;
                     case "Stairs-E": //12
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "5";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Bridge"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("StairRight"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Bridge")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("StairRight")), true);
                         break;
                     case "Stairs-S": //13
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "5";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Bridge"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Bridge")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
                         break;
                     case "Stairs-W-N": //14
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "5";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Bridge"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("StairBack"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Bridge")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("StairBack")), true);
                         break;
                     case "Stairs-N-E": //15
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "5";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Bridge"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("StairRight"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Bridge")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("StairRight")), true);
                         break;
                     case "Stairs-E-S": //16
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "5";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Bridge"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Bridge")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
                         break;
                     case "Stairs-S-W": //17
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "5";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Bridge"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Bridge")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
                         break;
                     case "Stairs-Block": //18
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "10";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Surface"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Bridge"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Bridge")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
                         break;
                     case "Container": //19
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "5";
                         textBoxStackOff.Text = "15";
                         textBoxUnk1.Text = "1";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Container"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Container")), true);
                         break;
                     case "Lamp Post": //20
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "15";
                         textBoxQuality.Text = "29";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("LightSource"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("LightSource")), true);
                         break;
                     case "Fence": //21
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "10";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Wall"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Wall")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
                         break;
                     case "Cave Wall": //22
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "24";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Wall"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoShoot"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleAn"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoHouse"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Wall")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoShoot")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleAn")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoHouse")), true);
                         break;
                     case "Clothing": //23
                         textBoxWeight.Text = "10";
                         textBoxHeigth.Text = "1";
-                        textBoxQuality.Text = "10"; //Layer
-                        textBoxStackOff.Text = "6"; //StackOff
-                        textBoxUnk1.Text = "582"; //MiscData
-                        textBoxAnim.Text = "599"; //Anim
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Weapon"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Wearable"), true);
+                        textBoxQuality.Text = "10"; //层
+                        textBoxStackOff.Text = "6"; //堆叠偏移
+                        textBoxUnk1.Text = "582"; //杂项数据
+                        textBoxAnim.Text = "599"; //动画
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Weapon")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Wearable")), true);
                         break;
                     case "Plant": //24
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "1";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Background"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Background")), true);
                         break;
                     case "Chair-Small-5": //25
                         textBoxWeight.Text = "20";
                         textBoxHeigth.Text = "1";
-                        textBoxStackOff.Text = "5"; //StackOff
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
+                        textBoxStackOff.Text = "5"; //堆叠偏移
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
                         break;
                     case "Chair-35": //26
                         textBoxWeight.Text = "20";
                         textBoxHeigth.Text = "1";
-                        textBoxStackOff.Text = "35"; //StackOff
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
+                        textBoxStackOff.Text = "35"; //堆叠偏移
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
                         break;
                     case "Chair-Wood-8": //27
                         textBoxWeight.Text = "20";
                         textBoxHeigth.Text = "1";
-                        textBoxStackOff.Text = "8"; //StackOff
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("PartialHue"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoDiagonal"), true);
+                        textBoxStackOff.Text = "8"; //堆叠偏移
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("PartialHue")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoDiagonal")), true);
                         break;
                     case "Chair-Throne-15": //27
                         textBoxWeight.Text = "20";
                         textBoxHeigth.Text = "1";
-                        textBoxStackOff.Text = "8"; //StackOff
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleA"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("PartialHue"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoDiagonal"), true);
+                        textBoxStackOff.Text = "8"; //堆叠偏移
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleA")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("PartialHue")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("NoDiagonal")), true);
                         break;
                     case "LandTile Land": //29
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Background"), true);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Surface"), true);
+                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf(GetChineseTileFlagName("Background")), true);
+                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf(GetChineseTileFlagName("Surface")), true);
                         break;
                     case "LandTile Water": //30
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Translucent"), true);
+                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf(GetChineseTileFlagName("Translucent")), true);
                         break;
                     case "LandTile Mountain": //31
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Impassable"), true);
+                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
                         break;
                     case "Tree": //32
-                        textBoxName.Text = "Tree";
+                        textBoxName.Text = "树";
                         textBoxWeight.Text = "255";
                         textBoxHeigth.Text = "20";
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), true);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleAn"), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("Impassable")), true);
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf(GetChineseTileFlagName("ArticleAn")), true);
                         break;
                     case "Clear": //33
                         textBoxName.Text = "";
@@ -2254,55 +2328,31 @@ namespace UoFiddler.Controls.UserControls
                         textBoxValue.Text = "";
                         textBoxUnk2.Text = "";
                         textBoxAnim.Text = "";
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Background"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Weapon"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Transparent"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Translucent"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Wall"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Damaging"), false);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("Impassable"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Wet"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Unknown1"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Surface"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Bridge"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Generic"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Window"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("NoShoot"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("ArticleA"), false);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("ArticleAn"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("ArticleThe"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Foliage"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("PartialHue"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("NoHouse"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Map"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Container"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Wearable"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("LightSource"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Animation"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("HoverOver"), false);
-                        checkedListBox1.SetItemChecked(checkedListBox1.Items.IndexOf("NoDiagonal"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Armor"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Roof"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Door"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("StairBack"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("StairRight"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("AlphaBlend"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("UseNewArt"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("ArtUsed"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("Unused8"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("NoShadow"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("PixelBleed"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("PlayAnimOnce"), false);
-                        checkedListBox2.SetItemChecked(checkedListBox2.Items.IndexOf("MultiMovable"), false);
+                        // 使用字典中的中文名称来取消选中所有复选框
+                        foreach (var translation in TileFlagTranslations)
+                        {
+                            string chineseName = translation.Value;
+                            int index1 = checkedListBox1.Items.IndexOf(chineseName);
+                            if (index1 >= 0)
+                            {
+                                checkedListBox1.SetItemChecked(index1, false);
+                            }
+                            
+                            int index2 = checkedListBox2.Items.IndexOf(chineseName);
+                            if (index2 >= 0)
+                            {
+                                checkedListBox2.SetItemChecked(index2, false);
+                            }
+                        }
                         break;
-                        // Add more presets here
+                        // 在此处添加更多预设
                 }
             }
         }
         #endregion
         #endregion
 
-        #region [ Search and Sound ]
+        #region [ 搜索和声音 ]
         private bool _playCustomSound = false;
 
         #region [ toolStripButton6 ]
@@ -2322,13 +2372,13 @@ namespace UoFiddler.Controls.UserControls
         {
             if (!_toolStripButton7IsActive)
             {
-                // Save checked indices
+                // 保存选中的索引
                 foreach (int index in checkedListBox1.CheckedIndices)
                 {
                     _savedCheckedIndices.Add(index);
                 }
 
-                // Save text box texts
+                // 保存文本框文本
                 _savedTextBoxTexts.Add(textBoxName, textBoxName.Text);
                 _savedTextBoxTexts.Add(textBoxWeight, textBoxWeight.Text);
                 _savedTextBoxTexts.Add(textBoxHue, textBoxHue.Text);
@@ -2342,15 +2392,15 @@ namespace UoFiddler.Controls.UserControls
                 _savedTextBoxTexts.Add(textBoxUnk2, textBoxUnk2.Text);
                 _savedTextBoxTexts.Add(textBoxAnim, textBoxAnim.Text);
 
-                // Update toolStripButton7 appearance
+                // 更新toolStripButton7外观
                 toolStripButton7.Checked = true;
 
-                // Update toolStripButton7IsActive
+                // 更新toolStripButton7IsActive
                 _toolStripButton7IsActive = true;
             }
             else
             {
-                // Restore checked indices
+                // 恢复选中的索引
                 for (int i = 0; i < checkedListBox1.Items.Count; i++)
                 {
                     if (_savedCheckedIndices.Contains(i))
@@ -2363,22 +2413,22 @@ namespace UoFiddler.Controls.UserControls
                     }
                 }
 
-                // Clear savedCheckedIndices
+                // 清除savedCheckedIndices
                 _savedCheckedIndices.Clear();
 
-                // Restore text box texts
+                // 恢复文本框文本
                 foreach (KeyValuePair<TextBox, string> pair in _savedTextBoxTexts)
                 {
                     pair.Key.Text = pair.Value;
                 }
 
-                // Clear savedTextBoxTexts
+                // 清除savedTextBoxTexts
                 _savedTextBoxTexts.Clear();
 
-                // Update toolStripButton7 appearance
+                // 更新toolStripButton7外观
                 toolStripButton7.Checked = false;
 
-                // Update toolStripButton7IsActive
+                // 更新toolStripButton7IsActive
                 _toolStripButton7IsActive = false;
             }
         }
@@ -2389,21 +2439,21 @@ namespace UoFiddler.Controls.UserControls
         {
             if (_toolStripButton7IsActive)
             {
-                // Transferring the saved settings to the selected location.
+                // 将保存的设置传输到选定位置。
 
-                // Transferring the checked indices.
+                // 传输选中的索引。
                 foreach (int index in _savedCheckedIndices)
                 {
                     checkedListBox1.SetItemChecked(index, true);
                 }
 
-                // Transferring the textbox texts.
+                // 传输文本框文本。
                 foreach (KeyValuePair<TextBox, string> pair in _savedTextBoxTexts)
                 {
                     pair.Key.Text = pair.Value;
                 }
 
-                // Saving the changes (without MessageBox).
+                // 保存更改（无消息框）。
                 OnClickSaveChanges(null, EventArgs.Empty);
             }
         }
@@ -2454,7 +2504,7 @@ namespace UoFiddler.Controls.UserControls
         #endregion
         #endregion        
 
-        #region middle mouse button copying the settings in the tiledata
+        #region 鼠标中键复制tiledata中的设置
 
         private void TreeViewItem_MouseDown(object sender, MouseEventArgs e)
         {
@@ -2476,7 +2526,7 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region Label Tile Decimal
+        #region 标签瓦片十进制地址
         private void LabelDecimalAdress_Click(object sender, EventArgs e)
         {
             if (treeViewLand.SelectedNode?.Tag == null)
@@ -2489,10 +2539,10 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region Delete Button
+        #region 删除按钮
         private void ToolStripButton8Clear_Click(object sender, EventArgs e)
         {
-            // Set the text of all TextBoxes to an empty string
+            // 将所有文本框的文本设置为空字符串
             textBoxName.Text = "";
             textBoxWeight.Text = "";
             textBoxHeigth.Text = "";
@@ -2506,68 +2556,27 @@ namespace UoFiddler.Controls.UserControls
             textBoxUnk2.Text = "";
             textBoxAnim.Text = "";
 
-            // Make a list of the checkboxes you want to uncheck
-            List<string> itemsToUncheck = new List<string>
+            // 使用字典中的中文名称来取消选中所有复选框
+            foreach (var translation in TileFlagTranslations)
             {
-                "Background",
-                "Weapon",
-                "Transparent",
-                "Translucent",
-                "Wall",
-                "Damaging",
-                "Impassable",
-                "Wet",
-                "Unknown1",
-                "Surface",
-                "Bridge",
-                "Generic",
-                "Window",
-                "NoShoot",
-                "ArticleA",
-                "ArticleAn",
-                "ArticleThe",
-                "Foliage",
-                "PartialHue",
-                "NoHouse",
-                "Map",
-                "Container",
-                "Wearable",
-                "LightSource",
-                "Animation",
-                "HoverOver",
-                "NoDiagonal",
-                "Armor",
-                "Roof",
-                "Door",
-                "StairBack",
-                "StairRight",
-                "AlphaBlend",
-                "UseNewArt",
-                "ArtUsed",
-                "Unused8",
-                "NoShadow",
-                "PixelBleed",
-                "PlayAnimOnce",
-                "MultiMovable"
-            };
-
-            // Uncheck all checkboxes in the list
-            foreach (string item in itemsToUncheck)
-            {
-                int index = checkedListBox2.Items.IndexOf(item);
-                if (index != -1)
+                string chineseName = translation.Value;
+                
+                // 取消checkedListBox1中所有复选框的选中
+                int index1 = checkedListBox1.Items.IndexOf(chineseName);
+                if (index1 >= 0)
                 {
-                    checkedListBox2.SetItemChecked(index, false);
+                    checkedListBox1.SetItemChecked(index1, false);
+                }
+                
+                // 取消checkedListBox2中所有复选框的选中
+                int index2 = checkedListBox2.Items.IndexOf(chineseName);
+                if (index2 >= 0)
+                {
+                    checkedListBox2.SetItemChecked(index2, false);
                 }
             }
 
-            // Uncheck all checkboxes in checkedListBox1
-            for (int i = 0; i < checkedListBox1.Items.Count; i++)
-            {
-                checkedListBox1.SetItemChecked(i, false);
-            }
-
-            // Play a sound when playCustomSound is set to true
+            // 当playCustomSound设置为true时播放声音
             if (_playCustomSound)
             {
                 SoundPlayer player = new SoundPlayer();
@@ -2577,68 +2586,68 @@ namespace UoFiddler.Controls.UserControls
         }
         #endregion
 
-        #region Zoom
-        private bool _isZoomed = false; // State of the zoom
-        private Image _originalImage; // Original image
-        private Form _zoomForm; // The zoom form
-        private PictureBox _zoomPictureBox; // The PictureBox in zoom form
+        #region 缩放
+        private bool _isZoomed = false; // 缩放状态
+        private Image _originalImage; // 原始图像
+        private Form _zoomForm; // 缩放窗体
+        private PictureBox _zoomPictureBox; // 缩放窗体中的PictureBox
 
         private void ZoomToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Check if an image is selected
+            // 检查是否选择了图像
             if (pictureBoxItem.Image == null)
             {
-                MessageBox.Show("Please select an image first.");
+                MessageBox.Show("请先选择一个图像。");
                 return;
             }
 
-            if (_originalImage == null) // If the original image has not been saved yet
+            if (_originalImage == null) // 如果尚未保存原始图像
             {
-                _originalImage = pictureBoxItem.Image; // Save the original image
+                _originalImage = pictureBoxItem.Image; // 保存原始图像
             }
 
-            if (!_isZoomed) // If not zoomed
+            if (!_isZoomed) // 如果未缩放
             {
-                // Enlarge the image to twice its original size
+                // 将图像放大到原始尺寸的两倍
                 Bitmap zoomedImage = new Bitmap(_originalImage, _originalImage.Width * 2, _originalImage.Height * 2);
 
-                // Draw the original image onto the new bitmap, resizing it
+                // 将原始图像绘制到新位图上，调整其大小
                 using (Graphics g = Graphics.FromImage(zoomedImage))
                 {
                     g.DrawImage(_originalImage, 0, 0, zoomedImage.Width, zoomedImage.Height);
                 }
 
-                // Create the Zoom Shape and PictureBox if they are not already created
+                // 如果尚未创建缩放窗体和PictureBox，则创建它们
                 if (_zoomForm == null)
                 {
                     _zoomForm = new Form();
                     _zoomPictureBox = new PictureBox
                     {
                         Dock = DockStyle.Fill,
-                        SizeMode = PictureBoxSizeMode.Normal // Set the SizeMode property to Normal
+                        SizeMode = PictureBoxSizeMode.Normal // 将SizeMode属性设置为Normal
                     };
                     _zoomForm.Controls.Add(_zoomPictureBox);
-                    _zoomForm.FormClosed += (s, ev) => { _zoomForm = null; _zoomPictureBox = null; }; // Reset zoomForm and zoomPictureBox to null when the form is closed
+                    _zoomForm.FormClosed += (s, ev) => { _zoomForm = null; _zoomPictureBox = null; }; // 窗体关闭时将zoomForm和zoomPictureBox重置为null
 
-                    // Set the size of the shape to 690, 580
+                    // 将窗体大小设置为690, 580
                     _zoomForm.Size = new Size(690, 580);
                 }
 
-                // Set the PictureBox's image in the zoom form to the new bitmap
+                // 将缩放窗体中PictureBox的图像设置为新位图
                 _zoomPictureBox.Image = zoomedImage;
 
-                // Adjust the size of the shape to the size of the PictureBox
+                // 将窗体大小调整为PictureBox的大小
                 _zoomForm.ClientSize = _zoomPictureBox.Size;
 
-                // Display the zoom shape
+                // 显示缩放窗体
                 if (!_zoomForm.Visible)
                 {
-                    _zoomForm.Show(this); // Display the shape as a modal dialog
+                    _zoomForm.Show(this); // 将窗体显示为模态对话框
                 }
 
-                _isZoomed = true; // Update the zoom state
+                _isZoomed = true; // 更新缩放状态
 
-                // Add a click event handler that resizes the shape
+                // 添加一个点击事件处理程序来调整窗体大小
                 _zoomPictureBox.Click += (s, ev) =>
                 {
                     if (_zoomForm.Size.Width == 690 && _zoomForm.Size.Height == 580)
@@ -2651,13 +2660,13 @@ namespace UoFiddler.Controls.UserControls
                     }
                 };
             }
-            else // When zoomed
+            else // 当已缩放时
             {
-                // Reset the image to its original size
+                // 将图像重置为原始大小
                 pictureBoxItem.Image = _originalImage;
-                _isZoomed = false; // Update the zoom state
+                _isZoomed = false; // 更新缩放状态
 
-                // Close the zoom shape
+                // 关闭缩放窗体
                 if (_zoomForm != null)
                 {
                     _zoomForm.Close();
@@ -2670,60 +2679,60 @@ namespace UoFiddler.Controls.UserControls
         {
             if (_zoomForm != null && _zoomPictureBox != null && _originalImage != null && _isZoomed)
             {
-                // Enlarge the image to twice its original size
+                // 将图像放大到原始尺寸的两倍
                 Bitmap zoomedImage = new Bitmap(_originalImage, _originalImage.Width * 2, _originalImage.Height * 2);
 
-                // Draw the original image onto the new bitmap, resizing it
+                // 将原始图像绘制到新位图上，调整其大小
                 using (Graphics g = Graphics.FromImage(zoomedImage))
                 {
                     g.DrawImage(_originalImage, 0, 0, zoomedImage.Width, zoomedImage.Height);
                 }
 
-                // Set the PictureBox's image in the zoom form to the new bitmap
+                // 将缩放窗体中PictureBox的图像设置为新位图
                 _zoomPictureBox.Image = zoomedImage;
             }
         }
 
-        // ZoomImage
+        // 缩放图像
         private void ZoomImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Check if an image is selected
+            // 检查是否选择了图像
             if (pictureBoxItem.Image == null)
             {
-                MessageBox.Show("Please select an image first.");
+                MessageBox.Show("请先选择一个图像。");
                 return;
             }
 
-            if (_originalImage == null) // If the original image has not been saved yet
+            if (_originalImage == null) // 如果尚未保存原始图像
             {
-                _originalImage = pictureBoxItem.Image; // Save the original image
+                _originalImage = pictureBoxItem.Image; // 保存原始图像
             }
 
-            if (!_isZoomed) // If not zoomed
+            if (!_isZoomed) // 如果未缩放
             {
-                // Enlarge the image to twice its original size
+                // 将图像放大到原始尺寸的两倍
                 Bitmap zoomedImage = new Bitmap(_originalImage.Width * 2, _originalImage.Height * 2);
 
-                // Draw the original image onto the new bitmap, resizing it
+                // 将原始图像绘制到新位图上，调整其大小
                 using (Graphics g = Graphics.FromImage(zoomedImage))
                 {
                     g.DrawImage(_originalImage, 0, 0, zoomedImage.Width, zoomedImage.Height);
                 }
 
-                // Set the PictureBox's image to the new bitmap
+                // 将PictureBox的图像设置为新位图
                 pictureBoxItem.Image = zoomedImage;
 
-                // Center the PictureBox in the panel
+                // 在面板中居中PictureBox
                 pictureBoxItem.Left = (splitContainer2.Panel2.Width - pictureBoxItem.Width) / 2;
                 pictureBoxItem.Top = (splitContainer2.Panel2.Height - pictureBoxItem.Height) / 2;
 
-                _isZoomed = true; // Update the zoom state
+                _isZoomed = true; // 更新缩放状态
             }
-            else // When zoomed
+            else // 当已缩放时
             {
-                // Reset the image to its original size
+                // 将图像重置为原始大小
                 pictureBoxItem.Image = _originalImage;
-                _isZoomed = false; // Update the zoom state
+                _isZoomed = false; // 更新缩放状态
             }
         }
         #endregion
@@ -2734,63 +2743,63 @@ namespace UoFiddler.Controls.UserControls
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                // Set the text of tbClassicUOPfad to the selected path
+                // 将tbClassicUOPfad的文本设置为选定路径
                 tbClassicUOPfad.Text = folderBrowserDialog.SelectedPath;
 
-                // Save the path in Settings
+                // 在设置中保存路径
                 Properties.Settings.Default.CUOTestPath = folderBrowserDialog.SelectedPath;
                 Properties.Settings.Default.Save();
             }
         }
         #endregion
 
-        #region [ Dictionary ]
+        #region [ 字典 ]
         Dictionary<string, string> _infoTexts = new Dictionary<string, string>()
         {
-            { "chair", "2865,0,0,0,0,0,0,4 = 2865 is the article number of the chair.\n\nThe first four zeros in this line tell your character, \nno matter which direction you come from, you will always look north, \nwhen you sit in this chair.\n\nNorth-chair = 2865,0,0,0,0,\n\nEast-chair = 2863,2,2,2,2,6,6 \nThe first four numbers 2 always point east.\n\nSouth-chair = 2862,4,4,4,4,0,0 \nThe first four 4s are always to the southwest.\n\nDirected chair = 2864,6,6,6,6,-8,8 \n\nThe first four 6s will always face you \nWest stool.= 2910,0,2,4,6,-8,-8 \n\nStools are multidirectional.\nThat means, by adding \nAll 4 directions = ,0,2,4,6, \n\nThe last two numbers have to do with the positioning of the character." },
-            { "seasons", "Enter information text here" },
-            { "lights", "Enter information text here" },
-            { "lightshaders", "Enter information text here" },
-            { "tree", "Enter information text here" },
-            { "vegetation", "Enter information text here" },
-            { "cave", "Enter information text here" },
-            { "containers", "Enter information text here" }
+            { "chair", "2865,0,0,0,0,0,0,4 = 2865是椅子的物品编号。\n\n这一行中的前四个零告诉你的角色，\n无论你从哪个方向来，当你坐在这张椅子上时，你总是会面朝北方。\n\n北向椅子 = 2865,0,0,0,0,\n\n东向椅子 = 2863,2,2,2,2,6,6 \n前四个数字2总是朝东。\n\n南向椅子 = 2862,4,4,4,4,0,0 \n前四个4总是朝西南。\n\n定向椅子 = 2864,6,6,6,6,-8,8 \n\n前四个6总是面向你。\n西向凳子 = 2910,0,2,4,6,-8,-8 \n\n凳子是多方位的。\n这意味着，通过添加\n所有4个方向 = ,0,2,4,6, \n\n最后两个数字与角色的定位有关。" },
+            { "seasons", "在此处输入信息文本" },
+            { "lights", "在此处输入信息文本" },
+            { "lightshaders", "在此处输入信息文本" },
+            { "tree", "在此处输入信息文本" },
+            { "vegetation", "在此处输入信息文本" },
+            { "cave", "在此处输入信息文本" },
+            { "containers", "在此处输入信息文本" }
         };
         #endregion
 
         #region [ comboBoxLoadText_SelectedIndexChanged ]
         private void ComboBoxLoadText_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Get path from tbClassicUOPath
+            // 从tbClassicUOPath获取路径
             string path = tbClassicUOPfad.Text;
 
-            // Get selected file from comboBoxLoadText
+            // 从comboBoxLoadText获取选定的文件
             string selectedFile = comboBoxLoadText.SelectedItem.ToString();
 
-            // Create full path to selected file
+            // 创建选定文件的完整路径
             string fullPath = Path.Combine(path, selectedFile + ".txt");
 
-            // Check if the file exists
+            // 检查文件是否存在
             if (File.Exists(fullPath))
             {
-                // Load file content into richTextBoxEdit
+                // 将文件内容加载到richTextBoxEdit中
                 richTextBoxEdit.Text = File.ReadAllText(fullPath);
 
-                // Check if there is an info text for the selected file
+                // 检查是否有选定文件的信息文本
                 if (_infoTexts.TryGetValue(selectedFile, out string infoText))
                 {
-                    // Display the info text in textBoxInfoCuo
+                    // 在textBoxInfoCuo中显示信息文本
                     richTextInfoCuo.Text = infoText;
                 }
                 else
                 {
-                    // Clear textBoxInfoCuo if there is no info text for the selected file
+                    // 如果没有选定文件的信息文本，则清除textBoxInfoCuo
                     richTextInfoCuo.Text = "";
                 }
             }
             else
             {
-                MessageBox.Show("The file does not exist.");
+                MessageBox.Show("文件不存在。");
             }
         }
 
@@ -2799,22 +2808,22 @@ namespace UoFiddler.Controls.UserControls
         #region [ btSaveTxtCuo ]
         private void BtSaveTxtCuo_Click(object sender, EventArgs e)
         {
-            // Get path from tbClassicUOPath
+            // 从tbClassicUOPath获取路径
             string path = tbClassicUOPfad.Text;
 
-            // Get selected file from comboBoxLoadText
+            // 从comboBoxLoadText获取选定的文件
             string selectedFile = comboBoxLoadText.SelectedItem.ToString();
 
-            // Create full path to selected file
+            // 创建选定文件的完整路径
             string fullPath = Path.Combine(path, selectedFile + ".txt");
 
-            // Get text from the richTextBoxEdit
+            // 从richTextBoxEdit获取文本
             string textToSave = richTextBoxEdit.Text;
 
-            // Write text to the file
+            // 将文本写入文件
             File.WriteAllText(fullPath, textToSave);
 
-            // Sound Effekt
+            // 声音效果
             SoundPlayer player = new SoundPlayer();
             player.SoundLocation = "sound.wav";
             player.Play();
@@ -2869,7 +2878,7 @@ namespace UoFiddler.Controls.UserControls
         #region [ copySettingsToolStripMenuItem ]
         private void CopySettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Create a new instance of Settings and copy the values from text boxes and checked list
+            // 创建Settings的新实例并从文本框和复选列表中复制值
             _copiedSettings = new Settings
             {
                 Name = textBoxName.Text,
@@ -2887,17 +2896,17 @@ namespace UoFiddler.Controls.UserControls
                 CheckedList = new List<bool>()
             };
 
-            // Save the state of the CheckedListBox1 by iterating over each item
+            // 通过遍历每个项目保存CheckedListBox1的状态
             for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
-                // Add true if the item is checked, false otherwise
+                // 如果项目被选中则添加true，否则添加false
                 _copiedSettings.CheckedList.Add(checkedListBox1.GetItemChecked(i));
             }
 
-            // Optionally, display a message to indicate successful copying
-            // MessageBox.Show("Settings copied successfully!");
+            // 可选：显示消息指示复制成功
+            // MessageBox.Show("设置复制成功！");
 
-            // Play a sound effect after settings have been copied
+            // 复制设置后播放声音效果
             SoundPlayer player = new SoundPlayer();
             player.SoundLocation = "sound.wav";
             player.Play();
@@ -2907,14 +2916,14 @@ namespace UoFiddler.Controls.UserControls
         #region [ insertSettingsToolStripMenuItem ]
         private void InsertSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Check if any settings were copied before attempting to insert them
+            // 在尝试插入设置之前检查是否已复制任何设置
             if (_copiedSettings == null)
             {
-                MessageBox.Show("No settings copied yet.");
+                MessageBox.Show("尚未复制任何设置。");
                 return;
             }
 
-            // Restore the settings by assigning values back to the text boxes
+            // 通过将值分配回文本框来恢复设置
             textBoxName.Text = _copiedSettings.Name;
             textBoxWeight.Text = _copiedSettings.Weight;
             textBoxAnim.Text = _copiedSettings.Anim;
@@ -2928,16 +2937,16 @@ namespace UoFiddler.Controls.UserControls
             textBoxUnk2.Text = _copiedSettings.Unk2;
             textBoxUnk3.Text = _copiedSettings.Unk3;
 
-            // Restore the state of the CheckedListBox1 from the copied settings
+            // 从复制的设置中恢复CheckedListBox1的状态
             for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
                 checkedListBox1.SetItemChecked(i, _copiedSettings.CheckedList[i]);
             }
 
-            // Optionally, display a message to indicate successful insertion
-            // MessageBox.Show("Settings inserted successfully!");
+            // 可选：显示消息指示插入成功
+            // MessageBox.Show("设置插入成功！");
 
-            // Play a sound effect after settings have been inserted
+            // 插入设置后播放声音效果
             SoundPlayer player = new SoundPlayer();
             player.SoundLocation = "sound.wav";
             player.Play();
@@ -2945,7 +2954,7 @@ namespace UoFiddler.Controls.UserControls
         #endregion
 
         #region [ class Settings ] 
-        public class Settings // Copy for settings
+        public class Settings // 设置复制
         {
             public string Name { get; set; }
             public string Weight { get; set; }
@@ -2959,7 +2968,7 @@ namespace UoFiddler.Controls.UserControls
             public string Unk1 { get; set; }
             public string Unk2 { get; set; }
             public string Unk3 { get; set; }
-            public List<bool> CheckedList { get; set; } // Speichert die CheckedListBox Werte
+            public List<bool> CheckedList { get; set; } // 存储CheckedListBox值
         }
         #endregion
 
@@ -2973,7 +2982,7 @@ namespace UoFiddler.Controls.UserControls
                 TextureId = ushort.TryParse(textBoxTexID.Text, out ushort texId) ? texId : (ushort)0
             };
 
-            // Save the state of CheckedListBox2
+            // 保存CheckedListBox2的状态
             foreach (int index in checkedListBox2.CheckedIndices)
             {
                 _copiedLandSettings.CheckedList.Add(true);
@@ -2997,38 +3006,38 @@ namespace UoFiddler.Controls.UserControls
         {
             if (_copiedLandSettings == null)
             {
-                MessageBox.Show("No settings copied yet.");
+                MessageBox.Show("尚未复制任何设置。");
                 return;
             }
 
             if (treeViewLand.SelectedNode == null)
             {
-                MessageBox.Show("No node selected.");
+                MessageBox.Show("未选择任何节点。");
                 return;
             }
 
-            // Get the currently selected node
+            // 获取当前选中的节点
             TreeNode selectedNode = treeViewLand.SelectedNode;
             int index = (int)selectedNode.Tag;
 
-            // Transfer the copied settings to the current country item
+            // 将复制的设置传输到当前土地项目
             LandData land = TileData.LandTable[index];
             land.Name = _copiedLandSettings.Name;
             land.TextureId = _copiedLandSettings.TextureId;
 
-            // Reset the state of the CheckedListBox2
+            // 重置CheckedListBox2的状态
             for (int i = 0; i < checkedListBox2.Items.Count; i++)
             {
                 checkedListBox2.SetItemChecked(i, _copiedLandSettings.CheckedList[i]);
             }
 
-            // Visual update of the node
+            // 节点的视觉更新
             selectedNode.Text = $"0x{index:X4} {land.Name}";
 
-            // Save the changes
+            // 保存更改
             TileData.LandTable[index] = land;
 
-            // Optional: Mark the node as changed and update the event
+            // 可选：将节点标记为已更改并更新事件
             selectedNode.ForeColor = Color.Red;
             Options.ChangedUltimaClass["TileData"] = true;
             ControlEvents.FireTileDataChangeEvent(this, index);
@@ -3044,7 +3053,7 @@ namespace UoFiddler.Controls.UserControls
         {
             public string Name { get; set; }
             public ushort TextureId { get; set; }
-            public List<bool> CheckedList { get; set; } // Stores the CheckedListBox values
+            public List<bool> CheckedList { get; set; } // 存储CheckedListBox值
         }
         #endregion
 
@@ -3053,7 +3062,7 @@ namespace UoFiddler.Controls.UserControls
         {
             _image = Properties.Resources.MakeChairsUseable;
 
-            // Statics
+            // 静态
             toolTipComponent.SetToolTip(nameLabel, GetDescription(nameLabel));
             toolTipComponent.SetToolTip(animLabel, GetDescription(animLabel));
             toolTipComponent.SetToolTip(weightLabel, GetDescription(weightLabel));
@@ -3067,11 +3076,11 @@ namespace UoFiddler.Controls.UserControls
             toolTipComponent.SetToolTip(heightLabel, GetDescription(heightLabel));
             toolTipComponent.SetToolTip(unknown3Label, GetDescription(unknown3Label));
 
-            // Land Tiles
+            // 土地瓦片
             toolTipComponent.SetToolTip(landNameLabel, GetDescription(landNameLabel));
             toolTipComponent.SetToolTip(landTexIdLabel, GetDescription(landTexIdLabel));
 
-            // Edit Cou Files
+            // 编辑Cou文件
             toolTipComponent.SetToolTip(lbcomboBoxLoadText, GetDescription(lbcomboBoxLoadText));
         }
         #endregion
@@ -3083,99 +3092,99 @@ namespace UoFiddler.Controls.UserControls
 
             if (sender == nameLabel)
             {
-                description = "This field is for the name of the item, which can be a maximum of 20 characters.";
+                description = "此字段用于物品名称，最多20个字符。";
             }
             else if (sender == animLabel)
             {
-                description = "This field is for the animation ID associated with the item.";
+                description = "此字段用于物品关联的动画ID。";
             }
             else if (sender == weightLabel)
             {
-                description = "This field is for the weight of the item.";
+                description = "此字段用于物品的重量。";
             }
             else if (sender == layerLabel)
             {
                 description = new StringBuilder()
-                    .AppendLine("This field is for the layer of the item:")
+                    .AppendLine("此字段用于物品的层：")
                     .AppendLine("")
-                    .AppendLine("1 One handed weapon")
-                    .AppendLine("2 Two handed weapon, shield, or misc.")
-                    .AppendLine("3 Shoes")
-                    .AppendLine("4 Pants")
-                    .AppendLine("5 Shirt")
-                    .AppendLine("6 Helm / Line")
-                    .AppendLine("7 Gloves")
-                    .AppendLine("8 Ring")
-                    .AppendLine("9 Talisman")
-                    .AppendLine("10 Neck")
-                    .AppendLine("11 Hair")
-                    .AppendLine("12 Waist (half apron)")
-                    .AppendLine("13 Torso (inner) (chest armor)")
-                    .AppendLine("14 Bracelet")
-                    .AppendLine("15 Unused (but backpackers for backpackers go to 21)")
-                    .AppendLine("16 Facial Hair")
-                    .AppendLine("17 Torso (middle) (surcoat, tunic, full apron, sash)")
-                    .AppendLine("18 Earrings")
-                    .AppendLine("19 Arms")
-                    .AppendLine("20 Back (cloak)")
-                    .AppendLine("21 Backpack")
-                    .AppendLine("22 Torso (outer) (robe)")
-                    .AppendLine("23 Legs (outer) (skirt / kilt)")
-                    .AppendLine("24 Legs (inner) (leg armor)")
-                    .AppendLine("25 Mount (horse, ostard, etc)")
-                    .AppendLine("26 NPC Buy Restock container")
-                    .AppendLine("27 NPC Buy no restock container")
-                    .AppendLine("28 NPC Sell container")
+                    .AppendLine("1 单手武器")
+                    .AppendLine("2 双手武器、盾牌或杂项")
+                    .AppendLine("3 鞋子")
+                    .AppendLine("4 裤子")
+                    .AppendLine("5 衬衫")
+                    .AppendLine("6 头盔/帽子")
+                    .AppendLine("7 手套")
+                    .AppendLine("8 戒指")
+                    .AppendLine("9 护身符")
+                    .AppendLine("10 项链")
+                    .AppendLine("11 头发")
+                    .AppendLine("12 腰部（半围裙）")
+                    .AppendLine("13 躯干（内层）（胸甲）")
+                    .AppendLine("14 手镯")
+                    .AppendLine("15 未使用（但背包客的背包转到21）")
+                    .AppendLine("16 面部毛发")
+                    .AppendLine("17 躯干（中层）（外衣、束腰外衣、全围裙、腰带）")
+                    .AppendLine("18 耳环")
+                    .AppendLine("19 手臂")
+                    .AppendLine("20 背部（披风）")
+                    .AppendLine("21 背包")
+                    .AppendLine("22 躯干（外层）（长袍）")
+                    .AppendLine("23 腿部（外层）（裙子/苏格兰短裙）")
+                    .AppendLine("24 腿部（内层）（腿甲）")
+                    .AppendLine("25 坐骑（马、鸵鸟等）")
+                    .AppendLine("26 NPC购买补货容器")
+                    .AppendLine("27 NPC购买不补货容器")
+                    .AppendLine("28 NPC出售容器")
                     .ToString();
             }
             else if (sender == quantityLabel)
             {
-                description = "This field is for the quantity of the item.";
+                description = "此字段用于物品的数量。";
             }
             else if (sender == valueLabel)
             {
-                description = "This field is for the value of the item.";
+                description = "此字段用于物品的价值。";
             }
             else if (sender == stackOffLabel)
             {
                 description = new StringBuilder()
-                    .AppendLine("StackOff refers to the stacking offset in pixels when multiple items are stacked.")
-                    .AppendLine("A higher StackOff value means the items will appear further apart from each other within the stack.")
+                    .AppendLine("StackOff指多个物品堆叠时的堆叠偏移（像素）。")
+                    .AppendLine("StackOff值越高，意味着堆叠中的物品彼此间距离越远。")
                     .ToString();
             }
             else if (sender == hueLabel)
             {
-                description = "This field is for the hue (color) of the item.";
+                description = "此字段用于物品的色调（颜色）。";
             }
             else if (sender == unknown2Label)
             {
-                description = "This field is for the second unknown value.";
+                description = "此字段用于第二个未知值。";
             }
             else if (sender == miscDataLabel)
             {
-                description = "Old UO Demo weapon template definition";
+                description = "旧UO演示版武器模板定义";
             }
             else if (sender == heightLabel)
             {
-                description = "This field is for the height of the item.";
+                description = "此字段用于物品的高度。";
             }
             else if (sender == unknown3Label)
             {
-                description = "This field is for the third unknown value.";
+                description = "此字段用于第三个未知值。";
             }
             else if (sender == landNameLabel)
             {
-                description = "This field is for the name of the land tile, which can be a maximum of 20 characters.";
+                description = "此字段用于土地瓦片的名称，最多20个字符。";
             }
             else if (sender == landTexIdLabel)
             {
-                description = "This field is for the texture ID associated with the land tile.";
+                description = "此字段用于土地瓦片关联的纹理ID。";
             }
             else if (sender == lbcomboBoxLoadText)
             {
                 description = new StringBuilder()
-                         .AppendLine("This is how you load the text files for editing into the rich text box to edit the text files.")
-                         .AppendLine("This allows you to embed new chairs, new colors, containers, and more for the client.")
+                         .AppendLine("这是如何将文本文件加载到富文本框中以编辑文本文件。")
+                         .AppendLine("这允许您为客户端嵌入新椅子、新颜色、容器等。")
                          .ToString();
             }
 

@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.UserControls
     partial class MultiMapControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Controls.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -124,20 +124,20 @@ namespace UoFiddler.Controls.UserControls
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(52, 22);
-            this.toolStripDropDownButton1.Text = "Load..";
+            this.toolStripDropDownButton1.Text = "加载...";
             // 
             // multiMapToolStripMenuItem
             // 
             this.multiMapToolStripMenuItem.Name = "multiMapToolStripMenuItem";
             this.multiMapToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.multiMapToolStripMenuItem.Text = "MultiMap";
+            this.multiMapToolStripMenuItem.Text = "多重地图";
             this.multiMapToolStripMenuItem.Click += new System.EventHandler(this.ShowImage);
             // 
             // facet00ToolStripMenuItem
             // 
             this.facet00ToolStripMenuItem.Name = "facet00ToolStripMenuItem";
             this.facet00ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.facet00ToolStripMenuItem.Text = "Facet00";
+            this.facet00ToolStripMenuItem.Text = "面 00";
             this.facet00ToolStripMenuItem.Click += new System.EventHandler(this.ShowImage);
             // 
             // facet01ToolStripMenuItem
@@ -145,7 +145,7 @@ namespace UoFiddler.Controls.UserControls
             this.facet01ToolStripMenuItem.Name = "facet01ToolStripMenuItem";
             this.facet01ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.facet01ToolStripMenuItem.Tag = "";
-            this.facet01ToolStripMenuItem.Text = "Facet01";
+            this.facet01ToolStripMenuItem.Text = "面 01";
             this.facet01ToolStripMenuItem.Click += new System.EventHandler(this.ShowImage);
             // 
             // facet02ToolStripMenuItem
@@ -153,7 +153,7 @@ namespace UoFiddler.Controls.UserControls
             this.facet02ToolStripMenuItem.Name = "facet02ToolStripMenuItem";
             this.facet02ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.facet02ToolStripMenuItem.Tag = "";
-            this.facet02ToolStripMenuItem.Text = "Facet02";
+            this.facet02ToolStripMenuItem.Text = "面 02";
             this.facet02ToolStripMenuItem.Click += new System.EventHandler(this.ShowImage);
             // 
             // facet03ToolStripMenuItem
@@ -161,7 +161,7 @@ namespace UoFiddler.Controls.UserControls
             this.facet03ToolStripMenuItem.Name = "facet03ToolStripMenuItem";
             this.facet03ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.facet03ToolStripMenuItem.Tag = "";
-            this.facet03ToolStripMenuItem.Text = "Facet03";
+            this.facet03ToolStripMenuItem.Text = "面 03";
             this.facet03ToolStripMenuItem.Click += new System.EventHandler(this.ShowImage);
             // 
             // facet04ToolStripMenuItem
@@ -169,7 +169,7 @@ namespace UoFiddler.Controls.UserControls
             this.facet04ToolStripMenuItem.Name = "facet04ToolStripMenuItem";
             this.facet04ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.facet04ToolStripMenuItem.Tag = "";
-            this.facet04ToolStripMenuItem.Text = "Facet04";
+            this.facet04ToolStripMenuItem.Text = "面 04";
             this.facet04ToolStripMenuItem.Click += new System.EventHandler(this.ShowImage);
             // 
             // facet05ToolStripMenuItem
@@ -177,7 +177,7 @@ namespace UoFiddler.Controls.UserControls
             this.facet05ToolStripMenuItem.Name = "facet05ToolStripMenuItem";
             this.facet05ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.facet05ToolStripMenuItem.Tag = "";
-            this.facet05ToolStripMenuItem.Text = "Facet05";
+            this.facet05ToolStripMenuItem.Text = "面 05";
             this.facet05ToolStripMenuItem.Click += new System.EventHandler(this.ShowImage);
             // 
             // toolStripDropDownButton2
@@ -190,20 +190,20 @@ namespace UoFiddler.Controls.UserControls
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
             this.toolStripDropDownButton2.Size = new System.Drawing.Size(73, 22);
-            this.toolStripDropDownButton2.Text = "Generate..";
+            this.toolStripDropDownButton2.Text = "生成...";
             // 
             // multiMapFromImageToolStripMenuItem
             // 
             this.multiMapFromImageToolStripMenuItem.Name = "multiMapFromImageToolStripMenuItem";
             this.multiMapFromImageToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.multiMapFromImageToolStripMenuItem.Text = "MultiMap from Image";
+            this.multiMapFromImageToolStripMenuItem.Text = "从图像生成多重地图";
             this.multiMapFromImageToolStripMenuItem.Click += new System.EventHandler(this.OnClickGenerateRLE);
             // 
             // facetFromImageToolStripMenuItem
             // 
             this.facetFromImageToolStripMenuItem.Name = "facetFromImageToolStripMenuItem";
             this.facetFromImageToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.facetFromImageToolStripMenuItem.Text = "Facet from Image";
+            this.facetFromImageToolStripMenuItem.Text = "从图像生成面";
             this.facetFromImageToolStripMenuItem.Click += new System.EventHandler(this.OnClickGenerateFacetFromImage);
             // 
             // toolStripDropDownButton3
@@ -218,34 +218,34 @@ namespace UoFiddler.Controls.UserControls
             this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
             this.toolStripDropDownButton3.Size = new System.Drawing.Size(60, 22);
-            this.toolStripDropDownButton3.Text = "Export..";
+            this.toolStripDropDownButton3.Text = "导出...";
             // 
             // asBmpToolStripMenuItem1
             // 
             this.asBmpToolStripMenuItem1.Name = "asBmpToolStripMenuItem1";
             this.asBmpToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
-            this.asBmpToolStripMenuItem1.Text = "As Bmp..";
+            this.asBmpToolStripMenuItem1.Text = "导出为 BMP...";
             this.asBmpToolStripMenuItem1.Click += new System.EventHandler(this.OnClickExportBmp);
             // 
             // asTiffToolStripMenuItem1
             // 
             this.asTiffToolStripMenuItem1.Name = "asTiffToolStripMenuItem1";
             this.asTiffToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
-            this.asTiffToolStripMenuItem1.Text = "As Tiff..";
+            this.asTiffToolStripMenuItem1.Text = "导出为 TIFF...";
             this.asTiffToolStripMenuItem1.Click += new System.EventHandler(this.OnClickExportTiff);
             // 
             // asPngToolStripMenuItem
             // 
             this.asPngToolStripMenuItem.Name = "asPngToolStripMenuItem";
             this.asPngToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.asPngToolStripMenuItem.Text = "As Jpg..";
+            this.asPngToolStripMenuItem.Text = "导出为 JPEG...";
             this.asPngToolStripMenuItem.Click += new System.EventHandler(this.OnClickExportJpg);
             // 
             // asPngToolStripMenuItem1
             // 
             this.asPngToolStripMenuItem1.Name = "asPngToolStripMenuItem1";
             this.asPngToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
-            this.asPngToolStripMenuItem1.Text = "As Png..";
+            this.asPngToolStripMenuItem1.Text = "导出为 PNG...";
             this.asPngToolStripMenuItem1.Click += new System.EventHandler(this.OnClickExportPng);
             // 
             // MultiMapControl

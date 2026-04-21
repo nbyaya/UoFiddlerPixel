@@ -3,10 +3,10 @@
  * $Author: Turley
  * Advanced Nikodemus
  * 
- * "THE BEER-WINE-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer and Wine in return.
+ * "啤酒-葡萄酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒和葡萄酒作为回报。
  *
  ***************************************************************************/
 
@@ -82,9 +82,9 @@ namespace UoFiddler.Forms
             map3Nametext.Text = Options.MapNames[3];
             map4Nametext.Text = Options.MapNames[4];
             map5Nametext.Text = Options.MapNames[5];
-            map6Nametext.Text = Options.MapNames[6]; //New Map Forell
-            map7Nametext.Text = Options.MapNames[7]; //New Map Dragon
-            map8Nametext.Text = Options.MapNames[8]; //New Map Intermediate world
+            map6Nametext.Text = Options.MapNames[6]; //新地图 Forell
+            map7Nametext.Text = Options.MapNames[7]; //新地图 Dragon
+            map8Nametext.Text = Options.MapNames[8]; //新地图 中间世界
             cmdtext.Text = Options.MapCmd;
             argstext.Text = Options.MapArgs;
             textBoxOutputPath.Text = Options.OutputPath;
@@ -182,9 +182,9 @@ namespace UoFiddler.Forms
                 || map3Nametext.Text != Options.MapNames[3]
                 || map4Nametext.Text != Options.MapNames[4]
                 || map5Nametext.Text != Options.MapNames[5]
-                || map6Nametext.Text != Options.MapNames[6] //New Map Forell
-                || map6Nametext.Text != Options.MapNames[7] //New Map Dragon
-                || map6Nametext.Text != Options.MapNames[8]) //New Map Intermediate world
+                || map6Nametext.Text != Options.MapNames[6] //新地图 Forell
+                || map6Nametext.Text != Options.MapNames[7] //新地图 Dragon
+                || map6Nametext.Text != Options.MapNames[8]) //新地图 中间世界
             {
                 Options.MapNames[0] = map0Nametext.Text;
                 Options.MapNames[1] = map1Nametext.Text;
@@ -192,9 +192,9 @@ namespace UoFiddler.Forms
                 Options.MapNames[3] = map3Nametext.Text;
                 Options.MapNames[4] = map4Nametext.Text;
                 Options.MapNames[5] = map5Nametext.Text;
-                Options.MapNames[6] = map6Nametext.Text; //New Map Forell
-                Options.MapNames[7] = map6Nametext.Text; //New Map Dragon
-                Options.MapNames[8] = map6Nametext.Text; //New Map Intermediate world
+                Options.MapNames[6] = map6Nametext.Text; //新地图 Forell
+                Options.MapNames[7] = map6Nametext.Text; //新地图 Dragon
+                Options.MapNames[8] = map6Nametext.Text; //新地图 中间世界
                 ControlEvents.FireMapNameChangeEvent();
             }
 
@@ -213,7 +213,7 @@ namespace UoFiddler.Forms
         {
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
             {
-                dialog.Description = "Select directory";
+                dialog.Description = "选择目录";
                 dialog.ShowNewFolderButton = true;
 
                 if (dialog.ShowDialog() == DialogResult.OK)
@@ -283,8 +283,8 @@ namespace UoFiddler.Forms
         #region [ RestoreDefaultsButton ]
         private void RestoreDefaultsButton_Click(object sender, EventArgs e)
         {
-            const string title = "Restore defaults";
-            const string message = "Do you want to reset tile views settings to default?";
+            const string title = "恢复默认值";
+            const string message = "是否要将图块视图设置重置为默认值？";
 
             if (MessageBox.Show(message, title, MessageBoxButtons.YesNo) == DialogResult.No)
             {
@@ -316,7 +316,7 @@ namespace UoFiddler.Forms
             }
             else
             {
-                MessageBox.Show("Directory does not exist: " + path);
+                MessageBox.Show("目录不存在: " + path);
             }
         }
         #endregion
@@ -331,7 +331,7 @@ namespace UoFiddler.Forms
             }
             else
             {
-                MessageBox.Show("Directory does not exist: " + logPath);
+                MessageBox.Show("目录不存在: " + logPath);
             }
         }
         #endregion

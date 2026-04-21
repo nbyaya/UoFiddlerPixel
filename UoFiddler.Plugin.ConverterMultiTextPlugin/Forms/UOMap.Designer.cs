@@ -58,7 +58,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             BtnLoad.Name = "BtnLoad";
             BtnLoad.Size = new System.Drawing.Size(75, 23);
             BtnLoad.TabIndex = 0;
-            BtnLoad.Text = "Load";
+            BtnLoad.Text = "加载";
             BtnLoad.UseVisualStyleBackColor = true;
             BtnLoad.Click += BtnLoad_Click;
             // 

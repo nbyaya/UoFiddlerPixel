@@ -438,7 +438,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             // 
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             loadToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
-            loadToolStripMenuItem.Text = "Load";
+            loadToolStripMenuItem.Text = "加载";
             loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
@@ -485,7 +485,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             // 
             loadToolStripMenuItem1.Name = "loadToolStripMenuItem1";
             loadToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
-            loadToolStripMenuItem1.Text = "Load";
+            loadToolStripMenuItem1.Text = "加载";
             loadToolStripMenuItem1.Click += loadToolStripMenuItem1_Click;
             // 
             // saveToolStripMenuItem1

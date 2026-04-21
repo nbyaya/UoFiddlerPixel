@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "THE BEER-WARE LICENSE" (啤酒软件授权协议)
+ * 只要您保留此声明，您就可以对本代码做任何处理。
+ * 如果将来我们相遇，并且您认为这些东西有价值，
+ * 您可以请我喝啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -17,14 +17,14 @@ namespace UoFiddler.Controls.UserControls
     partial class LandTilesControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -34,11 +34,11 @@ namespace UoFiddler.Controls.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -117,7 +117,7 @@ namespace UoFiddler.Controls.UserControls
             showFreeSlotsToolStripMenuItem.Image = Properties.Resources.Search;
             showFreeSlotsToolStripMenuItem.Name = "showFreeSlotsToolStripMenuItem";
             showFreeSlotsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            showFreeSlotsToolStripMenuItem.Text = "Show Free Slots";
+            showFreeSlotsToolStripMenuItem.Text = "显示空闲槽位";
             showFreeSlotsToolStripMenuItem.Click += ShowFreeSlotsToolStripMenuItem_Click;
             // 
             // toolStripSeparator6
@@ -131,34 +131,34 @@ namespace UoFiddler.Controls.UserControls
             exportImageToolStripMenuItem.Image = Properties.Resources.Export;
             exportImageToolStripMenuItem.Name = "exportImageToolStripMenuItem";
             exportImageToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            exportImageToolStripMenuItem.Text = "Export Image..";
+            exportImageToolStripMenuItem.Text = "导出图像...";
             // 
             // asBmpToolStripMenuItem
             // 
             asBmpToolStripMenuItem.Name = "asBmpToolStripMenuItem";
             asBmpToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asBmpToolStripMenuItem.Text = "As Bmp";
+            asBmpToolStripMenuItem.Text = "Bmp 格式";
             asBmpToolStripMenuItem.Click += OnClickExportBmp;
             // 
             // asTiffToolStripMenuItem
             // 
             asTiffToolStripMenuItem.Name = "asTiffToolStripMenuItem";
             asTiffToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asTiffToolStripMenuItem.Text = "As Tiff";
+            asTiffToolStripMenuItem.Text = "Tiff 格式";
             asTiffToolStripMenuItem.Click += OnClickExportTiff;
             // 
             // asJpgToolStripMenuItem1
             // 
             asJpgToolStripMenuItem1.Name = "asJpgToolStripMenuItem1";
             asJpgToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
-            asJpgToolStripMenuItem1.Text = "As Jpg";
+            asJpgToolStripMenuItem1.Text = "Jpg 格式";
             asJpgToolStripMenuItem1.Click += OnClickExportJpg;
             // 
             // asPngToolStripMenuItem
             // 
             asPngToolStripMenuItem.Name = "asPngToolStripMenuItem";
             asPngToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asPngToolStripMenuItem.Text = "As Png";
+            asPngToolStripMenuItem.Text = "Png 格式";
             asPngToolStripMenuItem.Click += OnClickExportPng;
             // 
             // toolStripSeparator3
@@ -171,7 +171,7 @@ namespace UoFiddler.Controls.UserControls
             selectInTileDataTabToolStripMenuItem.Image = Properties.Resources.Select;
             selectInTileDataTabToolStripMenuItem.Name = "selectInTileDataTabToolStripMenuItem";
             selectInTileDataTabToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            selectInTileDataTabToolStripMenuItem.Text = "Select in TileData tab";
+            selectInTileDataTabToolStripMenuItem.Text = "在 TileData 选项卡中选择";
             selectInTileDataTabToolStripMenuItem.Click += OnClickSelectTiledata;
             // 
             // selectInRadarColorTabToolStripMenuItem
@@ -179,7 +179,7 @@ namespace UoFiddler.Controls.UserControls
             selectInRadarColorTabToolStripMenuItem.Image = Properties.Resources.Select;
             selectInRadarColorTabToolStripMenuItem.Name = "selectInRadarColorTabToolStripMenuItem";
             selectInRadarColorTabToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            selectInRadarColorTabToolStripMenuItem.Text = "Select in RadarColor tab";
+            selectInRadarColorTabToolStripMenuItem.Text = "在 RadarColor 选项卡中选择";
             selectInRadarColorTabToolStripMenuItem.Click += OnClickSelectRadarCol;
             // 
             // toolStripSeparator2
@@ -192,7 +192,7 @@ namespace UoFiddler.Controls.UserControls
             findNextFreeSlotToolStripMenuItem.Image = Properties.Resources.Search;
             findNextFreeSlotToolStripMenuItem.Name = "findNextFreeSlotToolStripMenuItem";
             findNextFreeSlotToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            findNextFreeSlotToolStripMenuItem.Text = "Find Next Free Slot";
+            findNextFreeSlotToolStripMenuItem.Text = "查找下一个空闲槽位";
             findNextFreeSlotToolStripMenuItem.Click += OnClickFindFree;
             // 
             // removeToolStripMenuItem
@@ -200,7 +200,7 @@ namespace UoFiddler.Controls.UserControls
             removeToolStripMenuItem.Image = Properties.Resources.Remove;
             removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             removeToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            removeToolStripMenuItem.Text = "Remove";
+            removeToolStripMenuItem.Text = "移除";
             removeToolStripMenuItem.Click += OnClickRemove;
             // 
             // replaceToolStripMenuItem
@@ -208,7 +208,7 @@ namespace UoFiddler.Controls.UserControls
             replaceToolStripMenuItem.Image = Properties.Resources.replace;
             replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
             replaceToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            replaceToolStripMenuItem.Text = "Replace";
+            replaceToolStripMenuItem.Text = "替换";
             replaceToolStripMenuItem.Click += OnClickReplace;
             // 
             // replaceStartingFromToolStripMenuItem
@@ -217,7 +217,7 @@ namespace UoFiddler.Controls.UserControls
             replaceStartingFromToolStripMenuItem.Image = Properties.Resources.replace2;
             replaceStartingFromToolStripMenuItem.Name = "replaceStartingFromToolStripMenuItem";
             replaceStartingFromToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            replaceStartingFromToolStripMenuItem.Text = "Replace starting from..";
+            replaceStartingFromToolStripMenuItem.Text = "从...开始替换";
             // 
             // ReplaceStartingFromTb
             // 
@@ -231,7 +231,7 @@ namespace UoFiddler.Controls.UserControls
             insertAtToolStripMenuItem.Image = Properties.Resources.import;
             insertAtToolStripMenuItem.Name = "insertAtToolStripMenuItem";
             insertAtToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            insertAtToolStripMenuItem.Text = "Insert At..";
+            insertAtToolStripMenuItem.Text = "在...处插入";
             // 
             // InsertText
             // 
@@ -250,8 +250,8 @@ namespace UoFiddler.Controls.UserControls
             copyToolStripMenuItem.Image = Properties.Resources.Copy;
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             copyToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            copyToolStripMenuItem.Text = "Copy";
-            copyToolStripMenuItem.ToolTipText = "Copy the graphic to the clipboard.";
+            copyToolStripMenuItem.Text = "复制";
+            copyToolStripMenuItem.ToolTipText = "将图形复制到剪贴板。";
             copyToolStripMenuItem.Click += CopyToolStripMenuItem_Click;
             // 
             // importToolStripMenuItem
@@ -259,8 +259,8 @@ namespace UoFiddler.Controls.UserControls
             importToolStripMenuItem.Image = Properties.Resources.import;
             importToolStripMenuItem.Name = "importToolStripMenuItem";
             importToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            importToolStripMenuItem.Text = "Import";
-            importToolStripMenuItem.ToolTipText = "Import the graphic from the clipboard.";
+            importToolStripMenuItem.Text = "导入";
+            importToolStripMenuItem.ToolTipText = "从剪贴板导入图形。";
             importToolStripMenuItem.Click += ImportToolStripMenuItem_Click;
             // 
             // importToTempToolStripMenuItem
@@ -268,7 +268,7 @@ namespace UoFiddler.Controls.UserControls
             importToTempToolStripMenuItem.Image = Properties.Resources.import;
             importToTempToolStripMenuItem.Name = "importToTempToolStripMenuItem";
             importToTempToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            importToTempToolStripMenuItem.Text = "Import to Temp";
+            importToTempToolStripMenuItem.Text = "导入到临时目录";
             importToTempToolStripMenuItem.Click += ImportToTempToolStripMenuItem_Click;
             // 
             // toolStripSeparator8
@@ -281,7 +281,7 @@ namespace UoFiddler.Controls.UserControls
             rotateBy90DegreesToolStripMenuItem.Image = Properties.Resources.Rotate;
             rotateBy90DegreesToolStripMenuItem.Name = "rotateBy90DegreesToolStripMenuItem";
             rotateBy90DegreesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            rotateBy90DegreesToolStripMenuItem.Text = "Rotate by 90 degrees.";
+            rotateBy90DegreesToolStripMenuItem.Text = "旋转90度";
             rotateBy90DegreesToolStripMenuItem.Click += RotateBy90DegreesToolStripMenuItem_Click;
             // 
             // zoomImageToolStripMenuItem
@@ -289,8 +289,8 @@ namespace UoFiddler.Controls.UserControls
             zoomImageToolStripMenuItem.Image = Properties.Resources.zoom_image_into_tile_2_;
             zoomImageToolStripMenuItem.Name = "zoomImageToolStripMenuItem";
             zoomImageToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            zoomImageToolStripMenuItem.Text = "Zoom Image";
-            zoomImageToolStripMenuItem.ToolTipText = "Zoom into Landtiles";
+            zoomImageToolStripMenuItem.Text = "缩放图像";
+            zoomImageToolStripMenuItem.ToolTipText = "缩放陆地瓷砖";
             zoomImageToolStripMenuItem.Click += ZoomImageToolStripMenuItem_Click;
             // 
             // toolStripSeparator5
@@ -303,8 +303,8 @@ namespace UoFiddler.Controls.UserControls
             markToolStripMenuItem.Image = Properties.Resources.Mark;
             markToolStripMenuItem.Name = "markToolStripMenuItem";
             markToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            markToolStripMenuItem.Text = "Mark Position";
-            markToolStripMenuItem.ToolTipText = "Mark Position";
+            markToolStripMenuItem.Text = "标记位置";
+            markToolStripMenuItem.ToolTipText = "标记位置";
             markToolStripMenuItem.Click += MarkToolStripMenuItem_Click;
             // 
             // gotoMarkToolStripMenuItem
@@ -312,8 +312,8 @@ namespace UoFiddler.Controls.UserControls
             gotoMarkToolStripMenuItem.Image = Properties.Resources.zoom_image_into_tile_2_;
             gotoMarkToolStripMenuItem.Name = "gotoMarkToolStripMenuItem";
             gotoMarkToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            gotoMarkToolStripMenuItem.Text = "Goto Position";
-            gotoMarkToolStripMenuItem.ToolTipText = "Go To Position";
+            gotoMarkToolStripMenuItem.Text = "跳转到位置";
+            gotoMarkToolStripMenuItem.ToolTipText = "跳转到位置";
             gotoMarkToolStripMenuItem.Click += GotoMarkToolStripMenuItem_Click;
             // 
             // backgroundToolStripMenuItem
@@ -321,7 +321,7 @@ namespace UoFiddler.Controls.UserControls
             backgroundToolStripMenuItem.Image = Properties.Resources.yin_yang_black_whtite;
             backgroundToolStripMenuItem.Name = "backgroundToolStripMenuItem";
             backgroundToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            backgroundToolStripMenuItem.Text = "Background";
+            backgroundToolStripMenuItem.Text = "背景";
             backgroundToolStripMenuItem.Click += BackgroundToolStripMenuItem_Click;
             // 
             // toolStripSeparator9
@@ -334,7 +334,7 @@ namespace UoFiddler.Controls.UserControls
             saveToolStripMenuItem.Image = Properties.Resources.Save2;
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Text = "保存";
             saveToolStripMenuItem.Click += OnClickSave;
             // 
             // colorsImagesToolStripMenuItem
@@ -342,7 +342,7 @@ namespace UoFiddler.Controls.UserControls
             colorsImagesToolStripMenuItem.Image = Properties.Resources.colordialog_background;
             colorsImagesToolStripMenuItem.Name = "colorsImagesToolStripMenuItem";
             colorsImagesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            colorsImagesToolStripMenuItem.Text = "Colors Images";
+            colorsImagesToolStripMenuItem.Text = "图像颜色";
             colorsImagesToolStripMenuItem.Click += ColorsImagesToolStripMenuItem_Click;
             // 
             // LandTilesToolStrip
@@ -359,7 +359,7 @@ namespace UoFiddler.Controls.UserControls
             // 
             IndexToolStripLabel.Name = "IndexToolStripLabel";
             IndexToolStripLabel.Size = new System.Drawing.Size(39, 22);
-            IndexToolStripLabel.Text = "Index:";
+            IndexToolStripLabel.Text = "索引:";
             // 
             // searchByIdToolStripTextBox
             // 
@@ -371,7 +371,7 @@ namespace UoFiddler.Controls.UserControls
             // 
             NameToolStripLabel.Name = "NameToolStripLabel";
             NameToolStripLabel.Size = new System.Drawing.Size(42, 22);
-            NameToolStripLabel.Text = "Name:";
+            NameToolStripLabel.Text = "名称:";
             // 
             // searchByNameToolStripTextBox
             // 
@@ -386,7 +386,7 @@ namespace UoFiddler.Controls.UserControls
             searchByNameToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             searchByNameToolStripButton.Name = "searchByNameToolStripButton";
             searchByNameToolStripButton.Size = new System.Drawing.Size(60, 22);
-            searchByNameToolStripButton.Text = "Find next";
+            searchByNameToolStripButton.Text = "查找下一个";
             searchByNameToolStripButton.Click += SearchByNameToolStripButton_Click;
             // 
             // SearchButton
@@ -396,8 +396,8 @@ namespace UoFiddler.Controls.UserControls
             SearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             SearchButton.Name = "SearchButton";
             SearchButton.Size = new System.Drawing.Size(23, 22);
-            SearchButton.Text = "Search";
-            SearchButton.ToolTipText = "Old Search";
+            SearchButton.Text = "搜索";
+            SearchButton.ToolTipText = "旧版搜索";
             SearchButton.Click += OnClickSearch;
             // 
             // toolStripSeparator1
@@ -413,41 +413,41 @@ namespace UoFiddler.Controls.UserControls
             MiscToolStripDropDownButton.Margin = new System.Windows.Forms.Padding(0, 1, 20, 2);
             MiscToolStripDropDownButton.Name = "MiscToolStripDropDownButton";
             MiscToolStripDropDownButton.Size = new System.Drawing.Size(45, 22);
-            MiscToolStripDropDownButton.Text = "Misc";
+            MiscToolStripDropDownButton.Text = "杂项";
             // 
             // exportAllToolStripMenuItem
             // 
             exportAllToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { ExportAllAsBmp, ExportAllAsTiff, asJpgToolStripMenuItem, asPngToolStripMenuItem1 });
             exportAllToolStripMenuItem.Name = "exportAllToolStripMenuItem";
             exportAllToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            exportAllToolStripMenuItem.Text = "Export All..";
+            exportAllToolStripMenuItem.Text = "全部导出...";
             // 
             // ExportAllAsBmp
             // 
             ExportAllAsBmp.Name = "ExportAllAsBmp";
             ExportAllAsBmp.Size = new System.Drawing.Size(115, 22);
-            ExportAllAsBmp.Text = "As Bmp";
+            ExportAllAsBmp.Text = "Bmp 格式";
             ExportAllAsBmp.Click += OnClick_SaveAllBmp;
             // 
             // ExportAllAsTiff
             // 
             ExportAllAsTiff.Name = "ExportAllAsTiff";
             ExportAllAsTiff.Size = new System.Drawing.Size(115, 22);
-            ExportAllAsTiff.Text = "As Tiff";
+            ExportAllAsTiff.Text = "Tiff 格式";
             ExportAllAsTiff.Click += OnClick_SaveAllTiff;
             // 
             // asJpgToolStripMenuItem
             // 
             asJpgToolStripMenuItem.Name = "asJpgToolStripMenuItem";
             asJpgToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asJpgToolStripMenuItem.Text = "As Jpg";
+            asJpgToolStripMenuItem.Text = "Jpg 格式";
             asJpgToolStripMenuItem.Click += OnClick_SaveAllJpg;
             // 
             // asPngToolStripMenuItem1
             // 
             asPngToolStripMenuItem1.Name = "asPngToolStripMenuItem1";
             asPngToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
-            asPngToolStripMenuItem1.Text = "As Png";
+            asPngToolStripMenuItem1.Text = "Png 格式";
             asPngToolStripMenuItem1.Click += OnClick_SaveAllPng;
             // 
             // SaveButton
@@ -458,8 +458,8 @@ namespace UoFiddler.Controls.UserControls
             SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new System.Drawing.Size(23, 22);
-            SaveButton.Text = "Save";
-            SaveButton.ToolTipText = "Save Landtile.mul File";
+            SaveButton.Text = "保存";
+            SaveButton.ToolTipText = "保存 Landtile.mul 文件";
             SaveButton.Click += OnClickSave;
             // 
             // toolStripSeparator4
@@ -521,7 +521,7 @@ namespace UoFiddler.Controls.UserControls
             NameLabel.BackColor = System.Drawing.SystemColors.Control;
             NameLabel.Name = "NameLabel";
             NameLabel.Size = new System.Drawing.Size(140, 17);
-            NameLabel.Text = "Name:";
+            NameLabel.Text = "名称:";
             NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // GraphicLabel
@@ -530,7 +530,7 @@ namespace UoFiddler.Controls.UserControls
             GraphicLabel.BackColor = System.Drawing.SystemColors.Control;
             GraphicLabel.Name = "GraphicLabel";
             GraphicLabel.Size = new System.Drawing.Size(120, 17);
-            GraphicLabel.Text = "Graphic:";
+            GraphicLabel.Text = "图形:";
             GraphicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FlagsLabel
@@ -538,7 +538,7 @@ namespace UoFiddler.Controls.UserControls
             FlagsLabel.BackColor = System.Drawing.SystemColors.Control;
             FlagsLabel.Name = "FlagsLabel";
             FlagsLabel.Size = new System.Drawing.Size(37, 17);
-            FlagsLabel.Text = "Flags:";
+            FlagsLabel.Text = "标志:";
             FlagsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LandTilesControl

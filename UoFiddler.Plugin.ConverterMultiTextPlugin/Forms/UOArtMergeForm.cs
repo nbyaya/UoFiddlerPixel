@@ -2,10 +2,10 @@
 //  *
 //  * $Author: Nikodemus
 //  * 
-//  * "THE WINE-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a Wine in return.
+//  * "葡萄酒许可证"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯葡萄酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -97,25 +97,25 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 }
             }
 
-            // Set the text of the searchTextBox to the hexadecimal representation of the selected item
+            // 将搜索文本框的文本设置为选中项的十六进制表示
             searchTextBox.Text = $"0x{i:X}";
 
-            // Check if an item in the listBoxOrg is selected
+            // 检查 listBoxOrg 中是否有选中项
             if (listBoxOrg.SelectedIndex != -1)
             {
                 int selectedIndex = listBoxOrg.SelectedIndex;
-                // Convert the selected index to a hexadecimal address
+                // 将选中的索引转换为十六进制地址
                 string hexAddress = $"0x{selectedIndex:X}";
-                // Update lbIndex with the hexadecimal address and ID
-                lbIndex.Text = $"Hex-Adresse: {hexAddress}, ID: {selectedIndex}";
+                // 更新 lbIndex，显示十六进制地址和 ID
+                lbIndex.Text = $"十六进制地址: {hexAddress}, ID: {selectedIndex}";
             }
 
-            // Get the total number of items (IDs) in listBoxOrg
+            // 获取 listBoxOrg 中的项目总数（ID 数量）
             int totalIDs = listBoxOrg.Items.Count;
-            // Update lbIndex with the total number of IDs
-            lbCountOrg.Text = $"Total number IDs: {totalIDs}";
+            // 更新 lbIndex，显示 ID 总数
+            lbCountOrg.Text = $"ID 总数: {totalIDs}";
 
-            // Check if an item in the listBoxOrg is selected
+            // 检查 listBoxOrg 中是否有选中项
             if (listBoxOrg.SelectedIndex != -1)
             {
                 int selectedIndex = listBoxOrg.SelectedIndex;
@@ -124,25 +124,25 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     return;
                 }
 
-                // Get the current image and associated data
+                // 获取当前图像及其关联数据
                 Bitmap currentImage = Art.GetStatic(selectedIndex);
                 ItemData item = TileData.ItemTable[selectedIndex];
 
-                // Create a StringBuilder to store the details of the image
+                // 创建一个 StringBuilder 来存储图像的详细信息
                 var sb = new StringBuilder();
-                sb.AppendLine($"Name: {item.Name}");
-                sb.AppendLine($"Graphic: 0x{selectedIndex:X4}");
-                sb.AppendLine($"Height/Capacity: {item.Height}");
-                sb.AppendLine($"Weight: {item.Weight}");
-                sb.AppendLine($"Animation: {item.Animation}");
-                sb.AppendLine($"Quality/Layer/Light: {item.Quality}");
-                sb.AppendLine($"Quantity: {item.Quantity}");
-                sb.AppendLine($"Hue: {item.Hue}");
-                sb.AppendLine($"StackingOffset/Unk4: {item.StackingOffset}");
-                sb.AppendLine($"Flags: {item.Flags}");
-                sb.AppendLine($"Graphic pixel size width, height: {currentImage?.Width ?? 0} {currentImage?.Height ?? 0}");
+                sb.AppendLine($"名称: {item.Name}");
+                sb.AppendLine($"图形: 0x{selectedIndex:X4}");
+                sb.AppendLine($"高度/容量: {item.Height}");
+                sb.AppendLine($"重量: {item.Weight}");
+                sb.AppendLine($"动画: {item.Animation}");
+                sb.AppendLine($"品质/层级/光照: {item.Quality}");
+                sb.AppendLine($"数量: {item.Quantity}");
+                sb.AppendLine($"色调: {item.Hue}");
+                sb.AppendLine($"堆叠偏移/未知4: {item.StackingOffset}");
+                sb.AppendLine($"标志: {item.Flags}");
+                sb.AppendLine($"图形像素尺寸 宽,高: {currentImage?.Width ?? 0} {currentImage?.Height ?? 0}");
 
-                // Paste the details into the DetailTextBox
+                // 将详细信息粘贴到 DetailTextBox 中
                 DetailTextBox.Clear();
                 DetailTextBox.AppendText(sb.ToString());
             }
@@ -161,7 +161,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             int i = int.Parse(listBoxOrg.Items[e.Index].ToString());
             string hexValue = $"0x{i:X}";
-            string displayValue = $"{hexValue} ({i})"; // Displays both the hex address and the ID address
+            string displayValue = $"{hexValue} ({i})"; // 同时显示十六进制地址和 ID 地址
 
             using (Brush brush = new SolidBrush(e.ForeColor))
             {
@@ -175,7 +175,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
             {
-                dialog.Description = "Select directory containing the art files";
+                dialog.Description = "选择包含美术文件的目录";
                 dialog.ShowNewFolderButton = false;
                 if (!string.IsNullOrEmpty(textBoxLeftDir.Text))
                 {
@@ -202,7 +202,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             string idxFile = Path.Combine(path, "artidx.mul");
             if (File.Exists(mulFile) && File.Exists(idxFile))
             {
-                SecondArt.SetFileIndex(idxFile, mulFile); //Load .mul file
+                SecondArt.SetFileIndex(idxFile, mulFile); //加载 .mul 文件
                 LoadLeft();
             }
         }
@@ -248,20 +248,20 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 }
             }
 
-            // Check if an item in the listBoxLeft is selected
+            // 检查 listBoxLeft 中是否有选中项
             if (listBoxLeft.SelectedIndex != -1)
             {
                 int selectedIndex = listBoxLeft.SelectedIndex;
-                // Convert the selected index to a hexadecimal address
+                // 将选中的索引转换为十六进制地址
                 string hexAddress = $"0x{selectedIndex:X}";
-                // Update lbIndexLeft with the hexadecimal address and ID
-                lbIndexLeft.Text = $"Hex-Adresse: {hexAddress}, ID: {selectedIndex}";
+                // 更新 lbIndexLeft，显示十六进制地址和 ID
+                lbIndexLeft.Text = $"十六进制地址: {hexAddress}, ID: {selectedIndex}";
             }
 
-            // Get the total number of items (IDs) in listBoxLeft
+            // 获取 listBoxLeft 中的项目总数（ID 数量）
             int totalIDs = listBoxLeft.Items.Count;
-            // Update lbIndex with the total number of IDs
-            lbCountLeft.Text = $"Total number IDs: {totalIDs}";
+            // 更新 lbIndex，显示 ID 总数
+            lbCountLeft.Text = $"ID 总数: {totalIDs}";
         }
         #endregion
 
@@ -277,7 +277,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             int i = int.Parse(listBoxLeft.Items[e.Index].ToString());
             string hexValue = $"0x{i:X}";
-            string displayValue = $"{hexValue} ({i})"; // Displays both the hex address and the ID address
+            string displayValue = $"{hexValue} ({i})"; // 同时显示十六进制地址和 ID 地址
 
             using (Brush brush = new SolidBrush(e.ForeColor))
             {
@@ -291,7 +291,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
             {
-                dialog.Description = "Select directory containing the art files";
+                dialog.Description = "选择包含美术文件的目录";
                 dialog.ShowNewFolderButton = false;
                 if (!string.IsNullOrEmpty(textBoxRightDir.Text))
                 {
@@ -318,7 +318,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             string idxFile = Path.Combine(path, "artidx.mul");
             if (File.Exists(mulFile) && File.Exists(idxFile))
             {
-                SecondArt.SetFileIndex(idxFile, mulFile); //Load .mul file
+                SecondArt.SetFileIndex(idxFile, mulFile); //加载 .mul 文件
                 LoadRight();
             }
         }
@@ -364,20 +364,20 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 }
             }
 
-            // Check if an item in the listBoxRight is selected
+            // 检查 listBoxRight 中是否有选中项
             if (listBoxRight.SelectedIndex != -1)
             {
                 int selectedIndex = listBoxRight.SelectedIndex;
-                // Convert the selected index to a hexadecimal address
+                // 将选中的索引转换为十六进制地址
                 string hexAddress = $"0x{selectedIndex:X}";
-                // Update lbIndexRight with the hexadecimal address and ID
-                lbIndexRight.Text = $"Hex-Adresse: {hexAddress}, ID: {selectedIndex}";
+                // 更新 lbIndexRight，显示十六进制地址和 ID
+                lbIndexRight.Text = $"十六进制地址: {hexAddress}, ID: {selectedIndex}";
             }
 
-            // Get the total number of items (IDs) in listBoxRight
+            // 获取 listBoxRight 中的项目总数（ID 数量）
             int totalIDs = listBoxRight.Items.Count;
-            // Update lbIndex with the total number of IDs
-            lbCountRight.Text = $"Total number IDs: {totalIDs}";
+            // 更新 lbIndex，显示 ID 总数
+            lbCountRight.Text = $"ID 总数: {totalIDs}";
         }
         #endregion
 
@@ -393,7 +393,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             int i = int.Parse(listBoxRight.Items[e.Index].ToString());
             string hexValue = $"0x{i:X}";
-            string displayValue = $"{hexValue} ({i})"; // Displays both the hex address and the ID address
+            string displayValue = $"{hexValue} ({i})"; // 同时显示十六进制地址和 ID 地址
 
             using (Brush brush = new SolidBrush(e.ForeColor))
             {
@@ -405,7 +405,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #region OnChangeShowDiff
         private void OnChangeShowDiff(object sender, EventArgs e)
         {
-            // Call Compare on each item in listBoxOrg
+            // 对 listBoxOrg 中的每个项目调用 Compare
             for (int i = 0; i < listBoxOrg.Items.Count; i++)
             {
                 Compare(i);
@@ -415,7 +415,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 if (checkBoxOnChangeShowDiff.Checked)
                 {
-                    MessageBox.Show("Second Item file is not loaded!");
+                    MessageBox.Show("未加载第二个项目文件！");
                     checkBoxOnChangeShowDiff.Checked = false;
                 }
                 return;
@@ -512,7 +512,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             }
             Bitmap copy = new Bitmap(SecondArt.GetStatic(i));
 
-            // If checkBoxFreeIDchoice is enabled, insert the image into listBoxOrg at the selected ID
+            // 如果启用了 checkBoxFreeIDchoice，则将图像插入到 listBoxOrg 中选中的 ID 位置
             if (checkBoxfFreeIDchoice.Checked)
             {
                 int selectedIndex = listBoxOrg.SelectedIndex;
@@ -523,7 +523,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     ControlEvents.FireItemChangeEvent(this, selectedIndex);
                     _mCompare[selectedIndex] = true;
 
-                    // Update pictureBoxOrg with the selected image
+                    // 使用选中的图像更新 pictureBoxOrg
                     pictureBoxOrg.BackgroundImage = Art.GetStatic(selectedIndex);
                 }
             }
@@ -562,7 +562,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 listBoxOrg.Invalidate();
                 listBoxRight.Invalidate();
 
-                // Update pictureBoxOrg with the selected item
+                // 使用选中的项目更新 pictureBoxOrg
                 pictureBoxOrg.BackgroundImage = Art.GetStatic(i);
             }
         }
@@ -602,7 +602,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             }
             Bitmap copy = new Bitmap(SecondArt.GetStatic(i));
 
-            // If checkBoxFreeIDchoice is enabled, insert the image into listBoxOrg at the selected ID
+            // 如果启用了 checkBoxFreeIDchoice，则将图像插入到 listBoxOrg 中选中的 ID 位置
             if (checkBoxfFreeIDchoice.Checked)
             {
                 int selectedIndex = listBoxOrg.SelectedIndex;
@@ -613,7 +613,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     ControlEvents.FireItemChangeEvent(this, selectedIndex);
                     _mCompare[selectedIndex] = true;
 
-                    // Update pictureBoxOrg with the selected image
+                    // 使用选中的图像更新 pictureBoxOrg
                     pictureBoxOrg.BackgroundImage = Art.GetStatic(selectedIndex);
                 }
             }
@@ -652,7 +652,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 listBoxOrg.Invalidate();
                 listBoxLeft.Invalidate();
 
-                // Update pictureBoxOrg with the selected item
+                // 使用选中的项目更新 pictureBoxOrg
                 pictureBoxOrg.BackgroundImage = Art.GetStatic(i);
             }
         }
@@ -661,17 +661,17 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #region [ BtSaveXML ]
         private void BtSaveXML_Click(object sender, EventArgs e)
         {
-            // Create the directory if it doesn't exist
+            // 如果目录不存在则创建
             string settingsDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DirectoryisSettings");
             if (!Directory.Exists(settingsDirectory))
             {
                 Directory.CreateDirectory(settingsDirectory);
             }
 
-            // Create the XML file
+            // 创建 XML 文件
             string xmlFilePath = Path.Combine(settingsDirectory, "XMLSaveDirUAArtMerge.xml");
 
-            // Load the existing XML file if it exists
+            // 如果 XML 文件存在则加载，否则新建
             XDocument doc;
             if (File.Exists(xmlFilePath))
             {
@@ -682,10 +682,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 doc = new XDocument(new XElement("Directories"));
             }
 
-            // Count the number of existing directory entries
+            // 统计现有目录条目的数量
             int directoryCount = doc.Root.Elements("Directory").Count();
 
-            // Add the directories to the XML file with a unique ID
+            // 将目录添加到 XML 文件中，并赋予唯一 ID
             doc.Root.Add(
                 new XElement("Directory",
                     new XAttribute("id", directoryCount + 1),
@@ -698,7 +698,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             );
             doc.Save(xmlFilePath);
 
-            // Update the comboBoxSaveDir
+            // 更新 comboBoxSaveDir
             comboBoxSaveDir.Items.Clear();
             comboBoxSaveDir.Items.Add(textBoxLeftDir.Text);
             comboBoxSaveDir.Items.Add(textBoxRightDir.Text);
@@ -708,28 +708,28 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #region LoadDirectoriesIntoComboBox
         private void LoadDirectoriesIntoComboBox()
         {
-            // Create the path to the XML file
+            // 创建 XML 文件的路径
             string settingsDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DirectoryisSettings");
             string xmlFilePath = Path.Combine(settingsDirectory, "XMLSaveDirUAArtMerge.xml");
 
-            // Check if the XML file exists
+            // 检查 XML 文件是否存在
             if (!File.Exists(xmlFilePath))
             {
                 return;
             }
 
-            // Read the XML file
+            // 读取 XML 文件
             XDocument doc = XDocument.Load(xmlFilePath);
             var directories = doc.Root.Elements("Directory");
 
-            // Add each path to comboBoxSaveDir and comboBoxSaveDir2
+            // 将每个路径添加到 comboBoxSaveDir 和 comboBoxSaveDir2
             comboBoxSaveDir.Items.Clear();
             comboBoxSaveDir2.Items.Clear();
             foreach (var directory in directories)
             {
                 string path = directory.Attribute("path").Value;
                 comboBoxSaveDir.Items.Add(path);
-                comboBoxSaveDir2.Items.Add(path);  // Adding the paths to the comboBoxSaveDir2
+                comboBoxSaveDir2.Items.Add(path);  // 将路径添加到 comboBoxSaveDir2
             }
         }
         #endregion
@@ -744,18 +744,18 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #region LoadIDsIntoListBox
         private void LoadIDsIntoListBox()
         {
-            // Create the path to the XML file
+            // 创建 XML 文件的路径
             string settingsDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DirectoryisSettings");
             string xmlFilePath = Path.Combine(settingsDirectory, "XMLSaveDirUAArtMerge.xml");
 
-            // Check if the XML file exists
+            // 检查 XML 文件是否存在
             if (!File.Exists(xmlFilePath))
             {
-                MessageBox.Show("The XML file could not be found.");
+                MessageBox.Show("找不到 XML 文件。");
                 return;
             }
 
-            // Read the XML file
+            // 读取 XML 文件
             XDocument doc;
             try
             {
@@ -763,13 +763,13 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error reading XML file: {ex.Message}");
+                MessageBox.Show($"读取 XML 文件时出错：{ex.Message}");
                 return;
             }
 
             var directories = doc.Root.Elements("Directory");
 
-            // Add each ID to the tbIDNr
+            // 将每个 ID 添加到 tbIDNr
             tbIDNr.Items.Clear();
             foreach (var directory in directories)
             {
@@ -813,7 +813,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             if (!File.Exists(xmlFilePath))
             {
-                MessageBox.Show("The XML file could not be found.");
+                MessageBox.Show("找不到 XML 文件。");
                 return;
             }
 
@@ -824,7 +824,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error reading XML file: {ex.Message}");
+                MessageBox.Show($"读取 XML 文件时出错：{ex.Message}");
                 return;
             }
 
@@ -833,7 +833,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 directoryToDelete.Remove();
 
-                // Neu zuweisen der IDs
+                // 重新分配 ID
                 int newId = 1;
                 foreach (var directory in doc.Root.Elements("Directory"))
                 {
@@ -843,12 +843,12 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
                 doc.Save(xmlFilePath);
 
-                // Remove the ID from the tbIDNr
+                // 从 tbIDNr 中移除该 ID
                 tbIDNr.Items.Remove(id.ToString());
             }
             else
             {
-                MessageBox.Show($"The ID {id} could not be found.");
+                MessageBox.Show($"未找到 ID {id}。");
             }
         }
 
@@ -857,17 +857,17 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #region [ BtDelete ]
         private void BtDelete_Click(object sender, EventArgs e)
         {
-            // Read the ID from the textbox
+            // 从文本框中读取 ID
             if (!int.TryParse(tbIDNr.Text, out int id))
             {
-                MessageBox.Show("Please enter a valid ID.");
+                MessageBox.Show("请输入有效的 ID。");
                 return;
             }
 
-            // Delete the directory with the specified ID
+            // 删除指定 ID 的目录
             DeleteDirectoryById(id);
 
-            // Update the comboBoxSaveDir
+            // 更新 comboBoxSaveDir
             LoadDirectoriesIntoComboBox();
         }
         #endregion
@@ -883,22 +883,22 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     return;
                 }
 
-                DialogResult result = MessageBox.Show($"Are you sure to remove 0x{selectedIndex:X}", "Save",
+                DialogResult result = MessageBox.Show($"确定要移除 0x{selectedIndex:X} 吗？", "保存",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (result != DialogResult.Yes)
                 {
                     return;
                 }
 
-                // Remove the selected item from Art
+                // 从 Art 中移除选中的项
                 Art.RemoveStatic(selectedIndex);
                 Options.ChangedUltimaClass["Art"] = true;
                 ControlEvents.FireItemChangeEvent(this, selectedIndex);
 
-                // Update pictureBoxOrg
+                // 更新 pictureBoxOrg
                 pictureBoxOrg.BackgroundImage = null;
 
-                // Refresh listBoxOrg to reflect the changes
+                // 刷新 listBoxOrg 以反映更改
                 listBoxOrg.Invalidate();
             }
         }
@@ -907,7 +907,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #region OnClickSave
         private void OnClickSave(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure? Will take a while", "Save", MessageBoxButtons.YesNo,
+            DialogResult result = MessageBox.Show("确定要保存吗？这可能需要一段时间。", "保存", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
             if (result != DialogResult.Yes)
@@ -916,12 +916,12 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             }
 
             Cursor.Current = Cursors.WaitCursor;
-            ProgressBarDialog barDialog = new ProgressBarDialog(Art.GetIdxLength(), "Save");
+            ProgressBarDialog barDialog = new ProgressBarDialog(Art.GetIdxLength(), "保存");
             Art.Save(Options.OutputPath);
             barDialog.Dispose();
             Cursor.Current = Cursors.Default;
             Options.ChangedUltimaClass["Art"] = false;
-            MessageBox.Show($"Saved to {Options.OutputPath}", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information,
+            MessageBox.Show($"已保存到 {Options.OutputPath}", "保存", MessageBoxButtons.OK, MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
         }
         #endregion
@@ -943,17 +943,17 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Address not found.");
+                        MessageBox.Show("未找到地址。");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid address. Please enter a valid hex address.");
+                    MessageBox.Show("无效地址。请输入有效的十六进制地址。");
                 }
             }
             else
             {
-                MessageBox.Show("Invalid address. Please enter a valid hex address.");
+                MessageBox.Show("无效地址。请输入有效的十六进制地址。");
             }
         }
 
@@ -981,23 +981,23 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     return;
                 }
 
-                // Get the current image
+                // 获取当前图像
                 Bitmap currentImage = Art.GetStatic(selectedIndex);
                 if (currentImage != null)
                 {
-                    // Create a new image that is a mirrored copy of the current image
+                    // 创建一个当前图像的镜像副本
                     Bitmap mirroredImage = new Bitmap(currentImage);
                     mirroredImage.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
-                    // Replace the current image with the mirrored image in Art
+                    // 在 Art 中用镜像图像替换当前图像
                     Art.ReplaceStatic(selectedIndex, mirroredImage);
                     Options.ChangedUltimaClass["Art"] = true;
                     ControlEvents.FireItemChangeEvent(this, selectedIndex);
 
-                    // Update pictureBoxOrg
+                    // 更新 pictureBoxOrg
                     pictureBoxOrg.BackgroundImage = mirroredImage;
 
-                    // Refresh listBoxOrg to reflect the changes
+                    // 刷新 listBoxOrg 以反映更改
                     listBoxOrg.Invalidate();
                 }
             }
@@ -1015,11 +1015,11 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     return;
                 }
 
-                // Get the current image
+                // 获取当前图像
                 Bitmap currentImage = Art.GetStatic(selectedIndex);
                 if (currentImage != null)
                 {
-                    // Copy the image to the clipboard
+                    // 将图像复制到剪贴板
                     Clipboard.SetImage(currentImage);
                 }
             }
@@ -1038,11 +1038,11 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     return;
                 }
 
-                // Get the current image
+                // 获取当前图像
                 Bitmap currentImage = Art.GetStatic(selectedIndex);
                 if (currentImage != null)
                 {
-                    // Copy the image to the clipboard
+                    // 将图像复制到剪贴板
                     Clipboard.SetImage(currentImage);
                 }
             }
@@ -1060,11 +1060,11 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     return;
                 }
 
-                // Get the current image
+                // 获取当前图像
                 Bitmap currentImage = Art.GetStatic(selectedIndex);
                 if (currentImage != null)
                 {
-                    // Copy the image to the clipboard
+                    // 将图像复制到剪贴板
                     Clipboard.SetImage(currentImage);
                 }
             }
@@ -1082,16 +1082,16 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     return;
                 }
 
-                // Check if the clipboard contains an image
+                // 检查剪贴板是否包含图像
                 if (Clipboard.ContainsImage())
                 {
-                    // Retrieve the image from the clipboard
+                    // 从剪贴板检索图像
                     using (Bitmap bmp = new Bitmap(Clipboard.GetImage()))
                     {
-                        // Create a new bitmap with the same size as the image from the clipboard
+                        // 创建一个与剪贴板图像相同大小的新位图
                         Bitmap newBmp = new Bitmap(bmp.Width, bmp.Height);
 
-                        // Define the colors to Convert
+                        // 定义要转换的颜色
                         Color[] colorsToConvert = new Color[]
                         {
                     Color.FromArgb(211, 211, 211), // #D3D3D3 => #000000
@@ -1100,12 +1100,12 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     Color.FromArgb(254, 254, 254) // #FEFEFE => #000000
                         };
 
-                        // Iterate through each pixel of the image
+                        // 遍历图像的每个像素
                         for (int x = 0; x < bmp.Width; x++)
                         {
                             for (int y = 0; y < bmp.Height; y++)
                             {
-                                // Get the color of the current pixel
+                                // 获取当前像素的颜色
                                 Color pixelColor = bmp.GetPixel(x, y);
                                 if (colorsToConvert.Contains(pixelColor))
                                 {
@@ -1118,21 +1118,21 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                             }
                         }
 
-                        // Replace the selected item with the new image in Art
+                        // 在 Art 中用新图像替换选中的项
                         Art.ReplaceStatic(selectedIndex, newBmp);
                         Options.ChangedUltimaClass["Art"] = true;
                         ControlEvents.FireItemChangeEvent(this, selectedIndex);
 
-                        // Update pictureBoxOrg
+                        // 更新 pictureBoxOrg
                         pictureBoxOrg.BackgroundImage = newBmp;
 
-                        // Refresh listBoxOrg to reflect the changes
+                        // 刷新 listBoxOrg 以反映更改
                         listBoxOrg.Invalidate();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No image in the clipboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("剪贴板中没有图像。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

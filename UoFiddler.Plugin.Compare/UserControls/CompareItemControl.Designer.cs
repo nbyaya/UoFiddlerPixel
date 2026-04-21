@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: Turley
+ * $作者: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要你保留此声明，你可以随意使用本代码。
+ * 如果我们某天相遇，你觉得这个工具不错，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
     partial class CompareItemControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 设计器必需的变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理正在使用的所有资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Plugin.Compare.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 此方法的内容使用代码编辑器。
         /// </summary>
         private void InitializeComponent()
         {
@@ -111,14 +111,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
             austausschenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { okayToolStripMenuItem });
             austausschenToolStripMenuItem.Name = "austausschenToolStripMenuItem";
             austausschenToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            austausschenToolStripMenuItem.Text = "Replace graphic";
+            austausschenToolStripMenuItem.Text = "替换图片";
             austausschenToolStripMenuItem.Click += OnClickShowSelection;
             // 
             // okayToolStripMenuItem
             // 
             okayToolStripMenuItem.Name = "okayToolStripMenuItem";
             okayToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-            okayToolStripMenuItem.Text = "Okay";
+            okayToolStripMenuItem.Text = "确认";
             okayToolStripMenuItem.Click += OnClickOkButton;
             // 
             // listBoxSec
@@ -150,20 +150,20 @@ namespace UoFiddler.Plugin.Compare.UserControls
             extractAsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tiffToolStripMenuItem, bmpToolStripMenuItem });
             extractAsToolStripMenuItem.Name = "extractAsToolStripMenuItem";
             extractAsToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            extractAsToolStripMenuItem.Text = "Export Image..";
+            extractAsToolStripMenuItem.Text = "导出图片..";
             // 
             // tiffToolStripMenuItem
             // 
             tiffToolStripMenuItem.Name = "tiffToolStripMenuItem";
             tiffToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            tiffToolStripMenuItem.Text = "As Bmp";
+            tiffToolStripMenuItem.Text = "BMP 格式";
             tiffToolStripMenuItem.Click += ExportAsBmp;
             // 
             // bmpToolStripMenuItem
             // 
             bmpToolStripMenuItem.Name = "bmpToolStripMenuItem";
             bmpToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            bmpToolStripMenuItem.Text = "As Tiff";
+            bmpToolStripMenuItem.Text = "TIFF 格式";
             bmpToolStripMenuItem.Click += ExportAsTiff;
             // 
             // exportImageVonBisToolStripMenuItem
@@ -171,28 +171,28 @@ namespace UoFiddler.Plugin.Compare.UserControls
             exportImageVonBisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { asToolStripMenuItem, asTiffToolStripMenuItem });
             exportImageVonBisToolStripMenuItem.Name = "exportImageVonBisToolStripMenuItem";
             exportImageVonBisToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            exportImageVonBisToolStripMenuItem.Text = "Export image from to";
-            exportImageVonBisToolStripMenuItem.ToolTipText = "Press the Ctrl or Shift key to select what should be saved from start to end.";
+            exportImageVonBisToolStripMenuItem.Text = "批量导出图片(从-到)";
+            exportImageVonBisToolStripMenuItem.ToolTipText = "按住Ctrl或Shift键选择起始到结束的内容";
             // 
             // asToolStripMenuItem
             // 
             asToolStripMenuItem.Name = "asToolStripMenuItem";
             asToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asToolStripMenuItem.Text = "As Bmp";
+            asToolStripMenuItem.Text = "BMP 格式";
             asToolStripMenuItem.Click += ExportAsBmp2;
             // 
             // asTiffToolStripMenuItem
             // 
             asTiffToolStripMenuItem.Name = "asTiffToolStripMenuItem";
             asTiffToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asTiffToolStripMenuItem.Text = "As Tiff";
+            asTiffToolStripMenuItem.Text = "TIFF 格式";
             asTiffToolStripMenuItem.Click += ExportAsTiff2;
             // 
             // copyItem2To1ToolStripMenuItem
             // 
             copyItem2To1ToolStripMenuItem.Name = "copyItem2To1ToolStripMenuItem";
             copyItem2To1ToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            copyItem2To1ToolStripMenuItem.Text = "Copy Item 2 to 1";
+            copyItem2To1ToolStripMenuItem.Text = "复制项目2到项目1";
             copyItem2To1ToolStripMenuItem.Click += OnClickCopy;
             // 
             // pictureBoxOrg
@@ -233,7 +233,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(99, 29);
             button1.TabIndex = 5;
-            button1.Text = "Load Second";
+            button1.Text = "加载第二个文件";
             button1.UseVisualStyleBackColor = true;
             button1.Click += OnClickLoadSecond;
             // 
@@ -243,9 +243,9 @@ namespace UoFiddler.Plugin.Compare.UserControls
             checkBox1.Location = new System.Drawing.Point(456, 11);
             checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(143, 19);
+            checkBox1.Size = new System.Drawing.Size(101, 19);
             checkBox1.TabIndex = 6;
-            checkBox1.Text = "Show only Differences";
+            checkBox1.Text = "仅显示差异项";//物品
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.Click += OnChangeShowDiff;
             // 
@@ -325,7 +325,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             BtDataDirectoryisSettings.Name = "BtDataDirectoryisSettings";
             BtDataDirectoryisSettings.Size = new System.Drawing.Size(36, 23);
             BtDataDirectoryisSettings.TabIndex = 16;
-            BtDataDirectoryisSettings.Text = "Dir";
+            BtDataDirectoryisSettings.Text = "目录";
             BtDataDirectoryisSettings.UseVisualStyleBackColor = true;
             BtDataDirectoryisSettings.Click += BtDataDirectoryisSettings_Click;
             // 
@@ -374,18 +374,18 @@ namespace UoFiddler.Plugin.Compare.UserControls
             label2.AutoSize = true;
             label2.Location = new System.Drawing.Point(360, 50);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(88, 15);
+            label2.Size = new System.Drawing.Size(68, 15);
             label2.TabIndex = 11;
-            label2.Text = "Hex addresses :";
+            label2.Text = "十六进制地址:";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(11, 50);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(63, 15);
+            label1.Size = new System.Drawing.Size(56, 15);
             label1.TabIndex = 10;
-            label1.Text = "Load files :";
+            label1.Text = "加载文件:";
             // 
             // OnClickSearch
             // 
@@ -393,7 +393,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             OnClickSearch.Name = "OnClickSearch";
             OnClickSearch.Size = new System.Drawing.Size(57, 23);
             OnClickSearch.TabIndex = 9;
-            OnClickSearch.Text = "Search";
+            OnClickSearch.Text = "搜索";
             OnClickSearch.UseVisualStyleBackColor = true;
             OnClickSearch.Click += OnClickSearch_Click;
             // 

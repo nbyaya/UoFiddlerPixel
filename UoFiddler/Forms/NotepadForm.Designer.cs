@@ -2,10 +2,10 @@
 //  *
 //  * $Author: Turley
 //  * 
-//  * "THE BEER-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer in return.
+//  * "啤酒许可证"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯啤酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Forms
     partial class NotepadForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -97,7 +97,7 @@ namespace UoFiddler.Forms
             btSaveText.Name = "btSaveText";
             btSaveText.Size = new System.Drawing.Size(48, 23);
             btSaveText.TabIndex = 1;
-            btSaveText.Text = "Save";
+            btSaveText.Text = "保存";
             btSaveText.UseVisualStyleBackColor = true;
             btSaveText.Click += btSaveText_Click;
             // 
@@ -124,7 +124,7 @@ namespace UoFiddler.Forms
             // 
             dateTimeToolStripMenuItem.Name = "dateTimeToolStripMenuItem";
             dateTimeToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            dateTimeToolStripMenuItem.Text = "Date/Time";
+            dateTimeToolStripMenuItem.Text = "日期/时间";
             dateTimeToolStripMenuItem.Click += dateTimeToolStripMenuItem_Click;
             // 
             // searchToolStripMenuItem
@@ -132,7 +132,7 @@ namespace UoFiddler.Forms
             searchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripTextBoxSearch });
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             searchToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            searchToolStripMenuItem.Text = "Search";
+            searchToolStripMenuItem.Text = "搜索";
             // 
             // toolStripTextBoxSearch
             // 
@@ -144,35 +144,35 @@ namespace UoFiddler.Forms
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Text = "删除";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // undoToolStripMenuItem
             // 
             undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             undoToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            undoToolStripMenuItem.Text = "Undo";
+            undoToolStripMenuItem.Text = "撤销";
             undoToolStripMenuItem.Click += undoToolStripMenuItem_Click;
             // 
             // replaceToolStripMenuItem
             // 
             replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
             replaceToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            replaceToolStripMenuItem.Text = "Replace";
+            replaceToolStripMenuItem.Text = "替换";
             replaceToolStripMenuItem.Click += replaceToolStripMenuItem_Click;
             // 
             // selectAllToolStripMenuItem
             // 
             selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             selectAllToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            selectAllToolStripMenuItem.Text = "Select all";
+            selectAllToolStripMenuItem.Text = "全选";
             selectAllToolStripMenuItem.Click += selectAllToolStripMenuItem_Click;
             // 
             // copyToolStripMenuItem
             // 
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             copyToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            copyToolStripMenuItem.Text = "Copy";
+            copyToolStripMenuItem.Text = "复制";
             copyToolStripMenuItem.Click += copyToolStripMenuItem_Click;
             // 
             // btBold
@@ -181,7 +181,7 @@ namespace UoFiddler.Forms
             btBold.Name = "btBold";
             btBold.Size = new System.Drawing.Size(44, 22);
             btBold.TabIndex = 3;
-            btBold.Text = "Bold";
+            btBold.Text = "粗体";
             btBold.UseVisualStyleBackColor = true;
             btBold.Click += BtBold_Click;
             // 
@@ -225,7 +225,7 @@ namespace UoFiddler.Forms
             btDelete.Name = "btDelete";
             btDelete.Size = new System.Drawing.Size(48, 23);
             btDelete.TabIndex = 8;
-            btDelete.Text = "Delete";
+            btDelete.Text = "删除";
             btDelete.UseVisualStyleBackColor = true;
             btDelete.Click += btDelete_Click;
             // 
@@ -236,7 +236,7 @@ namespace UoFiddler.Forms
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new System.Drawing.Size(106, 19);
             checkBox1.TabIndex = 9;
-            checkBox1.Text = "ToggleBoldText";
+            checkBox1.Text = "粗体文本切换";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
@@ -265,7 +265,7 @@ namespace UoFiddler.Forms
             btEdit.Name = "btEdit";
             btEdit.Size = new System.Drawing.Size(48, 23);
             btEdit.TabIndex = 12;
-            btEdit.Text = "Edit";
+            btEdit.Text = "编辑";
             btEdit.UseVisualStyleBackColor = true;
             btEdit.Click += btEdit_Click;
             // 
@@ -275,7 +275,7 @@ namespace UoFiddler.Forms
             btFont.Name = "btFont";
             btFont.Size = new System.Drawing.Size(52, 22);
             btFont.TabIndex = 13;
-            btFont.Text = "Font";
+            btFont.Text = "字体";
             btFont.UseVisualStyleBackColor = true;
             btFont.Click += btFont_Click;
             // 
@@ -288,7 +288,7 @@ namespace UoFiddler.Forms
             checkBoxLines.Name = "checkBoxLines";
             checkBoxLines.Size = new System.Drawing.Size(53, 19);
             checkBoxLines.TabIndex = 14;
-            checkBoxLines.Text = "Lines";
+            checkBoxLines.Text = "行号";
             checkBoxLines.UseVisualStyleBackColor = true;
             checkBoxLines.CheckedChanged += checkBoxLines_CheckedChanged;
             // 
@@ -316,7 +316,7 @@ namespace UoFiddler.Forms
             // 
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             toolStripStatusLabel1.Size = new System.Drawing.Size(39, 17);
-            toolStripStatusLabel1.Text = "Status";
+            toolStripStatusLabel1.Text = "状态";
             // 
             // btLoad
             // 
@@ -324,7 +324,7 @@ namespace UoFiddler.Forms
             btLoad.Name = "btLoad";
             btLoad.Size = new System.Drawing.Size(48, 23);
             btLoad.TabIndex = 17;
-            btLoad.Text = "Load";
+            btLoad.Text = "加载";
             btLoad.UseVisualStyleBackColor = true;
             btLoad.Click += btLoad_Click;
             // 
@@ -338,7 +338,7 @@ namespace UoFiddler.Forms
             colorButton.Name = "colorButton";
             colorButton.Size = new System.Drawing.Size(40, 22);
             colorButton.TabIndex = 18;
-            colorButton.Text = "Backcolor";
+            colorButton.Text = "背景色";
             colorButton.UseVisualStyleBackColor = true;
             colorButton.Click += colorButton_Click;
             // 
@@ -427,7 +427,7 @@ namespace UoFiddler.Forms
             btFontColor.Name = "btFontColor";
             btFontColor.Size = new System.Drawing.Size(53, 22);
             btFontColor.TabIndex = 27;
-            btFontColor.Text = "FontC";
+            btFontColor.Text = "字体颜色";
             btFontColor.UseVisualStyleBackColor = true;
             btFontColor.Click += btFontColor_Click;
             // 
@@ -437,7 +437,7 @@ namespace UoFiddler.Forms
             btSaveAs.Name = "btSaveAs";
             btSaveAs.Size = new System.Drawing.Size(58, 23);
             btSaveAs.TabIndex = 28;
-            btSaveAs.Text = "Save As";
+            btSaveAs.Text = "另存为";
             btSaveAs.UseVisualStyleBackColor = true;
             btSaveAs.Click += btSaveAs_Click;
             // 
@@ -455,27 +455,27 @@ namespace UoFiddler.Forms
             toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { loadToolStripMenuItem, saveToolStripMenuItem, PrintToolStripMenuItem });
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
-            toolStripMenuItem1.Text = "Datei";
+            toolStripMenuItem1.Text = "文件";
             // 
             // loadToolStripMenuItem
             // 
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            loadToolStripMenuItem.Text = "Load";
+            loadToolStripMenuItem.Text = "加载";
             loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Text = "保存";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // PrintToolStripMenuItem
             // 
             PrintToolStripMenuItem.Name = "PrintToolStripMenuItem";
             PrintToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            PrintToolStripMenuItem.Text = "Print";
+            PrintToolStripMenuItem.Text = "打印";
             PrintToolStripMenuItem.Click += PrintToolStripMenuItem_Click;
             // 
             // printDialog
@@ -520,7 +520,7 @@ namespace UoFiddler.Forms
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "NotepadForm";
-            Text = "Notepad";
+            Text = "记事本";
             contextMenuStrip1.ResumeLayout(false);
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();

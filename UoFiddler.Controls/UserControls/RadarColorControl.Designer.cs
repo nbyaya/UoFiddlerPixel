@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.UserControls
     partial class RadarColorControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,15 +31,16 @@ namespace UoFiddler.Controls.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RadarColorControl));
             contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
             selectInItemsTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             selectInTiledataTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -159,7 +160,7 @@ namespace UoFiddler.Controls.UserControls
             selectInItemsTabToolStripMenuItem.Image = Properties.Resources.Select;
             selectInItemsTabToolStripMenuItem.Name = "selectInItemsTabToolStripMenuItem";
             selectInItemsTabToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
-            selectInItemsTabToolStripMenuItem.Text = "Select in Items tab";
+            selectInItemsTabToolStripMenuItem.Text = "在物品选项卡中选择";
             selectInItemsTabToolStripMenuItem.Click += OnClickSelectItemsTab;
             // 
             // selectInTiledataTabToolStripMenuItem
@@ -167,7 +168,7 @@ namespace UoFiddler.Controls.UserControls
             selectInTiledataTabToolStripMenuItem.Image = Properties.Resources.Select;
             selectInTiledataTabToolStripMenuItem.Name = "selectInTiledataTabToolStripMenuItem";
             selectInTiledataTabToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
-            selectInTiledataTabToolStripMenuItem.Text = "Select in Tiledata tab";
+            selectInTiledataTabToolStripMenuItem.Text = "在 TileData 选项卡中选择";
             selectInTiledataTabToolStripMenuItem.Click += OnClickSelectItemTiledataTab;
             // 
             // toolStripSeparator2
@@ -180,7 +181,7 @@ namespace UoFiddler.Controls.UserControls
             copyHexAdressToolStripMenuItem1.Image = Properties.Resources.hexdecimal_adresse_to_clipbord;
             copyHexAdressToolStripMenuItem1.Name = "copyHexAdressToolStripMenuItem1";
             copyHexAdressToolStripMenuItem1.Size = new System.Drawing.Size(186, 26);
-            copyHexAdressToolStripMenuItem1.Text = "Copy hex adress";
+            copyHexAdressToolStripMenuItem1.Text = "复制十六进制地址";
             copyHexAdressToolStripMenuItem1.Click += copyHexadressToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
@@ -193,7 +194,7 @@ namespace UoFiddler.Controls.UserControls
             setAsRangefromToolStripMenuItem.Image = Properties.Resources.set_a_from_textbox_range_to_hexadress;
             setAsRangefromToolStripMenuItem.Name = "setAsRangefromToolStripMenuItem";
             setAsRangefromToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
-            setAsRangefromToolStripMenuItem.Text = "Set as Range \"from\"";
+            setAsRangefromToolStripMenuItem.Text = "设置为范围“起始”";
             setAsRangefromToolStripMenuItem.Click += OnClickSetRangeFrom;
             // 
             // setAsRangetoToolStripMenuItem
@@ -201,7 +202,7 @@ namespace UoFiddler.Controls.UserControls
             setAsRangetoToolStripMenuItem.Image = Properties.Resources.set_as_range_from;
             setAsRangetoToolStripMenuItem.Name = "setAsRangetoToolStripMenuItem";
             setAsRangetoToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
-            setAsRangetoToolStripMenuItem.Text = "Set as Range \"to\"";
+            setAsRangetoToolStripMenuItem.Text = "设置为范围“结束”";
             setAsRangetoToolStripMenuItem.Click += OnClickSetRangeTo;
             // 
             // contextMenuStrip2
@@ -216,7 +217,7 @@ namespace UoFiddler.Controls.UserControls
             toolStripMenuItem1.Image = Properties.Resources.Select;
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Size = new System.Drawing.Size(192, 26);
-            toolStripMenuItem1.Text = "Select in Landtiles tab";
+            toolStripMenuItem1.Text = "在地形图块选项卡中选择";
             toolStripMenuItem1.Click += OnClickSelectLandTilesTab;
             // 
             // toolStripMenuItem2
@@ -224,7 +225,7 @@ namespace UoFiddler.Controls.UserControls
             toolStripMenuItem2.Image = Properties.Resources.Select;
             toolStripMenuItem2.Name = "toolStripMenuItem2";
             toolStripMenuItem2.Size = new System.Drawing.Size(192, 26);
-            toolStripMenuItem2.Text = "Select in Tiledata tab";
+            toolStripMenuItem2.Text = "在 TileData 选项卡中选择";
             toolStripMenuItem2.Click += OnClickSelectLandTiledataTab;
             // 
             // toolStripSeparator1
@@ -237,7 +238,7 @@ namespace UoFiddler.Controls.UserControls
             copyHexadressToolStripMenuItem.Image = Properties.Resources.hexdecimal_adresse_to_clipbord;
             copyHexadressToolStripMenuItem.Name = "copyHexadressToolStripMenuItem";
             copyHexadressToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            copyHexadressToolStripMenuItem.Text = "Copy hex adress";
+            copyHexadressToolStripMenuItem.Text = "复制十六进制地址";
             copyHexadressToolStripMenuItem.Click += copyHexadressToolStripMenuItem_Click;
             // 
             // toolStripSeparator4
@@ -250,7 +251,7 @@ namespace UoFiddler.Controls.UserControls
             setAsRangefromToolStripMenuItem1.Image = Properties.Resources.set_a_from_textbox_range_to_hexadress;
             setAsRangefromToolStripMenuItem1.Name = "setAsRangefromToolStripMenuItem1";
             setAsRangefromToolStripMenuItem1.Size = new System.Drawing.Size(192, 26);
-            setAsRangefromToolStripMenuItem1.Text = "Set as Range \"from\"";
+            setAsRangefromToolStripMenuItem1.Text = "设置为范围“起始”";
             setAsRangefromToolStripMenuItem1.Click += OnClickSetRangeFrom;
             // 
             // setAsRangeToToolStripMenuItem1
@@ -258,7 +259,7 @@ namespace UoFiddler.Controls.UserControls
             setAsRangeToToolStripMenuItem1.Image = Properties.Resources.set_as_range_from;
             setAsRangeToToolStripMenuItem1.Name = "setAsRangeToToolStripMenuItem1";
             setAsRangeToToolStripMenuItem1.Size = new System.Drawing.Size(192, 26);
-            setAsRangeToToolStripMenuItem1.Text = "Set as Range \"to\"";
+            setAsRangeToToolStripMenuItem1.Text = "设置为范围“结束”";
             setAsRangeToToolStripMenuItem1.Click += OnClickSetRangeTo;
             // 
             // pictureBoxArt
@@ -373,7 +374,7 @@ namespace UoFiddler.Controls.UserControls
             tabPage3.Padding = new System.Windows.Forms.Padding(4);
             tabPage3.Size = new System.Drawing.Size(236, 201);
             tabPage3.TabIndex = 0;
-            tabPage3.Text = "Items";
+            tabPage3.Text = "物品";
             tabPage3.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
@@ -426,7 +427,7 @@ namespace UoFiddler.Controls.UserControls
             textFilterItems.Dock = System.Windows.Forms.DockStyle.Top;
             textFilterItems.Location = new System.Drawing.Point(0, 0);
             textFilterItems.Name = "textFilterItems";
-            textFilterItems.PlaceholderText = "Filter";
+            textFilterItems.PlaceholderText = "筛选";
             textFilterItems.Size = new System.Drawing.Size(54, 23);
             textFilterItems.TabIndex = 1;
             textFilterItems.TextChanged += OnTextChangedFilterItems;
@@ -438,7 +439,7 @@ namespace UoFiddler.Controls.UserControls
             buttonSelectNoneItems.Name = "buttonSelectNoneItems";
             buttonSelectNoneItems.Size = new System.Drawing.Size(85, 25);
             buttonSelectNoneItems.TabIndex = 3;
-            buttonSelectNoneItems.Text = "Select None";
+            buttonSelectNoneItems.Text = "全不选";
             buttonSelectNoneItems.UseVisualStyleBackColor = true;
             buttonSelectNoneItems.Click += OnClickSelectNoneItems;
             // 
@@ -449,7 +450,7 @@ namespace UoFiddler.Controls.UserControls
             buttonSelectAllItems.Name = "buttonSelectAllItems";
             buttonSelectAllItems.Size = new System.Drawing.Size(80, 25);
             buttonSelectAllItems.TabIndex = 2;
-            buttonSelectAllItems.Text = "Select All";
+            buttonSelectAllItems.Text = "全选";
             buttonSelectAllItems.UseVisualStyleBackColor = true;
             buttonSelectAllItems.Click += OnClickSelectAllItems;
             // 
@@ -477,7 +478,7 @@ namespace UoFiddler.Controls.UserControls
             tabPage4.Padding = new System.Windows.Forms.Padding(4);
             tabPage4.Size = new System.Drawing.Size(236, 201);
             tabPage4.TabIndex = 1;
-            tabPage4.Text = "Land Tiles";
+            tabPage4.Text = "地形图块";
             tabPage4.UseVisualStyleBackColor = true;
             // 
             // splitContainer3
@@ -527,7 +528,7 @@ namespace UoFiddler.Controls.UserControls
             textFilterLand.Dock = System.Windows.Forms.DockStyle.Fill;
             textFilterLand.Location = new System.Drawing.Point(0, 0);
             textFilterLand.Name = "textFilterLand";
-            textFilterLand.PlaceholderText = "Filter";
+            textFilterLand.PlaceholderText = "筛选";
             textFilterLand.Size = new System.Drawing.Size(54, 23);
             textFilterLand.TabIndex = 0;
             textFilterLand.TextChanged += OnTextChangedFilterLand;
@@ -539,7 +540,7 @@ namespace UoFiddler.Controls.UserControls
             buttonSelectAllLand.Name = "buttonSelectAllLand";
             buttonSelectAllLand.Size = new System.Drawing.Size(80, 25);
             buttonSelectAllLand.TabIndex = 1;
-            buttonSelectAllLand.Text = "Select All";
+            buttonSelectAllLand.Text = "全选";
             buttonSelectAllLand.UseVisualStyleBackColor = true;
             buttonSelectAllLand.Click += OnClickSelectAllLand;
             // 
@@ -550,7 +551,7 @@ namespace UoFiddler.Controls.UserControls
             buttonSelectNoneLand.Name = "buttonSelectNoneLand";
             buttonSelectNoneLand.Size = new System.Drawing.Size(85, 25);
             buttonSelectNoneLand.TabIndex = 0;
-            buttonSelectNoneLand.Text = "Select None";
+            buttonSelectNoneLand.Text = "全不选";
             buttonSelectNoneLand.UseVisualStyleBackColor = true;
             buttonSelectNoneLand.Click += OnClickSelectNoneLand;
             // 
@@ -576,7 +577,7 @@ namespace UoFiddler.Controls.UserControls
             buttonRevert.Name = "buttonRevert";
             buttonRevert.Size = new System.Drawing.Size(84, 23);
             buttonRevert.TabIndex = 42;
-            buttonRevert.Text = "Revert";
+            buttonRevert.Text = "恢复";
             buttonRevert.UseVisualStyleBackColor = true;
             buttonRevert.Click += OnClickRevert;
             // 
@@ -587,7 +588,7 @@ namespace UoFiddler.Controls.UserControls
             buttonRevertAll.Name = "buttonRevertAll";
             buttonRevertAll.Size = new System.Drawing.Size(84, 23);
             buttonRevertAll.TabIndex = 41;
-            buttonRevertAll.Text = "Revert All";
+            buttonRevertAll.Text = "全部恢复";
             buttonRevertAll.UseVisualStyleBackColor = true;
             buttonRevertAll.Click += OnClickRevertAll;
             // 
@@ -606,7 +607,7 @@ namespace UoFiddler.Controls.UserControls
             buttonRangeToRangeAverage.Name = "buttonRangeToRangeAverage";
             buttonRangeToRangeAverage.Size = new System.Drawing.Size(157, 23);
             buttonRangeToRangeAverage.TabIndex = 39;
-            buttonRangeToRangeAverage.Text = "Selected tiles to selection average";
+            buttonRangeToRangeAverage.Text = "所选图块到所选范围的平均值";
             buttonRangeToRangeAverage.UseVisualStyleBackColor = true;
             buttonRangeToRangeAverage.Click += OnClickRangeToRangeAverage;
             // 
@@ -616,7 +617,7 @@ namespace UoFiddler.Controls.UserControls
             buttonRangeToIndividualAverage.Name = "buttonRangeToIndividualAverage";
             buttonRangeToIndividualAverage.Size = new System.Drawing.Size(157, 23);
             buttonRangeToIndividualAverage.TabIndex = 38;
-            buttonRangeToIndividualAverage.Text = "Selected tiles to individual average";
+            buttonRangeToIndividualAverage.Text = "所选图块到各图块的平均值";
             buttonRangeToIndividualAverage.UseVisualStyleBackColor = true;
             buttonRangeToIndividualAverage.Click += OnClickRangeToIndividualAverage;
             // 
@@ -626,7 +627,7 @@ namespace UoFiddler.Controls.UserControls
             buttonCurrentToRangeAverage.Name = "buttonCurrentToRangeAverage";
             buttonCurrentToRangeAverage.Size = new System.Drawing.Size(157, 23);
             buttonCurrentToRangeAverage.TabIndex = 37;
-            buttonCurrentToRangeAverage.Text = "Current tile to selection average";
+            buttonCurrentToRangeAverage.Text = "当前图块到所选范围的平均值";
             buttonCurrentToRangeAverage.UseVisualStyleBackColor = true;
             buttonCurrentToRangeAverage.Click += OnClickCurrentToRangeAverage;
             // 
@@ -638,7 +639,7 @@ namespace UoFiddler.Controls.UserControls
             radioUseRange.Size = new System.Drawing.Size(61, 19);
             radioUseRange.TabIndex = 36;
             radioUseRange.TabStop = true;
-            radioUseRange.Text = "Range:";
+            radioUseRange.Text = "范围：";
             radioUseRange.UseVisualStyleBackColor = true;
             radioUseRange.CheckedChanged += OnCheckedChangeUseRange;
             // 
@@ -650,7 +651,7 @@ namespace UoFiddler.Controls.UserControls
             radioUseSelection.Size = new System.Drawing.Size(154, 19);
             radioUseSelection.TabIndex = 35;
             radioUseSelection.TabStop = true;
-            radioUseSelection.Text = "Selection / Checked tiles";
+            radioUseSelection.Text = "所选/选中的图块";
             radioUseSelection.UseVisualStyleBackColor = true;
             radioUseSelection.CheckedChanged += OnCheckedChangeUseSelection;
             // 
@@ -660,7 +661,7 @@ namespace UoFiddler.Controls.UserControls
             btupdateTreeView.Name = "btupdateTreeView";
             btupdateTreeView.Size = new System.Drawing.Size(102, 23);
             btupdateTreeView.TabIndex = 31;
-            btupdateTreeView.Text = "Update TreeView";
+            btupdateTreeView.Text = "更新树视图";
             btupdateTreeView.UseVisualStyleBackColor = true;
             btupdateTreeView.Click += btupdateTreeView_Click;
             // 
@@ -671,7 +672,7 @@ namespace UoFiddler.Controls.UserControls
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(79, 15);
             label6.TabIndex = 30;
-            label6.Text = "Items / Land :";
+            label6.Text = "物品 / 地形：";
             // 
             // LabelTildataNameItemsLand
             // 
@@ -680,7 +681,7 @@ namespace UoFiddler.Controls.UserControls
             LabelTildataNameItemsLand.Name = "LabelTildataNameItemsLand";
             LabelTildataNameItemsLand.Size = new System.Drawing.Size(39, 15);
             LabelTildataNameItemsLand.TabIndex = 29;
-            LabelTildataNameItemsLand.Text = "Name";
+            LabelTildataNameItemsLand.Text = "名称";
             // 
             // label5
             // 
@@ -689,7 +690,7 @@ namespace UoFiddler.Controls.UserControls
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(81, 15);
             label5.TabIndex = 28;
-            label5.Text = "Color Palette :";
+            label5.Text = "调色板：";
             // 
             // label4
             // 
@@ -698,7 +699,7 @@ namespace UoFiddler.Controls.UserControls
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(71, 15);
             label4.TabIndex = 27;
-            label4.Text = "Photoshop :";
+            label4.Text = "Photoshop：";
             // 
             // label3
             // 
@@ -707,7 +708,7 @@ namespace UoFiddler.Controls.UserControls
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(65, 15);
             label3.TabIndex = 26;
-            label3.Text = "Hex Code :";
+            label3.Text = "十六进制：";
             // 
             // textBoxPhotoshopCode
             // 
@@ -734,7 +735,7 @@ namespace UoFiddler.Controls.UserControls
             checkBoxHexCode.Name = "checkBoxHexCode";
             checkBoxHexCode.Size = new System.Drawing.Size(180, 19);
             checkBoxHexCode.TabIndex = 23;
-            checkBoxHexCode.Text = "Copy color code to clipboard";
+            checkBoxHexCode.Text = "将颜色代码复制到剪贴板";
             checkBoxHexCode.UseVisualStyleBackColor = true;
             // 
             // LabelColorCode
@@ -744,7 +745,7 @@ namespace UoFiddler.Controls.UserControls
             LabelColorCode.Name = "LabelColorCode";
             LabelColorCode.Size = new System.Drawing.Size(92, 15);
             LabelColorCode.TabIndex = 22;
-            LabelColorCode.Text = "LabelColorCode";
+            LabelColorCode.Text = "颜色代码标签";
             // 
             // label2
             // 
@@ -753,7 +754,7 @@ namespace UoFiddler.Controls.UserControls
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(62, 15);
             label2.TabIndex = 21;
-            label2.Text = "Land Tiles:";
+            label2.Text = "地形图块：";
             // 
             // label1
             // 
@@ -762,7 +763,7 @@ namespace UoFiddler.Controls.UserControls
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(39, 15);
             label1.TabIndex = 20;
-            label1.Text = "Items:";
+            label1.Text = "物品：";
             // 
             // progressBar2
             // 
@@ -786,7 +787,7 @@ namespace UoFiddler.Controls.UserControls
             button6.Name = "button6";
             button6.Size = new System.Drawing.Size(206, 25);
             button6.TabIndex = 17;
-            button6.Text = "Average All (Items and Land Tiles)";
+            button6.Text = "平均所有（物品和地形图块）";
             button6.UseVisualStyleBackColor = true;
             button6.Click += OnClickMeanColorAll;
             // 
@@ -797,7 +798,7 @@ namespace UoFiddler.Controls.UserControls
             btnImport.Name = "btnImport";
             btnImport.Size = new System.Drawing.Size(84, 23);
             btnImport.TabIndex = 16;
-            btnImport.Text = "Import..";
+            btnImport.Text = "导入...";
             btnImport.UseVisualStyleBackColor = true;
             btnImport.Click += OnClickImport;
             // 
@@ -808,7 +809,7 @@ namespace UoFiddler.Controls.UserControls
             btnExport.Name = "btnExport";
             btnExport.Size = new System.Drawing.Size(84, 23);
             btnExport.TabIndex = 15;
-            btnExport.Text = "Export..";
+            btnExport.Text = "导出...";
             btnExport.UseVisualStyleBackColor = true;
             btnExport.Click += OnClickExport;
             // 
@@ -829,7 +830,7 @@ namespace UoFiddler.Controls.UserControls
             textBoxMeanFrom.Name = "textBoxMeanFrom";
             textBoxMeanFrom.Size = new System.Drawing.Size(60, 23);
             textBoxMeanFrom.TabIndex = 13;
-            textBoxMeanFrom.Text = "from";
+            textBoxMeanFrom.Text = "起始";
             // 
             // textBoxMeanTo
             // 
@@ -838,7 +839,7 @@ namespace UoFiddler.Controls.UserControls
             textBoxMeanTo.Name = "textBoxMeanTo";
             textBoxMeanTo.Size = new System.Drawing.Size(60, 23);
             textBoxMeanTo.TabIndex = 12;
-            textBoxMeanTo.Text = "to";
+            textBoxMeanTo.Text = "结束";
             // 
             // button3
             // 
@@ -848,7 +849,7 @@ namespace UoFiddler.Controls.UserControls
             button3.Name = "button3";
             button3.Size = new System.Drawing.Size(206, 25);
             button3.TabIndex = 11;
-            button3.Text = "Average Color from - to Textbox";
+            button3.Text = "对文本框中起始-结束范围求平均色";
             button3.UseVisualStyleBackColor = true;
             button3.Click += OnClickMeanColorFromTo;
             // 
@@ -889,7 +890,7 @@ namespace UoFiddler.Controls.UserControls
             btnSaveFile.Name = "btnSaveFile";
             btnSaveFile.Size = new System.Drawing.Size(84, 23);
             btnSaveFile.TabIndex = 5;
-            btnSaveFile.Text = "Save File";
+            btnSaveFile.Text = "保存文件";
             btnSaveFile.UseVisualStyleBackColor = true;
             btnSaveFile.Click += OnClickSaveFile;
             // 
@@ -900,7 +901,7 @@ namespace UoFiddler.Controls.UserControls
             btnSaveColor.Name = "btnSaveColor";
             btnSaveColor.Size = new System.Drawing.Size(84, 23);
             btnSaveColor.TabIndex = 4;
-            btnSaveColor.Text = "Save Color";
+            btnSaveColor.Text = "保存颜色";
             btnSaveColor.UseVisualStyleBackColor = true;
             btnSaveColor.Click += OnClickSaveColor;
             // 
@@ -911,7 +912,7 @@ namespace UoFiddler.Controls.UserControls
             buttonMean.Name = "buttonMean";
             buttonMean.Size = new System.Drawing.Size(84, 23);
             buttonMean.TabIndex = 1;
-            buttonMean.Text = "Average Color";
+            buttonMean.Text = "平均颜色";
             buttonMean.UseVisualStyleBackColor = true;
             buttonMean.Click += OnClickMeanColor;
             // 

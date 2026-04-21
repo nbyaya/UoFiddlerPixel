@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: MuadDib & Turley
+ * 作者: MuadDib & Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可协议"
+ * 只要你保留此声明，你可以随意使用此代码。
+ * 如果有一天我们相遇，你觉得此代码物有所值，
+ * 你可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
     partial class MultiEditorControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理正在使用的所有资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 此方法的内容使用代码编辑器修改。
         /// </summary>
         private void InitializeComponent()
         {
@@ -179,7 +179,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             tileTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tileTab.Size = new System.Drawing.Size(232, 286);
             tileTab.TabIndex = 0;
-            tileTab.Text = "Tiles";
+            tileTab.Text = "图块";
             tileTab.UseVisualStyleBackColor = true;
             // 
             // splitContainer4
@@ -256,7 +256,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             designTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             designTab.Size = new System.Drawing.Size(232, 286);
             designTab.TabIndex = 1;
-            designTab.Text = "Design";
+            designTab.Text = "设计";
             designTab.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -273,7 +273,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             groupBox1.Size = new System.Drawing.Size(210, 90);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Multi Size";
+            groupBox1.Text = "组合尺寸";
             // 
             // BTN_CreateBlank
             // 
@@ -283,7 +283,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_CreateBlank.Name = "BTN_CreateBlank";
             BTN_CreateBlank.Size = new System.Drawing.Size(92, 27);
             BTN_CreateBlank.TabIndex = 3;
-            BTN_CreateBlank.Text = "Create Blank";
+            BTN_CreateBlank.Text = "创建空白";
             BTN_CreateBlank.UseVisualStyleBackColor = true;
             BTN_CreateBlank.Click += BTN_CreateBlank_Click;
             // 
@@ -303,7 +303,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_Resize.Name = "BTN_Resize";
             BTN_Resize.Size = new System.Drawing.Size(88, 27);
             BTN_Resize.TabIndex = 2;
-            BTN_Resize.Text = "Resize Multi";
+            BTN_Resize.Text = "调整尺寸";
             BTN_Resize.UseVisualStyleBackColor = true;
             BTN_Resize.Click += BTN_ResizeMulti_Click;
             // 
@@ -325,7 +325,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             importTab.Name = "importTab";
             importTab.Size = new System.Drawing.Size(232, 286);
             importTab.TabIndex = 2;
-            importTab.Text = "Import";
+            importTab.Text = "导入";
             importTab.UseVisualStyleBackColor = true;
             // 
             // treeViewMultiList
@@ -352,7 +352,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             Save.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Save.Size = new System.Drawing.Size(232, 286);
             Save.TabIndex = 3;
-            Save.Text = "Save";
+            Save.Text = "保存";
             Save.UseVisualStyleBackColor = true;
             // 
             // groupBox4
@@ -372,7 +372,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             groupBox4.Size = new System.Drawing.Size(209, 129);
             groupBox4.TabIndex = 6;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Export";
+            groupBox4.Text = "导出";
             // 
             // BTN_Export_XML
             // 
@@ -424,7 +424,6 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_Export_UOA.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             BTN_Export_UOA.Name = "BTN_Export_UOA";
             BTN_Export_UOA.Size = new System.Drawing.Size(76, 27);
-            BTN_Export_UOA.TabIndex = 2;
             BTN_Export_UOA.Text = ".uoa.txt";
             BTN_Export_UOA.UseVisualStyleBackColor = true;
             BTN_Export_UOA.Click += BTN_Export_UOA_OnClick;
@@ -436,7 +435,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             textBox_Export.Name = "textBox_Export";
             textBox_Export.Size = new System.Drawing.Size(194, 23);
             textBox_Export.TabIndex = 1;
-            toolTip1.SetToolTip(textBox_Export, "FileName");
+            toolTip1.SetToolTip(textBox_Export, "文件名");
             // 
             // BTN_Export_Txt
             // 
@@ -461,7 +460,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             groupBox2.Size = new System.Drawing.Size(209, 68);
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Save";
+            groupBox2.Text = "保存";
             // 
             // textBox_SaveToID
             // 
@@ -478,7 +477,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_Save.Name = "BTN_Save";
             BTN_Save.Size = new System.Drawing.Size(88, 27);
             BTN_Save.TabIndex = 0;
-            BTN_Save.Text = "Save to ID";
+            BTN_Save.Text = "保存到ID";
             BTN_Save.UseVisualStyleBackColor = true;
             BTN_Save.Click += BTN_Save_Click;
             // 
@@ -546,7 +545,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_Trans.Name = "BTN_Trans";
             BTN_Trans.Size = new System.Drawing.Size(24, 24);
             BTN_Trans.TabIndex = 15;
-            toolTip1.SetToolTip(BTN_Trans, "Switch Transparent");
+            toolTip1.SetToolTip(BTN_Trans, "切换透明");
             BTN_Trans.UseVisualStyleBackColor = true;
             BTN_Trans.CheckStateChanged += BTN_Toolbox_CheckedChanged;
             BTN_Trans.Click += BTN_Trans_Clicked;
@@ -582,7 +581,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_Pipette.Name = "BTN_Pipette";
             BTN_Pipette.Size = new System.Drawing.Size(24, 24);
             BTN_Pipette.TabIndex = 14;
-            toolTip1.SetToolTip(BTN_Pipette, "Pick A Tile");
+            toolTip1.SetToolTip(BTN_Pipette, "拾取图块");
             BTN_Pipette.UseVisualStyleBackColor = true;
             BTN_Pipette.CheckStateChanged += BTN_Toolbox_CheckedChanged;
             BTN_Pipette.Click += BTN_Pipette_Click;
@@ -598,7 +597,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_Floor.Name = "BTN_Floor";
             BTN_Floor.Size = new System.Drawing.Size(24, 24);
             BTN_Floor.TabIndex = 13;
-            toolTip1.SetToolTip(BTN_Floor, "Draw Virtual Floor");
+            toolTip1.SetToolTip(BTN_Floor, "绘制虚拟地面");
             BTN_Floor.UseVisualStyleBackColor = true;
             BTN_Floor.CheckStateChanged += BTN_Toolbox_CheckedChanged;
             BTN_Floor.Click += BTN_Floor_Clicked;
@@ -614,7 +613,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_Z.Name = "BTN_Z";
             BTN_Z.Size = new System.Drawing.Size(24, 24);
             BTN_Z.TabIndex = 12;
-            toolTip1.SetToolTip(BTN_Z, "Apply Z Level");
+            toolTip1.SetToolTip(BTN_Z, "应用Z轴高度");
             BTN_Z.UseVisualStyleBackColor = true;
             BTN_Z.CheckStateChanged += BTN_Toolbox_CheckedChanged;
             BTN_Z.Click += BTN_Z_Click;
@@ -630,7 +629,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_Remove.Name = "BTN_Remove";
             BTN_Remove.Size = new System.Drawing.Size(24, 24);
             BTN_Remove.TabIndex = 11;
-            toolTip1.SetToolTip(BTN_Remove, "Remove A Tile");
+            toolTip1.SetToolTip(BTN_Remove, "删除图块");
             BTN_Remove.UseVisualStyleBackColor = true;
             BTN_Remove.CheckStateChanged += BTN_Toolbox_CheckedChanged;
             BTN_Remove.Click += BTN_Remove_Click;
@@ -646,7 +645,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_Draw.Name = "BTN_Draw";
             BTN_Draw.Size = new System.Drawing.Size(24, 24);
             BTN_Draw.TabIndex = 10;
-            toolTip1.SetToolTip(BTN_Draw, "Draw A Tile");
+            toolTip1.SetToolTip(BTN_Draw, "绘制图块");
             BTN_Draw.UseVisualStyleBackColor = true;
             BTN_Draw.CheckStateChanged += BTN_Toolbox_CheckedChanged;
             BTN_Draw.Click += BTN_Draw_Click;
@@ -664,7 +663,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             BTN_Select.Name = "BTN_Select";
             BTN_Select.Size = new System.Drawing.Size(24, 24);
             BTN_Select.TabIndex = 9;
-            toolTip1.SetToolTip(BTN_Select, "Select A Tile");
+            toolTip1.SetToolTip(BTN_Select, "选择图块");
             BTN_Select.UseVisualStyleBackColor = true;
             BTN_Select.CheckStateChanged += BTN_Toolbox_CheckedChanged;
             BTN_Select.Click += BTN_Select_Click;
@@ -704,7 +703,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             collapsibleSplitter1.Size = new System.Drawing.Size(240, 8);
             collapsibleSplitter1.TabIndex = 5;
             collapsibleSplitter1.TabStop = false;
-            toolTip1.SetToolTip(collapsibleSplitter1, "Selected Tile Panel");
+            toolTip1.SetToolTip(collapsibleSplitter1, "已选图块面板");
             collapsibleSplitter1.UseAnimations = true;
             collapsibleSplitter1.VisualStyle = UoFiddler.Controls.UserControls.VisualStyles.DoubleDots;
             // 
@@ -731,7 +730,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             groupBox3.Size = new System.Drawing.Size(209, 87);
             groupBox3.TabIndex = 0;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Selected Tile X,Y,Z";
+            groupBox3.Text = "已选图块 X,Y,Z";
             // 
             // DynamiccheckBox
             // 
@@ -741,7 +740,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             DynamiccheckBox.Name = "DynamiccheckBox";
             DynamiccheckBox.Size = new System.Drawing.Size(69, 19);
             DynamiccheckBox.TabIndex = 3;
-            DynamiccheckBox.Text = "Invisible";
+            DynamiccheckBox.Text = "不可见";
             DynamiccheckBox.UseVisualStyleBackColor = true;
             DynamiccheckBox.CheckedChanged += BTN_DynamicCheckBox_Changed;
             // 
@@ -807,7 +806,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             MaxHeightTrackBar.Name = "MaxHeightTrackBar";
             MaxHeightTrackBar.Size = new System.Drawing.Size(563, 30);
             MaxHeightTrackBar.TabIndex = 0;
-            toolTip1.SetToolTip(MaxHeightTrackBar, "Max Height Displayed");
+            toolTip1.SetToolTip(MaxHeightTrackBar, "最大显示高度");
             MaxHeightTrackBar.ValueChanged += MaxHeightTrackBarOnValueChanged;
             // 
             // splitter1
@@ -873,14 +872,14 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             toolStripDropDownButton1.Size = new System.Drawing.Size(45, 22);
-            toolStripDropDownButton1.Text = "Misc";
+            toolStripDropDownButton1.Text = "其他";
             // 
             // UndoItems
             // 
             UndoItems.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { UndoItem0, UndoItem1, UndoItem2, UndoItem3, UndoItem4, UndoItem5, UndoItem6, UndoItem7, UndoItem8, UndoItem9 });
             UndoItems.Name = "UndoItems";
             UndoItems.Size = new System.Drawing.Size(189, 22);
-            UndoItems.Text = "Undo";
+            UndoItems.Text = "撤销";
             UndoItems.DropDownOpening += UndoList_BeforeOpening;
             // 
             // UndoItem0
@@ -968,7 +967,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             showWalkablesToolStripMenuItem.CheckOnClick = true;
             showWalkablesToolStripMenuItem.Name = "showWalkablesToolStripMenuItem";
             showWalkablesToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            showWalkablesToolStripMenuItem.Text = "Show Walkable tiles";
+            showWalkablesToolStripMenuItem.Text = "显示可通行图块";
             showWalkablesToolStripMenuItem.Click += BTN_ShowWalkables_Click;
             // 
             // showDoubleSurfaceMenuItem
@@ -976,14 +975,14 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             showDoubleSurfaceMenuItem.CheckOnClick = true;
             showDoubleSurfaceMenuItem.Name = "showDoubleSurfaceMenuItem";
             showDoubleSurfaceMenuItem.Size = new System.Drawing.Size(189, 22);
-            showDoubleSurfaceMenuItem.Text = "Show double surface";
+            showDoubleSurfaceMenuItem.Text = "显示双面图块";
             showDoubleSurfaceMenuItem.Click += BTN_ShowDoubleSurface;
             // 
             // removeAllTransToolStripMenuItem
             // 
             removeAllTransToolStripMenuItem.Name = "removeAllTransToolStripMenuItem";
             removeAllTransToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            removeAllTransToolStripMenuItem.Text = "Reset transparent tiles";
+            removeAllTransToolStripMenuItem.Text = "重置透明图块";
             removeAllTransToolStripMenuItem.Click += BTN_ShowAllTrans;
             // 
             // toolStripSeparator2
@@ -996,7 +995,7 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             DrawTileLabel.AutoSize = false;
             DrawTileLabel.Name = "DrawTileLabel";
             DrawTileLabel.Size = new System.Drawing.Size(100, 22);
-            DrawTileLabel.Text = "Draw ID:";
+            DrawTileLabel.Text = "绘制ID:";
             DrawTileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toolStripSeparator1
@@ -1016,7 +1015,13 @@ namespace UoFiddler.Plugin.MultiEditor.UserControls
             toolStripLabelCoord.Name = "toolStripLabelCoord";
             toolStripLabelCoord.Size = new System.Drawing.Size(31, 22);
             toolStripLabelCoord.Text = "0,0,0";
-            toolStripLabelCoord.ToolTipText = "Coordinates";
+            toolStripLabelCoord.ToolTipText = "坐标";
+            // 
+            // toolTip1
+            // 
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 100;
+            toolTip1.ReshowDelay = 100;
             // 
             // FloatingPreviewPanel
             // 

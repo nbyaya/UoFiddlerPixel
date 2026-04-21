@@ -87,7 +87,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Helper
             // 
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            loadToolStripMenuItem.Text = "Load";
+            loadToolStripMenuItem.Text = "加载";
             loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
             // 
             // saveXMLToolStripMenuItem

@@ -1,11 +1,11 @@
 /***************************************************************************
  *
- * $Author: Turley
+ * @Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要你保留此声明，你可以随意使用此代码。
+ * 如果我们某天相遇，你觉得此代码值得，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -42,7 +42,7 @@ namespace UoFiddler.Controls.Forms
         private int _hue = -1;
 
         /// <summary>
-        /// Sets Hue
+        /// 设置色调
         /// </summary>
         public int Hue
         {
@@ -86,7 +86,7 @@ namespace UoFiddler.Controls.Forms
             ItemData item = TileData.ItemTable[_index];
             Bitmap bit = Art.GetStatic(_index);
 
-            Text = $"Item Detail 0x{_index:X} '{item.Name}'";
+            Text = $"物品详情 0x{_index:X} '{item.Name}'";
 
             if (bit == null)
             {
@@ -101,16 +101,16 @@ namespace UoFiddler.Controls.Forms
                 Graphic.Invalidate();
             }
 
-            Data.AppendText($"Name: {item.Name}\n");
-            Data.AppendText(string.Format("Graphic: 0x{0:X4} ({0})\n", _index));
-            Data.AppendText($"Height/Capacity: {item.Height}\n");
-            Data.AppendText($"Weight: {item.Weight}\n");
-            Data.AppendText($"Animation: {item.Animation}\n");
-            Data.AppendText($"Quality/Layer/Light: {item.Quality}\n");
-            Data.AppendText($"Quantity: {item.Quantity}\n");
-            Data.AppendText($"Hue: {item.Hue}\n");
-            Data.AppendText($"StackingOffset/Unk4: {item.StackingOffset}\n");
-            Data.AppendText($"Flags: {item.Flags}\n");
+            Data.AppendText($"名称: {item.Name}\n");
+            Data.AppendText(string.Format("图像ID: 0x{0:X4} ({0})\n", _index));
+            Data.AppendText($"高度/容量: {item.Height}\n");
+            Data.AppendText($"重量: {item.Weight}\n");
+            Data.AppendText($"动画: {item.Animation}\n");
+            Data.AppendText($"品质/图层/光照: {item.Quality}\n");
+            Data.AppendText($"数量: {item.Quantity}\n");
+            Data.AppendText($"色调: {item.Hue}\n");
+            Data.AppendText($"堆叠偏移/未知4: {item.StackingOffset}\n");
+            Data.AppendText($"标记: {item.Flags}\n");
 
             if ((item.Flags & TileFlag.PartialHue) != 0)
             {
@@ -129,7 +129,7 @@ namespace UoFiddler.Controls.Forms
             }
 
             animateToolStripMenuItem.Visible = true;
-            Data.AppendText($"Animation FrameCount: {_info.FrameCount} Interval: {_info.FrameInterval}\n");
+            Data.AppendText($"动画帧数: {_info.FrameCount} 间隔: {_info.FrameInterval}\n");
         }
 
         private void AnimTick(object sender, EventArgs e)
@@ -266,7 +266,7 @@ namespace UoFiddler.Controls.Forms
                 bit.Save(fileName, imageFormat);
             }
 
-            MessageBox.Show($"Item saved to {fileName}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information,
+            MessageBox.Show($"物品已保存至：{fileName}", "保存成功", MessageBoxButtons.OK, MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
         }
 

@@ -3,10 +3,10 @@
  * $Author: Turley
  * Advanced Nikodemus
  * 
- * "THE BEER-WINE-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer and Wine in return.
+ * "啤酒-葡萄酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒和葡萄酒作为回报。
  *
  ***************************************************************************/
 
@@ -51,7 +51,7 @@ namespace UoFiddler.Forms
         {
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
             {
-                dialog.Description = "Select directory containing the client files";
+                dialog.Description = "选择包含客户端文件的目录";
                 dialog.ShowNewFolderButton = false;
                 if (dialog.ShowDialog() != DialogResult.OK)
                 {
@@ -91,13 +91,13 @@ namespace UoFiddler.Forms
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     string directoryPath = dialog.SelectedPath;
-                    string[] mulFiles = Directory.GetFiles(directoryPath, "*.mul"); // Filter for .mul files
-                    string[] uopFiles = Directory.GetFiles(directoryPath, "*.uop"); // Filter for .uop files
-                    string[] files = mulFiles.Concat(uopFiles).ToArray(); // Combine .mul and .uop files
+                    string[] mulFiles = Directory.GetFiles(directoryPath, "*.mul"); // 筛选 .mul 文件
+                    string[] uopFiles = Directory.GetFiles(directoryPath, "*.uop"); // 筛选 .uop 文件
+                    string[] files = mulFiles.Concat(uopFiles).ToArray(); // 合并 .mul 和 .uop 文件
 
                     foreach (string filePath in files)
                     {
-                        string key = Path.GetFileNameWithoutExtension(filePath); // Use the file name without an extension as the key
+                        string key = Path.GetFileNameWithoutExtension(filePath); // 使用不带扩展名的文件名作为键
                         Files.MulPath.Add(key, filePath);
                     }
 
@@ -113,19 +113,19 @@ namespace UoFiddler.Forms
         {
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
-                dialog.Filter = "mul files (*.mul)|*.mul|uop files (*.uop)|*.uop"; // Filter for .mul and .uop files
+                dialog.Filter = "mul 文件 (*.mul)|*.mul|uop 文件 (*.uop)|*.uop"; // 筛选 .mul 和 .uop 文件
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     string filePath = dialog.FileName;
-                    string key = Path.GetFileName(filePath); // Use the full file name as the key
+                    string key = Path.GetFileName(filePath); // 使用完整文件名作为键
 
                     if (Files.MulPath.ContainsKey(key))
                     {
-                        Files.MulPath[key] = filePath; // Update the path if the key already exists
+                        Files.MulPath[key] = filePath; // 如果键已存在则更新路径
                     }
                     else
                     {
-                        Files.MulPath.Add(key, filePath); // Add the key if it doesn't already exist
+                        Files.MulPath.Add(key, filePath); // 如果键不存在则添加
                     }
 
                     pgPaths.SelectedObject = new DictionaryPropertyGridAdapter(Files.MulPath);
@@ -141,7 +141,7 @@ namespace UoFiddler.Forms
         {
             if (pgPaths.SelectedGridItem != null)
             {
-                string key = pgPaths.SelectedGridItem.Label; // The key is the label of the selected GridItem
+                string key = pgPaths.SelectedGridItem.Label; // 键是所选 GridItem 的标签
                 if (Files.MulPath.ContainsKey(key))
                 {
                     Files.MulPath.Remove(key);
@@ -157,13 +157,13 @@ namespace UoFiddler.Forms
         {
             if (string.IsNullOrEmpty(tsTbRootPath.Text) || !Directory.Exists(tsTbRootPath.Text))
             {
-                MessageBox.Show("Please specify a valid source directory in tsTbRootPath.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("请在 tsTbRootPath 中指定有效的源目录。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
             {
-                dialog.Description = "Select the destination directory for the backup";
+                dialog.Description = "选择备份的目标目录";
                 dialog.ShowNewFolderButton = true;
 
                 if (dialog.ShowDialog() == DialogResult.OK)
@@ -171,18 +171,18 @@ namespace UoFiddler.Forms
                     string sourceDir = tsTbRootPath.Text;
                     string destDir = dialog.SelectedPath;
 
-                    DialogResult result = MessageBox.Show("This function will copy all files and folders from the source directory to the destination directory. Do you want to proceed?", "Confirm Backup", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    DialogResult result = MessageBox.Show("此功能会将源目录中的所有文件和文件夹复制到目标目录。是否继续？", "确认备份", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
                     if (result == DialogResult.OK)
                     {
                         try
                         {
                             CopyDirectory(sourceDir, destDir);
-                            MessageBox.Show("Backup completed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("备份成功完成。", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show($"An error occurred during the backup: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"备份过程中发生错误：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

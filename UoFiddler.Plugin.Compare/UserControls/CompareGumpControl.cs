@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 using Ultima;
@@ -39,6 +40,12 @@ namespace UoFiddler.Plugin.Compare.UserControls
         {
             Cursor.Current = Cursors.WaitCursor;
             Options.LoadedUltimaClass["Gumps"] = true;
+
+            // 确保两个列表框都支持多选和自定义绘制（设计器已设置，但此处再确保一次）
+            listBox1.SelectionMode = SelectionMode.MultiExtended;
+            listBox2.SelectionMode = SelectionMode.MultiExtended;
+            listBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            listBox2.DrawMode = DrawMode.OwnerDrawFixed;
 
             listBox1.BeginUpdate();
             listBox1.Items.Clear();
@@ -77,6 +84,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             }
         }
 
+        // 统一绘制方法（支持多选高亮），与设计器绑定的 Listbox1_DrawItem 名称一致
         private void Listbox1_DrawItem(object sender, DrawItemEventArgs e)
         {
             ListBox listBox = (ListBox)sender;
@@ -89,7 +97,9 @@ namespace UoFiddler.Plugin.Compare.UserControls
 
             int i = (int)listBox.Items[e.Index];
 
-            if (listBox.SelectedIndex == e.Index)
+            // 多选高亮：使用 SelectedIndices 判断是否选中
+            bool isSelected = listBox.SelectedIndices.Contains(e.Index);
+            if (isSelected)
             {
                 e.Graphics.FillRectangle(Brushes.LightSteelBlue, e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
             }
@@ -383,36 +393,61 @@ namespace UoFiddler.Plugin.Compare.UserControls
                 return;
             }
 
-            Bitmap copy = new Bitmap(SecondGump.GetGump(i));
-            Gumps.ReplaceGump(i, copy);
+            CopyGumpFromSecondToFirst(i);
+        }
+
+        /// <summary>
+        /// 将右侧（第二个文件）的指定索引的 gump 复制到左侧（第一个文件）
+        /// </summary>
+        private void CopyGumpFromSecondToFirst(int index)
+        {
+            if (!SecondGump.IsValidIndex(index))
+                return;
+
+            Bitmap copy = new Bitmap(SecondGump.GetGump(index));
+            Gumps.ReplaceGump(index, copy);
             Options.ChangedUltimaClass["Gumps"] = true;
-            ControlEvents.FireGumpChangeEvent(this, i);
-            _compare[i] = true;
-            listBox1.BeginUpdate();
-            bool done = false;
-            for (int id = 0; id < 0x10000; id++)
+            ControlEvents.FireGumpChangeEvent(this, index);
+            _compare[index] = true; // 标记为相同，消除差异
+        }
+
+        #region 按钮事件处理（一键复制差异功能）
+
+        private void BtLeftMoveItem_Click(object sender, EventArgs e)
+        {
+            if (listBox2.SelectedIndex == -1)
+                return;
+
+            int index = (int)listBox2.Items[listBox2.SelectedIndex];
+            CopyGumpFromSecondToFirst(index);
+            ShowDiff_OnClick(sender, e);
+        }
+
+        private void BtLeftMoveItemMore_Click(object sender, EventArgs e)
+        {
+            var selectedIndices = listBox2.SelectedIndices.Cast<int>().OrderByDescending(i => i).ToList();
+            if (selectedIndices.Count == 0)
+                return;
+
+            foreach (int selIndex in selectedIndices)
             {
-                if (id > i)
-                {
-                    listBox1.Items.Insert(id, i);
-                    done = true;
-                    break;
-                }
-                if (id == i)
-                {
-                    done = true;
-                    break;
-                }
-            }
-            if (!done)
-            {
-                listBox1.Items.Add(i);
+                int index = (int)listBox2.Items[selIndex];
+                CopyGumpFromSecondToFirst(index);
             }
 
-            listBox1.EndUpdate();
-            listBox1.Invalidate();
-            listBox2.Invalidate();
-            Listbox_SelectedChange(listBox1, null);
+            ShowDiff_OnClick(sender, e);
         }
+
+        private void Btremoveitemfromindex_Click(object sender, EventArgs e)
+        {
+            if (listBox2.SelectedIndex == -1)
+                return;
+
+            int index = (int)listBox2.Items[listBox2.SelectedIndex];
+            CopyGumpFromSecondToFirst(index);
+            ShowDiff_OnClick(sender, e);
+        }
+
+        #endregion
     }
 }

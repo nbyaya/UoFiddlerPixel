@@ -105,7 +105,7 @@ namespace UoFiddler.Controls.Forms
             btnGoto.ForeColor = Color.White;
             btnGoto.Name = "btnGoto";
             btnGoto.Size = new Size(37, 22);
-            btnGoto.Text = "Goto";
+            btnGoto.Text = "跳转";
             btnGoto.Click += btnGoto_Click;
             // 
             // btnSearch
@@ -113,8 +113,8 @@ namespace UoFiddler.Controls.Forms
             btnSearch.ForeColor = Color.White;
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(46, 22);
-            btnSearch.Text = "Search";
-            btnSearch.ToolTipText = "Search";
+            btnSearch.Text = "搜索";
+            btnSearch.ToolTipText = "搜索";
             btnSearch.Click += btnSearch_Click;
             // 
             // btnFindNext
@@ -122,8 +122,8 @@ namespace UoFiddler.Controls.Forms
             btnFindNext.ForeColor = Color.White;
             btnFindNext.Name = "btnFindNext";
             btnFindNext.Size = new Size(36, 22);
-            btnFindNext.Text = "Next";
-            btnFindNext.ToolTipText = "Next";
+            btnFindNext.Text = "下一个";
+            btnFindNext.ToolTipText = "下一个";
             btnFindNext.Click += btnFindNext_Click;
             // 
             // btnCopyOffset
@@ -131,7 +131,7 @@ namespace UoFiddler.Controls.Forms
             btnCopyOffset.ForeColor = Color.White;
             btnCopyOffset.Name = "btnCopyOffset";
             btnCopyOffset.Size = new Size(69, 22);
-            btnCopyOffset.Text = "Offset kop.";
+            btnCopyOffset.Text = "复制偏移量";
             btnCopyOffset.Click += btnCopyOffset_Click;
             // 
             // btnCopyHex
@@ -139,7 +139,7 @@ namespace UoFiddler.Controls.Forms
             btnCopyHex.ForeColor = Color.White;
             btnCopyHex.Name = "btnCopyHex";
             btnCopyHex.Size = new Size(58, 22);
-            btnCopyHex.Text = "Hex kop.";
+            btnCopyHex.Text = "复制十六进制";
             btnCopyHex.Click += btnCopyHex_Click;
             // 
             // btnScreenshot
@@ -147,7 +147,7 @@ namespace UoFiddler.Controls.Forms
             btnScreenshot.ForeColor = Color.White;
             btnScreenshot.Name = "btnScreenshot";
             btnScreenshot.Size = new Size(69, 22);
-            btnScreenshot.Text = "Screenshot";
+            btnScreenshot.Text = "截图";
             btnScreenshot.Click += btnScreenshot_Click;
             // 
             // pnlSearchBar
@@ -168,7 +168,7 @@ namespace UoFiddler.Controls.Forms
             lblSearchHint.Name = "lblSearchHint";
             lblSearchHint.Size = new Size(100, 23);
             lblSearchHint.TabIndex = 0;
-            lblSearchHint.Text = "Schnellsuche (Hex):";
+            lblSearchHint.Text = "快速搜索(十六进制):";
             // 
             // txtQuickSearch
             // 
@@ -252,7 +252,7 @@ namespace UoFiddler.Controls.Forms
             lblPreviewInfo.Name = "lblPreviewInfo";
             lblPreviewInfo.Size = new Size(1019, 38);
             lblPreviewInfo.TabIndex = 0;
-            lblPreviewInfo.Text = "No animation loaded.";
+            lblPreviewInfo.Text = "未加载动画。";
             // 
             // listRegions
             // 
@@ -273,22 +273,22 @@ namespace UoFiddler.Controls.Forms
             // 
             // colName
             // 
-            colName.Text = "Name";
+            colName.Text = "名称";
             colName.Width = 130;
             // 
             // colOffset
             // 
-            colOffset.Text = "Offset";
+            colOffset.Text = "偏移量";
             colOffset.Width = 95;
             // 
             // colBytes
             // 
-            colBytes.Text = "Bytes";
+            colBytes.Text = "字节数";
             colBytes.Width = 58;
             // 
             // colInfo
             // 
-            colInfo.Text = "Info";
+            colInfo.Text = "信息";
             colInfo.Width = 160;
             // 
             // lblRegionsHeader
@@ -301,7 +301,7 @@ namespace UoFiddler.Controls.Forms
             lblRegionsHeader.Name = "lblRegionsHeader";
             lblRegionsHeader.Size = new Size(245, 20);
             lblRegionsHeader.TabIndex = 1;
-            lblRegionsHeader.Text = "Detected regions / sequences:";
+            lblRegionsHeader.Text = "检测到的区域/序列:";
             // 
             // picPreview
             // 
@@ -329,7 +329,7 @@ namespace UoFiddler.Controls.Forms
             lblStatus.ForeColor = Color.FromArgb(170, 170, 170);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(42, 17);
-            lblStatus.Text = "Ready.";
+            lblStatus.Text = "就绪。";
             // 
             // AnimationHexEditorForm
             // 
@@ -347,7 +347,7 @@ namespace UoFiddler.Controls.Forms
             MinimumSize = new Size(900, 600);
             Name = "AnimationHexEditorForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Animation Hex Editor";
+            Text = "动画十六进制编辑器";
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             pnlSearchBar.ResumeLayout(false);

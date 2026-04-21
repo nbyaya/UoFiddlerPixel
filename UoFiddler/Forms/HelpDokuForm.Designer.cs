@@ -2,10 +2,10 @@
 //  *
 //  * $Author: Turley
 //  * 
-//  * "THE BEER-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer in return.
+//  * "啤酒许可证"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯啤酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Forms
     partial class HelpDokuForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -64,14 +64,14 @@ namespace UoFiddler.Forms
             toolStripButtonSuche.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButtonSuche.Name = "toolStripButtonSuche";
             toolStripButtonSuche.Size = new System.Drawing.Size(23, 22);
-            toolStripButtonSuche.Text = "toolStripButton1";
+            toolStripButtonSuche.Text = "搜索";
             toolStripButtonSuche.Click += toolStripButtonSuche_Click;
             // 
             // toolStripTextBoxSearch
             // 
             toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
-            toolStripTextBoxSearch.ToolTipText = "Search Text";
+            toolStripTextBoxSearch.ToolTipText = "搜索文本";
             // 
             // webView2
             // 
@@ -96,7 +96,7 @@ namespace UoFiddler.Forms
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "HelpDokuForm";
-            Text = "Help - Doku";
+            Text = "帮助 - 文档";
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)webView2).EndInit();

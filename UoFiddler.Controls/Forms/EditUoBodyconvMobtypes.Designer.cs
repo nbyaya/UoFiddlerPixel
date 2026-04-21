@@ -15,14 +15,14 @@ namespace UoFiddler.Controls.Forms
     partial class EditUoBodyconvMobtypes
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -32,11 +32,11 @@ namespace UoFiddler.Controls.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -290,7 +290,7 @@ namespace UoFiddler.Controls.Forms
             btLoadPfad.Name = "btLoadPfad";
             btLoadPfad.Size = new System.Drawing.Size(71, 23);
             btLoadPfad.TabIndex = 2;
-            btLoadPfad.Text = "Pfad";
+            btLoadPfad.Text = "路径";
             btLoadPfad.UseVisualStyleBackColor = true;
             btLoadPfad.Click += btLoadPfad_Click;
             // 
@@ -334,7 +334,7 @@ namespace UoFiddler.Controls.Forms
             searchToolStripMenuItem.Image = Properties.Resources.Search;
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             searchToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            searchToolStripMenuItem.Text = "Search";
+            searchToolStripMenuItem.Text = "搜索";
             searchToolStripMenuItem.Click += searchToolStripMenuItem_Click;
             // 
             // toolStripTextBoxSearch
@@ -347,7 +347,7 @@ namespace UoFiddler.Controls.Forms
             checkNumbersFreeToolStripMenuItem.Image = Properties.Resources.Clipbord;
             checkNumbersFreeToolStripMenuItem.Name = "checkNumbersFreeToolStripMenuItem";
             checkNumbersFreeToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            checkNumbersFreeToolStripMenuItem.Text = "Check Numbers Free";
+            checkNumbersFreeToolStripMenuItem.Text = "检查空闲编号";
             checkNumbersFreeToolStripMenuItem.Click += btCheckNumbers_Click;
             // 
             // lbSearchCount
@@ -357,7 +357,7 @@ namespace UoFiddler.Controls.Forms
             lbSearchCount.Name = "lbSearchCount";
             lbSearchCount.Size = new System.Drawing.Size(46, 15);
             lbSearchCount.TabIndex = 6;
-            lbSearchCount.Text = "Count :";
+            lbSearchCount.Text = "计数 :";
             // 
             // btSaveFile
             // 
@@ -365,7 +365,7 @@ namespace UoFiddler.Controls.Forms
             btSaveFile.Name = "btSaveFile";
             btSaveFile.Size = new System.Drawing.Size(75, 23);
             btSaveFile.TabIndex = 7;
-            btSaveFile.Text = "Save";
+            btSaveFile.Text = "保存";
             btSaveFile.UseVisualStyleBackColor = true;
             btSaveFile.Click += btSaveFile_Click;
             // 
@@ -376,7 +376,7 @@ namespace UoFiddler.Controls.Forms
             lbFileName.Name = "lbFileName";
             lbFileName.Size = new System.Drawing.Size(45, 15);
             lbFileName.TabIndex = 8;
-            lbFileName.Text = "Name :";
+            lbFileName.Text = "名称 :";
             // 
             // textBoxID
             // 
@@ -391,7 +391,7 @@ namespace UoFiddler.Controls.Forms
             btBackwardText.Name = "btBackwardText";
             btBackwardText.Size = new System.Drawing.Size(75, 23);
             btBackwardText.TabIndex = 10;
-            btBackwardText.Text = "Backward";
+            btBackwardText.Text = "向后查找";
             btBackwardText.UseVisualStyleBackColor = true;
             btBackwardText.Click += btBackwardText_Click;
             // 
@@ -435,7 +435,7 @@ namespace UoFiddler.Controls.Forms
             btInfoMobtypes.Name = "btInfoMobtypes";
             btInfoMobtypes.Size = new System.Drawing.Size(37, 23);
             btInfoMobtypes.TabIndex = 17;
-            btInfoMobtypes.Text = "Info";
+            btInfoMobtypes.Text = "信息";
             btInfoMobtypes.UseVisualStyleBackColor = true;
             btInfoMobtypes.Click += btInfoMobtypes_Click;
             // 
@@ -445,7 +445,7 @@ namespace UoFiddler.Controls.Forms
             btUOOpenDirectory.Name = "btUOOpenDirectory";
             btUOOpenDirectory.Size = new System.Drawing.Size(71, 23);
             btUOOpenDirectory.TabIndex = 16;
-            btUOOpenDirectory.Text = "UO Dir";
+            btUOOpenDirectory.Text = "UO 目录";
             btUOOpenDirectory.UseVisualStyleBackColor = true;
             btUOOpenDirectory.Click += btUOOpenDirectory_Click;
             // 
@@ -466,7 +466,7 @@ namespace UoFiddler.Controls.Forms
             btCheckNumbers.Name = "btCheckNumbers";
             btCheckNumbers.Size = new System.Drawing.Size(133, 23);
             btCheckNumbers.TabIndex = 14;
-            btCheckNumbers.Text = "Check Numbers Free";
+            btCheckNumbers.Text = "检查空闲编号";
             btCheckNumbers.UseVisualStyleBackColor = true;
             btCheckNumbers.Click += btCheckNumbers_Click;
             // 
@@ -476,7 +476,7 @@ namespace UoFiddler.Controls.Forms
             btConsistencyCheck.Name = "btConsistencyCheck";
             btConsistencyCheck.Size = new System.Drawing.Size(133, 23);
             btConsistencyCheck.TabIndex = 19;
-            btConsistencyCheck.Text = "Consistency Check";
+            btConsistencyCheck.Text = "一致性检查";
             btConsistencyCheck.UseVisualStyleBackColor = true;
             btConsistencyCheck.Click += btConsistencyCheck_Click;
             // 
@@ -486,7 +486,7 @@ namespace UoFiddler.Controls.Forms
             btFindFreeIDBoth.Name = "btFindFreeIDBoth";
             btFindFreeIDBoth.Size = new System.Drawing.Size(210, 23);
             btFindFreeIDBoth.TabIndex = 20;
-            btFindFreeIDBoth.Text = "Find Free ID (Both Files)";
+            btFindFreeIDBoth.Text = "查找空闲 ID (两个文件)";
             btFindFreeIDBoth.UseVisualStyleBackColor = true;
             btFindFreeIDBoth.Click += btFindFreeIDBoth_Click;
             // 
@@ -497,7 +497,7 @@ namespace UoFiddler.Controls.Forms
             chkBackup.Name = "chkBackup";
             chkBackup.Size = new System.Drawing.Size(140, 19);
             chkBackup.TabIndex = 21;
-            chkBackup.Text = "Auto-Backup on Save";
+            chkBackup.Text = "保存时自动备份";
             chkBackup.UseVisualStyleBackColor = true;
             chkBackup.CheckedChanged += chkBackup_CheckedChanged;
             // 
@@ -625,7 +625,7 @@ namespace UoFiddler.Controls.Forms
             btnLoadSettings.Name = "btnLoadSettings";
             btnLoadSettings.Size = new System.Drawing.Size(46, 23);
             btnLoadSettings.TabIndex = 94;
-            btnLoadSettings.Text = "Load";
+            btnLoadSettings.Text = "加载";
             btnLoadSettings.UseVisualStyleBackColor = true;
             btnLoadSettings.Click += btnLoadSettings_Click;
             // 
@@ -635,7 +635,7 @@ namespace UoFiddler.Controls.Forms
             btnSaveSettings.Name = "btnSaveSettings";
             btnSaveSettings.Size = new System.Drawing.Size(93, 23);
             btnSaveSettings.TabIndex = 93;
-            btnSaveSettings.Text = "Save Settings";
+            btnSaveSettings.Text = "保存设置";
             btnSaveSettings.UseVisualStyleBackColor = true;
             btnSaveSettings.Click += btnSaveSettings_Click;
             // 
@@ -654,7 +654,7 @@ namespace UoFiddler.Controls.Forms
             lbMinTameSkill.Name = "lbMinTameSkill";
             lbMinTameSkill.Size = new System.Drawing.Size(83, 15);
             lbMinTameSkill.TabIndex = 91;
-            lbMinTameSkill.Text = "MinTameSkill :";
+            lbMinTameSkill.Text = "最小驯服技能 :";
             // 
             // tbSControlSlots
             // 
@@ -671,7 +671,7 @@ namespace UoFiddler.Controls.Forms
             lbControlSlots.Name = "lbControlSlots";
             lbControlSlots.Size = new System.Drawing.Size(78, 15);
             lbControlSlots.TabIndex = 89;
-            lbControlSlots.Text = "ControlSlots :";
+            lbControlSlots.Text = "控制槽位 :";
             // 
             // lbOrFalse
             // 
@@ -680,7 +680,7 @@ namespace UoFiddler.Controls.Forms
             lbOrFalse.Name = "lbOrFalse";
             lbOrFalse.Size = new System.Drawing.Size(45, 15);
             lbOrFalse.TabIndex = 88;
-            lbOrFalse.Text = "or false";
+            lbOrFalse.Text = "或 false";
             // 
             // tbTamable
             // 
@@ -697,7 +697,7 @@ namespace UoFiddler.Controls.Forms
             lbTamable.Name = "lbTamable";
             lbTamable.Size = new System.Drawing.Size(57, 15);
             lbTamable.TabIndex = 86;
-            lbTamable.Text = "Tamable :";
+            lbTamable.Text = "可驯服 :";
             // 
             // lbSWrestling
             // 
@@ -706,7 +706,7 @@ namespace UoFiddler.Controls.Forms
             lbSWrestling.Name = "lbSWrestling";
             lbSWrestling.Size = new System.Drawing.Size(63, 15);
             lbSWrestling.TabIndex = 85;
-            lbSWrestling.Text = "Wrestling :";
+            lbSWrestling.Text = " Wrestling :";
             // 
             // tbSWrestling2
             // 
@@ -731,7 +731,7 @@ namespace UoFiddler.Controls.Forms
             lbSTactics.Name = "lbSTactics";
             lbSTactics.Size = new System.Drawing.Size(48, 15);
             lbSTactics.TabIndex = 82;
-            lbSTactics.Text = "Tactics :";
+            lbSTactics.Text = "战术 :";
             // 
             // tbSTactics2
             // 
@@ -756,7 +756,7 @@ namespace UoFiddler.Controls.Forms
             lbMagicResist.Name = "lbMagicResist";
             lbMagicResist.Size = new System.Drawing.Size(76, 15);
             lbMagicResist.TabIndex = 79;
-            lbMagicResist.Text = "MagicResist :";
+            lbMagicResist.Text = "魔法抗性 :";
             // 
             // tbSMagicResist2
             // 
@@ -781,7 +781,7 @@ namespace UoFiddler.Controls.Forms
             lbSMagery.Name = "lbSMagery";
             lbSMagery.Size = new System.Drawing.Size(53, 15);
             lbSMagery.TabIndex = 76;
-            lbSMagery.Text = "Magery :";
+            lbSMagery.Text = "魔法 :";
             // 
             // tbSetMagery2
             // 
@@ -806,7 +806,7 @@ namespace UoFiddler.Controls.Forms
             lbSEvalInt.Name = "lbSEvalInt";
             lbSEvalInt.Size = new System.Drawing.Size(48, 15);
             lbSEvalInt.TabIndex = 73;
-            lbSEvalInt.Text = "EvalInt :";
+            lbSEvalInt.Text = "智力评估 :";
             // 
             // tbSEvalInt2
             // 
@@ -832,7 +832,7 @@ namespace UoFiddler.Controls.Forms
             lbSetSkills.Name = "lbSetSkills";
             lbSetSkills.Size = new System.Drawing.Size(63, 15);
             lbSetSkills.TabIndex = 70;
-            lbSetSkills.Text = "Set Skills :";
+            lbSetSkills.Text = "设置技能 :";
             // 
             // lbREnergy
             // 
@@ -841,7 +841,7 @@ namespace UoFiddler.Controls.Forms
             lbREnergy.Name = "lbREnergy";
             lbREnergy.Size = new System.Drawing.Size(49, 15);
             lbREnergy.TabIndex = 69;
-            lbREnergy.Text = "Energy :";
+            lbREnergy.Text = "能量 :";
             // 
             // tbREnergy2
             // 
@@ -866,7 +866,7 @@ namespace UoFiddler.Controls.Forms
             lbPoison.Name = "lbPoison";
             lbPoison.Size = new System.Drawing.Size(49, 15);
             lbPoison.TabIndex = 66;
-            lbPoison.Text = "Poison :";
+            lbPoison.Text = "毒抗 :";
             // 
             // tbRPoison2
             // 
@@ -891,7 +891,7 @@ namespace UoFiddler.Controls.Forms
             lbRCold.Name = "lbRCold";
             lbRCold.Size = new System.Drawing.Size(38, 15);
             lbRCold.TabIndex = 63;
-            lbRCold.Text = "Cold :";
+            lbRCold.Text = "寒抗 :";
             // 
             // tbRCold2
             // 
@@ -916,7 +916,7 @@ namespace UoFiddler.Controls.Forms
             lbRFire.Name = "lbRFire";
             lbRFire.Size = new System.Drawing.Size(32, 15);
             lbRFire.TabIndex = 60;
-            lbRFire.Text = "Fire :";
+            lbRFire.Text = "火抗 :";
             // 
             // tbRFire2
             // 
@@ -941,7 +941,7 @@ namespace UoFiddler.Controls.Forms
             lbRPhysical.Name = "lbRPhysical";
             lbRPhysical.Size = new System.Drawing.Size(50, 15);
             lbRPhysical.TabIndex = 57;
-            lbRPhysical.Text = "Physical";
+            lbRPhysical.Text = "物理抗性";
             // 
             // tbRPhysical2
             // 
@@ -967,7 +967,7 @@ namespace UoFiddler.Controls.Forms
             lbResistance.Name = "lbResistance";
             lbResistance.Size = new System.Drawing.Size(94, 15);
             lbResistance.TabIndex = 54;
-            lbResistance.Text = "Set Resistance :";
+            lbResistance.Text = "设置抗性 :";
             // 
             // tbEnergy
             // 
@@ -984,7 +984,7 @@ namespace UoFiddler.Controls.Forms
             lbEnergy.Name = "lbEnergy";
             lbEnergy.Size = new System.Drawing.Size(49, 15);
             lbEnergy.TabIndex = 52;
-            lbEnergy.Text = "Energy :";
+            lbEnergy.Text = "能量 :";
             // 
             // tbFire
             // 
@@ -1001,7 +1001,7 @@ namespace UoFiddler.Controls.Forms
             lbFire.Name = "lbFire";
             lbFire.Size = new System.Drawing.Size(32, 15);
             lbFire.TabIndex = 50;
-            lbFire.Text = "Fire :";
+            lbFire.Text = "火 :";
             // 
             // tbPhysical
             // 
@@ -1018,7 +1018,7 @@ namespace UoFiddler.Controls.Forms
             lbPhysical.Name = "lbPhysical";
             lbPhysical.Size = new System.Drawing.Size(56, 15);
             lbPhysical.TabIndex = 48;
-            lbPhysical.Text = "Physical :";
+            lbPhysical.Text = "物理 :";
             // 
             // lbDamageResistance
             // 
@@ -1028,7 +1028,7 @@ namespace UoFiddler.Controls.Forms
             lbDamageResistance.Name = "lbDamageResistance";
             lbDamageResistance.Size = new System.Drawing.Size(121, 15);
             lbDamageResistance.TabIndex = 47;
-            lbDamageResistance.Text = "Damage Resistance :";
+            lbDamageResistance.Text = "伤害抗性 :";
             // 
             // btClipboard
             // 
@@ -1036,7 +1036,7 @@ namespace UoFiddler.Controls.Forms
             btClipboard.Name = "btClipboard";
             btClipboard.Size = new System.Drawing.Size(42, 23);
             btClipboard.TabIndex = 46;
-            btClipboard.Text = "Clip..";
+            btClipboard.Text = "剪贴板..";
             btClipboard.UseVisualStyleBackColor = true;
             btClipboard.Click += btClipboard_Click;
             // 
@@ -1046,7 +1046,7 @@ namespace UoFiddler.Controls.Forms
             btSaveScript.Name = "btSaveScript";
             btSaveScript.Size = new System.Drawing.Size(40, 23);
             btSaveScript.TabIndex = 45;
-            btSaveScript.Text = "Save";
+            btSaveScript.Text = "保存";
             btSaveScript.UseVisualStyleBackColor = true;
             btSaveScript.Click += btSaveScript_Click;
             // 
@@ -1057,7 +1057,7 @@ namespace UoFiddler.Controls.Forms
             lbVirtualArmor.Name = "lbVirtualArmor";
             lbVirtualArmor.Size = new System.Drawing.Size(47, 15);
             lbVirtualArmor.TabIndex = 44;
-            lbVirtualArmor.Text = "Armor :";
+            lbVirtualArmor.Text = "护甲 :";
             // 
             // tbVirtualArmor
             // 
@@ -1074,7 +1074,7 @@ namespace UoFiddler.Controls.Forms
             lbKarma.Name = "lbKarma";
             lbKarma.Size = new System.Drawing.Size(47, 15);
             lbKarma.TabIndex = 42;
-            lbKarma.Text = "Karma :";
+            lbKarma.Text = "业力 :";
             // 
             // tbKarma
             // 
@@ -1091,7 +1091,7 @@ namespace UoFiddler.Controls.Forms
             lbFame.Name = "lbFame";
             lbFame.Size = new System.Drawing.Size(42, 15);
             lbFame.TabIndex = 40;
-            lbFame.Text = "Fame :";
+            lbFame.Text = "名声 :";
             // 
             // tbFame
             // 
@@ -1108,7 +1108,7 @@ namespace UoFiddler.Controls.Forms
             lbSetDamage.Name = "lbSetDamage";
             lbSetDamage.Size = new System.Drawing.Size(73, 15);
             lbSetDamage.TabIndex = 38;
-            lbSetDamage.Text = "SetDamage :";
+            lbSetDamage.Text = "设置伤害 :";
             // 
             // lbSetDamage2
             // 
@@ -1117,7 +1117,7 @@ namespace UoFiddler.Controls.Forms
             lbSetDamage2.Name = "lbSetDamage2";
             lbSetDamage2.Size = new System.Drawing.Size(44, 15);
             lbSetDamage2.TabIndex = 37;
-            lbSetDamage2.Text = "Dam 2:";
+            lbSetDamage2.Text = "伤害 2:";
             // 
             // tbSetDamage2
             // 
@@ -1134,7 +1134,7 @@ namespace UoFiddler.Controls.Forms
             lbSetDamage1.Name = "lbSetDamage1";
             lbSetDamage1.Size = new System.Drawing.Size(44, 15);
             lbSetDamage1.TabIndex = 35;
-            lbSetDamage1.Text = "Dam 1:";
+            lbSetDamage1.Text = "伤害 1:";
             // 
             // tbSetDamage1
             // 
@@ -1151,7 +1151,7 @@ namespace UoFiddler.Controls.Forms
             lbSetHits.Name = "lbSetHits";
             lbSetHits.Size = new System.Drawing.Size(50, 15);
             lbSetHits.TabIndex = 33;
-            lbSetHits.Text = "SetHits :";
+            lbSetHits.Text = "设置生命 :";
             // 
             // lbSetHits2
             // 
@@ -1160,7 +1160,7 @@ namespace UoFiddler.Controls.Forms
             lbSetHits2.Name = "lbSetHits2";
             lbSetHits2.Size = new System.Drawing.Size(40, 15);
             lbSetHits2.TabIndex = 32;
-            lbSetHits2.Text = "Hits 2:";
+            lbSetHits2.Text = "生命 2:";
             // 
             // tbSetHits2
             // 
@@ -1177,7 +1177,7 @@ namespace UoFiddler.Controls.Forms
             lbSetHits1.Name = "lbSetHits1";
             lbSetHits1.Size = new System.Drawing.Size(40, 15);
             lbSetHits1.TabIndex = 30;
-            lbSetHits1.Text = "Hits 1:";
+            lbSetHits1.Text = "生命 1:";
             // 
             // tbSetHits1
             // 
@@ -1194,7 +1194,7 @@ namespace UoFiddler.Controls.Forms
             lbINT3.Name = "lbINT3";
             lbINT3.Size = new System.Drawing.Size(27, 15);
             lbINT3.TabIndex = 28;
-            lbINT3.Text = "Int :";
+            lbINT3.Text = "智力 :";
             // 
             // lbInt2
             // 
@@ -1203,7 +1203,7 @@ namespace UoFiddler.Controls.Forms
             lbInt2.Name = "lbInt2";
             lbInt2.Size = new System.Drawing.Size(33, 15);
             lbInt2.TabIndex = 27;
-            lbInt2.Text = "Int 2:";
+            lbInt2.Text = "智力 2:";
             // 
             // tbInt2
             // 
@@ -1220,7 +1220,7 @@ namespace UoFiddler.Controls.Forms
             lbInt1.Name = "lbInt1";
             lbInt1.Size = new System.Drawing.Size(33, 15);
             lbInt1.TabIndex = 25;
-            lbInt1.Text = "Int 1:";
+            lbInt1.Text = "智力 1:";
             // 
             // tbInt1
             // 
@@ -1237,7 +1237,7 @@ namespace UoFiddler.Controls.Forms
             lbDEX3.Name = "lbDEX3";
             lbDEX3.Size = new System.Drawing.Size(33, 15);
             lbDEX3.TabIndex = 23;
-            lbDEX3.Text = "Dex :";
+            lbDEX3.Text = "敏捷 :";
             // 
             // lbDex2
             // 
@@ -1246,7 +1246,7 @@ namespace UoFiddler.Controls.Forms
             lbDex2.Name = "lbDex2";
             lbDex2.Size = new System.Drawing.Size(39, 15);
             lbDex2.TabIndex = 22;
-            lbDex2.Text = "Dex 2:";
+            lbDex2.Text = "敏捷 2:";
             // 
             // tbDex2
             // 
@@ -1263,7 +1263,7 @@ namespace UoFiddler.Controls.Forms
             lbDex1.Name = "lbDex1";
             lbDex1.Size = new System.Drawing.Size(39, 15);
             lbDex1.TabIndex = 20;
-            lbDex1.Text = "Dex 1:";
+            lbDex1.Text = "敏捷 1:";
             // 
             // tbDex1
             // 
@@ -1280,7 +1280,7 @@ namespace UoFiddler.Controls.Forms
             lbstrength.Name = "lbstrength";
             lbstrength.Size = new System.Drawing.Size(27, 15);
             lbstrength.TabIndex = 18;
-            lbstrength.Text = "Str :";
+            lbstrength.Text = "力量 :";
             // 
             // lbStr2
             // 
@@ -1289,7 +1289,7 @@ namespace UoFiddler.Controls.Forms
             lbStr2.Name = "lbStr2";
             lbStr2.Size = new System.Drawing.Size(33, 15);
             lbStr2.TabIndex = 17;
-            lbStr2.Text = "Str 2:";
+            lbStr2.Text = "力量 2:";
             // 
             // tbStr2
             // 
@@ -1306,7 +1306,7 @@ namespace UoFiddler.Controls.Forms
             lbStr1.Name = "lbStr1";
             lbStr1.Size = new System.Drawing.Size(33, 15);
             lbStr1.TabIndex = 15;
-            lbStr1.Text = "Str 1:";
+            lbStr1.Text = "力量 1:";
             // 
             // tbStr1
             // 
@@ -1324,7 +1324,7 @@ namespace UoFiddler.Controls.Forms
             lbBaseHorse.Name = "lbBaseHorse";
             lbBaseHorse.Size = new System.Drawing.Size(69, 15);
             lbBaseHorse.TabIndex = 13;
-            lbBaseHorse.Text = "Base Horse";
+            lbBaseHorse.Text = "基础坐骑";
             // 
             // tBBaseSoundID2
             // 
@@ -1342,7 +1342,7 @@ namespace UoFiddler.Controls.Forms
             lbBaseSoundID.Name = "lbBaseSoundID";
             lbBaseSoundID.Size = new System.Drawing.Size(81, 15);
             lbBaseSoundID.TabIndex = 11;
-            lbBaseSoundID.Text = "BaseSoundID";
+            lbBaseSoundID.Text = "基础声音ID";
             // 
             // tBBaseSoundID1
             // 
@@ -1359,7 +1359,7 @@ namespace UoFiddler.Controls.Forms
             lbItemID3.Name = "lbItemID3";
             lbItemID3.Size = new System.Drawing.Size(54, 15);
             lbItemID3.TabIndex = 9;
-            lbItemID3.Text = "Item ID 3";
+            lbItemID3.Text = "物品 ID 3";
             // 
             // lbItemID2
             // 
@@ -1368,7 +1368,7 @@ namespace UoFiddler.Controls.Forms
             lbItemID2.Name = "lbItemID2";
             lbItemID2.Size = new System.Drawing.Size(54, 15);
             lbItemID2.TabIndex = 8;
-            lbItemID2.Text = "Item ID 2";
+            lbItemID2.Text = "物品 ID 2";
             // 
             // lbItemID1
             // 
@@ -1377,7 +1377,7 @@ namespace UoFiddler.Controls.Forms
             lbItemID1.Name = "lbItemID1";
             lbItemID1.Size = new System.Drawing.Size(54, 15);
             lbItemID1.TabIndex = 7;
-            lbItemID1.Text = "Item ID 1";
+            lbItemID1.Text = "物品 ID 1";
             // 
             // tbItemID3
             // 
@@ -1403,7 +1403,7 @@ namespace UoFiddler.Controls.Forms
             lbItemID.Name = "lbItemID";
             lbItemID.Size = new System.Drawing.Size(88, 15);
             lbItemID.TabIndex = 4;
-            lbItemID.Text = "Item Image ID";
+            lbItemID.Text = "物品图像 ID";
             // 
             // tbItemID
             // 
@@ -1419,7 +1419,7 @@ namespace UoFiddler.Controls.Forms
             btCreateScript.Name = "btCreateScript";
             btCreateScript.Size = new System.Drawing.Size(90, 23);
             btCreateScript.TabIndex = 2;
-            btCreateScript.Text = "Create Script";
+            btCreateScript.Text = "创建脚本";
             btCreateScript.UseVisualStyleBackColor = true;
             btCreateScript.Click += btCreateScript_Click;
             // 
@@ -1431,7 +1431,7 @@ namespace UoFiddler.Controls.Forms
             lbScriptName.Name = "lbScriptName";
             lbScriptName.Size = new System.Drawing.Size(76, 15);
             lbScriptName.TabIndex = 1;
-            lbScriptName.Text = "Script Name";
+            lbScriptName.Text = "脚本名称";
             // 
             // tbScriptName
             // 
@@ -1550,7 +1550,7 @@ namespace UoFiddler.Controls.Forms
             btSphereClipboad.Name = "btSphereClipboad";
             btSphereClipboad.Size = new System.Drawing.Size(42, 23);
             btSphereClipboad.TabIndex = 70;
-            btSphereClipboad.Text = "Clip..";
+            btSphereClipboad.Text = "剪贴板..";
             btSphereClipboad.UseVisualStyleBackColor = true;
             btSphereClipboad.Click += btClipboard_Click;
             // 
@@ -1560,7 +1560,7 @@ namespace UoFiddler.Controls.Forms
             btSaveSphereScript.Name = "btSaveSphereScript";
             btSaveSphereScript.Size = new System.Drawing.Size(42, 23);
             btSaveSphereScript.TabIndex = 69;
-            btSaveSphereScript.Text = "Save";
+            btSaveSphereScript.Text = "保存";
             btSaveSphereScript.UseVisualStyleBackColor = true;
             btSaveSphereScript.Click += btSaveSphereScript_Click;
             // 
@@ -2182,7 +2182,7 @@ namespace UoFiddler.Controls.Forms
             btCreateSphereScript.Name = "btCreateSphereScript";
             btCreateSphereScript.Size = new System.Drawing.Size(89, 23);
             btCreateSphereScript.TabIndex = 0;
-            btCreateSphereScript.Text = "Create Script";
+            btCreateSphereScript.Text = "创建脚本";
             btCreateSphereScript.UseVisualStyleBackColor = true;
             btCreateSphereScript.Click += btCreateSphereScript_Click;
             // 
@@ -2196,7 +2196,7 @@ namespace UoFiddler.Controls.Forms
             tabPageAnimationlist.Name = "tabPageAnimationlist";
             tabPageAnimationlist.Size = new System.Drawing.Size(303, 635);
             tabPageAnimationlist.TabIndex = 2;
-            tabPageAnimationlist.Text = "Animationlist";
+            tabPageAnimationlist.Text = "动画列表";
             tabPageAnimationlist.UseVisualStyleBackColor = true;
             // 
             // btAppData
@@ -2215,7 +2215,7 @@ namespace UoFiddler.Controls.Forms
             btClipboardAnimationlist.Name = "btClipboardAnimationlist";
             btClipboardAnimationlist.Size = new System.Drawing.Size(42, 23);
             btClipboardAnimationlist.TabIndex = 71;
-            btClipboardAnimationlist.Text = "Clip..";
+            btClipboardAnimationlist.Text = "剪贴板..";
             btClipboardAnimationlist.UseVisualStyleBackColor = true;
             btClipboardAnimationlist.Click += btClipboard_Click;
             // 
@@ -2225,7 +2225,7 @@ namespace UoFiddler.Controls.Forms
             btSaveAnimationlist.Name = "btSaveAnimationlist";
             btSaveAnimationlist.Size = new System.Drawing.Size(44, 23);
             btSaveAnimationlist.TabIndex = 1;
-            btSaveAnimationlist.Text = "Save";
+            btSaveAnimationlist.Text = "保存";
             btSaveAnimationlist.UseVisualStyleBackColor = true;
             btSaveAnimationlist.Click += btSaveAnimationlist_Click;
             // 
@@ -2235,7 +2235,7 @@ namespace UoFiddler.Controls.Forms
             btAnimationlistLoad.Name = "btAnimationlistLoad";
             btAnimationlistLoad.Size = new System.Drawing.Size(119, 23);
             btAnimationlistLoad.TabIndex = 0;
-            btAnimationlistLoad.Text = "Load Animationlist";
+            btAnimationlistLoad.Text = "加载动画列表";
             btAnimationlistLoad.UseVisualStyleBackColor = true;
             btAnimationlistLoad.Click += btAnimationlistLoad_Click;
             // 
@@ -2260,7 +2260,7 @@ namespace UoFiddler.Controls.Forms
             tabPageAminmul.Name = "tabPageAminmul";
             tabPageAminmul.Size = new System.Drawing.Size(303, 635);
             tabPageAminmul.TabIndex = 3;
-            tabPageAminmul.Text = "Create";
+            tabPageAminmul.Text = "创建";
             tabPageAminmul.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -2269,7 +2269,7 @@ namespace UoFiddler.Controls.Forms
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(120, 23);
             button1.TabIndex = 93;
-            button1.Text = "Empty anim.mul";
+            button1.Text = "空的 anim.mul";
             button1.UseVisualStyleBackColor = true;
             button1.Click += btnSingleEmptyAnimMul_Click;
             // 
@@ -2286,7 +2286,7 @@ namespace UoFiddler.Controls.Forms
             btnSetOutputDirectory.Name = "btnSetOutputDirectory";
             btnSetOutputDirectory.Size = new System.Drawing.Size(52, 23);
             btnSetOutputDirectory.TabIndex = 91;
-            btnSetOutputDirectory.Text = "outbut";
+            btnSetOutputDirectory.Text = "输出";
             btnSetOutputDirectory.UseVisualStyleBackColor = true;
             btnSetOutputDirectory.Click += btnSetOutputDirectoryClick;
             // 
@@ -2304,7 +2304,7 @@ namespace UoFiddler.Controls.Forms
             lblNewIdCount.Name = "lblNewIdCount";
             lblNewIdCount.Size = new System.Drawing.Size(46, 15);
             lblNewIdCount.TabIndex = 89;
-            lblNewIdCount.Text = "Count :";
+            lblNewIdCount.Text = "计数 :";
             // 
             // btnProcessClickOld
             // 
@@ -2312,7 +2312,7 @@ namespace UoFiddler.Controls.Forms
             btnProcessClickOld.Name = "btnProcessClickOld";
             btnProcessClickOld.Size = new System.Drawing.Size(126, 24);
             btnProcessClickOld.TabIndex = 88;
-            btnProcessClickOld.Text = "C - Amin.IDX Old V";
+            btnProcessClickOld.Text = "C - Amin.IDX 旧版";
             btnProcessClickOld.UseVisualStyleBackColor = true;
             btnProcessClickOld.Click += btnProcessClickOldVersion;
             // 
@@ -2336,7 +2336,7 @@ namespace UoFiddler.Controls.Forms
             lbCopys.Name = "lbCopys";
             lbCopys.Size = new System.Drawing.Size(108, 15);
             lbCopys.TabIndex = 87;
-            lbCopys.Text = "Copys X Checkbox";
+            lbCopys.Text = "复制倍数 X 复选框";
             // 
             // chkHighDetail
             // 
@@ -2345,7 +2345,7 @@ namespace UoFiddler.Controls.Forms
             chkHighDetail.Name = "chkHighDetail";
             chkHighDetail.Size = new System.Drawing.Size(112, 19);
             chkHighDetail.TabIndex = 86;
-            chkHighDetail.Text = "HighDetail x 110";
+            chkHighDetail.Text = "高细节 x 110";
             chkHighDetail.UseVisualStyleBackColor = true;
             // 
             // chkLowDetail
@@ -2355,7 +2355,7 @@ namespace UoFiddler.Controls.Forms
             chkLowDetail.Name = "chkLowDetail";
             chkLowDetail.Size = new System.Drawing.Size(102, 19);
             chkLowDetail.TabIndex = 84;
-            chkLowDetail.Text = "LowDetail x 65";
+            chkLowDetail.Text = "低细节 x 65";
             chkLowDetail.UseVisualStyleBackColor = true;
             // 
             // chkHuman
@@ -2365,7 +2365,7 @@ namespace UoFiddler.Controls.Forms
             chkHuman.Name = "chkHuman";
             chkHuman.Size = new System.Drawing.Size(96, 19);
             chkHuman.TabIndex = 85;
-            chkHuman.Text = "Human x 175";
+            chkHuman.Text = "人类 x 175";
             chkHuman.UseVisualStyleBackColor = true;
             // 
             // tbfilename
@@ -2381,7 +2381,7 @@ namespace UoFiddler.Controls.Forms
             btnBrowse.Name = "btnBrowse";
             btnBrowse.Size = new System.Drawing.Size(52, 23);
             btnBrowse.TabIndex = 82;
-            btnBrowse.Text = "load";
+            btnBrowse.Text = "加载";
             btnBrowse.UseVisualStyleBackColor = true;
             btnBrowse.Click += btnBrowseClick;
             // 
@@ -2401,7 +2401,7 @@ namespace UoFiddler.Controls.Forms
             lbCopyManyTimes.Name = "lbCopyManyTimes";
             lbCopyManyTimes.Size = new System.Drawing.Size(180, 15);
             lbCopyManyTimes.TabIndex = 80;
-            lbCopyManyTimes.Text = "Copy the index this many times :";
+            lbCopyManyTimes.Text = "将此索引复制这么多次 :";
             // 
             // txtNewCreatureID
             // 
@@ -2417,7 +2417,7 @@ namespace UoFiddler.Controls.Forms
             lbCopyID.Name = "lbCopyID";
             lbCopyID.Size = new System.Drawing.Size(116, 15);
             lbCopyID.TabIndex = 78;
-            lbCopyID.Text = "Copy from Amin ID :";
+            lbCopyID.Text = "从 Amin ID 复制 :";
             // 
             // txtOrigCreatureID
             // 
@@ -2432,7 +2432,7 @@ namespace UoFiddler.Controls.Forms
             btnNewAnimIDXFiles.Name = "btnNewAnimIDXFiles";
             btnNewAnimIDXFiles.Size = new System.Drawing.Size(126, 24);
             btnNewAnimIDXFiles.TabIndex = 74;
-            btnNewAnimIDXFiles.Text = "Create Amin IDX";
+            btnNewAnimIDXFiles.Text = "创建 Amin IDX";
             btnNewAnimIDXFiles.UseVisualStyleBackColor = true;
             btnNewAnimIDXFiles.Click += btnProcessClick;
             // 
@@ -2444,7 +2444,7 @@ namespace UoFiddler.Controls.Forms
             lbStatusStrip.Name = "lbStatusStrip";
             lbStatusStrip.Size = new System.Drawing.Size(1175, 22);
             lbStatusStrip.TabIndex = 99;
-            lbStatusStrip.Text = "  Ready.";
+            lbStatusStrip.Text = "  就绪。";
             // 
             // EditUoBodyconvMobtypes
             // 
@@ -2460,7 +2460,7 @@ namespace UoFiddler.Controls.Forms
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "EditUoBodyconvMobtypes";
-            Text = "Edit UoBodyconv or Mobtypes and Script Creator";
+            Text = "编辑 UoBodyconv 或 mobtypes 以及脚本创建器";
             FormClosing += EditUoBodyconvMobtypes_FormClosing;
             contextMenuStripRichTextBoxEdit.ResumeLayout(false);
             panelEdit.ResumeLayout(false);

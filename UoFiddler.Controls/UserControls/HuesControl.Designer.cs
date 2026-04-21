@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.UserControls
     partial class HuesControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Controls.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -76,8 +76,8 @@ namespace UoFiddler.Controls.UserControls
             saveToolStripMenuItem.Image = Properties.Resources.save;
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            saveToolStripMenuItem.Text = "Save";
-            saveToolStripMenuItem.ToolTipText = "Saving colors.";
+            saveToolStripMenuItem.Text = "保存";
+            saveToolStripMenuItem.ToolTipText = "保存颜色。";
             saveToolStripMenuItem.Click += OnClickSave;
             // 
             // replaceToolStripMenuItem
@@ -86,8 +86,8 @@ namespace UoFiddler.Controls.UserControls
             replaceToolStripMenuItem.Image = Properties.Resources.replace;
             replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
             replaceToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            replaceToolStripMenuItem.Text = "Replace With..";
-            replaceToolStripMenuItem.ToolTipText = "Replacing with";
+            replaceToolStripMenuItem.Text = "替换为...";
+            replaceToolStripMenuItem.ToolTipText = "替换为";
             // 
             // ReplaceText
             // 
@@ -101,8 +101,8 @@ namespace UoFiddler.Controls.UserControls
             exportToolStripMenuItem.Image = Properties.Resources.Export;
             exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             exportToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            exportToolStripMenuItem.Text = "Export..";
-            exportToolStripMenuItem.ToolTipText = "Exporting colors.";
+            exportToolStripMenuItem.Text = "导出...";
+            exportToolStripMenuItem.ToolTipText = "导出颜色。";
             exportToolStripMenuItem.Click += OnExport;
             // 
             // importToolStripMenuItem
@@ -110,8 +110,8 @@ namespace UoFiddler.Controls.UserControls
             importToolStripMenuItem.Image = Properties.Resources.import;
             importToolStripMenuItem.Name = "importToolStripMenuItem";
             importToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            importToolStripMenuItem.Text = "Import..";
-            importToolStripMenuItem.ToolTipText = "Importing colors.";
+            importToolStripMenuItem.Text = "导入...";
+            importToolStripMenuItem.ToolTipText = "导入颜色。";
             importToolStripMenuItem.Click += OnImport;
             // 
             // ExportAllHueNamesListToolStripMenuItem
@@ -119,8 +119,8 @@ namespace UoFiddler.Controls.UserControls
             ExportAllHueNamesListToolStripMenuItem.Image = Properties.Resources.Text;
             ExportAllHueNamesListToolStripMenuItem.Name = "ExportAllHueNamesListToolStripMenuItem";
             ExportAllHueNamesListToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            ExportAllHueNamesListToolStripMenuItem.Text = "Export all hue names list";
-            ExportAllHueNamesListToolStripMenuItem.ToolTipText = "Exporting the entire list of Hue names into a list.";
+            ExportAllHueNamesListToolStripMenuItem.Text = "导出所有色调名称列表";
+            ExportAllHueNamesListToolStripMenuItem.ToolTipText = "将整个色调名称列表导出到一个列表。";
             ExportAllHueNamesListToolStripMenuItem.Click += ExportAllHueNamesListToolStripMenuItem_Click;
             // 
             // toolStripContainer
@@ -189,7 +189,7 @@ namespace UoFiddler.Controls.UserControls
             // 
             HueIndexToolStripLabel.Name = "HueIndexToolStripLabel";
             HueIndexToolStripLabel.Size = new System.Drawing.Size(64, 20);
-            HueIndexToolStripLabel.Text = "Hue Index:";
+            HueIndexToolStripLabel.Text = "色调索引：";
             // 
             // HueIndexToolStripTextBox
             // 
@@ -201,7 +201,7 @@ namespace UoFiddler.Controls.UserControls
             // 
             HueNameToolStripLabel.Name = "HueNameToolStripLabel";
             HueNameToolStripLabel.Size = new System.Drawing.Size(67, 20);
-            HueNameToolStripLabel.Text = "Hue Name:";
+            HueNameToolStripLabel.Text = "色调名称：";
             // 
             // HueNameToolStripTextBox
             // 
@@ -216,7 +216,7 @@ namespace UoFiddler.Controls.UserControls
             SearchNameToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             SearchNameToolStripButton.Name = "SearchNameToolStripButton";
             SearchNameToolStripButton.Size = new System.Drawing.Size(60, 20);
-            SearchNameToolStripButton.Text = "Find next";
+            SearchNameToolStripButton.Text = "查找下一个";
             SearchNameToolStripButton.Click += SearchNameToolStripButton_Click;
             // 
             // HuesControl

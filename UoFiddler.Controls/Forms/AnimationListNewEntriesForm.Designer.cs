@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可证"
+ * 只要你保留此声明，你可以随意使用本代码。
+ * 如果我们某天相遇，你觉得此代码物有所值，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.Forms
     partial class AnimationListNewEntriesForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Controls.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -123,14 +123,14 @@ namespace UoFiddler.Controls.Forms
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.animateToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(120, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(100, 26);
             // 
             // animateToolStripMenuItem
             // 
             this.animateToolStripMenuItem.CheckOnClick = true;
             this.animateToolStripMenuItem.Name = "animateToolStripMenuItem";
-            this.animateToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.animateToolStripMenuItem.Text = "Animate";
+            this.animateToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.animateToolStripMenuItem.Text = "播放动画";
             this.animateToolStripMenuItem.Click += new System.EventHandler(this.OnClickAnimate);
             // 
             // toolStrip1
@@ -153,17 +153,17 @@ namespace UoFiddler.Controls.Forms
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(33, 22);
-            this.toolStripButton1.Text = "Add";
+            this.toolStripButton1.Text = "添加";
             this.toolStripButton1.Click += new System.EventHandler(this.OnClickAdd);
             // 
             // ComboBoxActionType
             // 
             this.ComboBoxActionType.Items.AddRange(new object[] {
-            "Monster",
-            "Sea Monster",
-            "Animal",
-            "Human",
-            "Equipment"});
+            "怪物",
+            "海洋怪物",
+            "动物",
+            "人类",
+            "装备"});
             this.ComboBoxActionType.Name = "ComboBoxActionType";
             this.ComboBoxActionType.Size = new System.Drawing.Size(140, 25);
             this.ComboBoxActionType.SelectedIndexChanged += new System.EventHandler(this.OnChangeType);
@@ -178,7 +178,7 @@ namespace UoFiddler.Controls.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "AnimationListNewEntriesForm";
-            this.Text = "Animationlist New Entries";
+            this.Text = "动画列表 - 新建条目";
             this.Load += new System.EventHandler(this.OnLoad);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

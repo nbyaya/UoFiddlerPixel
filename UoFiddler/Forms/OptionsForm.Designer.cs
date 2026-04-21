@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Forms
     partial class OptionsForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -48,6 +48,7 @@ namespace UoFiddler.Forms
             numericUpDownItemSizeWidth = new System.Windows.Forms.NumericUpDown();
             checkBoxCacheData = new System.Windows.Forms.CheckBox();
             groupBox2 = new System.Windows.Forms.GroupBox();
+            checkBoxNewClilocFormat = new System.Windows.Forms.CheckBox();
             checkBoxPolSoundIdOffset = new System.Windows.Forms.CheckBox();
             checkBoxPanelSoundsDesign = new System.Windows.Forms.CheckBox();
             checkBoxuseDiff = new System.Windows.Forms.CheckBox();
@@ -91,7 +92,6 @@ namespace UoFiddler.Forms
             buttonClose = new System.Windows.Forms.Button();
             btAppData = new System.Windows.Forms.Button();
             BtnLogDir = new System.Windows.Forms.Button();
-            checkBoxNewClilocFormat = new System.Windows.Forms.CheckBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownItemSizeHeight).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownItemSizeWidth).BeginInit();
@@ -115,7 +115,7 @@ namespace UoFiddler.Forms
             groupBox1.Size = new System.Drawing.Size(258, 130);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Item Tab";
+            groupBox1.Text = "物品选项卡";
             // 
             // checkBoxOverrideBackgroundColorFromTile
             // 
@@ -124,7 +124,7 @@ namespace UoFiddler.Forms
             checkBoxOverrideBackgroundColorFromTile.Name = "checkBoxOverrideBackgroundColorFromTile";
             checkBoxOverrideBackgroundColorFromTile.Size = new System.Drawing.Size(225, 36);
             checkBoxOverrideBackgroundColorFromTile.TabIndex = 17;
-            checkBoxOverrideBackgroundColorFromTile.Text = "Set background color same as tile background";
+            checkBoxOverrideBackgroundColorFromTile.Text = "将背景色设置为与图块背景相同";
             checkBoxOverrideBackgroundColorFromTile.UseVisualStyleBackColor = true;
             // 
             // numericUpDownItemSizeHeight
@@ -136,7 +136,7 @@ namespace UoFiddler.Forms
             numericUpDownItemSizeHeight.Name = "numericUpDownItemSizeHeight";
             numericUpDownItemSizeHeight.Size = new System.Drawing.Size(71, 23);
             numericUpDownItemSizeHeight.TabIndex = 3;
-            toolTip1.SetToolTip(numericUpDownItemSizeHeight, "Height");
+            toolTip1.SetToolTip(numericUpDownItemSizeHeight, "高度");
             numericUpDownItemSizeHeight.Value = new decimal(new int[] { 96, 0, 0, 0 });
             // 
             // checkBoxItemClip
@@ -147,8 +147,8 @@ namespace UoFiddler.Forms
             checkBoxItemClip.Name = "checkBoxItemClip";
             checkBoxItemClip.Size = new System.Drawing.Size(74, 19);
             checkBoxItemClip.TabIndex = 2;
-            checkBoxItemClip.Text = "Item Clip";
-            toolTip1.SetToolTip(checkBoxItemClip, "ItemClip images in items tab shrinked or clipped");
+            checkBoxItemClip.Text = "物品剪裁";
+            toolTip1.SetToolTip(checkBoxItemClip, "物品选项卡中的物品图片是缩小显示还是剪裁显示");
             checkBoxItemClip.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -159,8 +159,8 @@ namespace UoFiddler.Forms
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(54, 15);
             label1.TabIndex = 1;
-            label1.Text = "Item Size";
-            toolTip1.SetToolTip(label1, "ItemSize controls the size of images in items tab");
+            label1.Text = "物品大小";
+            toolTip1.SetToolTip(label1, "物品大小控制物品选项卡中图像的尺寸");
             // 
             // numericUpDownItemSizeWidth
             // 
@@ -171,7 +171,7 @@ namespace UoFiddler.Forms
             numericUpDownItemSizeWidth.Name = "numericUpDownItemSizeWidth";
             numericUpDownItemSizeWidth.Size = new System.Drawing.Size(76, 23);
             numericUpDownItemSizeWidth.TabIndex = 0;
-            toolTip1.SetToolTip(numericUpDownItemSizeWidth, "Width");
+            toolTip1.SetToolTip(numericUpDownItemSizeWidth, "宽度");
             numericUpDownItemSizeWidth.Value = new decimal(new int[] { 96, 0, 0, 0 });
             // 
             // checkBoxCacheData
@@ -182,8 +182,8 @@ namespace UoFiddler.Forms
             checkBoxCacheData.Name = "checkBoxCacheData";
             checkBoxCacheData.Size = new System.Drawing.Size(86, 19);
             checkBoxCacheData.TabIndex = 2;
-            checkBoxCacheData.Text = "Cache Data";
-            toolTip1.SetToolTip(checkBoxCacheData, "CacheData should mul entries be cached for faster load");
+            checkBoxCacheData.Text = "缓存数据";
+            toolTip1.SetToolTip(checkBoxCacheData, "缓存数据：是否缓存 mul 条目以加快加载速度");
             checkBoxCacheData.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -201,7 +201,19 @@ namespace UoFiddler.Forms
             groupBox2.Size = new System.Drawing.Size(250, 185);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Misc";
+            groupBox2.Text = "杂项";
+            // 
+            // checkBoxNewClilocFormat
+            // 
+            checkBoxNewClilocFormat.AutoSize = true;
+            checkBoxNewClilocFormat.Location = new System.Drawing.Point(7, 154);
+            checkBoxNewClilocFormat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkBoxNewClilocFormat.Name = "checkBoxNewClilocFormat";
+            checkBoxNewClilocFormat.Size = new System.Drawing.Size(120, 19);
+            checkBoxNewClilocFormat.TabIndex = 9;
+            checkBoxNewClilocFormat.Text = "新版 cliloc 格式";
+            toolTip1.SetToolTip(checkBoxNewClilocFormat, "对于客户端版本 7.0.104 及更高版本，此项需勾选。它允许读取新版 cliloc 格式。此选项仅有部分支持，保存文件时仍将生成旧版 cliloc 格式。");
+            checkBoxNewClilocFormat.UseVisualStyleBackColor = true;
             // 
             // checkBoxPolSoundIdOffset
             // 
@@ -211,8 +223,8 @@ namespace UoFiddler.Forms
             checkBoxPolSoundIdOffset.Name = "checkBoxPolSoundIdOffset";
             checkBoxPolSoundIdOffset.Size = new System.Drawing.Size(217, 19);
             checkBoxPolSoundIdOffset.TabIndex = 7;
-            checkBoxPolSoundIdOffset.Text = "Offset Sound Id by 1 (POL emulator)";
-            toolTip1.SetToolTip(checkBoxPolSoundIdOffset, "UO Sounds are indexed from 0 but POL uses +1 offset.\r\nWhen this option is checked Sounds tab will display sound indexes starting from 1 instead of 0.\r\nThis option also affects the export sound list.");
+            checkBoxPolSoundIdOffset.Text = "声音 ID 偏移 1（POL 模拟器）";
+            toolTip1.SetToolTip(checkBoxPolSoundIdOffset, "UO 声音从 0 开始索引，但 POL 使用 +1 偏移量。\r\n当此选项勾选时，声音选项卡将显示从 1 开始的声音索引，而不是 0。\r\n此选项也影响导出声音列表。");
             checkBoxPolSoundIdOffset.UseVisualStyleBackColor = true;
             // 
             // checkBoxPanelSoundsDesign
@@ -223,8 +235,8 @@ namespace UoFiddler.Forms
             checkBoxPanelSoundsDesign.Name = "checkBoxPanelSoundsDesign";
             checkBoxPanelSoundsDesign.Size = new System.Drawing.Size(160, 19);
             checkBoxPanelSoundsDesign.TabIndex = 5;
-            checkBoxPanelSoundsDesign.Text = "Right panel in sounds tab";
-            toolTip1.SetToolTip(checkBoxPanelSoundsDesign, "Show right panel in Sounds tab.");
+            checkBoxPanelSoundsDesign.Text = "声音选项卡右侧面板";
+            toolTip1.SetToolTip(checkBoxPanelSoundsDesign, "在声音选项卡中显示右侧面板。");
             checkBoxPanelSoundsDesign.UseVisualStyleBackColor = true;
             // 
             // checkBoxuseDiff
@@ -235,8 +247,8 @@ namespace UoFiddler.Forms
             checkBoxuseDiff.Name = "checkBoxuseDiff";
             checkBoxuseDiff.Size = new System.Drawing.Size(119, 19);
             checkBoxuseDiff.TabIndex = 4;
-            checkBoxuseDiff.Text = "Use Map diff Files";
-            toolTip1.SetToolTip(checkBoxuseDiff, "Should map diff files be used");
+            checkBoxuseDiff.Text = "使用地图差异文件";
+            toolTip1.SetToolTip(checkBoxuseDiff, "是否应使用地图差异文件");
             checkBoxuseDiff.UseVisualStyleBackColor = true;
             // 
             // checkBoxNewMapSize
@@ -247,8 +259,8 @@ namespace UoFiddler.Forms
             checkBoxNewMapSize.Name = "checkBoxNewMapSize";
             checkBoxNewMapSize.Size = new System.Drawing.Size(100, 19);
             checkBoxNewMapSize.TabIndex = 3;
-            checkBoxNewMapSize.Text = "New Map Size";
-            toolTip1.SetToolTip(checkBoxNewMapSize, "NewMapSize Felucca/Trammel width 7168?");
+            checkBoxNewMapSize.Text = "新地图尺寸";
+            toolTip1.SetToolTip(checkBoxNewMapSize, "新地图尺寸：Felucca/Trammel 宽度是否为 7168？");
             checkBoxNewMapSize.UseVisualStyleBackColor = true;
             // 
             // buttonApply
@@ -258,7 +270,7 @@ namespace UoFiddler.Forms
             buttonApply.Name = "buttonApply";
             buttonApply.Size = new System.Drawing.Size(88, 27);
             buttonApply.TabIndex = 4;
-            buttonApply.Text = "Apply";
+            buttonApply.Text = "应用";
             buttonApply.UseVisualStyleBackColor = true;
             buttonApply.Click += OnClickApply;
             // 
@@ -270,8 +282,8 @@ namespace UoFiddler.Forms
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(72, 15);
             label2.TabIndex = 1;
-            label2.Text = "map0 Name";
-            toolTip1.SetToolTip(label2, "Defines the map name");
+            label2.Text = "地图 0 名称";
+            toolTip1.SetToolTip(label2, "定义地图名称");
             // 
             // label3
             // 
@@ -281,8 +293,8 @@ namespace UoFiddler.Forms
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(72, 15);
             label3.TabIndex = 3;
-            label3.Text = "map1 Name";
-            toolTip1.SetToolTip(label3, "Defines the map name");
+            label3.Text = "地图 1 名称";
+            toolTip1.SetToolTip(label3, "定义地图名称");
             // 
             // label4
             // 
@@ -292,8 +304,8 @@ namespace UoFiddler.Forms
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(72, 15);
             label4.TabIndex = 5;
-            label4.Text = "map2 Name";
-            toolTip1.SetToolTip(label4, "Defines the map name");
+            label4.Text = "地图 2 名称";
+            toolTip1.SetToolTip(label4, "定义地图名称");
             // 
             // label5
             // 
@@ -303,8 +315,8 @@ namespace UoFiddler.Forms
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(72, 15);
             label5.TabIndex = 7;
-            label5.Text = "map3 Name";
-            toolTip1.SetToolTip(label5, "Defines the map name");
+            label5.Text = "地图 3 名称";
+            toolTip1.SetToolTip(label5, "定义地图名称");
             // 
             // label6
             // 
@@ -314,8 +326,8 @@ namespace UoFiddler.Forms
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(72, 15);
             label6.TabIndex = 9;
-            label6.Text = "map4 Name";
-            toolTip1.SetToolTip(label6, "Defines the map name");
+            label6.Text = "地图 4 名称";
+            toolTip1.SetToolTip(label6, "定义地图名称");
             // 
             // label7
             // 
@@ -325,8 +337,8 @@ namespace UoFiddler.Forms
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(33, 15);
             label7.TabIndex = 11;
-            label7.Text = "Cmd";
-            toolTip1.SetToolTip(label7, "Defines the cmd to send Client to loc");
+            label7.Text = "命令";
+            toolTip1.SetToolTip(label7, "定义发送客户端到位置的命令");
             // 
             // label8
             // 
@@ -336,8 +348,8 @@ namespace UoFiddler.Forms
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(31, 15);
             label8.TabIndex = 13;
-            label8.Text = "Args";
-            toolTip1.SetToolTip(label8, "{1} = x, {2} = y, {3} = z, {4} = mapid, {5} = mapname");
+            label8.Text = "参数";
+            toolTip1.SetToolTip(label8, "{1} = x, {2} = y, {3} = z, {4} = 地图ID, {5} = 地图名称");
             // 
             // label9
             // 
@@ -347,8 +359,8 @@ namespace UoFiddler.Forms
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(72, 15);
             label9.TabIndex = 15;
-            label9.Text = "map5 Name";
-            toolTip1.SetToolTip(label9, "Defines the map name");
+            label9.Text = "地图 5 名称";
+            toolTip1.SetToolTip(label9, "定义地图名称");
             // 
             // FocusColorLabel
             // 
@@ -358,8 +370,8 @@ namespace UoFiddler.Forms
             FocusColorLabel.Name = "FocusColorLabel";
             FocusColorLabel.Size = new System.Drawing.Size(59, 15);
             FocusColorLabel.TabIndex = 11;
-            FocusColorLabel.Text = "Tile Focus";
-            toolTip1.SetToolTip(FocusColorLabel, "ItemSize controls the size of images in items tab");
+            FocusColorLabel.Text = "焦点图块";
+            toolTip1.SetToolTip(FocusColorLabel, "焦点图块颜色");
             // 
             // SelectedColorLabel
             // 
@@ -369,8 +381,8 @@ namespace UoFiddler.Forms
             SelectedColorLabel.Name = "SelectedColorLabel";
             SelectedColorLabel.Size = new System.Drawing.Size(76, 15);
             SelectedColorLabel.TabIndex = 14;
-            SelectedColorLabel.Text = "Tile Selection";
-            toolTip1.SetToolTip(SelectedColorLabel, "ItemSize controls the size of images in items tab");
+            SelectedColorLabel.Text = "选中图块";
+            toolTip1.SetToolTip(SelectedColorLabel, "选中图块颜色");
             // 
             // groupBox3
             // 
@@ -403,7 +415,7 @@ namespace UoFiddler.Forms
             groupBox3.Size = new System.Drawing.Size(220, 368);
             groupBox3.TabIndex = 5;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Map";
+            groupBox3.Text = "地图";
             // 
             // map8Nametext
             // 
@@ -420,7 +432,7 @@ namespace UoFiddler.Forms
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(72, 15);
             label13.TabIndex = 20;
-            label13.Text = "map8 Name";
+            label13.Text = "地图 8 名称";
             // 
             // map7Nametext
             // 
@@ -437,7 +449,7 @@ namespace UoFiddler.Forms
             label12.Name = "label12";
             label12.Size = new System.Drawing.Size(72, 15);
             label12.TabIndex = 18;
-            label12.Text = "map7 Name";
+            label12.Text = "地图 7 名称";
             // 
             // label11
             // 
@@ -446,7 +458,7 @@ namespace UoFiddler.Forms
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(72, 15);
             label11.TabIndex = 17;
-            label11.Text = "map6 Name";
+            label11.Text = "地图 6 名称";
             // 
             // map6Nametext
             // 
@@ -532,7 +544,7 @@ namespace UoFiddler.Forms
             groupBox4.Size = new System.Drawing.Size(486, 51);
             groupBox4.TabIndex = 6;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Path";
+            groupBox4.Text = "路径";
             // 
             // button2
             // 
@@ -561,7 +573,7 @@ namespace UoFiddler.Forms
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(72, 15);
             label10.TabIndex = 0;
-            label10.Text = "Output Path";
+            label10.Text = "输出路径";
             // 
             // ColorsGroupBox
             // 
@@ -578,7 +590,7 @@ namespace UoFiddler.Forms
             ColorsGroupBox.Size = new System.Drawing.Size(486, 97);
             ColorsGroupBox.TabIndex = 7;
             ColorsGroupBox.TabStop = false;
-            ColorsGroupBox.Text = "Tile view settings";
+            ColorsGroupBox.Text = "图块视图设置";
             // 
             // checkboxRemoveTileBorder
             // 
@@ -588,7 +600,7 @@ namespace UoFiddler.Forms
             checkboxRemoveTileBorder.Name = "checkboxRemoveTileBorder";
             checkboxRemoveTileBorder.Size = new System.Drawing.Size(126, 19);
             checkboxRemoveTileBorder.TabIndex = 17;
-            checkboxRemoveTileBorder.Text = "Remove tile border";
+            checkboxRemoveTileBorder.Text = "移除图块边框";
             checkboxRemoveTileBorder.UseVisualStyleBackColor = true;
             // 
             // RestoreDefaultsButton
@@ -598,7 +610,7 @@ namespace UoFiddler.Forms
             RestoreDefaultsButton.Name = "RestoreDefaultsButton";
             RestoreDefaultsButton.Size = new System.Drawing.Size(117, 27);
             RestoreDefaultsButton.TabIndex = 15;
-            RestoreDefaultsButton.Text = "Restore defaults";
+            RestoreDefaultsButton.Text = "恢复默认值";
             RestoreDefaultsButton.UseVisualStyleBackColor = true;
             RestoreDefaultsButton.Click += RestoreDefaultsButton_Click;
             // 
@@ -627,7 +639,7 @@ namespace UoFiddler.Forms
             buttonClose.Name = "buttonClose";
             buttonClose.Size = new System.Drawing.Size(88, 27);
             buttonClose.TabIndex = 8;
-            buttonClose.Text = "Close";
+            buttonClose.Text = "关闭";
             buttonClose.UseVisualStyleBackColor = true;
             buttonClose.Click += OnClickClose;
             // 
@@ -637,7 +649,7 @@ namespace UoFiddler.Forms
             btAppData.Name = "btAppData";
             btAppData.Size = new System.Drawing.Size(61, 27);
             btAppData.TabIndex = 9;
-            btAppData.Text = "AppData";
+            btAppData.Text = "应用数据";
             btAppData.UseVisualStyleBackColor = true;
             btAppData.Click += BtAppData_Click;
             // 
@@ -647,21 +659,9 @@ namespace UoFiddler.Forms
             BtnLogDir.Name = "BtnLogDir";
             BtnLogDir.Size = new System.Drawing.Size(59, 27);
             BtnLogDir.TabIndex = 10;
-            BtnLogDir.Text = "Log Dir";
+            BtnLogDir.Text = "日志目录";
             BtnLogDir.UseVisualStyleBackColor = true;
             BtnLogDir.Click += BtnLogDir_Click;
-            // 
-            // checkBoxNewClilocFormat
-            // 
-            checkBoxNewClilocFormat.AutoSize = true;
-            checkBoxNewClilocFormat.Location = new System.Drawing.Point(7, 154);
-            checkBoxNewClilocFormat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            checkBoxNewClilocFormat.Name = "checkBoxNewClilocFormat";
-            checkBoxNewClilocFormat.Size = new System.Drawing.Size(120, 19);
-            checkBoxNewClilocFormat.TabIndex = 9;
-            checkBoxNewClilocFormat.Text = "New cliloc format";
-            toolTip1.SetToolTip(checkBoxNewClilocFormat, "For client version 7.0.104 and newer this needs to be checked. It allows reading of new cliloc format. This option has only partial support so saving file will only produce old cliloc format.");
-            checkBoxNewClilocFormat.UseVisualStyleBackColor = true;
             // 
             // OptionsForm
             // 
@@ -683,7 +683,7 @@ namespace UoFiddler.Forms
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "OptionsForm";
-            Text = "Options";
+            Text = "选项";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownItemSizeHeight).EndInit();

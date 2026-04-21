@@ -3,10 +3,10 @@
 //  * $Author: Turley
 //  * Advanced Nikodemus
 //  * 
-//  * \"THE BEER-WINE-WARE LICENSE\"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer and Wine in return.
+//  * \"啤酒-葡萄酒许可证\"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯啤酒和葡萄酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -15,14 +15,14 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
     partial class TileArtForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -32,11 +32,11 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -63,6 +63,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             LandTilesContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(components);
             copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             tabPageTiles9 = new System.Windows.Forms.TabPage();
+            panelTransitions = new System.Windows.Forms.Panel();
             lbTransitions = new System.Windows.Forms.Label();
             panelImage = new System.Windows.Forms.Panel();
             copyClipbordButton = new System.Windows.Forms.Button();
@@ -128,7 +129,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             NameLabel = new System.Windows.Forms.ToolStripStatusLabel();
             GraphicLabel = new System.Windows.Forms.ToolStripStatusLabel();
             FlagsLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            panelTransitions = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTileArt).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTileArt2).BeginInit();
             panel1BackGround.SuspendLayout();
@@ -165,7 +165,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btloadArt0All.Name = "btloadArt0All";
             btloadArt0All.Size = new System.Drawing.Size(75, 23);
             btloadArt0All.TabIndex = 1;
-            btloadArt0All.Text = "Alle One";
+            btloadArt0All.Text = "全部加载";
             btloadArt0All.UseVisualStyleBackColor = true;
             btloadArt0All.Click += btloadArt0All_Click;
             // 
@@ -277,7 +277,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxClipboard.Name = "checkBoxClipboard";
             checkBoxClipboard.Size = new System.Drawing.Size(78, 19);
             checkBoxClipboard.TabIndex = 12;
-            checkBoxClipboard.Text = "Clipboard";
+            checkBoxClipboard.Text = "剪贴板";
             checkBoxClipboard.UseVisualStyleBackColor = true;
             // 
             // panel1BackGround
@@ -315,7 +315,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             tabPageLandTiles.Name = "tabPageLandTiles";
             tabPageLandTiles.Size = new System.Drawing.Size(1041, 798);
             tabPageLandTiles.TabIndex = 3;
-            tabPageLandTiles.Text = "LandTiles";
+            tabPageLandTiles.Text = "地形图块";
             tabPageLandTiles.UseVisualStyleBackColor = true;
             // 
             // LandTilesTileView
@@ -355,8 +355,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             copyToolStripMenuItem.Image = Properties.Resources.Copy;
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             copyToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
-            copyToolStripMenuItem.Text = "Copy";
-            copyToolStripMenuItem.ToolTipText = "Copy to Clipboard";
+            copyToolStripMenuItem.Text = "复制";
+            copyToolStripMenuItem.ToolTipText = "复制到剪贴板";
             copyToolStripMenuItem.Click += copyToolStripMenuItem_Click;
             // 
             // tabPageTiles9
@@ -387,8 +387,38 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             tabPageTiles9.Padding = new System.Windows.Forms.Padding(3);
             tabPageTiles9.Size = new System.Drawing.Size(1041, 798);
             tabPageTiles9.TabIndex = 0;
-            tabPageTiles9.Text = "Tiles 9";
+            tabPageTiles9.Text = "9 图块";
             tabPageTiles9.UseVisualStyleBackColor = true;
+            // 
+            // panelTransitions
+            // 
+            panelTransitions.Controls.Add(lpID9);
+            panelTransitions.Controls.Add(lbTransitions);
+            panelTransitions.Controls.Add(HexIDTextBox9);
+            panelTransitions.Controls.Add(panelImage);
+            panelTransitions.Controls.Add(TextBoxTileArt2);
+            panelTransitions.Controls.Add(copyClipbordButton);
+            panelTransitions.Controls.Add(checkBoxLL);
+            panelTransitions.Controls.Add(checkBoxUU);
+            panelTransitions.Controls.Add(checkBoxDL);
+            panelTransitions.Controls.Add(checkBoxDR);
+            panelTransitions.Controls.Add(checkBoxUL);
+            panelTransitions.Controls.Add(checkBoxUR);
+            panelTransitions.Controls.Add(GenerateXmlButton);
+            panelTransitions.Controls.Add(resetButton);
+            panelTransitions.Controls.Add(textBoxId);
+            panelTransitions.Controls.Add(lbLandID);
+            panelTransitions.Controls.Add(textBoxName);
+            panelTransitions.Controls.Add(textboxLandID);
+            panelTransitions.Controls.Add(textBoxEdgeTo);
+            panelTransitions.Controls.Add(richTextBoxXML);
+            panelTransitions.Controls.Add(lbID);
+            panelTransitions.Controls.Add(lbEdgeTo);
+            panelTransitions.Controls.Add(lbName);
+            panelTransitions.Location = new System.Drawing.Point(6, 413);
+            panelTransitions.Name = "panelTransitions";
+            panelTransitions.Size = new System.Drawing.Size(1013, 370);
+            panelTransitions.TabIndex = 47;
             // 
             // lbTransitions
             // 
@@ -397,7 +427,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbTransitions.Name = "lbTransitions";
             lbTransitions.Size = new System.Drawing.Size(84, 15);
             lbTransitions.TabIndex = 46;
-            lbTransitions.Text = "Transitons List:";
+            lbTransitions.Text = "过渡列表：";
             // 
             // panelImage
             // 
@@ -412,7 +442,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             copyClipbordButton.Name = "copyClipbordButton";
             copyClipbordButton.Size = new System.Drawing.Size(100, 23);
             copyClipbordButton.TabIndex = 44;
-            copyClipbordButton.Text = "Copy Clipboard";
+            copyClipbordButton.Text = "复制到剪贴板";
             copyClipbordButton.UseVisualStyleBackColor = true;
             copyClipbordButton.Click += copyClipbordButton_Click;
             // 
@@ -482,7 +512,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             resetButton.Name = "resetButton";
             resetButton.Size = new System.Drawing.Size(49, 23);
             resetButton.TabIndex = 37;
-            resetButton.Text = "Reset";
+            resetButton.Text = "重置";
             resetButton.UseVisualStyleBackColor = true;
             resetButton.Click += resetButton_Click;
             // 
@@ -493,7 +523,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbLandID.Name = "lbLandID";
             lbLandID.Size = new System.Drawing.Size(50, 15);
             lbLandID.TabIndex = 36;
-            lbLandID.Text = "LandID :";
+            lbLandID.Text = "地形ID：";
             // 
             // textboxLandID
             // 
@@ -518,7 +548,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbEdgeTo.Name = "lbEdgeTo";
             lbEdgeTo.Size = new System.Drawing.Size(51, 15);
             lbEdgeTo.TabIndex = 33;
-            lbEdgeTo.Text = "EdgeTo :";
+            lbEdgeTo.Text = "边缘至：";
             // 
             // lbName
             // 
@@ -527,7 +557,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbName.Name = "lbName";
             lbName.Size = new System.Drawing.Size(45, 15);
             lbName.TabIndex = 32;
-            lbName.Text = "Name :";
+            lbName.Text = "名称：";
             // 
             // lbID
             // 
@@ -536,7 +566,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbID.Name = "lbID";
             lbID.Size = new System.Drawing.Size(24, 15);
             lbID.TabIndex = 31;
-            lbID.Text = "ID :";
+            lbID.Text = "ID：";
             // 
             // textBoxEdgeTo
             // 
@@ -576,7 +606,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxUR.Name = "checkBoxUR";
             checkBoxUR.Size = new System.Drawing.Size(75, 19);
             checkBoxUR.TabIndex = 25;
-            checkBoxUR.Text = "UR = Left";
+            checkBoxUR.Text = "UR = 左";
             checkBoxUR.UseVisualStyleBackColor = true;
             checkBoxUR.CheckedChanged += checkBoxUR_CheckedChanged;
             // 
@@ -587,7 +617,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxUL.Name = "checkBoxUL";
             checkBoxUL.Size = new System.Drawing.Size(85, 19);
             checkBoxUL.TabIndex = 24;
-            checkBoxUL.Text = "UL = Down";
+            checkBoxUL.Text = "UL = 下";
             checkBoxUL.UseVisualStyleBackColor = true;
             checkBoxUL.CheckedChanged += checkBoxUL_CheckedChanged;
             // 
@@ -598,7 +628,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxDR.Name = "checkBoxDR";
             checkBoxDR.Size = new System.Drawing.Size(70, 19);
             checkBoxDR.TabIndex = 23;
-            checkBoxDR.Text = "DR = Up";
+            checkBoxDR.Text = "DR = 上";
             checkBoxDR.UseVisualStyleBackColor = true;
             checkBoxDR.CheckedChanged += checkBoxDR_CheckedChanged;
             // 
@@ -609,7 +639,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxDL.Name = "checkBoxDL";
             checkBoxDL.Size = new System.Drawing.Size(82, 19);
             checkBoxDL.TabIndex = 22;
-            checkBoxDL.Text = "DL = Right";
+            checkBoxDL.Text = "DL = 右";
             checkBoxDL.UseVisualStyleBackColor = true;
             checkBoxDL.CheckedChanged += checkBoxDL_CheckedChanged;
             // 
@@ -620,7 +650,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxUU.Name = "checkBoxUU";
             checkBoxUU.Size = new System.Drawing.Size(150, 19);
             checkBoxUU.TabIndex = 21;
-            checkBoxUU.Text = "UU = Down, South, Left";
+            checkBoxUU.Text = "UU = 下、南、左";
             checkBoxUU.UseVisualStyleBackColor = true;
             checkBoxUU.CheckedChanged += checkBoxUU_CheckedChanged;
             // 
@@ -631,7 +661,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxLL.Name = "checkBoxLL";
             checkBoxLL.Size = new System.Drawing.Size(133, 19);
             checkBoxLL.TabIndex = 20;
-            checkBoxLL.Text = "LL = Right, East, Left";
+            checkBoxLL.Text = "LL = 右、东、左";
             checkBoxLL.UseVisualStyleBackColor = true;
             checkBoxLL.CheckedChanged += checkBoxLL_CheckedChanged;
             // 
@@ -651,7 +681,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lpID9.Name = "lpID9";
             lpID9.Size = new System.Drawing.Size(56, 15);
             lpID9.TabIndex = 18;
-            lpID9.Text = "ID (Hex) :";
+            lpID9.Text = "ID（十六进制）：";
             // 
             // HexIDTextBox9
             // 
@@ -700,7 +730,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             tabPageTiles64.Padding = new System.Windows.Forms.Padding(3);
             tabPageTiles64.Size = new System.Drawing.Size(1041, 798);
             tabPageTiles64.TabIndex = 1;
-            tabPageTiles64.Text = "Tiles 64";
+            tabPageTiles64.Text = "64 图块";
             tabPageTiles64.UseVisualStyleBackColor = true;
             // 
             // lbID64
@@ -710,7 +740,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbID64.Name = "lbID64";
             lbID64.Size = new System.Drawing.Size(21, 15);
             lbID64.TabIndex = 21;
-            lbID64.Text = "ID:";
+            lbID64.Text = "ID：";
             // 
             // btnClearTextBoxTileArt3
             // 
@@ -718,7 +748,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btnClearTextBoxTileArt3.Name = "btnClearTextBoxTileArt3";
             btnClearTextBoxTileArt3.Size = new System.Drawing.Size(43, 23);
             btnClearTextBoxTileArt3.TabIndex = 20;
-            btnClearTextBoxTileArt3.Text = "Clear";
+            btnClearTextBoxTileArt3.Text = "清除";
             btnClearTextBoxTileArt3.UseVisualStyleBackColor = true;
             btnClearTextBoxTileArt3.Click += btnClearTextBoxTileArt3_Click;
             // 
@@ -746,7 +776,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btLoadDrawing.Name = "btLoadDrawing";
             btLoadDrawing.Size = new System.Drawing.Size(48, 23);
             btLoadDrawing.TabIndex = 15;
-            btLoadDrawing.Text = "Load";
+            btLoadDrawing.Text = "加载";
             btLoadDrawing.UseVisualStyleBackColor = true;
             btLoadDrawing.Click += btLoadDrawing_Click;
             // 
@@ -756,7 +786,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btSaveDrawing.Name = "btSaveDrawing";
             btSaveDrawing.Size = new System.Drawing.Size(48, 23);
             btSaveDrawing.TabIndex = 14;
-            btSaveDrawing.Text = "Save";
+            btSaveDrawing.Text = "保存";
             btSaveDrawing.UseVisualStyleBackColor = true;
             btSaveDrawing.Click += btSaveDrawing_Click;
             // 
@@ -766,7 +796,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btClearTilesAll.Name = "btClearTilesAll";
             btClearTilesAll.Size = new System.Drawing.Size(44, 23);
             btClearTilesAll.TabIndex = 13;
-            btClearTilesAll.Text = "Clear";
+            btClearTilesAll.Text = "清除";
             btClearTilesAll.UseVisualStyleBackColor = true;
             btClearTilesAll.Click += btClearTilesAll_Click;
             // 
@@ -776,7 +806,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btFill64Tiles.Name = "btFill64Tiles";
             btFill64Tiles.Size = new System.Drawing.Size(36, 23);
             btFill64Tiles.TabIndex = 12;
-            btFill64Tiles.Text = "Fill";
+            btFill64Tiles.Text = "填充";
             btFill64Tiles.UseVisualStyleBackColor = true;
             btFill64Tiles.Click += btFill64Tiles_Click;
             // 
@@ -817,7 +847,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             labelGrad.Name = "labelGrad";
             labelGrad.Size = new System.Drawing.Size(36, 15);
             labelGrad.TabIndex = 9;
-            labelGrad.Text = "angle";
+            labelGrad.Text = "角度";
             // 
             // trackBar1
             // 
@@ -846,7 +876,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             labelMouseCoordinates.Name = "labelMouseCoordinates";
             labelMouseCoordinates.Size = new System.Drawing.Size(71, 15);
             labelMouseCoordinates.TabIndex = 6;
-            labelMouseCoordinates.Text = "Coordinates";
+            labelMouseCoordinates.Text = "坐标";
             // 
             // checkBoxClipboard2
             // 
@@ -855,7 +885,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxClipboard2.Name = "checkBoxClipboard2";
             checkBoxClipboard2.Size = new System.Drawing.Size(78, 19);
             checkBoxClipboard2.TabIndex = 5;
-            checkBoxClipboard2.Text = "Clipboard";
+            checkBoxClipboard2.Text = "剪贴板";
             checkBoxClipboard2.UseVisualStyleBackColor = true;
             // 
             // tabPageTiles256
@@ -875,7 +905,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             tabPageTiles256.Padding = new System.Windows.Forms.Padding(3);
             tabPageTiles256.Size = new System.Drawing.Size(1041, 798);
             tabPageTiles256.TabIndex = 2;
-            tabPageTiles256.Text = "Tiles 256";
+            tabPageTiles256.Text = "256 图块";
             tabPageTiles256.UseVisualStyleBackColor = true;
             tabPageTiles256.Click += btnToggleView2_Click;
             // 
@@ -886,7 +916,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbID256.Name = "lbID256";
             lbID256.Size = new System.Drawing.Size(21, 15);
             lbID256.TabIndex = 22;
-            lbID256.Text = "ID:";
+            lbID256.Text = "ID：";
             // 
             // btClearTilesAll4
             // 
@@ -894,7 +924,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btClearTilesAll4.Name = "btClearTilesAll4";
             btClearTilesAll4.Size = new System.Drawing.Size(43, 23);
             btClearTilesAll4.TabIndex = 20;
-            btClearTilesAll4.Text = "Clear";
+            btClearTilesAll4.Text = "清除";
             btClearTilesAll4.UseVisualStyleBackColor = true;
             btClearTilesAll4.Click += btClearTilesAll4_Click;
             // 
@@ -904,7 +934,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btnClearTextBoxTileArt4.Name = "btnClearTextBoxTileArt4";
             btnClearTextBoxTileArt4.Size = new System.Drawing.Size(43, 23);
             btnClearTextBoxTileArt4.TabIndex = 19;
-            btnClearTextBoxTileArt4.Text = "Clear";
+            btnClearTextBoxTileArt4.Text = "清除";
             btnClearTextBoxTileArt4.UseVisualStyleBackColor = true;
             btnClearTextBoxTileArt4.Click += btnClearTextBoxTileArt4_Click;
             // 
@@ -932,7 +962,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btFill256Tiles.Name = "btFill256Tiles";
             btFill256Tiles.Size = new System.Drawing.Size(36, 23);
             btFill256Tiles.TabIndex = 16;
-            btFill256Tiles.Text = "Fill";
+            btFill256Tiles.Text = "填充";
             btFill256Tiles.UseVisualStyleBackColor = true;
             btFill256Tiles.Click += btFill256Tiles_Click;
             // 
@@ -942,7 +972,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btnToggleView2.Name = "btnToggleView2";
             btnToggleView2.Size = new System.Drawing.Size(32, 23);
             btnToggleView2.TabIndex = 15;
-            btnToggleView2.Text = "3d";
+            btnToggleView2.Text = "3D";
             btnToggleView2.UseVisualStyleBackColor = true;
             btnToggleView2.Click += btnToggleView2_Click;
             // 
@@ -953,7 +983,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             labelMouseCoordinates2.Name = "labelMouseCoordinates2";
             labelMouseCoordinates2.Size = new System.Drawing.Size(69, 15);
             labelMouseCoordinates2.TabIndex = 14;
-            labelMouseCoordinates2.Text = "coordinates";
+            labelMouseCoordinates2.Text = "坐标";
             // 
             // checkBoxClipboard3
             // 
@@ -962,7 +992,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxClipboard3.Name = "checkBoxClipboard3";
             checkBoxClipboard3.Size = new System.Drawing.Size(78, 19);
             checkBoxClipboard3.TabIndex = 13;
-            checkBoxClipboard3.Text = "Clipboard";
+            checkBoxClipboard3.Text = "剪贴板";
             checkBoxClipboard3.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -1003,14 +1033,14 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             StatusStrip.Name = "StatusStrip";
             StatusStrip.Size = new System.Drawing.Size(1066, 22);
             StatusStrip.TabIndex = 16;
-            StatusStrip.Text = "StatusStrip";
+            StatusStrip.Text = "状态栏";
             // 
             // NameLabel
             // 
             NameLabel.AutoSize = false;
             NameLabel.Name = "NameLabel";
             NameLabel.Size = new System.Drawing.Size(140, 17);
-            NameLabel.Text = "Name:";
+            NameLabel.Text = "名称：";
             NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // GraphicLabel
@@ -1018,45 +1048,15 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             GraphicLabel.AutoSize = false;
             GraphicLabel.Name = "GraphicLabel";
             GraphicLabel.Size = new System.Drawing.Size(120, 17);
-            GraphicLabel.Text = "Graphic:";
+            GraphicLabel.Text = "图形：";
             GraphicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FlagsLabel
             // 
             FlagsLabel.Name = "FlagsLabel";
             FlagsLabel.Size = new System.Drawing.Size(37, 17);
-            FlagsLabel.Text = "Flags:";
+            FlagsLabel.Text = "标志：";
             FlagsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panelTransitions
-            // 
-            panelTransitions.Controls.Add(lpID9);
-            panelTransitions.Controls.Add(lbTransitions);
-            panelTransitions.Controls.Add(HexIDTextBox9);
-            panelTransitions.Controls.Add(panelImage);
-            panelTransitions.Controls.Add(TextBoxTileArt2);
-            panelTransitions.Controls.Add(copyClipbordButton);
-            panelTransitions.Controls.Add(checkBoxLL);
-            panelTransitions.Controls.Add(checkBoxUU);
-            panelTransitions.Controls.Add(checkBoxDL);
-            panelTransitions.Controls.Add(checkBoxDR);
-            panelTransitions.Controls.Add(checkBoxUL);
-            panelTransitions.Controls.Add(checkBoxUR);
-            panelTransitions.Controls.Add(GenerateXmlButton);
-            panelTransitions.Controls.Add(resetButton);
-            panelTransitions.Controls.Add(textBoxId);
-            panelTransitions.Controls.Add(lbLandID);
-            panelTransitions.Controls.Add(textBoxName);
-            panelTransitions.Controls.Add(textboxLandID);
-            panelTransitions.Controls.Add(textBoxEdgeTo);
-            panelTransitions.Controls.Add(richTextBoxXML);
-            panelTransitions.Controls.Add(lbID);
-            panelTransitions.Controls.Add(lbEdgeTo);
-            panelTransitions.Controls.Add(lbName);
-            panelTransitions.Location = new System.Drawing.Point(6, 413);
-            panelTransitions.Name = "panelTransitions";
-            panelTransitions.Size = new System.Drawing.Size(1013, 370);
-            panelTransitions.TabIndex = 47;
             // 
             // TileArtForm
             // 
@@ -1068,7 +1068,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "TileArtForm";
-            Text = "Land Tile Art Show Set";
+            Text = "地形图块艺术展示设置";
             ((System.ComponentModel.ISupportInitialize)pictureBoxTileArt).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTileArt2).EndInit();
             panel1BackGround.ResumeLayout(false);

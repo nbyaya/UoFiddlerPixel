@@ -3,10 +3,10 @@
 //  * $Author: Turley
 //  * Advanced Nikodemus
 //  * 
-//  * \"THE BEER-WINE-WARE LICENSE\"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer and Wine in return.
+//  * \"THE BEER-WINE-WARE LICENSE\" (啤酒-葡萄酒授权协议)
+//  * 只要您保留此声明，您就可以对本代码做任何处理。
+//  * 如果将来我们相遇，并且您认为这些东西有价值，
+//  * 您可以请我喝啤酒和葡萄酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -15,14 +15,14 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
     partial class TransitionsForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -32,11 +32,11 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -95,7 +95,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btnSelectTexture1.Name = "btnSelectTexture1";
             btnSelectTexture1.Size = new System.Drawing.Size(233, 23);
             btnSelectTexture1.TabIndex = 1;
-            btnSelectTexture1.Text = "Texture A";
+            btnSelectTexture1.Text = "纹理 A";
             btnSelectTexture1.UseVisualStyleBackColor = true;
             btnSelectTexture1.Click += btnSelectTexture1_Click;
             // 
@@ -105,7 +105,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btnSelectTexture2.Name = "btnSelectTexture2";
             btnSelectTexture2.Size = new System.Drawing.Size(233, 23);
             btnSelectTexture2.TabIndex = 3;
-            btnSelectTexture2.Text = "Texture B";
+            btnSelectTexture2.Text = "纹理 B";
             btnSelectTexture2.UseVisualStyleBackColor = true;
             btnSelectTexture2.Click += btnSelectTexture2_Click;
             // 
@@ -115,7 +115,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btnSelectAlpha.Name = "btnSelectAlpha";
             btnSelectAlpha.Size = new System.Drawing.Size(233, 23);
             btnSelectAlpha.TabIndex = 5;
-            btnSelectAlpha.Text = "Selecting alpha (grayscale)";
+            btnSelectAlpha.Text = "选择 Alpha (灰度图)";
             btnSelectAlpha.UseVisualStyleBackColor = true;
             btnSelectAlpha.Click += btnSelectAlpha_Click;
             // 
@@ -124,9 +124,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbPreview.AutoSize = true;
             lbPreview.Location = new System.Drawing.Point(729, 12);
             lbPreview.Name = "lbPreview";
-            lbPreview.Size = new System.Drawing.Size(54, 15);
+            lbPreview.Size = new System.Drawing.Size(42, 15);
             lbPreview.TabIndex = 6;
-            lbPreview.Text = "Preview :";
+            lbPreview.Text = "预览 :";
             // 
             // pictureBoxPreview
             // 
@@ -152,9 +152,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbTransitionBlur.AutoSize = true;
             lbTransitionBlur.Location = new System.Drawing.Point(729, 551);
             lbTransitionBlur.Name = "lbTransitionBlur";
-            lbTransitionBlur.Size = new System.Drawing.Size(88, 15);
+            lbTransitionBlur.Size = new System.Drawing.Size(76, 15);
             lbTransitionBlur.TabIndex = 9;
-            lbTransitionBlur.Text = "Transition blur :";
+            lbTransitionBlur.Text = "过渡模糊 :";
             // 
             // trackBarContrast
             // 
@@ -175,7 +175,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btnGenerateTransition.Name = "btnGenerateTransition";
             btnGenerateTransition.Size = new System.Drawing.Size(175, 23);
             btnGenerateTransition.TabIndex = 11;
-            btnGenerateTransition.Text = "Generate transitions";
+            btnGenerateTransition.Text = "生成过渡";
             btnGenerateTransition.UseVisualStyleBackColor = true;
             btnGenerateTransition.Click += btnGenerateTransition_Click;
             // 
@@ -261,7 +261,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbName.Name = "lbName";
             lbName.Size = new System.Drawing.Size(45, 15);
             lbName.TabIndex = 20;
-            lbName.Text = "Name :";
+            lbName.Text = "名称 :";
             // 
             // lbName2
             // 
@@ -270,7 +270,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbName2.Name = "lbName2";
             lbName2.Size = new System.Drawing.Size(45, 15);
             lbName2.TabIndex = 22;
-            lbName2.Text = "Name :";
+            lbName2.Text = "名称 :";
             // 
             // textBoxNameTextureB
             // 
@@ -285,9 +285,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbBrushID.AutoSize = true;
             lbBrushID.Location = new System.Drawing.Point(104, 533);
             lbBrushID.Name = "lbBrushID";
-            lbBrushID.Size = new System.Drawing.Size(48, 15);
+            lbBrushID.Size = new System.Drawing.Size(54, 15);
             lbBrushID.TabIndex = 24;
-            lbBrushID.Text = "BrushID";
+            lbBrushID.Text = "画笔ID";
             // 
             // textBoxBrushNumberA
             // 
@@ -302,9 +302,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbBrushID2.AutoSize = true;
             lbBrushID2.Location = new System.Drawing.Point(343, 533);
             lbBrushID2.Name = "lbBrushID2";
-            lbBrushID2.Size = new System.Drawing.Size(48, 15);
+            lbBrushID2.Size = new System.Drawing.Size(54, 15);
             lbBrushID2.TabIndex = 26;
-            lbBrushID2.Text = "BrushID";
+            lbBrushID2.Text = "画笔ID";
             // 
             // textBoxBrushNumberB
             // 
@@ -319,18 +319,18 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lblAlphaName.AutoSize = true;
             lblAlphaName.Location = new System.Drawing.Point(1005, 30);
             lblAlphaName.Name = "lblAlphaName";
-            lblAlphaName.Size = new System.Drawing.Size(79, 15);
+            lblAlphaName.Size = new System.Drawing.Size(69, 15);
             lblAlphaName.TabIndex = 27;
-            lblAlphaName.Text = "Alpha Name :";
+            lblAlphaName.Text = "Alpha 名称 :";
             // 
             // Compteur
             // 
             Compteur.AutoSize = true;
             Compteur.Location = new System.Drawing.Point(1005, 76);
             Compteur.Name = "Compteur";
-            Compteur.Size = new System.Drawing.Size(56, 15);
+            Compteur.Size = new System.Drawing.Size(44, 15);
             Compteur.TabIndex = 28;
-            Compteur.Text = "Counter :";
+            Compteur.Text = "计数 :";
             // 
             // btnPrevious
             // 
@@ -338,7 +338,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btnPrevious.Name = "btnPrevious";
             btnPrevious.Size = new System.Drawing.Size(75, 23);
             btnPrevious.TabIndex = 29;
-            btnPrevious.Text = "Previous";
+            btnPrevious.Text = "上一个";
             btnPrevious.UseVisualStyleBackColor = true;
             btnPrevious.Click += btnPrevious_Click;
             // 
@@ -348,7 +348,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btnNext.Name = "btnNext";
             btnNext.Size = new System.Drawing.Size(75, 23);
             btnNext.TabIndex = 30;
-            btnNext.Text = "Next";
+            btnNext.Text = "下一个";
             btnNext.UseVisualStyleBackColor = true;
             btnNext.Click += btnNext_Click;
             // 
@@ -357,9 +357,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbStartHexadecimal.AutoSize = true;
             lbStartHexadecimal.Location = new System.Drawing.Point(1005, 226);
             lbStartHexadecimal.Name = "lbStartHexadecimal";
-            lbStartHexadecimal.Size = new System.Drawing.Size(133, 15);
+            lbStartHexadecimal.Size = new System.Drawing.Size(117, 15);
             lbStartHexadecimal.TabIndex = 31;
-            lbStartHexadecimal.Text = "Start Hexadecimal Ox....";
+            lbStartHexadecimal.Text = "起始十六进制 Ox....";
             // 
             // tbStartHexDec
             // 
@@ -378,7 +378,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxZoom.Name = "checkBoxZoom";
             checkBoxZoom.Size = new System.Drawing.Size(137, 19);
             checkBoxZoom.TabIndex = 33;
-            checkBoxZoom.Text = "Zoom / Centerimage";
+            checkBoxZoom.Text = "缩放 / 居中图像";
             checkBoxZoom.UseVisualStyleBackColor = true;
             checkBoxZoom.CheckedChanged += checkBoxZoom_CheckedChanged;
             // 
@@ -388,7 +388,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             buttonOpenTempGrafic.Name = "buttonOpenTempGrafic";
             buttonOpenTempGrafic.Size = new System.Drawing.Size(75, 23);
             buttonOpenTempGrafic.TabIndex = 34;
-            buttonOpenTempGrafic.Text = "Open Dir";
+            buttonOpenTempGrafic.Text = "打开目录";
             buttonOpenTempGrafic.UseVisualStyleBackColor = true;
             buttonOpenTempGrafic.Click += buttonOpenTempGrafic_Click;
             // 
@@ -405,7 +405,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btDir.Name = "btDir";
             btDir.Size = new System.Drawing.Size(141, 23);
             btDir.TabIndex = 36;
-            btDir.Text = "Select directory / or not";
+            btDir.Text = "选择目录 / 或否";
             btDir.UseVisualStyleBackColor = true;
             btDir.Click += btDir_Click;
             // 
@@ -414,27 +414,27 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbDir.AutoSize = true;
             lbDir.Location = new System.Drawing.Point(343, 635);
             lbDir.Name = "lbDir";
-            lbDir.Size = new System.Drawing.Size(224, 15);
+            lbDir.Size = new System.Drawing.Size(212, 15);
             lbDir.TabIndex = 37;
-            lbDir.Text = "Directory Set otherwise default directory :";
+            lbDir.Text = "已设置目录，否则使用默认目录 :";
             // 
             // labelContrastValue
             // 
             labelContrastValue.AutoSize = true;
             labelContrastValue.Location = new System.Drawing.Point(991, 569);
             labelContrastValue.Name = "labelContrastValue";
-            labelContrastValue.Size = new System.Drawing.Size(86, 15);
+            labelContrastValue.Size = new System.Drawing.Size(68, 15);
             labelContrastValue.TabIndex = 38;
-            labelContrastValue.Text = "ContrastValue :";
+            labelContrastValue.Text = "对比度值 :";
             // 
             // labelFlouValue
             // 
             labelFlouValue.AutoSize = true;
             labelFlouValue.Location = new System.Drawing.Point(991, 605);
             labelFlouValue.Name = "labelFlouValue";
-            labelFlouValue.Size = new System.Drawing.Size(64, 15);
+            labelFlouValue.Size = new System.Drawing.Size(52, 15);
             labelFlouValue.TabIndex = 39;
-            labelFlouValue.Text = "FlouValue :";
+            labelFlouValue.Text = "模糊值 :";
             // 
             // btEditTransition
             // 
@@ -442,7 +442,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btEditTransition.Name = "btEditTransition";
             btEditTransition.Size = new System.Drawing.Size(75, 23);
             btEditTransition.TabIndex = 40;
-            btEditTransition.Text = "XML Edit";
+            btEditTransition.Text = "XML 编辑";
             btEditTransition.UseVisualStyleBackColor = true;
             btEditTransition.Click += btEditTransition_Click;
             // 
@@ -451,9 +451,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbInfo.AutoSize = true;
             lbInfo.Location = new System.Drawing.Point(490, 499);
             lbInfo.Name = "lbInfo";
-            lbInfo.Size = new System.Drawing.Size(210, 75);
+            lbInfo.Size = new System.Drawing.Size(197, 75);
             lbInfo.TabIndex = 41;
-            lbInfo.Text = "Dir Data:\r\n\r\nFolder:\r\nTextures = graphics textures\r\nAlpaName = Alpha (Grayscale) Texture";
+            lbInfo.Text = "目录数据:\r\n\r\n文件夹:\r\nTextures = 图形纹理\r\nAlpaName = Alpha (灰度) 纹理";
             // 
             // TransitionsForm
             // 
@@ -502,7 +502,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "TransitionsForm";
-            Text = "UO Texture Transition";
+            Text = "UO 纹理过渡";
             ((System.ComponentModel.ISupportInitialize)pictureBoxPreview).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLandtile).EndInit();
             ((System.ComponentModel.ISupportInitialize)trackBarContrast).EndInit();

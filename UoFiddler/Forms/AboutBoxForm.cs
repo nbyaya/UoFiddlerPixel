@@ -3,10 +3,10 @@
  * $Author: Turley
  * Advanced Nikodemus
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -35,7 +35,7 @@ namespace UoFiddler.Forms
         public AboutBoxForm()
         {
             InitializeComponent();
-            this.DoubleBuffered = true; // Enable double buffering
+            this.DoubleBuffered = true; // 启用双缓冲
             Icon = Options.GetFiddlerIcon();
             checkBoxCheckOnStart.Checked = FiddlerOptions.UpdateCheckOnStart;
             checkBoxFormState.Checked = FiddlerOptions.StoreFormState;
@@ -81,13 +81,13 @@ namespace UoFiddler.Forms
         #region GetRandomCharacter()
         private string GetRandomCharacter()
         {
-            // Occasionally return a special word
-            if (random.Next(200) == 0) // Increase this number to decrease the frequency of the special words
+            // 偶尔返回一个特殊单词
+            if (random.Next(200) == 0) // 增加此数字可降低特殊单词的出现频率
             {
                 return specialWords[random.Next(specialWords.Count)];
             }
 
-            // Otherwise return a random character
+            // 否则返回一个随机字符
             return ((char)random.Next(33, 127)).ToString();
         }
         #endregion
@@ -130,19 +130,19 @@ namespace UoFiddler.Forms
             }
             catch (HttpRequestException ex)
             {
-                // Logging the detailed error information
-                Console.WriteLine($"Request error: {ex.Message}");
+                // 记录详细的错误信息
+                Console.WriteLine($"请求错误: {ex.Message}");
                 if (ex.InnerException != null)
                 {
-                    Console.WriteLine($"Inner exception: {ex.InnerException.Message}");
+                    Console.WriteLine($"内部异常: {ex.InnerException.Message}");
                 }
-                MessageBox.Show("An error occurred while trying to check for updates. Please check your internet connection and try again.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("检查更新时发生错误。请检查您的网络连接后重试。", "更新错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                // Logging other possible errors
-                Console.WriteLine($"Unexpected error: {ex.Message}");
-                MessageBox.Show("An unexpected error occurred. Please try again later.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // 记录其他可能的错误
+                Console.WriteLine($"意外错误: {ex.Message}");
+                MessageBox.Show("发生意外错误。请稍后重试。", "更新错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -183,7 +183,7 @@ namespace UoFiddler.Forms
             string repoOwner = FiddlerOptions.RepositoryOwner;
             string repoName = FiddlerOptions.RepositoryName;
 
-            MessageBox.Show($"Repository Owner: {repoOwner}\nRepository Name: {repoName}", "Repository Information"); // from FiddlerOptions
+            MessageBox.Show($"仓库所有者: {repoOwner}\n仓库名称: {repoName}", "仓库信息"); // 来自 FiddlerOptions
         }
         #endregion
     }

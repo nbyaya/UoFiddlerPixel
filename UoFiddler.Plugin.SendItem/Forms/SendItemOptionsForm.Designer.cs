@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: Turley
+ * @Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要你保留此声明，你可以随意使用此代码。
+ * 如果我们某天相遇，你觉得此代码值得，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Plugin.SendItem.Forms
     partial class SendItemOptionsForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Plugin.SendItem.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -65,7 +65,7 @@ namespace UoFiddler.Plugin.SendItem.Forms
             this.groupBox1.Size = new System.Drawing.Size(233, 121);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Send Item";
+            this.groupBox1.Text = "发送物品";
             // 
             // SendOnClick
             // 
@@ -75,8 +75,8 @@ namespace UoFiddler.Plugin.SendItem.Forms
             this.SendOnClick.Name = "SendOnClick";
             this.SendOnClick.Size = new System.Drawing.Size(136, 19);
             this.SendOnClick.TabIndex = 18;
-            this.SendOnClick.Text = "Send on DoubleClick";
-            this.toolTip1.SetToolTip(this.SendOnClick, "Overrides DoubleClick");
+            this.SendOnClick.Text = "双击时自动发送";
+            this.toolTip1.SetToolTip(this.SendOnClick, "覆盖默认的双击行为");
             this.SendOnClick.UseVisualStyleBackColor = true;
             // 
             // label8
@@ -87,8 +87,8 @@ namespace UoFiddler.Plugin.SendItem.Forms
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 15);
             this.label8.TabIndex = 17;
-            this.label8.Text = "Args";
-            this.toolTip1.SetToolTip(this.label8, "{1} = Selected item ObjType");
+            this.label8.Text = "参数";
+            this.toolTip1.SetToolTip(this.label8, "{1} = 选中物品的ID");
             // 
             // argstext
             // 
@@ -106,8 +106,8 @@ namespace UoFiddler.Plugin.SendItem.Forms
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(33, 15);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Cmd";
-            this.toolTip1.SetToolTip(this.label7, "Defines the cmd to send Client for selected Item");
+            this.label7.Text = "命令";
+            this.toolTip1.SetToolTip(this.label7, "设置发送给客户端的生成物品命令");
             // 
             // cmdtext
             // 
@@ -124,7 +124,7 @@ namespace UoFiddler.Plugin.SendItem.Forms
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 27);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Save";
+            this.button1.Text = "保存";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.OnClickSave);
             // 
@@ -138,7 +138,7 @@ namespace UoFiddler.Plugin.SendItem.Forms
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "SendItemOptionsForm";
-            this.Text = "SendItem Options";
+            this.Text = "发送物品 - 设置";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

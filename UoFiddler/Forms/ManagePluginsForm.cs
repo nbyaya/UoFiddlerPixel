@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -30,7 +30,7 @@ namespace UoFiddler.Forms
                 bool loaded = true;
                 if (plugin.Instance == null)
                 {
-                    FiddlerOptions.Logger.Information("ManagePlugins - creating plugin instance: {Plugin} path: {AssemblyPath}", plugin.Type, plugin.AssemblyPath);
+                    FiddlerOptions.Logger.Information("管理插件 - 创建插件实例: {Plugin} 路径: {AssemblyPath}", plugin.Type, plugin.AssemblyPath);
                     plugin.CreateInstance();
                     loaded = false;
                 }
@@ -53,17 +53,17 @@ namespace UoFiddler.Forms
             }
 
             Font font = new Font(richTextBox1.Font.FontFamily, richTextBox1.Font.Size, FontStyle.Bold);
-            richTextBox1.AppendText($"Name: {selPlugin.Instance.Name}\n");
+            richTextBox1.AppendText($"名称: {selPlugin.Instance.Name}\n");
             richTextBox1.Select(0, 5);
             richTextBox1.SelectionFont = font;
-            richTextBox1.AppendText($"Version: {selPlugin.Instance.Version}\n");
-            richTextBox1.Select(richTextBox1.Text.IndexOf("Version: ", StringComparison.Ordinal), 9);
+            richTextBox1.AppendText($"版本: {selPlugin.Instance.Version}\n");
+            richTextBox1.Select(richTextBox1.Text.IndexOf("版本: ", StringComparison.Ordinal), 9);
             richTextBox1.SelectionFont = font;
-            richTextBox1.AppendText($"Author: {selPlugin.Instance.Author}\n");
-            richTextBox1.Select(richTextBox1.Text.IndexOf("Author: ", StringComparison.Ordinal), 8);
+            richTextBox1.AppendText($"作者: {selPlugin.Instance.Author}\n");
+            richTextBox1.Select(richTextBox1.Text.IndexOf("作者: ", StringComparison.Ordinal), 8);
             richTextBox1.SelectionFont = font;
-            richTextBox1.AppendText($"Description:\n{selPlugin.Instance.Description}\n");
-            richTextBox1.Select(richTextBox1.Text.IndexOf("Description:", StringComparison.Ordinal), 12);
+            richTextBox1.AppendText($"描述:\n{selPlugin.Instance.Description}\n");
+            richTextBox1.Select(richTextBox1.Text.IndexOf("描述:", StringComparison.Ordinal), 12);
             richTextBox1.SelectionFont = font;
         }
 
@@ -75,7 +75,7 @@ namespace UoFiddler.Forms
                 {
                     if (checkedListBox1.CheckedItems.Contains(plug.Instance.Name))
                     {
-                        FiddlerOptions.Logger.Information("ManagePlugins - adding plugin to profile: {Plugin}", plug.Type.ToString());
+                        FiddlerOptions.Logger.Information("管理插件 - 向配置文件添加插件: {Plugin}", plug.Type.ToString());
                         Options.PluginsToLoad.Add(plug.Type.ToString());
                     }
 
@@ -85,7 +85,7 @@ namespace UoFiddler.Forms
                 {
                     if (!checkedListBox1.CheckedItems.Contains(plug.Instance.Name))
                     {
-                        FiddlerOptions.Logger.Information("ManagePlugins - removing plugin from profile: {Plugin}", plug.Type.ToString());
+                        FiddlerOptions.Logger.Information("管理插件 - 从配置文件中移除插件: {Plugin}", plug.Type.ToString());
                         Options.PluginsToLoad.Remove(plug.Type.ToString());
                     }
                 }

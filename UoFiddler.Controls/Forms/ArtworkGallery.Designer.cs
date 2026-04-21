@@ -32,6 +32,7 @@ namespace UoFiddler.Controls.Forms
             splitContainerMain = new System.Windows.Forms.SplitContainer();
             panelLeft = new System.Windows.Forms.Panel();
             groupBoxControl = new System.Windows.Forms.GroupBox();
+            ButtonCrosshair = new System.Windows.Forms.Button();
             ButtonRuler = new System.Windows.Forms.Button();
             ButtonResetOffset = new System.Windows.Forms.Button();
             ButtonRemoveBackground = new System.Windows.Forms.Button();
@@ -91,7 +92,6 @@ namespace UoFiddler.Controls.Forms
             centerOverlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             flipVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             FlipHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ButtonCrosshair = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)splitContainerMain).BeginInit();
             splitContainerMain.Panel1.SuspendLayout();
             splitContainerMain.Panel2.SuspendLayout();
@@ -170,7 +170,17 @@ namespace UoFiddler.Controls.Forms
             groupBoxControl.Size = new System.Drawing.Size(458, 240);
             groupBoxControl.TabIndex = 0;
             groupBoxControl.TabStop = false;
-            groupBoxControl.Text = "Control";
+            groupBoxControl.Text = "控制";
+            // 
+            // ButtonCrosshair
+            // 
+            ButtonCrosshair.Location = new System.Drawing.Point(199, 165);
+            ButtonCrosshair.Name = "ButtonCrosshair";
+            ButtonCrosshair.Size = new System.Drawing.Size(66, 22);
+            ButtonCrosshair.TabIndex = 16;
+            ButtonCrosshair.Text = "十字准线";
+            ButtonCrosshair.UseVisualStyleBackColor = true;
+            ButtonCrosshair.Click += ButtonCrosshair_Click;
             // 
             // ButtonRuler
             // 
@@ -178,7 +188,7 @@ namespace UoFiddler.Controls.Forms
             ButtonRuler.Name = "ButtonRuler";
             ButtonRuler.Size = new System.Drawing.Size(53, 22);
             ButtonRuler.TabIndex = 15;
-            ButtonRuler.Text = "Ruler";
+            ButtonRuler.Text = "标尺";
             ButtonRuler.UseVisualStyleBackColor = true;
             ButtonRuler.Click += ButtonRuler_Click;
             // 
@@ -188,7 +198,7 @@ namespace UoFiddler.Controls.Forms
             ButtonResetOffset.Name = "ButtonResetOffset";
             ButtonResetOffset.Size = new System.Drawing.Size(93, 22);
             ButtonResetOffset.TabIndex = 14;
-            ButtonResetOffset.Text = "Reset Offset";
+            ButtonResetOffset.Text = "重置偏移";
             ButtonResetOffset.UseVisualStyleBackColor = true;
             ButtonResetOffset.Click += ButtonResetOffset_Click;
             // 
@@ -198,7 +208,7 @@ namespace UoFiddler.Controls.Forms
             ButtonRemoveBackground.Name = "ButtonRemoveBackground";
             ButtonRemoveBackground.Size = new System.Drawing.Size(115, 22);
             ButtonRemoveBackground.TabIndex = 13;
-            ButtonRemoveBackground.Text = "Remove BG";
+            ButtonRemoveBackground.Text = "移除背景";
             ButtonRemoveBackground.UseVisualStyleBackColor = true;
             ButtonRemoveBackground.Click += ButtonRemoveBackground_Click;
             // 
@@ -208,7 +218,7 @@ namespace UoFiddler.Controls.Forms
             ButtonLeft.Name = "ButtonLeft";
             ButtonLeft.Size = new System.Drawing.Size(75, 23);
             ButtonLeft.TabIndex = 0;
-            ButtonLeft.Text = "◄ Left";
+            ButtonLeft.Text = "◄ 左移";
             ButtonLeft.Click += ButtonLeft_Click;
             // 
             // ButtonRight
@@ -217,7 +227,7 @@ namespace UoFiddler.Controls.Forms
             ButtonRight.Name = "ButtonRight";
             ButtonRight.Size = new System.Drawing.Size(75, 23);
             ButtonRight.TabIndex = 1;
-            ButtonRight.Text = "Right ►";
+            ButtonRight.Text = "右移 ►";
             ButtonRight.Click += ButtonRight_Click;
             // 
             // checkBoxSecondArtwork
@@ -228,7 +238,7 @@ namespace UoFiddler.Controls.Forms
             checkBoxSecondArtwork.Name = "checkBoxSecondArtwork";
             checkBoxSecondArtwork.Size = new System.Drawing.Size(115, 19);
             checkBoxSecondArtwork.TabIndex = 2;
-            checkBoxSecondArtwork.Text = "Second Artwork";
+            checkBoxSecondArtwork.Text = "第二件作品";
             checkBoxSecondArtwork.CheckedChanged += CheckBoxSecondArtwork_CheckedChanged;
             // 
             // ButtonDrawRhombus
@@ -237,7 +247,7 @@ namespace UoFiddler.Controls.Forms
             ButtonDrawRhombus.Name = "ButtonDrawRhombus";
             ButtonDrawRhombus.Size = new System.Drawing.Size(80, 23);
             ButtonDrawRhombus.TabIndex = 3;
-            ButtonDrawRhombus.Text = "Rhombus";
+            ButtonDrawRhombus.Text = "菱形";
             ButtonDrawRhombus.Click += ButtonDrawRhombus_Click;
             // 
             // ButtonRemoveGif
@@ -246,7 +256,7 @@ namespace UoFiddler.Controls.Forms
             ButtonRemoveGif.Name = "ButtonRemoveGif";
             ButtonRemoveGif.Size = new System.Drawing.Size(115, 23);
             ButtonRemoveGif.TabIndex = 4;
-            ButtonRemoveGif.Text = "Remove GIF";
+            ButtonRemoveGif.Text = "移除 GIF";
             ButtonRemoveGif.Click += ButtonRemoveGif_Click;
             // 
             // ButtonRemoveSecondImage
@@ -255,7 +265,7 @@ namespace UoFiddler.Controls.Forms
             ButtonRemoveSecondImage.Name = "ButtonRemoveSecondImage";
             ButtonRemoveSecondImage.Size = new System.Drawing.Size(115, 23);
             ButtonRemoveSecondImage.TabIndex = 5;
-            ButtonRemoveSecondImage.Text = "Remove Second";
+            ButtonRemoveSecondImage.Text = "移除第二幅";
             ButtonRemoveSecondImage.Click += ButtonRemoveSecondImage_Click;
             // 
             // ButtonClearAll
@@ -264,7 +274,7 @@ namespace UoFiddler.Controls.Forms
             ButtonClearAll.Name = "ButtonClearAll";
             ButtonClearAll.Size = new System.Drawing.Size(115, 23);
             ButtonClearAll.TabIndex = 6;
-            ButtonClearAll.Text = "Clear All";
+            ButtonClearAll.Text = "全部清除";
             ButtonClearAll.Click += ButtonClearAllItems_Click;
             // 
             // ButtonShowHideIndexedImages
@@ -273,7 +283,7 @@ namespace UoFiddler.Controls.Forms
             ButtonShowHideIndexedImages.Name = "ButtonShowHideIndexedImages";
             ButtonShowHideIndexedImages.Size = new System.Drawing.Size(115, 23);
             ButtonShowHideIndexedImages.TabIndex = 7;
-            ButtonShowHideIndexedImages.Text = "Hide Index";
+            ButtonShowHideIndexedImages.Text = "隐藏索引";
             ButtonShowHideIndexedImages.Click += ButtonShowHideIndexedImages_Click;
             // 
             // ButtonBackgroundImage
@@ -282,7 +292,7 @@ namespace UoFiddler.Controls.Forms
             ButtonBackgroundImage.Name = "ButtonBackgroundImage";
             ButtonBackgroundImage.Size = new System.Drawing.Size(115, 23);
             ButtonBackgroundImage.TabIndex = 8;
-            ButtonBackgroundImage.Text = "Background";
+            ButtonBackgroundImage.Text = "背景";
             ButtonBackgroundImage.Click += ButtonBackgroundImage_Click;
             // 
             // ButtonResetZoom
@@ -291,7 +301,7 @@ namespace UoFiddler.Controls.Forms
             ButtonResetZoom.Name = "ButtonResetZoom";
             ButtonResetZoom.Size = new System.Drawing.Size(80, 22);
             ButtonResetZoom.TabIndex = 9;
-            ButtonResetZoom.Text = "Reset Zoom";
+            ButtonResetZoom.Text = "重置缩放";
             ButtonResetZoom.Click += ButtonResetZoom_Click;
             // 
             // ButtonBatchExport
@@ -300,7 +310,7 @@ namespace UoFiddler.Controls.Forms
             ButtonBatchExport.Name = "ButtonBatchExport";
             ButtonBatchExport.Size = new System.Drawing.Size(80, 23);
             ButtonBatchExport.TabIndex = 9;
-            ButtonBatchExport.Text = "Batch Export";
+            ButtonBatchExport.Text = "批量导出";
             ButtonBatchExport.Click += ButtonBatchExport_Click;
             // 
             // buttonToggleFavorite
@@ -309,7 +319,7 @@ namespace UoFiddler.Controls.Forms
             buttonToggleFavorite.Name = "buttonToggleFavorite";
             buttonToggleFavorite.Size = new System.Drawing.Size(80, 23);
             buttonToggleFavorite.TabIndex = 10;
-            buttonToggleFavorite.Text = "☆ Favorite";
+            buttonToggleFavorite.Text = "☆ 收藏";
             buttonToggleFavorite.Click += ButtonToggleFavorite_Click;
             // 
             // listBoxImages
@@ -334,7 +344,7 @@ namespace UoFiddler.Controls.Forms
             searchToolStripMenuItem.Image = Properties.Resources.zoomminus;
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             searchToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
-            searchToolStripMenuItem.Text = "Search";
+            searchToolStripMenuItem.Text = "搜索";
             // 
             // toolStripTextBoxSearchTexbox
             // 
@@ -349,7 +359,7 @@ namespace UoFiddler.Controls.Forms
             ButtonLoadImages.Name = "ButtonLoadImages";
             ButtonLoadImages.Size = new System.Drawing.Size(80, 23);
             ButtonLoadImages.TabIndex = 12;
-            ButtonLoadImages.Text = "Directory";
+            ButtonLoadImages.Text = "目录";
             ButtonLoadImages.Click += ButtonLoadImages_Click;
             // 
             // groupBoxOverlay
@@ -365,7 +375,7 @@ namespace UoFiddler.Controls.Forms
             groupBoxOverlay.Size = new System.Drawing.Size(458, 90);
             groupBoxOverlay.TabIndex = 1;
             groupBoxOverlay.TabStop = false;
-            groupBoxOverlay.Text = "Overlay Adjustments";
+            groupBoxOverlay.Text = "叠加调整";
             // 
             // labelOpacity
             // 
@@ -374,7 +384,7 @@ namespace UoFiddler.Controls.Forms
             labelOpacity.Name = "labelOpacity";
             labelOpacity.Size = new System.Drawing.Size(48, 15);
             labelOpacity.TabIndex = 0;
-            labelOpacity.Text = "Opacity";
+            labelOpacity.Text = "不透明度";
             // 
             // trackBarOpacity
             // 
@@ -400,7 +410,7 @@ namespace UoFiddler.Controls.Forms
             labelScale.Name = "labelScale";
             labelScale.Size = new System.Drawing.Size(34, 15);
             labelScale.TabIndex = 2;
-            labelScale.Text = "Scale";
+            labelScale.Text = "缩放";
             // 
             // trackBarScale
             // 
@@ -431,7 +441,7 @@ namespace UoFiddler.Controls.Forms
             groupBoxChroma.Size = new System.Drawing.Size(458, 60);
             groupBoxChroma.TabIndex = 2;
             groupBoxChroma.TabStop = false;
-            groupBoxChroma.Text = "Chroma Key (transparency color)";
+            groupBoxChroma.Text = "色度键（透明色）";
             // 
             // checkBoxUseChromaKey
             // 
@@ -442,7 +452,7 @@ namespace UoFiddler.Controls.Forms
             checkBoxUseChromaKey.Name = "checkBoxUseChromaKey";
             checkBoxUseChromaKey.Size = new System.Drawing.Size(59, 19);
             checkBoxUseChromaKey.TabIndex = 0;
-            checkBoxUseChromaKey.Text = "Active";
+            checkBoxUseChromaKey.Text = "启用";
             checkBoxUseChromaKey.CheckedChanged += CheckBoxUseChromaKey_CheckedChanged;
             // 
             // labelChroma1
@@ -452,7 +462,7 @@ namespace UoFiddler.Controls.Forms
             labelChroma1.Name = "labelChroma1";
             labelChroma1.Size = new System.Drawing.Size(48, 15);
             labelChroma1.TabIndex = 1;
-            labelChroma1.Text = "Color 1:";
+            labelChroma1.Text = "颜色 1:";
             // 
             // buttonPickChromaColor1
             // 
@@ -471,7 +481,7 @@ namespace UoFiddler.Controls.Forms
             labelChroma2.Name = "labelChroma2";
             labelChroma2.Size = new System.Drawing.Size(48, 15);
             labelChroma2.TabIndex = 3;
-            labelChroma2.Text = "Color 2:";
+            labelChroma2.Text = "颜色 2:";
             // 
             // buttonPickChromaColor2
             // 
@@ -500,7 +510,7 @@ namespace UoFiddler.Controls.Forms
             groupBoxCrop.Size = new System.Drawing.Size(458, 90);
             groupBoxCrop.TabIndex = 3;
             groupBoxCrop.TabStop = false;
-            groupBoxCrop.Text = "Crop / Cutting Template";
+            groupBoxCrop.Text = "裁剪 / 切割模板";
             // 
             // labelWidth
             // 
@@ -509,7 +519,7 @@ namespace UoFiddler.Controls.Forms
             labelWidth.Name = "labelWidth";
             labelWidth.Size = new System.Drawing.Size(39, 15);
             labelWidth.TabIndex = 0;
-            labelWidth.Text = "Width";
+            labelWidth.Text = "宽度";
             // 
             // textBoxWidth
             // 
@@ -526,7 +536,7 @@ namespace UoFiddler.Controls.Forms
             labelHeight.Name = "labelHeight";
             labelHeight.Size = new System.Drawing.Size(43, 15);
             labelHeight.TabIndex = 2;
-            labelHeight.Text = "Height";
+            labelHeight.Text = "高度";
             // 
             // textBoxHeight
             // 
@@ -542,7 +552,7 @@ namespace UoFiddler.Controls.Forms
             ButtonCrop.Name = "ButtonCrop";
             ButtonCrop.Size = new System.Drawing.Size(56, 23);
             ButtonCrop.TabIndex = 4;
-            ButtonCrop.Text = "Crop";
+            ButtonCrop.Text = "裁剪";
             ButtonCrop.Click += ButtonCrop_Click;
             // 
             // checkBoxCuttingTemplate
@@ -552,7 +562,7 @@ namespace UoFiddler.Controls.Forms
             checkBoxCuttingTemplate.Name = "checkBoxCuttingTemplate";
             checkBoxCuttingTemplate.Size = new System.Drawing.Size(116, 19);
             checkBoxCuttingTemplate.TabIndex = 5;
-            checkBoxCuttingTemplate.Text = "Cutting template";
+            checkBoxCuttingTemplate.Text = "切割模板";
             checkBoxCuttingTemplate.CheckedChanged += CheckBoxCuttingTemplate_CheckedChanged;
             // 
             // checkBoxBlack
@@ -562,7 +572,7 @@ namespace UoFiddler.Controls.Forms
             checkBoxBlack.Name = "checkBoxBlack";
             checkBoxBlack.Size = new System.Drawing.Size(54, 19);
             checkBoxBlack.TabIndex = 6;
-            checkBoxBlack.Text = "Black";
+            checkBoxBlack.Text = "黑色";
             checkBoxBlack.CheckedChanged += CheckBoxBackgroundColorChanged;
             // 
             // checkBoxWhite
@@ -572,7 +582,7 @@ namespace UoFiddler.Controls.Forms
             checkBoxWhite.Name = "checkBoxWhite";
             checkBoxWhite.Size = new System.Drawing.Size(57, 19);
             checkBoxWhite.TabIndex = 7;
-            checkBoxWhite.Text = "White";
+            checkBoxWhite.Text = "白色";
             checkBoxWhite.CheckedChanged += CheckBoxBackgroundColorChanged;
             // 
             // ButtonSaveCuttingTemplate
@@ -581,7 +591,7 @@ namespace UoFiddler.Controls.Forms
             ButtonSaveCuttingTemplate.Name = "ButtonSaveCuttingTemplate";
             ButtonSaveCuttingTemplate.Size = new System.Drawing.Size(80, 23);
             ButtonSaveCuttingTemplate.TabIndex = 8;
-            ButtonSaveCuttingTemplate.Text = "Crop Save";
+            ButtonSaveCuttingTemplate.Text = "保存裁剪";
             ButtonSaveCuttingTemplate.Click += ButtonSaveCuttingTemplate_Click;
             // 
             // ButtonCopyCuttingTemplateToClipboard
@@ -590,7 +600,7 @@ namespace UoFiddler.Controls.Forms
             ButtonCopyCuttingTemplateToClipboard.Name = "ButtonCopyCuttingTemplateToClipboard";
             ButtonCopyCuttingTemplateToClipboard.Size = new System.Drawing.Size(80, 23);
             ButtonCopyCuttingTemplateToClipboard.TabIndex = 9;
-            ButtonCopyCuttingTemplateToClipboard.Text = "Clipboard";
+            ButtonCopyCuttingTemplateToClipboard.Text = "剪贴板";
             ButtonCopyCuttingTemplateToClipboard.Click += ButtonCopyCuttingTemplateToClipboard_Click;
             // 
             // groupBoxFavorites
@@ -601,7 +611,7 @@ namespace UoFiddler.Controls.Forms
             groupBoxFavorites.Size = new System.Drawing.Size(458, 100);
             groupBoxFavorites.TabIndex = 4;
             groupBoxFavorites.TabStop = false;
-            groupBoxFavorites.Text = "Favorites";
+            groupBoxFavorites.Text = "收藏夹";
             // 
             // listBoxFavorites
             // 
@@ -618,7 +628,7 @@ namespace UoFiddler.Controls.Forms
             labelImageInfo.Name = "labelImageInfo";
             labelImageInfo.Size = new System.Drawing.Size(458, 18);
             labelImageInfo.TabIndex = 5;
-            labelImageInfo.Text = "Base: – | Overlay: –";
+            labelImageInfo.Text = "基础: – | 叠加: –";
             // 
             // labelContentHeight
             // 
@@ -626,7 +636,7 @@ namespace UoFiddler.Controls.Forms
             labelContentHeight.Name = "labelContentHeight";
             labelContentHeight.Size = new System.Drawing.Size(458, 18);
             labelContentHeight.TabIndex = 6;
-            labelContentHeight.Text = "Content height: –";
+            labelContentHeight.Text = "内容高度: –";
             // 
             // labelPixelInfo
             // 
@@ -642,7 +652,7 @@ namespace UoFiddler.Controls.Forms
             labelZoom.Name = "labelZoom";
             labelZoom.Size = new System.Drawing.Size(200, 18);
             labelZoom.TabIndex = 8;
-            labelZoom.Text = "Zoom: 100%";
+            labelZoom.Text = "缩放: 100%";
             // 
             // pictureBoxArtworkGallery
             // 
@@ -667,7 +677,7 @@ namespace UoFiddler.Controls.Forms
             loadSecondImageToolStripMenuItem.Image = Properties.Resources.Animation;
             loadSecondImageToolStripMenuItem.Name = "loadSecondImageToolStripMenuItem";
             loadSecondImageToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            loadSecondImageToolStripMenuItem.Text = "Load Second Image";
+            loadSecondImageToolStripMenuItem.Text = "加载第二张图像";
             loadSecondImageToolStripMenuItem.Click += LoadSecondImageToolStripMenuItem_Click;
             // 
             // loadClipboradToolStripMenuItem
@@ -675,7 +685,7 @@ namespace UoFiddler.Controls.Forms
             loadClipboradToolStripMenuItem.Image = Properties.Resources.Clipbord;
             loadClipboradToolStripMenuItem.Name = "loadClipboradToolStripMenuItem";
             loadClipboradToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            loadClipboradToolStripMenuItem.Text = "Load Clipboard";
+            loadClipboradToolStripMenuItem.Text = "加载剪贴板";
             loadClipboradToolStripMenuItem.Click += loadClipboradToolStripMenuItem_Click;
             // 
             // loadGifToolStripMenuItem
@@ -683,7 +693,7 @@ namespace UoFiddler.Controls.Forms
             loadGifToolStripMenuItem.Image = Properties.Resources.Animate;
             loadGifToolStripMenuItem.Name = "loadGifToolStripMenuItem";
             loadGifToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            loadGifToolStripMenuItem.Text = "Load GIF";
+            loadGifToolStripMenuItem.Text = "加载 GIF";
             loadGifToolStripMenuItem.Click += loadGifToolStripMenuItem_Click;
             // 
             // toolStripSeparatorArtworkGallery
@@ -696,7 +706,7 @@ namespace UoFiddler.Controls.Forms
             centerOverlayToolStripMenuItem.Image = Properties.Resources.Zeichnen;
             centerOverlayToolStripMenuItem.Name = "centerOverlayToolStripMenuItem";
             centerOverlayToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            centerOverlayToolStripMenuItem.Text = "Center Overlay";
+            centerOverlayToolStripMenuItem.Text = "居中叠加";
             centerOverlayToolStripMenuItem.Click += CenterOverlayToolStripMenuItem_Click;
             // 
             // flipVerticalToolStripMenuItem
@@ -704,7 +714,7 @@ namespace UoFiddler.Controls.Forms
             flipVerticalToolStripMenuItem.Image = Properties.Resources.reset_2_;
             flipVerticalToolStripMenuItem.Name = "flipVerticalToolStripMenuItem";
             flipVerticalToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            flipVerticalToolStripMenuItem.Text = "Flip Vertical";
+            flipVerticalToolStripMenuItem.Text = "垂直翻转";
             flipVerticalToolStripMenuItem.Click += FlipVerticalToolStripMenuItem_Click;
             // 
             // FlipHorizontalToolStripMenuItem
@@ -712,18 +722,8 @@ namespace UoFiddler.Controls.Forms
             FlipHorizontalToolStripMenuItem.Image = Properties.Resources.reset_2_;
             FlipHorizontalToolStripMenuItem.Name = "FlipHorizontalToolStripMenuItem";
             FlipHorizontalToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            FlipHorizontalToolStripMenuItem.Text = "Flip Horizontal";
+            FlipHorizontalToolStripMenuItem.Text = "水平翻转";
             FlipHorizontalToolStripMenuItem.Click += FlipHorizontalToolStripMenuItem_Click;
-            // 
-            // ButtonCrosshair
-            // 
-            ButtonCrosshair.Location = new System.Drawing.Point(199, 165);
-            ButtonCrosshair.Name = "ButtonCrosshair";
-            ButtonCrosshair.Size = new System.Drawing.Size(66, 22);
-            ButtonCrosshair.TabIndex = 16;
-            ButtonCrosshair.Text = "Crosshair";
-            ButtonCrosshair.UseVisualStyleBackColor = true;
-            ButtonCrosshair.Click += ButtonCrosshair_Click;
             // 
             // ArtworkGallery
             // 
@@ -734,7 +734,7 @@ namespace UoFiddler.Controls.Forms
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             MinimumSize = new System.Drawing.Size(900, 600);
             Name = "ArtworkGallery";
-            Text = "Artwork Gallery";
+            Text = "艺术作品画廊";
             KeyDown += ArtworkGallery_KeyDown;
             KeyUp += ArtworkGallery_KeyUp;
             splitContainerMain.Panel1.ResumeLayout(false);
@@ -760,7 +760,7 @@ namespace UoFiddler.Controls.Forms
 
         #endregion
 
-        // ── Field declarations ────────────────────────────────────────────────
+        // ── 字段声明 ────────────────────────────────────────────────
         private System.Windows.Forms.SplitContainer splitContainerMain;
         private System.Windows.Forms.Panel panelLeft;
 

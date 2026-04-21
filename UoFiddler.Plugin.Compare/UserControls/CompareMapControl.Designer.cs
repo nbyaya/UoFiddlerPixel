@@ -259,7 +259,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             // Load button
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Text = "Load";
+            this.toolStripButton2.Text = "加载";
             this.toolStripButton2.ToolTipText = "Load map and calculate differences";
             this.toolStripButton2.Click += new System.EventHandler(this.OnClickLoad);
 

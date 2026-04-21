@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: Turley
+ * $作者: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要你保留此声明，你可以随意使用本代码。
+ * 如果我们某天相遇，你觉得这个工具不错，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
     partial class CompareTextureControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 设计器必需的变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理正在使用的所有资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Plugin.Compare.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改 
+        /// 此方法的内容使用代码编辑器。
         /// </summary>
         private void InitializeComponent()
         {
@@ -180,27 +180,27 @@ namespace UoFiddler.Plugin.Compare.UserControls
             exportImageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { asBmpToolStripMenuItem, asTiffToolStripMenuItem });
             exportImageToolStripMenuItem.Name = "exportImageToolStripMenuItem";
             exportImageToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            exportImageToolStripMenuItem.Text = "Export Image..";
+            exportImageToolStripMenuItem.Text = "导出图片..";
             // 
             // asBmpToolStripMenuItem
             // 
             asBmpToolStripMenuItem.Name = "asBmpToolStripMenuItem";
             asBmpToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asBmpToolStripMenuItem.Text = "As Bmp";
+            asBmpToolStripMenuItem.Text = "BMP 格式";
             asBmpToolStripMenuItem.Click += ExportAsBmp;
             // 
             // asTiffToolStripMenuItem
             // 
             asTiffToolStripMenuItem.Name = "asTiffToolStripMenuItem";
             asTiffToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asTiffToolStripMenuItem.Text = "As Tiff";
+            asTiffToolStripMenuItem.Text = "TIFF 格式";
             asTiffToolStripMenuItem.Click += ExportAsTiff;
             // 
             // copyLandTile2To1ToolStripMenuItem
             // 
             copyLandTile2To1ToolStripMenuItem.Name = "copyLandTile2To1ToolStripMenuItem";
             copyLandTile2To1ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            copyLandTile2To1ToolStripMenuItem.Text = "Copy LandTile 2 to 1";
+            copyLandTile2To1ToolStripMenuItem.Text = "复制纹理贴图2到1";
             copyLandTile2To1ToolStripMenuItem.Click += OnClickCopy;
             // 
             // checkBox1
@@ -209,9 +209,9 @@ namespace UoFiddler.Plugin.Compare.UserControls
             checkBox1.Location = new System.Drawing.Point(343, 15);
             checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(143, 19);
+            checkBox1.Size = new System.Drawing.Size(101, 19);
             checkBox1.TabIndex = 6;
-            checkBox1.Text = "Show only Differences";
+            checkBox1.Text = "仅显示差异项";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.Click += OnChangeShowDiff;
             // 
@@ -223,7 +223,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(99, 29);
             button1.TabIndex = 5;
-            button1.Text = "Load Second";
+            button1.Text = "加载第二个文件";
             button1.UseVisualStyleBackColor = true;
             button1.Click += OnClickLoadSecond;
             // 
@@ -263,7 +263,6 @@ namespace UoFiddler.Plugin.Compare.UserControls
             btRemoveIdImage.Location = new System.Drawing.Point(740, 3);
             btRemoveIdImage.Name = "btRemoveIdImage";
             btRemoveIdImage.Size = new System.Drawing.Size(54, 55);
-            btRemoveIdImage.TabIndex = 11;
             btRemoveIdImage.UseVisualStyleBackColor = true;
             btRemoveIdImage.Click += btRemoveIdImage_Click;
             // 
@@ -273,7 +272,6 @@ namespace UoFiddler.Plugin.Compare.UserControls
             btMoveIdImage.Location = new System.Drawing.Point(685, 3);
             btMoveIdImage.Name = "btMoveIdImage";
             btMoveIdImage.Size = new System.Drawing.Size(54, 55);
-            btMoveIdImage.TabIndex = 10;
             btMoveIdImage.UseVisualStyleBackColor = true;
             btMoveIdImage.Click += btMoveIdImage_Click;
             // 
@@ -284,7 +282,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             CopyAddOnly.Name = "CopyAddOnly";
             CopyAddOnly.Size = new System.Drawing.Size(88, 27);
             CopyAddOnly.TabIndex = 9;
-            CopyAddOnly.Text = "Copy Added Only";
+            CopyAddOnly.Text = "仅复制新增项";//纹理
             CopyAddOnly.UseVisualStyleBackColor = true;
             CopyAddOnly.Click += CopyAddOnly_Click;
             // 
@@ -295,7 +293,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             FromLeftToRight.Name = "FromLeftToRight";
             FromLeftToRight.Size = new System.Drawing.Size(88, 27);
             FromLeftToRight.TabIndex = 8;
-            FromLeftToRight.Text = "Copy All Diff";
+            FromLeftToRight.Text = "复制所有差异";
             FromLeftToRight.UseVisualStyleBackColor = true;
             FromLeftToRight.Click += CopyAll_Click;
             // 

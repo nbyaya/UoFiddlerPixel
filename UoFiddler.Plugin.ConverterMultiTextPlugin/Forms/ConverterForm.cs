@@ -3,10 +3,10 @@
 //  * $Author: Nikodemus
 //  * 
 //  * 
-//  * \"THE BEER-WINE-WARE LICENSE\"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer and Wine in return.
+//  * \"啤酒-葡萄酒许可证\"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯啤酒和葡萄酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -32,25 +32,25 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             InitializeComponent();
         }
 
-        #region BtConverterBlack
+        #region 将黑色转换为自定义颜色
         private void BtConverterBlack_Click(object sender, EventArgs e)
         {
             ConvertColor(Color.White, Color.Black, "black");
         }
         #endregion
 
-        #region btConverterWhite
+        #region 将白色转换为自定义颜色
         private void BtConverterWhite_Click(object sender, EventArgs e)
         {
             ConvertColor(Color.Black, Color.White, "white");
         }
         #endregion
 
-        #region BtConverterCustom
+        #region 自定义颜色转换
         private void BtConverterCustom_Click(object sender, EventArgs e)
         {
             using var colorDialog = new ColorDialog();
-            // Load the custom colors from the application settings
+            // 从应用程序设置中加载自定义颜色
             string customColorsSetting = Properties.Settings.Default.CustomColors;
             if (!string.IsNullOrEmpty(customColorsSetting))
             {
@@ -66,7 +66,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 ConvertColor(Color.Black, newColor, folderName);
                 ConvertColor(Color.White, newColor, folderName);
 
-                // Save the custom colors in the application settings
+                // 将自定义颜色保存到应用程序设置中
                 customColorsSetting = string.Join(",", colorDialog.CustomColors);
                 Properties.Settings.Default.CustomColors = customColorsSetting;
                 Properties.Settings.Default.Save();
@@ -74,7 +74,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         }
         #endregion
 
-        #region ConvertColor
+        #region 颜色转换方法
         private static void ConvertColor(Color fromColor, Color toColor, string folderName)
         {
             using var fbd = new FolderBrowserDialog();
@@ -83,13 +83,13 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 string directoryPath = fbd.SelectedPath;
                 string newDirectoryPath = Path.Combine(directoryPath, folderName);
-                // Creates the new directory if it does not exist
+                // 如果新目录不存在则创建
                 if (!Directory.Exists(newDirectoryPath))
                 {
                     Directory.CreateDirectory(newDirectoryPath);
                 }
 
-                int count = 0; // Counter for processed images
+                int count = 0; // 已处理图像计数器
 
                 foreach (var filePath in Directory.GetFiles(directoryPath))
                 {
@@ -108,23 +108,23 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                                 }
                             }
                         }
-                        // Saves the image in the new directory
+                        // 将图像保存到新目录
                         string newFilePath = Path.Combine(newDirectoryPath, Path.GetFileName(filePath));
                         img.Save(newFilePath);
-                        count++; // Increment the counter
+                        count++; // 增加计数器
                     }
                 }
-                MessageBox.Show($"{count} images have been successfully processed!");
+                MessageBox.Show($"{count} 张图像已成功处理！");
             }
         }
 
         #endregion
 
-        #region btnOpenColorDialog
+        #region 打开颜色对话框
         private void BtnOpenColorDialog_Click(object sender, EventArgs e)
         {
             using var colorDialog = new ColorDialog();
-            // Load the custom colors from the application settings
+            // 从应用程序设置中加载自定义颜色
             string customColorsSetting = Properties.Settings.Default.CustomColors;
             if (!string.IsNullOrEmpty(customColorsSetting))
             {
@@ -134,7 +134,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
-                // Save the custom colors in the application settings
+                // 将自定义颜色保存到应用程序设置中
                 customColorsSetting = string.Join(",", colorDialog.CustomColors);
                 Properties.Settings.Default.CustomColors = customColorsSetting;
                 Properties.Settings.Default.Save();
@@ -142,7 +142,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         }
         #endregion
 
-        #region btMirrorImages
+        #region 镜像图像
         private void BtMirrorImages_Click(object sender, EventArgs e)
         {
             using var fbd = new FolderBrowserDialog();
@@ -153,13 +153,13 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 string directoryPath = fbd.SelectedPath;
                 string newDirectoryPath = Path.Combine(directoryPath, "mirror");
 
-                // Creates the new directory if it does not exist
+                // 如果新目录不存在则创建
                 if (!Directory.Exists(newDirectoryPath))
                 {
                     Directory.CreateDirectory(newDirectoryPath);
                 }
 
-                int count = 0; // Counter for processed images
+                int count = 0; // 已处理图像计数器
 
                 foreach (var filePath in Directory.GetFiles(directoryPath))
                 {
@@ -170,20 +170,20 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                         using var img = (Bitmap)Image.FromFile(filePath);
                         img.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
-                        // Saves the mirrored image in the new directory
+                        // 将镜像后的图像保存到新目录
                         string newFilePath = Path.Combine(newDirectoryPath, Path.GetFileName(filePath));
                         img.Save(newFilePath);
 
-                        count++; // Increment the counter
+                        count++; // 增加计数器
                     }
                 }
 
-                MessageBox.Show($"{count} images have been successfully mirrored!");
+                MessageBox.Show($"{count} 张图像已成功镜像！");
             }
         }
         #endregion
 
-        #region btConverterTransparent
+        #region 将黑色/白色转换为透明
         private void BtConverterTransparent_Click(object sender, EventArgs e)
         {
             using var fbd = new FolderBrowserDialog();
@@ -194,7 +194,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 string directoryPath = fbd.SelectedPath;
                 string newDirectoryPath = Path.Combine(directoryPath, "transparent");
 
-                // Creates the new directory if it does not exist
+                // 如果新目录不存在则创建
                 if (!Directory.Exists(newDirectoryPath))
                 {
                     Directory.CreateDirectory(newDirectoryPath);
@@ -206,10 +206,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         }
         #endregion
 
-        #region ConvertColorToTransparent
+        #region 将指定颜色转换为透明
         private static void ConvertColorToTransparent(string directoryPath, string newDirectoryPath, Color fromColor)
         {
-            int count = 0; // Counter for processed images
+            int count = 0; // 已处理图像计数器
 
             foreach (var filePath in Directory.GetFiles(directoryPath))
             {
@@ -222,20 +222,20 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
                     bitmap.MakeTransparent(fromColor);
 
-                    // Saves the image in the new directory
+                    // 将图像保存到新目录
                     string newFilePath = Path.Combine(newDirectoryPath, Path.GetFileName(filePath));
                     bitmap.Save(newFilePath);
 
-                    count++; // Increment the counter
+                    count++; // 增加计数器
                 }
             }
 
-            MessageBox.Show($"{count} images were processed successfully!");
+            MessageBox.Show($"{count} 张图像已成功处理！");
         }
 
         #endregion
 
-        #region btRotateImages
+        #region 旋转图像
         private void BtRotateImages_Click(object sender, EventArgs e)
         {
             using var fbd = new FolderBrowserDialog();
@@ -249,10 +249,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         }
         #endregion
 
-        #region RotateImages
+        #region 旋转图像方法
         private static void RotateImages(string directoryPath)
         {
-            int count = 0; // Counter for processed images
+            int count = 0; // 已处理图像计数器
 
             foreach (var filePath in Directory.GetFiles(directoryPath))
             {
@@ -261,26 +261,26 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 if (extension == ".bmp" || extension == ".png" || extension == ".jpg" || extension == ".tiff")
                 {
                     using var img = Image.FromFile(filePath);
-                    // Rotate the image 90 degrees to the left
+                    // 将图像向左旋转 90 度
                     img.RotateFlip(RotateFlipType.Rotate270FlipNone);
 
-                    // Save the rotated image
+                    // 保存旋转后的图像
                     img.Save(filePath);
 
-                    count++; // Increment the counter
+                    count++; // 增加计数器
                 }
             }
 
-            MessageBox.Show($"{count} images have been successfully rotated!");
+            MessageBox.Show($"{count} 张图像已成功旋转！");
         }
         #endregion
 
-        #region btConvert
+        #region 转换图像格式
         private void BtConvert_Click(object sender, EventArgs e)
         {
             if (comboBoxFileType.SelectedItem == null)
             {
-                MessageBox.Show("Please select a file type from the drop down list.");
+                MessageBox.Show("请从下拉列表中选择文件类型。");
                 return;
             }
 
@@ -294,13 +294,13 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 string directoryPath = fbd.SelectedPath;
                 string newDirectoryPath = Path.Combine(directoryPath, selectedFileType);
 
-                // Creates the new directory if it does not exist
+                // 如果新目录不存在则创建
                 if (!Directory.Exists(newDirectoryPath))
                 {
                     Directory.CreateDirectory(newDirectoryPath);
                 }
 
-                int count = 0; // Counter for processed images
+                int count = 0; // 已处理图像计数器
 
                 foreach (var filePath in Directory.GetFiles(directoryPath))
                 {
@@ -309,20 +309,20 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     if (extension == ".bmp" || extension == ".png" || extension == ".jpg" || extension == ".tiff")
                     {
                         using var img = Image.FromFile(filePath);
-                        // Saves the image in the new directory with selected format
+                        // 将图像以所选格式保存到新目录
                         string newFilePath = Path.Combine(newDirectoryPath, Path.GetFileNameWithoutExtension(filePath) + $".{selectedFileType}");
                         img.Save(newFilePath, GetImageFormat(selectedFileType));
 
-                        count++; // Increment the counter
+                        count++; // 增加计数器
                     }
                 }
 
-                MessageBox.Show($"{count} images have been successfully converted to .{selectedFileType} format!");
+                MessageBox.Show($"{count} 张图像已成功转换为 .{selectedFileType} 格式！");
             }
         }
         #endregion
 
-        #region ImageFormat
+        #region 获取图像格式
         private static ImageFormat GetImageFormat(string fileType)
         {
             return fileType.ToLower() switch

@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: Turley
+ * $作者: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要你保留此声明，你可以随意使用本代码。
+ * 如果我们某天相遇，你觉得这个工具不错，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
     partial class CompareLandControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 设计器必需的变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理正在使用的所有资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Plugin.Compare.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 此方法的内容使用代码编辑器。
         /// </summary>
         private void InitializeComponent()
         {
@@ -181,27 +181,27 @@ namespace UoFiddler.Plugin.Compare.UserControls
             exportImageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { asBmpToolStripMenuItem, asTiffToolStripMenuItem });
             exportImageToolStripMenuItem.Name = "exportImageToolStripMenuItem";
             exportImageToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            exportImageToolStripMenuItem.Text = "Export Image..";
+            exportImageToolStripMenuItem.Text = "导出图片..";
             // 
             // asBmpToolStripMenuItem
             // 
             asBmpToolStripMenuItem.Name = "asBmpToolStripMenuItem";
             asBmpToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asBmpToolStripMenuItem.Text = "As Bmp";
+            asBmpToolStripMenuItem.Text = "BMP 格式";
             asBmpToolStripMenuItem.Click += ExportAsBmp;
             // 
             // asTiffToolStripMenuItem
             // 
             asTiffToolStripMenuItem.Name = "asTiffToolStripMenuItem";
             asTiffToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asTiffToolStripMenuItem.Text = "As Tiff";
+            asTiffToolStripMenuItem.Text = "TIFF 格式";
             asTiffToolStripMenuItem.Click += ExportAsTiff;
             // 
             // copyLandTile2To1ToolStripMenuItem
             // 
             copyLandTile2To1ToolStripMenuItem.Name = "copyLandTile2To1ToolStripMenuItem";
             copyLandTile2To1ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            copyLandTile2To1ToolStripMenuItem.Text = "Copy LandTile 2 to 1";
+            copyLandTile2To1ToolStripMenuItem.Text = "复制地形贴图2到1";
             copyLandTile2To1ToolStripMenuItem.Click += OnClickCopy;
             // 
             // checkBox1
@@ -210,9 +210,9 @@ namespace UoFiddler.Plugin.Compare.UserControls
             checkBox1.Location = new System.Drawing.Point(326, 18);
             checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(143, 19);
+            checkBox1.Size = new System.Drawing.Size(101, 19);
             checkBox1.TabIndex = 6;
-            checkBox1.Text = "Show only Differences";
+            checkBox1.Text = "仅显示差异项";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.Click += OnChangeShowDiff;
             // 
@@ -224,7 +224,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(99, 29);
             button1.TabIndex = 5;
-            button1.Text = "Load Second";
+            button1.Text = "加载第二个文件";
             button1.UseVisualStyleBackColor = true;
             button1.Click += OnClickLoadSecond;
             // 
@@ -265,7 +265,6 @@ namespace UoFiddler.Plugin.Compare.UserControls
             btmultipleImageID.Location = new System.Drawing.Point(527, 4);
             btmultipleImageID.Name = "btmultipleImageID";
             btmultipleImageID.Size = new System.Drawing.Size(53, 50);
-            btmultipleImageID.TabIndex = 12;
             btmultipleImageID.UseVisualStyleBackColor = true;
             btmultipleImageID.Click += btmultipleImageID_Click;
             // 
@@ -274,9 +273,9 @@ namespace UoFiddler.Plugin.Compare.UserControls
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(639, 10);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(69, 15);
+            label1.Size = new System.Drawing.Size(68, 15);
             label1.TabIndex = 11;
-            label1.Text = "Hex Adress:";
+            label1.Text = "十六进制地址:";
             // 
             // tbSearchHex
             // 
@@ -292,7 +291,6 @@ namespace UoFiddler.Plugin.Compare.UserControls
             btRemoveImageId.Location = new System.Drawing.Point(578, 4);
             btRemoveImageId.Name = "btRemoveImageId";
             btRemoveImageId.Size = new System.Drawing.Size(55, 50);
-            btRemoveImageId.TabIndex = 9;
             btRemoveImageId.UseVisualStyleBackColor = true;
             btRemoveImageId.Click += btRemoveImageId_Click;
             // 
@@ -302,7 +300,6 @@ namespace UoFiddler.Plugin.Compare.UserControls
             btmoveItemtoId.Location = new System.Drawing.Point(476, 4);
             btmoveItemtoId.Name = "btmoveItemtoId";
             btmoveItemtoId.Size = new System.Drawing.Size(54, 50);
-            btmoveItemtoId.TabIndex = 8;
             btmoveItemtoId.UseVisualStyleBackColor = true;
             btmoveItemtoId.Click += btmoveItemtoId_Click;
             // 

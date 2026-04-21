@@ -2,10 +2,10 @@
 //  *
 //  * $Author: Turley
 //  * 
-//  * "THE BEER-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer in return.
+//  * "啤酒许可证"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯啤酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
     partial class CalendarForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -74,7 +74,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbCalendarWeek.Name = "lbCalendarWeek";
             lbCalendarWeek.Size = new System.Drawing.Size(82, 15);
             lbCalendarWeek.TabIndex = 1;
-            lbCalendarWeek.Text = "calendar week";
+            lbCalendarWeek.Text = "日历周";
             // 
             // lbDate
             // 
@@ -83,7 +83,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbDate.Name = "lbDate";
             lbDate.Size = new System.Drawing.Size(31, 15);
             lbDate.TabIndex = 2;
-            lbDate.Text = "Date";
+            lbDate.Text = "日期";
             // 
             // lbTime
             // 
@@ -92,7 +92,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbTime.Name = "lbTime";
             lbTime.Size = new System.Drawing.Size(33, 15);
             lbTime.TabIndex = 3;
-            lbTime.Text = "Time";
+            lbTime.Text = "时间";
             // 
             // lbDaysTo
             // 
@@ -101,7 +101,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbDaysTo.Name = "lbDaysTo";
             lbDaysTo.Size = new System.Drawing.Size(32, 15);
             lbDaysTo.TabIndex = 5;
-            lbDaysTo.Text = "Days";
+            lbDaysTo.Text = "天数";
             // 
             // lbWeekendDays
             // 
@@ -110,7 +110,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbWeekendDays.Name = "lbWeekendDays";
             lbWeekendDays.Size = new System.Drawing.Size(84, 15);
             lbWeekendDays.TabIndex = 6;
-            lbWeekendDays.Text = "Weekend Days";
+            lbWeekendDays.Text = "周末天数";
             // 
             // lbWorkingDays
             // 
@@ -119,7 +119,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbWorkingDays.Name = "lbWorkingDays";
             lbWorkingDays.Size = new System.Drawing.Size(80, 15);
             lbWorkingDays.TabIndex = 7;
-            lbWorkingDays.Text = "Working Days";
+            lbWorkingDays.Text = "工作日天数";
             // 
             // CalendarForm
             // 
@@ -138,7 +138,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "CalendarForm";
-            Text = "Calendar ";
+            Text = "日历";
             ResumeLayout(false);
             PerformLayout();
         }

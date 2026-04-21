@@ -33,7 +33,7 @@ namespace UoFiddler.Forms
             }
             catch
             {
-                // Invalid Input
+                // 无效输入
             }
         }
 
@@ -48,7 +48,7 @@ namespace UoFiddler.Forms
             }
             catch
             {
-                // Invalid Input
+                // 无效输入
             }
         }
 
@@ -63,7 +63,7 @@ namespace UoFiddler.Forms
             }
             catch
             {
-                // Invalid Input
+                // 无效输入
             }
         }
 
@@ -268,9 +268,9 @@ namespace UoFiddler.Forms
 
         private void UpdateListing()
         {
-            tb_listing.AppendText($"Binary: {textBoxBinär.Text}\r\n");
-            tb_listing.AppendText($"Decimal: {textBoxDecimal.Text}\r\n");
-            tb_listing.AppendText($"Hexadecimal: {textBoxHexdezimal.Text}\r\n");
+            tb_listing.AppendText($"二进制: {textBoxBinär.Text}\r\n");
+            tb_listing.AppendText($"十进制: {textBoxDecimal.Text}\r\n");
+            tb_listing.AppendText($"十六进制: {textBoxHexdezimal.Text}\r\n");
             tb_listing.AppendText("\r\n");
         }
 
@@ -279,14 +279,14 @@ namespace UoFiddler.Forms
             tb_listing.Clear();
         }
 
-        // Save Position User.config
+        // 保存位置到 User.config
         private void Bin_Dec_Hex_ConverterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Properties.Settings.Default.FormBinDecHexConverter = this.Location;
             Properties.Settings.Default.Save();
         }
 
-        //Load Postion
+        //加载位置
         private void Bin_Dec_Hex_ConverterForm_Load(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.FormBinDecHexConverter != Point.Empty)

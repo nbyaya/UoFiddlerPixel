@@ -2,10 +2,10 @@
 //  *
 //  * $Author: Turley
 //  * 
-//  * "THE BEER-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer in return.
+//  * "啤酒许可证"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯啤酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -24,24 +24,24 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 {
     public partial class DecriptClientForm : Form
     {
-        private static string m_ClientFileLocation = AppDomain.CurrentDomain.BaseDirectory; // App's working directory
-        //string CLIENT = "client.exe";  // Name of un-decrypted client file
-        private static byte[] bytes;    // Byte array client's read into
-        public static long FileSize;    // Length of the client read into the byte arra
+        private static string m_ClientFileLocation = AppDomain.CurrentDomain.BaseDirectory; // 应用程序的工作目录
+        //string CLIENT = "client.exe";  // 未解密的客户端文件名
+        private static byte[] bytes;    // 读取客户端的字节数组
+        public static long FileSize;    // 读入字节数组的客户端长度
 
         public DecriptClientForm()
         {
             InitializeComponent();
         }
 
-        // Read in the client file
+        // 读取客户端文件
         private void ReadClientFile(string clientFilePath)
         {
-            LAB_StatusIS.Text = "Reading Client...";
+            LAB_StatusIS.Text = "正在读取客户端...";
 
             try
             {
-                // Die Verwendung von clientFilePath anstelle von "client.exe"
+                // 使用 clientFilePath 而不是 "client.exe"
                 using (FileStream fStream = File.OpenRead(clientFilePath))
                 {
                     FileSize = fStream.Length;
@@ -50,33 +50,33 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     fStream.Read(bytes, 0, bytes.Length);
                     fStream.Close();
 
-                    LAB_StatusIS.Text = "Removing Encryption...";
+                    LAB_StatusIS.Text = "正在移除加密...";
 
                     RemoveEncryption(bytes, FileSize);
 
-                    LAB_StatusIS.Text = "Patching Multi Client Stuff...";
+                    LAB_StatusIS.Text = "正在修补多客户端相关功能...";
                     MultiClientPatch();
 
-                    // Verwendung von Path.GetDirectoryName(clientFilePath)
+                    // 使用 Path.GetDirectoryName(clientFilePath)
                     string decryptedClientFilePath = Path.Combine(Path.GetDirectoryName(clientFilePath), "Decrypted_client.exe");
 
-                    LAB_StatusIS.Text = "Writing new client file...";
+                    LAB_StatusIS.Text = "正在写入新的客户端文件...";
                     using (FileStream foStream = File.OpenWrite(decryptedClientFilePath))
                     {
                         foStream.Write(bytes, 0, bytes.Length);
                     }
 
-                    LAB_StatusIS.Text = "Decrypted Client.exe Created.";
+                    LAB_StatusIS.Text = "已创建解密后的 Client.exe。";
                 }
             }
             catch (IOException)
             {
-                LAB_StatusIS.Text = "File I/O ERROR !!!";
+                LAB_StatusIS.Text = "文件 I/O 错误！！！";
             }
         }
 
-        // Crypt Stuff starts from here...
-        #region Multi Client Patch
+        // 加密处理从这里开始...
+        #region 多客户端补丁
 
         private static bool FindSignatureOffset(byte[] signature, byte[] buffer, out int offset)
         {
@@ -105,14 +105,14 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
         private static bool ErrorCheckPatch(byte[] fileBuffer)
         {
-            /* Patches the following check:
-	     * GetLastError returns non-zero */
+            /* 修补以下检查：
+             * GetLastError 返回非零值 */
 
             byte[] oldClientSig = new byte[] { 0x85, 0xC0, 0x75, 0x2F, 0xBF };
             byte[] newClientSig = new byte[] { 0x85, 0xC0, 0x5F, 0x5E, 0x75, 0x2F };
             int offset;
 
-            if (FindSignatureOffset(oldClientSig, fileBuffer, out offset)) //signature = target bytes, so no check necessary
+            if (FindSignatureOffset(oldClientSig, fileBuffer, out offset)) //signature = 目标字节，因此无需额外检查
             {
                 //XOR AX, AX
                 fileBuffer[offset] = 0x66;
@@ -122,7 +122,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 return true;
             }
 
-            if (FindSignatureOffset(newClientSig, fileBuffer, out offset)) //signature = target bytes, so no check necessary
+            if (FindSignatureOffset(newClientSig, fileBuffer, out offset)) //signature = 目标字节，因此无需额外检查
             {
                 fileBuffer[offset + 4] = 0x90;
                 fileBuffer[offset + 5] = 0x90;
@@ -134,8 +134,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
         private static bool SingleCheckPatch(byte[] fileBuffer)
         {
-            /* Patches the following check:
-	     * "Another copy of UO is already running!" */
+            /* 修补以下检查：
+             * "Another copy of UO is already running!" */
 
             byte[] oldClientSig = new byte[] { 0xC7, 0x44, 0x24, 0x10, 0x11, 0x01, 0x00, 0x00 };
             byte[] newClientSig = new byte[] { 0x83, 0xC4, 0x04, 0x33, 0xDB, 0x53, 0x50 };
@@ -150,7 +150,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 }
                 else
                 {
-                    // Single check signature found, but actual byte differs from expected.  Aborting.
+                    // 找到了单实例检查签名，但实际字节与预期不符。中止。
                     return false;
                 }
             }
@@ -164,7 +164,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 }
                 else
                 {
-                    // Single check signature found, but actual byte differs from expected.  Aborting.
+                    // 找到了单实例检查签名，但实际字节与预期不符。中止。
                     return false;
                 }
             }
@@ -174,10 +174,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
         private static bool TripleCheckPatch(byte[] fileBuffer)
         {
-            /* Patches following checks:
-	     * "Another instance of UO may already be running."
-	     * "Another instance of UO is already running."
-	     * "An instance of UO Patch is already running." */
+            /* 修补以下检查：
+             * "Another instance of UO may already be running."
+             * "Another instance of UO is already running."
+             * "An instance of UO Patch is already running." */
 
             byte[] oldClientSig = new byte[] { 0xFF, 0xD6, 0x6A, 0x01, 0xFF, 0xD7, 0x68 };
             byte[] newClientSig = new byte[] { 0x3B, 0xC3, 0x89, 0x44, 0x24, 0x08 };
@@ -194,7 +194,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 }
                 else
                 {
-                    // Triple check signature found, but actual bytes differ from expected.  Aborting.
+                    // 找到了三重检查签名，但实际字节与预期不符。中止。
                     return false;
                 }
             }
@@ -210,7 +210,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 }
                 else
                 {
-                    // Triple check signature found, but actual bytes differ from expected.  Aborting.
+                    // 找到了三重检查签名，但实际字节与预期不符。中止。
                     return false;
                 }
             }
@@ -222,28 +222,28 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             if (!TripleCheckPatch(bytes))
             {
-                // Triple check signature not found. Aborting.
+                // 未找到三重检查签名。中止。
                 return;
             }
             if (!SingleCheckPatch(bytes))
             {
-                // Single check signature not found. Aborting.
+                // 未找到单实例检查签名。中止。
                 return;
             }
             if (!ErrorCheckPatch(bytes))
             {
-                // Error check signature not found. Aborting.
+                // 未找到错误检查签名。中止。
                 return;
             }
 
-            this.LAB_StatusIS.Text = "Multi Client Patching...Done";
+            this.LAB_StatusIS.Text = "多客户端修补...完成";
         }
 
         #endregion
 
         private void RemoveEncryption(byte[] InClient, long InClientLength)
         {
-            // These are the Signatures to search for LOGIN ENCRYPTIONS
+            // 以下是要搜索的登录加密签名
             byte[] CryptSig = { 0x81, 0xF9, 0x00, 0x00, 0x01, 0x00, 0x0F, 0x8F };
             byte[] CryptSigNew = { 0x00, 0x00, 0x00, 0x00, 0x75, 0x12, 0x8b, 0x54 };
             byte[] JNZSig = { 0x0F, 0x85 };
@@ -251,18 +251,18 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             int CryptPos = -1, CryptPosNew = -1, JNZPos = -1, JEPos = -1, NewClient = -1;
 
-            /* for game encryption */
+            /* 用于游戏加密 */
             byte[] BFGamecryptSig = { 0x2C, 0x52, 0x00, 0x00, 0x76 }; /* CMP XXX, 522c - JBE */
             byte[] CmpSig = { 0x3B, 0xC3, 0x0F, 0x84 }; /* CMP EAX,EBX - JE */
             int BFGamecryptPos = -1, CmpPos = -1;
 
-            /* RTD: make sure the JE 0x10 and JE 0x9X000000 stays like that, if not... I have to find a new way */
+            /* RTD: 确保 JE 0x10 和 JE 0x9X000000 保持不变，否则... 我需要找到新的方法 */
             byte[] TFGamecryptSig = { 0x8B, 0x8B, 0xCC, 0xCC, 0xCC, 0xCC, 0x81, 0xF9, 0x00, 0x01, 0x00, 0x00, 0x74, 0x10 }; /* MOV EBX, XXX - CMP ECX, 0x100 - JE 0x10 */
             byte[] TFGamecryptSigNew = { 0x74, 0x0f, 0x83, 0xb9, 0xb4, 0x00, 0x00, 0x00, 0x00 };
             byte[] JELong = { 0x0F, 0x84, 0xCC, 0x00, 0x00, 0x00, 0x55 }; /* JE XX000000 -  */
             int TFGamecryptPos = -1, TFGamecryptPosNew = -1, GJEPos = -1;
 
-            /* for game decryption */
+            /* 用于游戏解密 */
             byte[] DecryptSig = { 0x4A, 0x83, 0xCA, 0xF0, 0x42, 0x8A, 0x94, 0x32 };
             byte[] DectestSig = { 0x85, 0xCC, 0x74, 0xCC, 0x33, 0xCC, 0x85, 0xCC, 0x7E, 0xCC };
             byte[] DecryptSigNew = { 0x00, 0x00, 0x74, 0x37, 0x83, 0xbe, 0xb4, 0x00, 0x00, 0x00, 0x00 };
@@ -292,13 +292,13 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbMessagePosOld.Text = "MessagePosOld: " + MessagePosOld;
             lbMessagePos09.Text = "MessagePos09: " + MessagePos09;
 
-            // ***** Start to search for LOGIN ENCRYPTION... *****
-            // magic x90 encryption signature: 81 f9 00 00 01 00 0f 8f
-            // patching : find the first 0f 84 bellow and change it to 0f 85
-            // or first 0f 85 and change it to 0f 84
+            // ***** 开始搜索登录加密... *****
+            // magic x90 加密签名: 81 f9 00 00 01 00 0f 8f
+            // 修补方法：找到下面的第一个 0f 84 并将其改为 0f 85
+            // 或第一个 0f 85 并将其改为 0f 84
             CryptPos = ScanClient(0x100, CryptSig, InClient, InClientLength, 8, 0);
 
-            // If was not found, try looking for the new signature
+            // 如果未找到，尝试查找新签名
             if (CryptPos == -1)
             {
                 CryptPosNew = ScanClient(0x100, CryptSigNew, InClient, InClientLength, 8, 0);
@@ -306,7 +306,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             if (CryptPos != -1 && CryptPosNew != -1)
             {
-                this.LAB_StatusIS.Text = "Can't find a login signature in this file ???";
+                this.LAB_StatusIS.Text = "在此文件中找不到登录签名???";
             }
             else
             {
@@ -318,43 +318,43 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     if (JEPos > JNZPos)
                     {
                         bytes[JNZPos + 1] = 0x84;
-                        this.LAB_StatusIS.Text = string.Format("Patching with JE (0x0F 0x84) - (15 132) @{0:X} - ({1})", JNZPos, JNZPos.ToString());
+                        this.LAB_StatusIS.Text = string.Format("使用 JE (0x0F 0x84) - (15 132) 修补 @{0:X} - ({1})", JNZPos, JNZPos.ToString());
                     }
                     else if (JNZPos > JEPos)
                     {
                         bytes[JNZPos + 1] = 0x85;
-                        this.LAB_StatusIS.Text = string.Format("Patching with JNZ (0x0F 0x85) - (15 133) @{0:X} - ({1})", JEPos, JEPos.ToString());
+                        this.LAB_StatusIS.Text = string.Format("使用 JNZ (0x0F 0x85) - (15 133) 修补 @{0:X} - ({1})", JEPos, JEPos.ToString());
                     }
                 }
                 else if (CryptPosNew != -1)
                 {
                     bytes[CryptPosNew + 4] = 0xEB;
-                    this.LAB_StatusIS.Text = string.Format("Patching with (0xEB) - (235) @{0:X} - ({1})", (CryptPosNew + 4), (CryptPosNew + 4).ToString());
+                    this.LAB_StatusIS.Text = string.Format("使用 (0xEB) - (235) 修补 @{0:X} - ({1})", (CryptPosNew + 4), (CryptPosNew + 4).ToString());
                     NewClient = 1;
                 }
             }
 
             /*
-	     * BLOWFISH
-	     * this is simply "lost" inside the "send" function, just above it
-	     * it looks like:
-	     * if(GameMode != LOGIN_SOCKET) ;game socket
-	     * {
-	     *    BlowfishEncrypt() ;starts with a (while > 0x522c)
-	     *    ;a whole bunch of other stuff
-	     *    TwofishEncrypt() ;if present
-	     *    send()
-	     * }
-	     * else ;login socket
-	     *    send() ;yay, a send that bypasses all the encryption crap
-	     *
-	     * find the beginning of the loop while(Obj->stream_pos + len > CRYPT_GAMETABLE_TRIGGER)
-	     * CRYPT_GAMETABLE_TRIGGER is 0x522c
-	     * find the first CMP EAX,EBX-JE above and patch it to CMP EAX,EAX
-	     */
+             * BLOWFISH
+             * 这简单的“丢失”在“发送”函数内部，就在它的上方
+             * 看起来像：
+             * if(GameMode != LOGIN_SOCKET) ;游戏套接字
+             * {
+             *    BlowfishEncrypt() ;以一个 while (> 0x522c) 开始
+             *    ;一堆其他东西
+             *    TwofishEncrypt() ;如果存在
+             *    send()
+             * }
+             * else ;登录套接字
+             *    send() ;yay, 一个绕过所有加密垃圾的发送
+             *
+             * 找到循环的开始 while(Obj->stream_pos + len > CRYPT_GAMETABLE_TRIGGER)
+             * CRYPT_GAMETABLE_TRIGGER 是 0x522c
+             * 找到上面的第一个 CMP EAX,EBX-JE 并将其修补为 CMP EAX,EAX
+             */
 
             BFGamecryptPos = ScanClient(0x100, BFGamecryptSig, InClient, InClientLength, 5, 0);
-            // FIX ? PROBABLY NEED TO REMOVE
+            // 修复？可能需要删除
             if (BFGamecryptPos != -1)
             {
                 CmpPos = ScanClient(0x100, CmpSig, InClient, InClientLength, 4, BFGamecryptPos - 0x20);
@@ -362,22 +362,22 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             if (BFGamecryptPos == -1 || CmpPos == -1)
             {
-                this.LAB_StatusIS.Text = "Can't find the blowfish signature";
+                this.LAB_StatusIS.Text = "找不到 blowfish 签名";
             }
             else
             {
                 bytes[CmpPos + 1] = 0xC0;
-                this.LAB_StatusIS.Text = string.Format("Patching with CMP (0xC0) - (192) @{0:X} - ({1})", CmpPos, CmpPos.ToString());
+                this.LAB_StatusIS.Text = string.Format("使用 CMP (0xC0) - (192) 修补 @{0:X} - ({1})", CmpPos, CmpPos.ToString());
             }
 
             /*
-	     * TWOFISH
-	     * patch the encryption function to skip encryption
-	     * the function is always called before send
-	     *
-	     * find the beginning of the loop and the first JE above it
-	     * patch the JE (0x84) to JNE (0x85)
-	     */
+             * TWOFISH
+             * 修补加密函数以跳过加密
+             * 该函数总是在发送之前被调用
+             *
+             * 找到循环的开始以及它上面的第一个 JE
+             * 将 JE (0x84) 修补为 JNE (0x85)
+             */
 
             TFGamecryptPos = ScanClient(0xCC, TFGamecryptSig, InClient, InClientLength, 14, 0);
             if (TFGamecryptPos != -1)
@@ -389,37 +389,37 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             if (TFGamecryptPos == -1 && GJEPos == -1 && TFGamecryptPosNew == -1)
             {
-                this.LAB_StatusIS.Text = "Can't find old OR new Twofish signatures";
+                this.LAB_StatusIS.Text = "找不到旧的或新的 Twofish 签名";
             }
             else
             {
                 if (TFGamecryptPos != -1 && GJEPos != -1)
                 {
                     bytes[GJEPos + 1] = 0x85;
-                    this.LAB_StatusIS.Text = string.Format("Patching (old TF) with JNZ (0x85) - (133) @{0:X} - ({1})", (GJEPos + 1), (GJEPos + 1).ToString());
+                    this.LAB_StatusIS.Text = string.Format("使用 JNZ (0x85) - (133) 修补（旧 TF） @{0:X} - ({1})", (GJEPos + 1), (GJEPos + 1).ToString());
                 }
                 else if (TFGamecryptPosNew != -1)
                 {
                     bytes[TFGamecryptPosNew] = 0xEB;
-                    this.LAB_StatusIS.Text = string.Format("Patching (new TF) with (0xEB) - (235) @{0:X} - ({1})", TFGamecryptPosNew, TFGamecryptPosNew.ToString());
+                    this.LAB_StatusIS.Text = string.Format("使用 (0xEB) - (235) 修补（新 TF） @{0:X} - ({1})", TFGamecryptPosNew, TFGamecryptPosNew.ToString());
                 }
             }
 
-            /* GAMEENCRYPTION END */
+            /* 游戏加密结束 */
 
-            /* GAMEDECRYPTION START (now for the easy part) */
+            /* 游戏解密开始（现在是简单的部分） */
 
             /*
-	     * search for 4A 83 CA F0 42 8A 94 32
-	     * and above it, 85 xx 74 xx 33 xx 85 xx 7E xx
-	     * the first TEST (85 xx) must be cracked to CMP EAX, EAX (3B C0)
-	     * if I want to do it like LB does in UORice, I'd crack
-	     * the first CMP xx JMP xx (85 xx 74 xx) to CMP EAX, EAX (3B C0)
-	     * which is bellow the one I crack
-	     */
+             * 搜索 4A 83 CA F0 42 8A 94 32
+             * 并在其上方，85 xx 74 xx 33 xx 85 xx 7E xx
+             * 第一个 TEST (85 xx) 必须破解为 CMP EAX, EAX (3B C0)
+             * 如果我想像 UORice 中的 LB 那样做，我会破解
+             * 第一个 CMP xx JMP xx (85 xx 74 xx) 为 CMP EAX, EAX (3B C0)
+             * 这在我破解的那个下面
+             */
 
-            /* find 4A 83 CA F0 42 8A 94 32 */
-            /* find the TEST above it (not the one right above that is) */
+            /* 找到 4A 83 CA F0 42 8A 94 32 */
+            /* 找到它上面的 TEST（不是正上方的那个）*/
 
             DecryptPos = ScanClient(0x100, DecryptSig, InClient, InClientLength, 8, 0);
             DecryptPosNew = ScanClient(0x100, DecryptSigNew, InClient, InClientLength, 11, 0);
@@ -430,30 +430,30 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             if (DecryptPos == -1 && DectestPos == -1 && DecryptPosNew == -1)
             {
-                this.LAB_StatusIS.Text = "Can't find any MD5 Decrypt signatures ???";
+                this.LAB_StatusIS.Text = "找不到任何 MD5 解密签名???";
             }
             else
             {
                 if (NewClient == -1)
                 {
                     bytes[DectestPos] = 0x3B;
-                    this.LAB_StatusIS.Text = string.Format("Patching old MD5 with CMP (0x3B) - (59) @{0:X} - ({1})", DectestPos, DectestPos.ToString());
+                    this.LAB_StatusIS.Text = string.Format("使用 CMP (0x3B) - (59) 修补旧的 MD5 @{0:X} - ({1})", DectestPos, DectestPos.ToString());
                 }
                 else if (NewClient == 1)
                 {
                     bytes[DecryptPosNew + 2] = 0xEB;
-                    this.LAB_StatusIS.Text = string.Format("Patching (new MD5 (D2+2)) with (0xEB) - (235) @{0:X} - ({1})", DecryptPosNew, DecryptPosNew.ToString());
+                    this.LAB_StatusIS.Text = string.Format("使用 (0xEB) - (235) 修补（新 MD5 (D2+2)） @{0:X} - ({1})", DecryptPosNew, DecryptPosNew.ToString());
                 }
             }
 
-            this.LAB_StatusIS.Text = "Client Decryption Done...";
+            this.LAB_StatusIS.Text = "客户端解密完成...";
         }
         private int ScanClient(int FlexByte, byte[] signature, byte[] client, long client_length, int sig_length, int startat)
         {
             int Count = 0, i = 0, j = 0;
 
-            // This was causing a pain for some reason
-            // Easier to do these 2 items in there own sections
+            // 这出于某种原因造成了麻烦
+            // 更容易将这2个项目放在各自的部分
             bool UseFlex = GetMyBool(FlexByte, 100);
             byte FByte = GetMyByte(FlexByte);
 
@@ -464,17 +464,17 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
             for (i = startat; i < client_length - sig_length; i++)
             {
-                /* compare src_size from src against src_size bytes from buf */
-                // Check signature bytes from i's position
+                /* 将 src 中的 src_size 字节与 buf 中的 src_size 字节进行比较 */
+                // 从 i 位置开始检查签名字节
                 for (j = 0; j < sig_length; j++)
                 {
-                    /* if there's a difference and this isn't the flex_byte, move on */
+                    /* 如果有差异且这不是 flex_byte，则继续 */
                     if ((UseFlex && signature[j] != FByte) && signature[j] != client[i + j])
                         break;
                     else if (!UseFlex && signature[j] != client[i + j])
                         break;
 
-                    /* if its the last byte for comparison, everything matched */
+                    /* 如果这是比较的最后一个字节，则所有内容都匹配 */
                     if (j == (sig_length - 1))
                     {
                         Count++;
@@ -505,15 +505,15 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "exe files (*.exe)|*.exe|All files (*.*)|*.*";
+            openFileDialog1.Filter = "exe 文件 (*.exe)|*.exe|所有文件 (*.*)|*.*";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string clientFilePath = openFileDialog1.FileName;
-                LAB_StatusIS.Text = "Found...";
-                ReadClientFile(clientFilePath); // This is where the ReadClientFile method is called
+                LAB_StatusIS.Text = "已找到...";
+                ReadClientFile(clientFilePath); // 这里调用 ReadClientFile 方法
             }
         }
     }

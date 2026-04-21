@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  *
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -25,10 +25,10 @@ namespace UoFiddler.Forms
 
         private const int HOTKEY_ID = 1;
 
-        [DllImport("user32.dll")] // Register the hotkey (Ctrl + Alt + P)
+        [DllImport("user32.dll")] // 注册热键 (Ctrl + Alt + P)
         private static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
 
-        [DllImport("user32.dll")] // Register the hotkey (Ctrl + Alt + P)
+        [DllImport("user32.dll")] // 注册热键 (Ctrl + Alt + P)
         private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
 
@@ -37,19 +37,19 @@ namespace UoFiddler.Forms
             InitializeComponent();
             Icon = Options.GetFiddlerIcon();
             _profiles = GetProfiles();
-            FiddlerOptions.Logger.Information("Found profiles: {Profiles}", _profiles);
+            FiddlerOptions.Logger.Information("找到配置文件: {Profiles}", _profiles);
             foreach (string profile in _profiles)
             {
                 string name = profile.Substring(8);
                 comboBoxLoad.Items.Add(name);
                 comboBoxBasedOn.Items.Add(name);
             }
-            string lastSelectedProfile = Properties.Settings.Default.LastSelectedProfile; //Profile Load
+            string lastSelectedProfile = Properties.Settings.Default.LastSelectedProfile; // 配置文件加载
             int index = Array.IndexOf(_profiles, lastSelectedProfile);
             comboBoxLoad.SelectedIndex = index != -1 ? index : 0;
             comboBoxBasedOn.SelectedIndex = 0;
             
-            RegisterHotKey(this.Handle, HOTKEY_ID, 0x0003, (uint)Keys.P); // Register the hotkey (Ctrl + Alt + P)
+            RegisterHotKey(this.Handle, HOTKEY_ID, 0x0003, (uint)Keys.P); // 注册热键 (Ctrl + Alt + P)
         }
 
         #region [ WndProc ]
@@ -72,7 +72,7 @@ namespace UoFiddler.Forms
             this.BringToFront();
             this.Activate();
 
-            // Play a sound effect after settings have been inserted
+            // 设置插入后播放音效
             SoundPlayer player = new SoundPlayer();
             player.SoundLocation = "sound.wav";
             player.Play();
@@ -108,7 +108,7 @@ namespace UoFiddler.Forms
         {
             LoadSelectedProfile();
             Properties.Settings.Default.LastSelectedProfile = _profiles[comboBoxLoad.SelectedIndex];
-            Properties.Settings.Default.Save(); //Profile Save Propeties
+            Properties.Settings.Default.Save(); // 配置文件保存属性
         }
         #endregion
 
@@ -121,7 +121,7 @@ namespace UoFiddler.Forms
             }
 
             Options.ProfileName = $"{_profiles[comboBoxLoad.SelectedIndex]}.xml";
-            FiddlerOptions.Logger.Information("Loading profile: {ProfileName}", Options.ProfileName);
+            FiddlerOptions.Logger.Information("加载配置文件: {ProfileName}", Options.ProfileName);
             FiddlerOptions.LoadProfile($"{_profiles[comboBoxLoad.SelectedIndex]}.xml");
 
             Close();
@@ -133,12 +133,12 @@ namespace UoFiddler.Forms
         {
             if (string.IsNullOrEmpty(textBoxCreate.Text))
             {
-                MessageBox.Show("Profile name is missing", "New Profile", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("缺少配置文件名称", "新建配置文件", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             Options.ProfileName = $"Options_{textBoxCreate.Text}.xml";
-            FiddlerOptions.Logger.Information("Creating profile: {ProfileName}", Options.ProfileName);
+            FiddlerOptions.Logger.Information("创建配置文件: {ProfileName}", Options.ProfileName);
             FiddlerOptions.LoadProfile($"{_profiles[comboBoxBasedOn.SelectedIndex]}.xml");
 
             Close();
@@ -179,12 +179,12 @@ namespace UoFiddler.Forms
         }
         #endregion
 
-        #region [ Delete Entry ]
+        #region [ 删除条目 ]
         private void bt_Delete_List_Click(object sender, EventArgs e)
         {
             if (comboBoxBasedOn.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select an entry to delete..", "Delete Entry", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请选择要删除的条目。", "删除条目", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

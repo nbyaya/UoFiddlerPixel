@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: Turley
+ * @Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要你保留此声明，你可以随意使用此代码。
+ * 如果我们某天相遇，你觉得此代码值得，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -35,10 +35,19 @@ namespace UoFiddler.Plugin.SendItem
         private static SendItemPluginBase _refMarker;
         private static bool _overrideClick;
 
+        /// <summary>
+        /// 发送命令
+        /// </summary>
         public static string Cmd { get; set; } = ".create";
 
+        /// <summary>
+        /// 命令参数格式
+        /// </summary>
         public static string CmdArg { get; set; } = "0x{1:X4}";
 
+        /// <summary>
+        /// 覆盖双击事件
+        /// </summary>
         public static bool OverrideClick
         {
             get => _overrideClick;
@@ -51,30 +60,33 @@ namespace UoFiddler.Plugin.SendItem
         }
 
         /// <summary>
-        /// Name of the plugin
+        /// 插件名称
         /// </summary>
-        public override string Name { get; } = "SendItemPlugin";
+        public override string Name { get; } = "发送物品插件";
 
         /// <summary>
-        /// Description of the Plugin's purpose
+        /// 插件功能描述
         /// </summary>
-        public override string Description { get; } = "Send custom Cmd to Client with selected ObjectType in Items tab";
+        public override string Description { get; } = "在物品标签页中，将自定义命令发送到客户端以生成选中的物品";
 
         /// <summary>
-        /// Author of the plugin
+        /// 插件作者
         /// </summary>
         public override string Author { get; } = "Turley";
 
         /// <summary>
-        /// Version of the plugin
+        /// 插件版本
         /// </summary>
         public override string Version { get; } = "1.0.1";
 
         /// <summary>
-        /// Host of the plugin.
+        /// 插件宿主
         /// </summary>
         public override IPluginHost Host { get; set; } = null;
 
+        /// <summary>
+        /// 初始化插件
+        /// </summary>
         public override void Initialize()
         {
             _ = Files.RootDir;
@@ -88,25 +100,37 @@ namespace UoFiddler.Plugin.SendItem
             ItemShowContextClicked(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// 卸载插件
+        /// </summary>
         public override void Unload()
         {
             SaveXml();
         }
 
+        /// <summary>
+        /// 修改标签页（本插件无）
+        /// </summary>
         public override void ModifyTabPages(TabControl tabControl)
         {
         }
 
+        /// <summary>
+        /// 修改插件工具条菜单
+        /// </summary>
         public override void ModifyPluginToolStrip(ToolStripDropDownButton toolStrip)
         {
             ToolStripMenuItem item = new ToolStripMenuItem
             {
-                Text = "Send Item"
+                Text = "发送物品"
             };
             item.Click += ToolStripClick;
             toolStrip.DropDownItems.Add(item);
         }
 
+        /// <summary>
+        /// 设置是否覆盖双击行为
+        /// </summary>
         private void ChangeOverrideClick(bool value, bool init)
         {
             ItemsControl itemsControl = Host.GetItemsControl();
@@ -115,7 +139,7 @@ namespace UoFiddler.Plugin.SendItem
             {
                 itemsControlTileView.MouseDoubleClick -= itemsControl.ItemsTileView_MouseDoubleClick;
 
-                // make sure that there is only one instance of event subscription
+                // 确保只添加一次事件
                 itemsControlTileView.MouseDoubleClick -= PlugOnDoubleClick;
                 itemsControlTileView.MouseDoubleClick += PlugOnDoubleClick;
             }
@@ -123,24 +147,33 @@ namespace UoFiddler.Plugin.SendItem
             {
                 itemsControlTileView.MouseDoubleClick -= PlugOnDoubleClick;
 
-                // make sure that there is only one instance of event subscription
+                // 确保只添加一次事件
                 itemsControlTileView.MouseDoubleClick -= itemsControl.ItemsTileView_MouseDoubleClick;
                 itemsControlTileView.MouseDoubleClick += itemsControl.ItemsTileView_MouseDoubleClick;
             }
         }
 
+        /// <summary>
+        /// 打开插件设置窗口
+        /// </summary>
         private static void ToolStripClick(object sender, EventArgs e)
         {
             new SendItemOptionsForm().Show();
         }
 
+        /// <summary>
+        /// 给物品控件添加右键菜单
+        /// </summary>
         private void EventsModifyItemsControlContextMenuEvent(ContextMenuStrip strip)
         {
-            ToolStripMenuItem item = new ToolStripMenuItem { Text = "Send Item to Client" };
+            ToolStripMenuItem item = new ToolStripMenuItem { Text = "发送物品到客户端" };
             item.Click += ItemShowContextClicked;
             strip.Items.Add(item);
         }
 
+        /// <summary>
+        /// 执行发送物品命令
+        /// </summary>
         private void ItemShowContextClicked(object sender, EventArgs e)
         {
             int currSelected = Host.GetSelectedIdFromItemsControl();
@@ -157,14 +190,17 @@ namespace UoFiddler.Plugin.SendItem
             else
             {
                 MessageBox.Show(
-                    "No Client running/or not recognized",
-                    "SendItem",
+                    "未运行客户端或无法识别",
+                    "发送物品",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1);
             }
         }
 
+        /// <summary>
+        /// 从XML加载配置
+        /// </summary>
         private static void LoadXml()
         {
             string path = Options.AppDataPath;
@@ -190,6 +226,9 @@ namespace UoFiddler.Plugin.SendItem
             OverrideClick = bool.Parse(elem.GetAttribute("overrideclick"));
         }
 
+        /// <summary>
+        /// 保存配置到XML
+        /// </summary>
         private static void SaveXml()
         {
             string path = Options.AppDataPath;
@@ -202,10 +241,10 @@ namespace UoFiddler.Plugin.SendItem
 
             XmlElement sr = dom.CreateElement("Options");
 
-            XmlComment comment = dom.CreateComment("Defines the cmd for Item create");
+            XmlComment comment = dom.CreateComment("定义生成物品的命令");
             sr.AppendChild(comment);
 
-            comment = dom.CreateComment("{1} = item objecttype");
+            comment = dom.CreateComment("{1} = 物品ID");
             sr.AppendChild(comment);
 
             XmlElement elem = dom.CreateElement("SendItem");

@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: Turley
+ * $作者: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要你保留此声明，你可以随意使用本代码。
+ * 如果我们某天相遇，你觉得这个工具不错，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
     partial class CompareCliLocControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 设计器必需的变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理正在使用的所有资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Plugin.Compare.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 此方法的内容使用代码编辑器。
         /// </summary>
         private void InitializeComponent()
         {
@@ -116,9 +116,9 @@ namespace UoFiddler.Plugin.Compare.UserControls
             decompressFileTwoCheckBox.Location = new System.Drawing.Point(399, 39);
             decompressFileTwoCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             decompressFileTwoCheckBox.Name = "decompressFileTwoCheckBox";
-            decompressFileTwoCheckBox.Size = new System.Drawing.Size(202, 19);
+            decompressFileTwoCheckBox.Size = new System.Drawing.Size(141, 19);
             decompressFileTwoCheckBox.TabIndex = 9;
-            decompressFileTwoCheckBox.Text = "Decompress cliloc before reading";
+            decompressFileTwoCheckBox.Text = "读取前解压缩cliloc文件";
             decompressFileTwoCheckBox.UseVisualStyleBackColor = true;
             // 
             // decompressFileOneCheckBox
@@ -128,9 +128,9 @@ namespace UoFiddler.Plugin.Compare.UserControls
             decompressFileOneCheckBox.Location = new System.Drawing.Point(5, 39);
             decompressFileOneCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             decompressFileOneCheckBox.Name = "decompressFileOneCheckBox";
-            decompressFileOneCheckBox.Size = new System.Drawing.Size(202, 19);
+            decompressFileOneCheckBox.Size = new System.Drawing.Size(141, 19);
             decompressFileOneCheckBox.TabIndex = 8;
-            decompressFileOneCheckBox.Text = "Decompress cliloc before reading";
+            decompressFileOneCheckBox.Text = "读取前解压缩cliloc文件";
             decompressFileOneCheckBox.UseVisualStyleBackColor = true;
             // 
             // button5
@@ -143,7 +143,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(90, 25);
             button5.TabIndex = 7;
-            button5.Text = "Find Next Diff";
+            button5.Text = "查找下一处差异";
             button5.UseVisualStyleBackColor = true;
             button5.Click += OnClickFindNextDiff;
             // 
@@ -154,9 +154,9 @@ namespace UoFiddler.Plugin.Compare.UserControls
             checkBox1.Location = new System.Drawing.Point(236, 11);
             checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(145, 19);
+            checkBox1.Size = new System.Drawing.Size(101, 19);
             checkBox1.TabIndex = 6;
-            checkBox1.Text = "Show Only Differences";
+            checkBox1.Text = "仅显示差异项";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.Click += OnClickShowOnlyDiff;
             // 
@@ -198,7 +198,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(43, 25);
             button2.TabIndex = 3;
-            button2.Text = "Load";
+            button2.Text = "加载";
             button2.UseVisualStyleBackColor = true;
             button2.Click += OnLoad2;
             // 
@@ -212,7 +212,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(43, 25);
             button1.TabIndex = 2;
-            button1.Text = "Load";
+            button1.Text = "加载";
             button1.UseVisualStyleBackColor = true;
             button1.Click += OnLoad;
             // 

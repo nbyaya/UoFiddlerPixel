@@ -2,10 +2,10 @@
  *
  * $Author: MuadDib & Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -27,53 +27,53 @@ namespace UoFiddler.Plugin.MultiEditor
         }
 
         /// <summary>
-        /// Author of the plugin
+        /// 插件作者
         /// </summary>
         public override string Author { get; } = "MuadDib & Turley";
 
         /// <summary>
-        /// Description of the Plugin's purpose
+        /// 插件用途描述
         /// </summary>
-        public override string Description { get; } = "Plugin to Edit Multis\r\n(Adds 1 new Tab)";
+        public override string Description { get; } = "用于编辑多重结构的插件\r\n（新增 1 个选项卡）";
 
         /// <summary>
-        /// Host of the plugin.
+        /// 插件宿主。
         /// </summary>
         public override IPluginHost Host { get; set; } = null;
 
         /// <summary>
-        /// Name of the plugin
+        /// 插件名称
         /// </summary>
         public override string Name { get; } = "MultiEditorPlugin";
 
         /// <summary>
-        /// Version of the plugin
+        /// 插件版本
         /// </summary>
         public override string Version { get; } = "1.7.0";
 
         public override void Unload()
         {
-            // fired in Fiddler OnClosing
+            // 在 Fiddler 关闭时触发
         }
 
         public override void Initialize()
         {
-            // fired on fiddler startup
+            // 在 Fiddler 启动时触发
             _ = Files.RootDir;
         }
 
         public override void ModifyPluginToolStrip(ToolStripDropDownButton toolStrip)
         {
-            // want an entry inside the plugin dropdown?
+            // 需要在插件下拉菜单中添加条目？
         }
 
-        // the magic add a new tab page at the end
+        // 在末尾添加一个新的选项卡页
         public override void ModifyTabPages(TabControl tabControl)
         {
             TabPage page = new TabPage
             {
-                Tag = tabControl.TabCount + 1, // at end used for undock/dock feature to define the order
-                Text = "Multi Editor"
+                Tag = tabControl.TabCount + 1, // 用于定义顺序的停靠/取消停靠功能
+                Text = "多重编辑器"
             };
 
             _multiEditorControl = new UserControls.MultiEditorControl
@@ -88,7 +88,7 @@ namespace UoFiddler.Plugin.MultiEditor
         {
             ToolStripMenuItem item = new ToolStripMenuItem
             {
-                Text = "MultiEditor: Select Item"
+                Text = "多重编辑器：选择物品"
             };
             item.Click += ItemShowContextClicked;
             strip.Items.Add(item);

@@ -2,10 +2,10 @@
 //  *
 //  * $Author: Turley / Nikodemus
 //  * 
-//  * "THE BEER-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer in return.
+//  * "啤酒软件许可协议"
+//  * 只要你保留本声明，你可以随意使用此代码。
+//  * 如果某天我们相遇，你觉得此代码值得，
+//  * 你可以请我喝一杯啤酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -22,7 +22,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         private void InitializeComponent()
         {
@@ -150,8 +150,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             paintToolStripMenuItem.Image = Properties.Resources.Zeichnen;
             paintToolStripMenuItem.Name = "paintToolStripMenuItem";
             paintToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            paintToolStripMenuItem.Text = "Paint";
-            paintToolStripMenuItem.ToolTipText = "Starts drawing mode";
+            paintToolStripMenuItem.Text = "画笔";
+            paintToolStripMenuItem.ToolTipText = "启动绘画模式";
             paintToolStripMenuItem.Click += paintToolStripMenuItem_Click;
             // 
             // eraserToolStripMenuItem
@@ -159,8 +159,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             eraserToolStripMenuItem.CheckOnClick = true;
             eraserToolStripMenuItem.Name = "eraserToolStripMenuItem";
             eraserToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            eraserToolStripMenuItem.Text = "Eraser";
-            eraserToolStripMenuItem.ToolTipText = "Toggle eraser – draws transparent pixels";
+            eraserToolStripMenuItem.Text = "橡皮擦";
+            eraserToolStripMenuItem.ToolTipText = "切换橡皮擦 – 绘制透明像素";
             eraserToolStripMenuItem.Click += eraserToolStripMenuItem_Click;
             // 
             // eyedropperToolStripMenuItem
@@ -168,8 +168,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             eyedropperToolStripMenuItem.CheckOnClick = true;
             eyedropperToolStripMenuItem.Name = "eyedropperToolStripMenuItem";
             eyedropperToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            eyedropperToolStripMenuItem.Text = "Eyedropper";
-            eyedropperToolStripMenuItem.ToolTipText = "Pick color by clicking a pixel";
+            eyedropperToolStripMenuItem.Text = "取色器";
+            eyedropperToolStripMenuItem.ToolTipText = "点击像素拾取颜色";
             eyedropperToolStripMenuItem.Click += eyedropperToolStripMenuItem_Click;
             // 
             // toolStripSeparator6
@@ -182,8 +182,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             undoToolStripMenuItem.Image = Properties.Resources.Cut;
             undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             undoToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            undoToolStripMenuItem.Text = "Undo";
-            undoToolStripMenuItem.ToolTipText = "Undo – Ctrl+Backspace";
+            undoToolStripMenuItem.Text = "撤销";
+            undoToolStripMenuItem.ToolTipText = "撤销 – Ctrl+Backspace";
             undoToolStripMenuItem.Click += undoToolStripMenuItem_Click;
             // 
             // redoToolStripMenuItem
@@ -191,8 +191,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             redoToolStripMenuItem.Image = Properties.Resources.Rotate;
             redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             redoToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            redoToolStripMenuItem.Text = "Redo";
-            redoToolStripMenuItem.ToolTipText = "Redo – Ctrl+R";
+            redoToolStripMenuItem.Text = "重做";
+            redoToolStripMenuItem.ToolTipText = "重做 – Ctrl+R";
             redoToolStripMenuItem.Click += redoToolStripMenuItem_Click;
             // 
             // toolStripSeparator7
@@ -205,8 +205,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             importImageToolStripMenuItem.Image = Properties.Resources.import;
             importImageToolStripMenuItem.Name = "importImageToolStripMenuItem";
             importImageToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            importImageToolStripMenuItem.Text = "Import from Clipboard";
-            importImageToolStripMenuItem.ToolTipText = "Load image from clipboard into paint box";
+            importImageToolStripMenuItem.Text = "从剪贴板导入";
+            importImageToolStripMenuItem.ToolTipText = "从剪贴板加载图像到绘画框";
             importImageToolStripMenuItem.Click += importImageToolStripMenuItem_Click;
             // 
             // CopyImagePictureBoxDrawToolStripMenuItem
@@ -214,8 +214,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             CopyImagePictureBoxDrawToolStripMenuItem.Image = Properties.Resources.Copy;
             CopyImagePictureBoxDrawToolStripMenuItem.Name = "CopyImagePictureBoxDrawToolStripMenuItem";
             CopyImagePictureBoxDrawToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            CopyImagePictureBoxDrawToolStripMenuItem.Text = "Copy to Clipboard";
-            CopyImagePictureBoxDrawToolStripMenuItem.ToolTipText = "Copy paint box image to clipboard";
+            CopyImagePictureBoxDrawToolStripMenuItem.Text = "复制到剪贴板";
+            CopyImagePictureBoxDrawToolStripMenuItem.ToolTipText = "将绘画框图像复制到剪贴板";
             CopyImagePictureBoxDrawToolStripMenuItem.Click += CopyImagePictureBoxDrawToolStripMenuItem_Click;
             // 
             // toolStripSeparator8
@@ -228,24 +228,24 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             rotateImageToolStripMenuItem.Image = Properties.Resources.reload;
             rotateImageToolStripMenuItem.Name = "rotateImageToolStripMenuItem";
             rotateImageToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            rotateImageToolStripMenuItem.Text = "Rotate 90° CCW";
-            rotateImageToolStripMenuItem.ToolTipText = "Rotate image 90 degrees counter-clockwise";
+            rotateImageToolStripMenuItem.Text = "逆时针旋转90°";
+            rotateImageToolStripMenuItem.ToolTipText = "将图像逆时针旋转90度";
             rotateImageToolStripMenuItem.Click += rotateImageToolStripMenuItem_Click;
             // 
             // flipHorizontalToolStripMenuItem
             // 
             flipHorizontalToolStripMenuItem.Name = "flipHorizontalToolStripMenuItem";
             flipHorizontalToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            flipHorizontalToolStripMenuItem.Text = "Flip Horizontal";
-            flipHorizontalToolStripMenuItem.ToolTipText = "Mirror image left-right";
+            flipHorizontalToolStripMenuItem.Text = "水平翻转";
+            flipHorizontalToolStripMenuItem.ToolTipText = "左右镜像图像";
             flipHorizontalToolStripMenuItem.Click += flipHorizontalToolStripMenuItem_Click;
             // 
             // flipVerticalToolStripMenuItem
             // 
             flipVerticalToolStripMenuItem.Name = "flipVerticalToolStripMenuItem";
             flipVerticalToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            flipVerticalToolStripMenuItem.Text = "Flip Vertical";
-            flipVerticalToolStripMenuItem.ToolTipText = "Mirror image top-bottom";
+            flipVerticalToolStripMenuItem.Text = "垂直翻转";
+            flipVerticalToolStripMenuItem.ToolTipText = "上下镜像图像";
             flipVerticalToolStripMenuItem.Click += flipVerticalToolStripMenuItem_Click;
             // 
             // SelectingRectangleToolStripMenuItem
@@ -253,8 +253,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             SelectingRectangleToolStripMenuItem.Image = Properties.Resources.fill;
             SelectingRectangleToolStripMenuItem.Name = "SelectingRectangleToolStripMenuItem";
             SelectingRectangleToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            SelectingRectangleToolStripMenuItem.Text = "Fill with Texture";
-            SelectingRectangleToolStripMenuItem.ToolTipText = "Fill selection with texture image";
+            SelectingRectangleToolStripMenuItem.Text = "纹理填充";
+            SelectingRectangleToolStripMenuItem.ToolTipText = "使用纹理图像填充选区";
             SelectingRectangleToolStripMenuItem.Click += SelectingRectangleCircleToolStripMenuItem_Click;
             // 
             // toolStripSeparator9
@@ -267,8 +267,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             saveToolStripMenuItemPictureBoxDraw.Image = Properties.Resources.Save2;
             saveToolStripMenuItemPictureBoxDraw.Name = "saveToolStripMenuItemPictureBoxDraw";
             saveToolStripMenuItemPictureBoxDraw.Size = new System.Drawing.Size(194, 22);
-            saveToolStripMenuItemPictureBoxDraw.Text = "Save Image";
-            saveToolStripMenuItemPictureBoxDraw.ToolTipText = "Save paint box image to disk";
+            saveToolStripMenuItemPictureBoxDraw.Text = "保存图像";
+            saveToolStripMenuItemPictureBoxDraw.ToolTipText = "将绘画框图像保存到磁盘";
             saveToolStripMenuItemPictureBoxDraw.Click += saveToolStripMenuItemPictureBoxDraw_Click;
             // 
             // contextMenuStrip
@@ -282,8 +282,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             copyToolStripMenuItem.Image = Properties.Resources.Copy;
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             copyToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            copyToolStripMenuItem.Text = "Copy to Clipboard";
-            copyToolStripMenuItem.ToolTipText = "Copy selected gump to clipboard";
+            copyToolStripMenuItem.Text = "复制到剪贴板";
+            copyToolStripMenuItem.ToolTipText = "将选中的界面图像复制到剪贴板";
             copyToolStripMenuItem.Click += copyToolStripMenuItem_Click;
             // 
             // importToolStripMenuItem
@@ -291,8 +291,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             importToolStripMenuItem.Image = Properties.Resources.import;
             importToolStripMenuItem.Name = "importToolStripMenuItem";
             importToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            importToolStripMenuItem.Text = "Import from Clipboard";
-            importToolStripMenuItem.ToolTipText = "Replace gump with clipboard image";
+            importToolStripMenuItem.Text = "从剪贴板导入";
+            importToolStripMenuItem.ToolTipText = "用剪贴板图像替换当前界面图像";
             importToolStripMenuItem.Click += importToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
@@ -305,8 +305,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             removeToolStripMenuItem.Image = Properties.Resources.Rotate;
             removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             removeToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            removeToolStripMenuItem.Text = "Remove";
-            removeToolStripMenuItem.ToolTipText = "Remove selected gump";
+            removeToolStripMenuItem.Text = "移除";
+            removeToolStripMenuItem.ToolTipText = "移除选中的界面图像";
             removeToolStripMenuItem.Click += OnClickRemove;
             // 
             // replaceToolStripMenuItem
@@ -314,8 +314,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             replaceToolStripMenuItem.Image = Properties.Resources.reload;
             replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
             replaceToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            replaceToolStripMenuItem.Text = "Replace from File";
-            replaceToolStripMenuItem.ToolTipText = "Replace gump from a file";
+            replaceToolStripMenuItem.Text = "从文件替换";
+            replaceToolStripMenuItem.ToolTipText = "从文件替换界面图像";
             replaceToolStripMenuItem.Click += OnClickReplace;
             // 
             // toolStripSeparator1
@@ -328,8 +328,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             showFreeIdsToolStripMenuItem.Image = Properties.Resources.Mirror;
             showFreeIdsToolStripMenuItem.Name = "showFreeIdsToolStripMenuItem";
             showFreeIdsToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            showFreeIdsToolStripMenuItem.Text = "Show Free IDs";
-            showFreeIdsToolStripMenuItem.ToolTipText = "Toggle display of free gump slots";
+            showFreeIdsToolStripMenuItem.Text = "显示空闲ID";
+            showFreeIdsToolStripMenuItem.ToolTipText = "切换显示空闲的界面插槽";
             showFreeIdsToolStripMenuItem.Click += showFreeIdsToolStripMenuItem_Click;
             // 
             // findNextFreeSlotToolStripMenuItem
@@ -337,8 +337,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             findNextFreeSlotToolStripMenuItem.Image = Properties.Resources.Mirror1;
             findNextFreeSlotToolStripMenuItem.Name = "findNextFreeSlotToolStripMenuItem";
             findNextFreeSlotToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            findNextFreeSlotToolStripMenuItem.Text = "Find Next Free Slot";
-            findNextFreeSlotToolStripMenuItem.ToolTipText = "Jump to the next free gump slot";
+            findNextFreeSlotToolStripMenuItem.Text = "查找下一个空闲插槽";
+            findNextFreeSlotToolStripMenuItem.ToolTipText = "跳转到下一个空闲的界面插槽";
             findNextFreeSlotToolStripMenuItem.Click += OnClickFindFree;
             // 
             // toolStripSeparator2
@@ -351,8 +351,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             addIDNamesToolStripMenuItem.Image = Properties.Resources.image_eine_maske_laden01;
             addIDNamesToolStripMenuItem.Name = "addIDNamesToolStripMenuItem";
             addIDNamesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            addIDNamesToolStripMenuItem.Text = "Edit ID Name";
-            addIDNamesToolStripMenuItem.ToolTipText = "Assign a name to the selected ID";
+            addIDNamesToolStripMenuItem.Text = "编辑ID名称";
+            addIDNamesToolStripMenuItem.ToolTipText = "为选中的ID分配名称";
             addIDNamesToolStripMenuItem.Click += addIDNamesToolStripMenuItem_Click;
             // 
             // toolStripSeparator4
@@ -365,8 +365,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             sendImageToPaintBoxToolStripMenuItem.Image = Properties.Resources.image_eine_maske_laden02;
             sendImageToPaintBoxToolStripMenuItem.Name = "sendImageToPaintBoxToolStripMenuItem";
             sendImageToPaintBoxToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            sendImageToPaintBoxToolStripMenuItem.Text = "Send to Paint Box";
-            sendImageToPaintBoxToolStripMenuItem.ToolTipText = "Send selected gump to the paint editor";
+            sendImageToPaintBoxToolStripMenuItem.Text = "发送到绘画框";
+            sendImageToPaintBoxToolStripMenuItem.ToolTipText = "将选中的界面图像发送到绘画编辑器";
             sendImageToPaintBoxToolStripMenuItem.Click += sendImageToPaintBoxToolStripMenuItem_Click;
             // 
             // toolStripSeparatorBatch
@@ -379,8 +379,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             exportAllToolStripMenuItem.Image = Properties.Resources.Save2;
             exportAllToolStripMenuItem.Name = "exportAllToolStripMenuItem";
             exportAllToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            exportAllToolStripMenuItem.Text = "Export All as PNG...";
-            exportAllToolStripMenuItem.ToolTipText = "Export all gumps as PNG files to a folder";
+            exportAllToolStripMenuItem.Text = "全部导出为PNG...";
+            exportAllToolStripMenuItem.ToolTipText = "将所有界面图像导出为PNG文件到文件夹";
             exportAllToolStripMenuItem.Click += exportAllToolStripMenuItem_Click;
             // 
             // importFolderToolStripMenuItem
@@ -388,8 +388,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             importFolderToolStripMenuItem.Image = Properties.Resources.import;
             importFolderToolStripMenuItem.Name = "importFolderToolStripMenuItem";
             importFolderToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            importFolderToolStripMenuItem.Text = "Import Folder (Batch)...";
-            importFolderToolStripMenuItem.ToolTipText = "Import all BMP/PNG from a folder starting at selected ID";
+            importFolderToolStripMenuItem.Text = "批量导入文件夹...";
+            importFolderToolStripMenuItem.ToolTipText = "从文件夹导入所有BMP/PNG，从选中ID开始";
             importFolderToolStripMenuItem.Click += importFolderToolStripMenuItem_Click;
             // 
             // toolStripSeparator5
@@ -402,8 +402,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             saveToolStripMenuItem.Image = Properties.Resources.Save2;
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            saveToolStripMenuItem.Text = "Save";
-            saveToolStripMenuItem.ToolTipText = "Save all changes to mul/uop files";
+            saveToolStripMenuItem.Text = "保存";
+            saveToolStripMenuItem.ToolTipText = "将所有更改保存到mul/uop文件";
             saveToolStripMenuItem.Click += OnClickSave;
             // 
             // openFileDialog1
@@ -429,7 +429,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             IDLabelinortotal.Name = "IDLabelinortotal";
             IDLabelinortotal.Size = new System.Drawing.Size(38, 15);
             IDLabelinortotal.TabIndex = 8;
-            IDLabelinortotal.Text = "Total :";
+            IDLabelinortotal.Text = "总数：";
             // 
             // LabelFreeIDs
             // 
@@ -438,7 +438,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             LabelFreeIDs.Name = "LabelFreeIDs";
             LabelFreeIDs.Size = new System.Drawing.Size(29, 15);
             LabelFreeIDs.TabIndex = 9;
-            LabelFreeIDs.Text = "Free";
+            LabelFreeIDs.Text = "空闲";
             // 
             // toolStrip1
             // 
@@ -463,7 +463,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             SizeLabel.ImageTransparentColor = System.Drawing.Color.Magenta;
             SizeLabel.Name = "SizeLabel";
             SizeLabel.Size = new System.Drawing.Size(31, 22);
-            SizeLabel.Text = "Size";
+            SizeLabel.Text = "尺寸";
             // 
             // panel1
             // 
@@ -502,13 +502,13 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             // 
             IndexToolStripLabel.Name = "IndexToolStripLabel";
             IndexToolStripLabel.Size = new System.Drawing.Size(39, 22);
-            IndexToolStripLabel.Text = "Index:";
+            IndexToolStripLabel.Text = "索引：";
             // 
             // searchByIdToolStripTextBox
             // 
             searchByIdToolStripTextBox.Name = "searchByIdToolStripTextBox";
             searchByIdToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            searchByIdToolStripTextBox.ToolTipText = "Search by ID, hex (0x...) or name (partial match)";
+            searchByIdToolStripTextBox.ToolTipText = "按ID、十六进制(0x...)或名称(部分匹配)搜索";
             searchByIdToolStripTextBox.TextChanged += SearchByIdToolStripTextBox_TextChanged;
             // 
             // toolStripButtonSave
@@ -518,7 +518,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButtonSave.Name = "toolStripButtonSave";
             toolStripButtonSave.Size = new System.Drawing.Size(23, 22);
-            toolStripButtonSave.ToolTipText = "Save mul/uop files";
+            toolStripButtonSave.ToolTipText = "保存mul/uop文件";
             toolStripButtonSave.Click += OnClickSave;
             // 
             // tabControl1
@@ -542,7 +542,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             tabPageGump.Padding = new System.Windows.Forms.Padding(3);
             tabPageGump.Size = new System.Drawing.Size(1043, 606);
             tabPageGump.TabIndex = 0;
-            tabPageGump.Text = "Gump";
+            tabPageGump.Text = "界面图像";
             tabPageGump.UseVisualStyleBackColor = true;
             // 
             // tabPagePaint
@@ -561,7 +561,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             tabPagePaint.Padding = new System.Windows.Forms.Padding(3);
             tabPagePaint.Size = new System.Drawing.Size(1043, 606);
             tabPagePaint.TabIndex = 1;
-            tabPagePaint.Text = "Paint";
+            tabPagePaint.Text = "绘画";
             tabPagePaint.UseVisualStyleBackColor = true;
             // 
             // checkBoxDrawCircle
@@ -571,7 +571,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxDrawCircle.Name = "checkBoxDrawCircle";
             checkBoxDrawCircle.Size = new System.Drawing.Size(56, 19);
             checkBoxDrawCircle.TabIndex = 11;
-            checkBoxDrawCircle.Text = "Circle";
+            checkBoxDrawCircle.Text = "圆形";
             checkBoxDrawCircle.UseVisualStyleBackColor = true;
             checkBoxDrawCircle.CheckedChanged += checkBoxDrawCircle_CheckedChanged;
             // 
@@ -582,7 +582,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxRectangle.Name = "checkBoxRectangle";
             checkBoxRectangle.Size = new System.Drawing.Size(78, 19);
             checkBoxRectangle.TabIndex = 10;
-            checkBoxRectangle.Text = "Rectangle";
+            checkBoxRectangle.Text = "矩形";
             checkBoxRectangle.UseVisualStyleBackColor = true;
             checkBoxRectangle.CheckedChanged += checkBoxRectangle_CheckedChanged;
             // 
@@ -593,7 +593,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxRemoveColor.Name = "checkBoxRemoveColor";
             checkBoxRemoveColor.Size = new System.Drawing.Size(95, 19);
             checkBoxRemoveColor.TabIndex = 9;
-            checkBoxRemoveColor.Text = "Remove B/W";
+            checkBoxRemoveColor.Text = "移除黑白";
             checkBoxRemoveColor.UseVisualStyleBackColor = true;
             checkBoxRemoveColor.CheckedChanged += checkBoxRemoveColor_CheckedChanged;
             // 
@@ -629,7 +629,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             resetButtonRGB.Name = "resetButtonRGB";
             resetButtonRGB.Size = new System.Drawing.Size(58, 23);
             resetButtonRGB.TabIndex = 18;
-            resetButtonRGB.Text = "Reset";
+            resetButtonRGB.Text = "重置";
             resetButtonRGB.UseVisualStyleBackColor = true;
             resetButtonRGB.Click += resetButtonRGB_Click;
             // 
@@ -640,7 +640,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             labelB.Name = "labelB";
             labelB.Size = new System.Drawing.Size(30, 15);
             labelB.TabIndex = 19;
-            labelB.Text = "Blue";
+            labelB.Text = "蓝色";
             // 
             // labelG
             // 
@@ -649,7 +649,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             labelG.Name = "labelG";
             labelG.Size = new System.Drawing.Size(38, 15);
             labelG.TabIndex = 20;
-            labelG.Text = "Green";
+            labelG.Text = "绿色";
             // 
             // labelR
             // 
@@ -658,7 +658,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             labelR.Name = "labelR";
             labelR.Size = new System.Drawing.Size(27, 15);
             labelR.TabIndex = 21;
-            labelR.Text = "Red";
+            labelR.Text = "红色";
             // 
             // labelColorBValue
             // 
@@ -724,7 +724,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             labelContrast.Name = "labelContrast";
             labelContrast.Size = new System.Drawing.Size(52, 15);
             labelContrast.TabIndex = 25;
-            labelContrast.Text = "Contrast";
+            labelContrast.Text = "对比度";
             // 
             // checkBoxContrast
             // 
@@ -733,7 +733,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxContrast.Name = "checkBoxContrast";
             checkBoxContrast.Size = new System.Drawing.Size(86, 19);
             checkBoxContrast.TabIndex = 6;
-            checkBoxContrast.Text = "Ignore B/W";
+            checkBoxContrast.Text = "忽略黑白";
             checkBoxContrast.UseVisualStyleBackColor = true;
             checkBoxContrast.CheckedChanged += checkBoxContrast_CheckedChanged;
             // 
@@ -763,7 +763,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             labelNameBrightness.Name = "labelNameBrightness";
             labelNameBrightness.Size = new System.Drawing.Size(62, 15);
             labelNameBrightness.TabIndex = 27;
-            labelNameBrightness.Text = "Brightness";
+            labelNameBrightness.Text = "亮度";
             // 
             // labelBrightnessValue
             // 
@@ -781,7 +781,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxBrightness.Name = "checkBoxBrightness";
             checkBoxBrightness.Size = new System.Drawing.Size(86, 19);
             checkBoxBrightness.TabIndex = 1;
-            checkBoxBrightness.Text = "Ignore B/W";
+            checkBoxBrightness.Text = "忽略黑白";
             checkBoxBrightness.UseVisualStyleBackColor = true;
             checkBoxBrightness.CheckedChanged += checkBoxBrightness_CheckedChanged;
             // 
@@ -803,7 +803,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             LbSize.Name = "LbSize";
             LbSize.Size = new System.Drawing.Size(33, 15);
             LbSize.TabIndex = 12;
-            LbSize.Text = "Size :";
+            LbSize.Text = "尺寸：";
             // 
             // tbPinselSize
             // 
@@ -821,7 +821,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btColorDialog.Name = "btColorDialog";
             btColorDialog.Size = new System.Drawing.Size(46, 23);
             btColorDialog.TabIndex = 4;
-            btColorDialog.Text = "Color";
+            btColorDialog.Text = "颜色";
             btColorDialog.UseVisualStyleBackColor = true;
             btColorDialog.Click += btColorDialog_Click;
             // 
@@ -853,7 +853,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "GumpsEdit";
-            Text = "Gumps Edit";
+            Text = "界面图像编辑器";
             KeyDown += GumpsEdit_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             contextMenuStripPicturebBox.ResumeLayout(false);
@@ -884,13 +884,13 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // ----------------------------------------------------------------
-        //  Feld-Deklarationen (Designer)
+        //  字段声明 (设计器)
         // ----------------------------------------------------------------
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripPicturebBox;
         private System.Windows.Forms.ToolStripMenuItem paintToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eraserToolStripMenuItem;         // NEU
-        private System.Windows.Forms.ToolStripMenuItem eyedropperToolStripMenuItem;     // NEU
+        private System.Windows.Forms.ToolStripMenuItem eraserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eyedropperToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
@@ -899,8 +899,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         private System.Windows.Forms.ToolStripMenuItem CopyImagePictureBoxDrawToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem rotateImageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem flipHorizontalToolStripMenuItem;  // NEU
-        private System.Windows.Forms.ToolStripMenuItem flipVerticalToolStripMenuItem;    // NEU
+        private System.Windows.Forms.ToolStripMenuItem flipHorizontalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem flipVerticalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SelectingRectangleToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItemPictureBoxDraw;
@@ -918,9 +918,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem sendImageToPaintBoxToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorBatch;          // NEU
-        private System.Windows.Forms.ToolStripMenuItem exportAllToolStripMenuItem;        // NEU
-        private System.Windows.Forms.ToolStripMenuItem importFolderToolStripMenuItem;     // NEU
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorBatch;
+        private System.Windows.Forms.ToolStripMenuItem exportAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;

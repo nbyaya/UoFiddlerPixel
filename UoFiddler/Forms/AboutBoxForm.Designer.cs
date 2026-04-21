@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,12 +14,12 @@ namespace UoFiddler.Forms
     partial class AboutBoxForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
         protected override void Dispose(bool disposing)
         {
@@ -30,11 +30,11 @@ namespace UoFiddler.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -64,7 +64,7 @@ namespace UoFiddler.Forms
             checkBoxCheckOnStart.Name = "checkBoxCheckOnStart";
             checkBoxCheckOnStart.Size = new System.Drawing.Size(105, 19);
             checkBoxCheckOnStart.TabIndex = 1;
-            checkBoxCheckOnStart.Text = "Check On Start";
+            checkBoxCheckOnStart.Text = "启动时检查更新";
             checkBoxCheckOnStart.UseVisualStyleBackColor = true;
             checkBoxCheckOnStart.CheckedChanged += OnChangeCheck;
             // 
@@ -76,7 +76,7 @@ namespace UoFiddler.Forms
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(118, 27);
             button1.TabIndex = 2;
-            button1.Text = "Check for Update";
+            button1.Text = "检查更新";
             button1.UseVisualStyleBackColor = true;
             button1.Click += OnClickUpdate;
             // 
@@ -89,7 +89,7 @@ namespace UoFiddler.Forms
             linkLabel1.Size = new System.Drawing.Size(91, 15);
             linkLabel1.TabIndex = 4;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "Visit HomePage";
+            linkLabel1.Text = "访问主页";
             linkLabel1.LinkClicked += OnClickLink;
             // 
             // label1
@@ -102,7 +102,7 @@ namespace UoFiddler.Forms
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(151, 13);
             label1.TabIndex = 5;
-            label1.Text = "Project Author and Admin";
+            label1.Text = "项目作者与管理员";
             // 
             // label2
             // 
@@ -123,7 +123,7 @@ namespace UoFiddler.Forms
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(121, 13);
             label3.TabIndex = 7;
-            label3.Text = "Special Contributers";
+            label3.Text = "特别贡献者";
             // 
             // label4
             // 
@@ -144,7 +144,7 @@ namespace UoFiddler.Forms
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(95, 13);
             label5.TabIndex = 9;
-            label5.Text = "Special Thanks";
+            label5.Text = "特别感谢";
             // 
             // label6
             // 
@@ -154,7 +154,7 @@ namespace UoFiddler.Forms
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(367, 15);
             label6.TabIndex = 10;
-            label6.Text = "http://www.polserver.com community for all their feedback and use";
+            label6.Text = "http://www.polserver.com 社区的所有反馈和使用";
             // 
             // label7
             // 
@@ -164,7 +164,7 @@ namespace UoFiddler.Forms
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(253, 15);
             label7.TabIndex = 11;
-            label7.Text = "UltimaSDK Devs for the backbone we modified";
+            label7.Text = "UltimaSDK 开发人员，我们基于其框架进行了修改";
             // 
             // checkBoxFormState
             // 
@@ -174,7 +174,7 @@ namespace UoFiddler.Forms
             checkBoxFormState.Name = "checkBoxFormState";
             checkBoxFormState.Size = new System.Drawing.Size(109, 19);
             checkBoxFormState.TabIndex = 12;
-            checkBoxFormState.Text = "Store Formstate";
+            checkBoxFormState.Text = "存储窗体状态";
             checkBoxFormState.UseVisualStyleBackColor = true;
             checkBoxFormState.CheckedChanged += OnChangeFormState;
             // 
@@ -186,7 +186,7 @@ namespace UoFiddler.Forms
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(103, 13);
             label8.TabIndex = 13;
-            label8.Text = "More Developers";
+            label8.Text = "更多开发者";
             // 
             // label9
             // 
@@ -214,7 +214,7 @@ namespace UoFiddler.Forms
             ShowRepoInfoButton.Name = "ShowRepoInfoButton";
             ShowRepoInfoButton.Size = new System.Drawing.Size(133, 27);
             ShowRepoInfoButton.TabIndex = 16;
-            ShowRepoInfoButton.Text = "Show Repository Info";
+            ShowRepoInfoButton.Text = "显示仓库信息";
             ShowRepoInfoButton.UseVisualStyleBackColor = true;
             ShowRepoInfoButton.Click += ShowRepoInfoButton_Click;
             // 
@@ -257,7 +257,7 @@ namespace UoFiddler.Forms
             Padding = new System.Windows.Forms.Padding(10);
             ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            Text = "About";
+            Text = "关于";
             ResumeLayout(false);
             PerformLayout();
         }

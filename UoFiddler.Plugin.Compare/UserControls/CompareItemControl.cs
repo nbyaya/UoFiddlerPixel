@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: Turley
+ * $作者: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要你保留此声明，你可以随意使用本代码。
+ * 如果我们某天相遇，你觉得这个工具不错，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -30,23 +30,23 @@ namespace UoFiddler.Plugin.Compare.UserControls
         private readonly SHA256 _sha256 = SHA256.Create();
 
         private string _lastSelectedPath;
-        private string _settingsDirectory = Path.Combine("data", "DirectoryisSettings"); // Creates data/DirectoryisSettings directory
-        private string _settingsFileName = "CompareiItemsDirectoryisSettings.txt"; // Text file name
+        private string _settingsDirectory = Path.Combine("data", "DirectoryisSettings"); // 创建 data/DirectoryisSettings 目录
+        private string _settingsFileName = "CompareiItemsDirectoryisSettings.txt"; // 配置文件名
         private string _settingsFilePath;
 
-        #region [ CompareItemControl ]
+        #region [ 构造函数 ]
         public CompareItemControl()
         {
             InitializeComponent();
-            listBoxSec.SelectedIndexChanged += OnSelectedIndexChangedSec; //Replace graphic
+            listBoxSec.SelectedIndexChanged += OnSelectedIndexChangedSec; //替换图片
             listBoxSec.KeyDown += ListBoxSec_KeyDown;
 
-            EnsureSettingsDirectoryExists(); // Ensure the directory exists on app start
-            LoadComboBoxSaveDir(); // Load saved directories into comboBoxSaveDir on startup
+            EnsureSettingsDirectoryExists(); // 启动时确保目录存在
+            LoadComboBoxSaveDir(); // 启动时加载历史目录到下拉框
         }
         #endregion
 
-        #region [ OnLoad ]
+        #region [ 加载事件 ]
         private void OnLoad(object sender, EventArgs e)
         {
             listBoxOrg.Items.Clear();
@@ -60,7 +60,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             listBoxOrg.Items.AddRange(cache.ToArray());
             listBoxOrg.EndUpdate();
 
-            // CompareiItemsDirectoryisSettings Directory last directory is loaded
+            // 加载上次使用的目录
             if (!Directory.Exists(_settingsDirectory))
             {
                 Directory.CreateDirectory(_settingsDirectory);
@@ -73,12 +73,12 @@ namespace UoFiddler.Plugin.Compare.UserControls
                 textBoxSecondDir.Text = _lastSelectedPath;
             }
 
-            //Load the settings for Combobox
+            // 加载下拉框历史目录
             LoadSettingsDirectoryComboBox();
         }
         #endregion
 
-        #region [ LoadSettingsDirectoryComboBox ]
+        #region [ 加载目录配置下拉框 ]
         private void LoadSettingsDirectoryComboBox()
         {
             string settingsDirectory = "DirectoryisSettings";
@@ -95,7 +95,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region [ OnIndexChangedOrg ]
+        #region [ 左侧列表选中变化 ]
         private void OnIndexChangedOrg(object sender, EventArgs e)
         {
             if (listBoxOrg.SelectedIndex == -1 || listBoxOrg.Items.Count < 1)
@@ -117,14 +117,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
                 ? Art.GetStatic(i)
                 : null;
 
-            // Set the text of the searchTextBox to the hexadecimal representation of the selected item
+            // 设置搜索框为选中项的十六进制值
             searchTextBox.Text = $"0x{i:X}";
 
             listBoxOrg.Invalidate();
         }
         #endregion
 
-        #region [ DrawItemOrg ]
+        #region [ 左侧列表绘制 ]
         private void DrawItemOrg(object sender, DrawItemEventArgs e)
         {
             if (e.Index == -1)
@@ -159,14 +159,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region [ MeasureOrg ]
+        #region [ 左侧列表项高度 ]
         private void MeasureOrg(object sender, MeasureItemEventArgs e)
         {
             e.ItemHeight = 13;
         }
         #endregion
 
-        #region [ OnClickLoadSecond ]
+        #region [ 加载第二个资源文件 ]
         private void OnClickLoadSecond(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBoxSecondDir.Text))
@@ -180,10 +180,10 @@ namespace UoFiddler.Plugin.Compare.UserControls
             //string uopFile = Path.Combine(path, "artLegacyMUL.uop");
             if (File.Exists(mulFile) && File.Exists(idxFile))
             {
-                SecondArt.SetFileIndex(idxFile, mulFile); //Load .mul file
+                SecondArt.SetFileIndex(idxFile, mulFile); //加载.mul文件
                 LoadSecond();
             }
-            /*else if (File.Exists(uopFile)) //Load .uop file
+            /*else if (File.Exists(uopFile)) //加载.uop文件
             {
                 SecondArt.SetFileIndex(idxFile, uopFile); 
                 LoadSecond();
@@ -191,7 +191,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region [ LoadSecond ]
+        #region [ 加载右侧列表 ]
         private void LoadSecond()
         {
             _compare.Clear();
@@ -208,7 +208,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion        
 
-        #region [ DrawItemSec ]
+        #region [ 右侧列表绘制 ]
         private void DrawItemSec(object sender, DrawItemEventArgs e)
         {
             if (e.Index == -1)
@@ -217,14 +217,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
             }
 
             Brush fontBrush = Brushes.Gray;
-            Brush selectionBrush = Brushes.LightSteelBlue; // Color for first choice
-            Brush secondSelectionBrush = Brushes.Yellow; // Color for second choice
+            Brush selectionBrush = Brushes.LightSteelBlue; // 首次选择颜色
+            Brush secondSelectionBrush = Brushes.Yellow; // 二次选择颜色
 
             int i = int.Parse(listBoxSec.Items[e.Index].ToString());
 
             if (listBoxSec.SelectedIndices.Contains(e.Index))
             {
-                if (ModifierKeys.HasFlag(Keys.Control)) // When CTRL key is pressed
+                if (ModifierKeys.HasFlag(Keys.Control)) // 按住Ctrl键时
                 {
                     e.Graphics.FillRectangle(secondSelectionBrush, e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
                 }
@@ -250,7 +250,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region [ listBoxSec_DrawItem ]
+        #region [ 右侧列表项绘制 ]
         private void ListBoxSec_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index == -1)
@@ -290,14 +290,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region [ MeasureSec ]
+        #region [ 右侧列表项高度 ]
         private void MeasureSec(object sender, MeasureItemEventArgs e)
         {
             e.ItemHeight = 13;
         }
         #endregion
 
-        #region [ OnIndexChangedSec ]
+        #region [ 右侧列表选中变化 ]
         private void OnIndexChangedSec(object sender, EventArgs e)
         {
             if (listBoxSec.SelectedIndex == -1 || listBoxSec.Items.Count < 1)
@@ -320,7 +320,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region [ Compare ]
+        #region [ 图片对比 ]
         private bool Compare(int index)
         {
             if (_compare.ContainsKey(index))
@@ -363,14 +363,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region [ OnChangeShowDiff ]
+        #region [ 仅显示差异项 ]
         private void OnChangeShowDiff(object sender, EventArgs e)
         {
             if (_compare.Count < 1)
             {
                 if (checkBox1.Checked)
                 {
-                    MessageBox.Show("Second Item file is not loaded!");
+                    MessageBox.Show("未加载第二个物品资源文件！");
                     checkBox1.Checked = false;
                 }
                 return;
@@ -406,7 +406,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region ExportAsBmp + ExportAsTiff listBoxSec
+        #region 导出BMP + TIFF (单个)
         private void ExportAsBmp(object sender, EventArgs e)
         {
             if (listBoxSec.SelectedIndex == -1)
@@ -421,11 +421,11 @@ namespace UoFiddler.Plugin.Compare.UserControls
             }
 
             string path = Options.OutputPath;
-            string fileName = Path.Combine(path, $"Item(Sec) 0x{i:X}.bmp");
+            string fileName = Path.Combine(path, $"物品(右侧) 0x{i:X}.bmp");
             SecondArt.GetStatic(i).Save(fileName, ImageFormat.Bmp);
             MessageBox.Show(
-                $"Item saved to {fileName}",
-                "Saved",
+                $"物品已保存至 {fileName}",
+                "保存成功",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
@@ -445,28 +445,28 @@ namespace UoFiddler.Plugin.Compare.UserControls
             }
 
             string path = Options.OutputPath;
-            string fileName = Path.Combine(path, $"Item(Sec) 0x{i:X}.tiff");
+            string fileName = Path.Combine(path, $"物品(右侧) 0x{i:X}.tiff");
             SecondArt.GetStatic(i).Save(fileName, ImageFormat.Tiff);
             MessageBox.Show(
-                $"Item saved to {fileName}",
-                "Saved",
+                $"物品已保存至 {fileName}",
+                "保存成功",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
         }
         #endregion
 
-        #region Export image from to
+        #region 批量导出图片
         private void ExportAsBmp2(object sender, EventArgs e)
         {
-            // Check if at least 2 items are selected
+            // 检查是否至少选择2个项目
             if (listBoxSec.SelectedIndices.Count < 2)
             {
-                MessageBox.Show("Please select at least 2 items.");
+                MessageBox.Show("请至少选择2个项目。");
                 return;
             }
 
-            // Determine start and end address
+            // 确定起始和结束地址
             int startAddress = int.MaxValue;
             int endAddress = int.MinValue;
             foreach (int index in listBoxSec.SelectedIndices)
@@ -476,28 +476,28 @@ namespace UoFiddler.Plugin.Compare.UserControls
                 if (address > endAddress) endAddress = address;
             }
 
-            // Save the BMP files in the specified area
+            // 保存范围内的BMP文件
             for (int i = startAddress; i <= endAddress; i++)
             {
                 if (!SecondArt.IsValidStatic(i)) continue;
                 string path = Options.OutputPath;
-                string fileName = Path.Combine(path, $"Item(Sec) 0x{i:X}.bmp");
+                string fileName = Path.Combine(path, $"物品(右侧) 0x{i:X}.bmp");
                 SecondArt.GetStatic(i).Save(fileName, ImageFormat.Bmp);
             }
 
-            MessageBox.Show($"Images saved to {Options.OutputPath}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"图片已保存至 {Options.OutputPath}", "保存成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ExportAsTiff2(object sender, EventArgs e)
         {
-            // Check if at least 2 items are selected
+            // 检查是否至少选择2个项目
             if (listBoxSec.SelectedIndices.Count < 2)
             {
-                MessageBox.Show("Please select at least 2 items.");
+                MessageBox.Show("请至少选择2个项目。");
                 return;
             }
 
-            // Determine start and end address
+            // 确定起始和结束地址
             int startAddress = int.MaxValue;
             int endAddress = int.MinValue;
             foreach (int index in listBoxSec.SelectedIndices)
@@ -507,21 +507,21 @@ namespace UoFiddler.Plugin.Compare.UserControls
                 if (address > endAddress) endAddress = address;
             }
 
-            // Speichern der TIFF-Dateien im angegebenen Bereich
+            // 保存范围内的TIFF文件
             for (int i = startAddress; i <= endAddress; i++)
             {
                 if (!SecondArt.IsValidStatic(i)) continue;
                 string path = Options.OutputPath;
-                string fileName = Path.Combine(path, $"Item(Sec) 0x{i:X}.tiff");
+                string fileName = Path.Combine(path, $"物品(右侧) 0x{i:X}.tiff");
                 SecondArt.GetStatic(i).Save(fileName, ImageFormat.Tiff);
             }
 
-            MessageBox.Show($"Images saved to {Options.OutputPath}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"图片已保存至 {Options.OutputPath}", "保存成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         #endregion
 
-        #region OnClickCopy
+        #region 复制物品
         private void OnClickCopy(object sender, EventArgs e)
         {
             if (listBoxSec.SelectedIndex == -1)
@@ -577,20 +577,20 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region Replace graphic        
+        #region 替换图片        
 
         private void OnClickReplace(object sender, EventArgs e)
         {
-            // Open a dialog box that allows the user to select the areas to replace
+            // 打开对话框让用户选择替换区域
             using (var form = new Form())
             {
-                form.Text = "Select the areas to be replaced.";
-                var label = new Label { Text = "Bereiche:", Left = 10, Top = 10 };
+                form.Text = "选择要替换的区域";
+                var label = new Label { Text = "区域:", Left = 10, Top = 10 };
                 var textBox = new TextBox { Left = label.Right + 10, Top = label.Top };
-                var button = new Button { Text = "OK", Left = textBox.Right + 10, Top = textBox.Top };
+                var button = new Button { Text = "确定", Left = textBox.Right + 10, Top = textBox.Top };
                 button.Click += (s, e) =>
                 {
-                    // Verify that the ranges entered by the user are valid
+                    // 验证用户输入的区域是否有效
                     string[] areas = textBox.Text.Split(',');
                     bool validAreas = true;
                     foreach (string area in areas)
@@ -604,7 +604,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
 
                     if (validAreas)
                     {
-                        // Replace the user-selected areas with the selection in listBoxSec
+                        // 将用户选择的区域替换为右侧列表的选中项
                         foreach (string area in areas)
                         {
                             int position = int.Parse(area.Trim());
@@ -614,7 +614,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
                     }
                     else
                     {
-                        MessageBox.Show("Invalid areas. Please enter valid areas.");
+                        MessageBox.Show("无效区域，请输入有效的区域编号。");
                     }
                 };
                 form.Controls.Add(label);
@@ -631,54 +631,54 @@ namespace UoFiddler.Plugin.Compare.UserControls
 
         /*private void UpdateContextMenu()
         {
-            // Delete all existing items from contextMenuStrip2
+            // 清空右键菜单
             contextMenuStrip2.Items.Clear();
 
-            // Add each selected item in listBoxSec to contextMenuStrip2
+            // 将右侧列表选中项添加到菜单
             foreach (int index in listBoxSec.SelectedIndices)
             {
                 int i = int.Parse(listBoxSec.Items[index].ToString());
                 Bitmap image = SecondArt.GetStatic(i);
                 string text = $"0x{i:X}";
                 ToolStripMenuItem item = new ToolStripMenuItem(text);
-                item.ImageScaling = ToolStripItemImageScaling.None; // Disable image scaling
-                item.Image = new Bitmap(image, new Size(image.Width * 2, image.Height * 2)); // Enlarge the image
+                item.ImageScaling = ToolStripItemImageScaling.None; // 禁用图片缩放
+                item.Image = new Bitmap(image, new Size(image.Width * 2, image.Height * 2)); // 放大图片
                 item.Tag = i;
                 item.Click += Item_Click;
                 contextMenuStrip2.Items.Add(item);
             }
 
-            // Add an "OK" button
-            ToolStripButton okButton = new ToolStripButton("OK");
+            // 添加确定按钮
+            ToolStripButton okButton = new ToolStripButton("确定");
             okButton.Click += OnClickOkButton;
             contextMenuStrip2.Items.Add(okButton);
         }*/
 
         private void UpdateContextMenu()
         {
-            // Delete all existing items from contextMenuStrip2
+            // 清空右键菜单
             contextMenuStrip2.Items.Clear();
 
-            // Add each selected item in listBoxSec to contextMenuStrip2
+            // 将右侧列表选中项添加到菜单
             foreach (int index in listBoxSec.SelectedIndices)
             {
                 int i = int.Parse(listBoxSec.Items[index].ToString());
                 Bitmap image = SecondArt.GetStatic(i);
-                if (image == null) // Check if the image is null
+                if (image == null) // 跳过空图片
                 {
-                    continue; // Skip this iteration of the loop if the image is null
+                    continue;
                 }
                 string text = $"0x{i:X}";
                 ToolStripMenuItem item = new ToolStripMenuItem(text);
-                item.ImageScaling = ToolStripItemImageScaling.None; // Disable image scaling
-                item.Image = new Bitmap(image, new Size(image.Width * 2, image.Height * 2)); // Enlarge the image
+                item.ImageScaling = ToolStripItemImageScaling.None; // 禁用图片缩放
+                item.Image = new Bitmap(image, new Size(image.Width * 2, image.Height * 2)); // 放大图片
                 item.Tag = i;
                 item.Click += Item_Click;
                 contextMenuStrip2.Items.Add(item);
             }
 
-            // Add an "OK" button
-            ToolStripButton okButton = new ToolStripButton("OK");
+            // 添加确定按钮
+            ToolStripButton okButton = new ToolStripButton("确定");
             okButton.Click += OnClickOkButton;
             contextMenuStrip2.Items.Add(okButton);
         }
@@ -696,10 +696,10 @@ namespace UoFiddler.Plugin.Compare.UserControls
                     Options.ChangedUltimaClass["Art"] = true;
                     ControlEvents.FireItemChangeEvent(this, selectedIndex);
 
-                    // Update pictureBoxOrg with the selected item
+                    // 更新左侧预览图
                     pictureBoxOrg.BackgroundImage = Art.GetStatic(selectedIndex);
 
-                    // Uncheck the selected item in listBoxSec
+                    // 取消右侧列表选中状态
                     listBoxSec.SelectedIndices.Remove(listBoxSec.Items.IndexOf(i));
                 }
             }
@@ -707,7 +707,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
 
         private void OnClickOkButton(object sender, EventArgs e)
         {
-            // Replace the selected item in listBoxOrg with the first selected item in listBoxSec
+            // 用右侧第一个选中项替换左侧选中项
             int selectedIndex = listBoxOrg.SelectedIndex;
             if (selectedIndex != -1 && listBoxSec.SelectedIndices.Count > 0)
             {
@@ -717,7 +717,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
                 Options.ChangedUltimaClass["Art"] = true;
                 ControlEvents.FireItemChangeEvent(this, selectedIndex);
 
-                // Update pictureBoxOrg with the selected item
+                // 更新左侧预览图
                 pictureBoxOrg.BackgroundImage = Art.GetStatic(selectedIndex);
             }
         }
@@ -728,7 +728,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region Search Textbox Hex
+        #region 十六进制搜索
         private void OnClickSearch_Click(object sender, EventArgs e)
         {
             string addressText = searchTextBox.Text;
@@ -745,17 +745,17 @@ namespace UoFiddler.Plugin.Compare.UserControls
                     }
                     else
                     {
-                        MessageBox.Show("Address not found.");
+                        MessageBox.Show("未找到该地址。");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid address. Please enter a valid hex address.");
+                    MessageBox.Show("无效地址，请输入有效的十六进制地址。");
                 }
             }
             else
             {
-                MessageBox.Show("Invalid address. Please enter a valid hex address.");
+                MessageBox.Show("无效地址，请输入有效的十六进制地址。");
             }
         }
 
@@ -773,7 +773,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
 
         #endregion
 
-        #region [ EnsureSettingsDirectoryExists ]      
+        #region [ 确保配置目录存在 ]      
 
         private void EnsureSettingsDirectoryExists()
         {
@@ -785,14 +785,14 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region [ OnClickBrowse ]
+        #region [ 浏览目录 ]
         private void OnClickBrowse(object sender, EventArgs e)
         {
             EnsureSettingsDirectoryExists();
 
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
             {
-                dialog.Description = "Select directory containing the art files";
+                dialog.Description = "选择包含美术资源文件的目录";
                 dialog.ShowNewFolderButton = false;
                 if (!string.IsNullOrEmpty(_lastSelectedPath))
                 {
@@ -803,15 +803,15 @@ namespace UoFiddler.Plugin.Compare.UserControls
                 {
                     textBoxSecondDir.Text = dialog.SelectedPath;
                     _lastSelectedPath = dialog.SelectedPath;
-                    File.WriteAllText(_settingsFilePath, _lastSelectedPath); // Save path to the file
-                    SaveLastDirectory(_lastSelectedPath); // Save in last directories list
-                    LoadComboBoxSaveDir(); // Refresh the ComboBox to include the new directory
+                    File.WriteAllText(_settingsFilePath, _lastSelectedPath); // 保存路径到文件
+                    SaveLastDirectory(_lastSelectedPath); // 保存到历史目录列表
+                    LoadComboBoxSaveDir(); // 刷新下拉框
                 }
             }
         }
         #endregion        
 
-        #region [ comboBoxSaveDir_SelectedIndexChanged ]
+        #region [ 目录下拉框选择变化 ]
         private void ComboBoxSaveDir_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxSaveDir.SelectedIndex != -1)
@@ -821,38 +821,38 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region [ SaveLastDirectory ]
+        #region [ 保存历史目录 ]
         private void SaveLastDirectory(string directory)
         {
             string lastDirectoriesFileName = "CompareiItemsLastDirectories.txt";
             string lastDirectoriesFilePath = Path.Combine(_settingsDirectory, lastDirectoriesFileName);
             List<string> lastDirectories = new List<string>();
 
-            // Read existing directories if file exists
+            // 读取已有目录
             if (File.Exists(lastDirectoriesFilePath))
             {
                 lastDirectories.AddRange(File.ReadAllLines(lastDirectoriesFilePath));
             }
 
-            // Ensure the new directory is unique and at the top
+            // 确保目录唯一并置顶
             lastDirectories.Remove(directory);
             lastDirectories.Insert(0, directory);
 
-            // Limit to the last 10 entries
+            // 最多保存10条记录
             if (lastDirectories.Count > 10)
             {
                 lastDirectories = lastDirectories.Take(10).ToList();
             }
 
-            // Write back the updated list to the file
+            // 写回文件
             File.WriteAllLines(lastDirectoriesFilePath, lastDirectories);
         }
         #endregion
 
-        #region [ LoadComboBoxSaveDir ]
+        #region [ 加载目录下拉框 ]
         private void LoadComboBoxSaveDir()
         {
-            comboBoxSaveDir.Items.Clear(); // Clear existing items
+            comboBoxSaveDir.Items.Clear(); // 清空现有项
 
             string lastDirectoriesFileName = "CompareiItemsLastDirectories.txt";
             string lastDirectoriesFilePath = Path.Combine(_settingsDirectory, lastDirectoriesFileName);
@@ -868,7 +868,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
         }
         #endregion
 
-        #region [ btLeftMoveItem ]
+        #region [ 向右移动项目 ]
         private void BtLeftMoveItem_Click(object sender, EventArgs e)
         {
             if (listBoxSec.SelectedIndex == -1)
@@ -914,12 +914,12 @@ namespace UoFiddler.Plugin.Compare.UserControls
             listBoxOrg.Invalidate();
             listBoxSec.Invalidate();
 
-            // Update pictureBoxOrg with the selected item
+            // 更新左侧预览图
             pictureBoxOrg.BackgroundImage = Art.GetStatic(i);
         }
         #endregion
 
-        #region [ btLeftMoveItemMore ]
+        #region [ 批量向右移动 ]
         private void BtLeftMoveItemMore_Click(object sender, EventArgs e)
         {
             if (listBoxSec.SelectedIndices.Count == 0)
@@ -972,56 +972,56 @@ namespace UoFiddler.Plugin.Compare.UserControls
             listBoxOrg.Invalidate();
             listBoxSec.Invalidate();
 
-            // Update pictureBoxOrg with the first item selected
+            // 更新预览图为第一个选中项
             int firstSelectedIndex = int.Parse(listBoxSec.Items[listBoxSec.SelectedIndices[0]].ToString());
             pictureBoxOrg.BackgroundImage = Art.GetStatic(firstSelectedIndex);
         }
         #endregion
 
-        #region [ ListBoxSec_KeyDown ]
+        #region [ 右侧列表键盘快捷键 ]
         private void ListBoxSec_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
                 BtLeftMoveItem_Click(sender, e);
-                e.Handled = true; // Prevents the default behavior of the left arrow key
+                e.Handled = true; // 阻止方向键默认行为
             }
             if (e.KeyCode == Keys.Right)
             {
                 Btremoveitemfromindex_Click(sender, e);
-                e.Handled = true; // Prevents the default behavior of the right arrow key
+                e.Handled = true; // 阻止方向键默认行为
             }
         }
         #endregion
 
-        #region [ btremoveitemfromindex ]
+        #region [ 移除索引项目 ]
         private void Btremoveitemfromindex_Click(object sender, EventArgs e)
         {
             if (listBoxOrg.SelectedIndex != -1)
             {
                 int selectedIndex = listBoxOrg.SelectedIndex;
-                // Set the selected item to null in Kind
+                // 将选中项置为空
                 Art.ReplaceStatic(selectedIndex, null);
                 Options.ChangedUltimaClass["Art"] = true;
                 ControlEvents.FireItemChangeEvent(this, selectedIndex);
 
-                // Update pictureBoxOrg
+                // 清空预览图
                 pictureBoxOrg.BackgroundImage = null;
             }
         }
         #endregion
 
-        #region [ BtDataDirectoryisSettings ]
+        #region [ 打开配置目录 ]
         private void BtDataDirectoryisSettings_Click(object sender, EventArgs e)
         {
-            string settingsDirectory = Path.Combine("Data", "DirectoryisSettings"); // Directory Data/DirectoryisSettings
+            string settingsDirectory = Path.Combine("Data", "DirectoryisSettings"); // 配置目录
             if (Directory.Exists(settingsDirectory))
             {
                 System.Diagnostics.Process.Start("explorer.exe", settingsDirectory);
             }
             else
             {
-                MessageBox.Show("The directory does not exist.");
+                MessageBox.Show("目录不存在。");
             }
         }
         #endregion

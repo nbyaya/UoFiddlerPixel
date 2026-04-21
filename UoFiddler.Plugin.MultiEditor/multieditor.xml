@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TileGroups>
-  <group id="0" name="Walls">
-    <subgroup name="Log Walls">
+  <group id="0" name="墙壁">
+    <subgroup name="木墙">
       <entry index="144" />
       <entry index="550" />
       <entry index="547" />
@@ -50,7 +50,7 @@
       <entry index="542" />
       <entry index="544" />
     </subgroup>
-    <subgroup name="Sandstone Brick Walls">
+    <subgroup name="砂岩砖墙">
       <entry index="350" />
       <entry index="344" />
       <entry index="364" />
@@ -114,7 +114,7 @@
       <entry index="363" />
       <entry index="359" />
     </subgroup>
-    <subgroup name="Flat Stone Walls">
+    <subgroup name="平坦石墙">
       <entry index="588" />
       <entry index="597" />
       <entry index="591" />
@@ -132,7 +132,7 @@
       <entry index="600" />
       <entry index="602" />
     </subgroup>
-    <subgroup name="Sandstone and Plaster Walls">
+    <subgroup name="砂岩与灰泥墙">
       <entry index="971" />
       <entry index="992" />
       <entry index="979" />
@@ -6430,7 +6430,7 @@
       <entry index="10309" />
     </subgroup>
   </group>
-  <group id="0" name="Weapons Armour Clothing">
+  <group id="0" name="武器 盔甲 服装">
     <subgroup name="Leather Armour">
       <entry index="5068" />
       <entry index="5075" />

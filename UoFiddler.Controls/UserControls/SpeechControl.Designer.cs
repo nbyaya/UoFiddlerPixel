@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "THE BEER-WARE LICENSE" (啤酒软件授权协议)
+ * 只要您保留此声明，您就可以对本代码做任何处理。
+ * 如果将来我们相遇，并且您认为这些东西有价值，
+ * 您可以请我喝啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.UserControls
     partial class SpeechControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Controls.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -87,7 +87,7 @@ namespace UoFiddler.Controls.UserControls
             this.IDEntry.MaxLength = 10;
             this.IDEntry.Name = "IDEntry";
             this.IDEntry.Size = new System.Drawing.Size(116, 25);
-            this.IDEntry.Text = "Find ID...";
+            this.IDEntry.Text = "查找 ID...";
             this.IDEntry.Enter += new System.EventHandler(this.IDEntry_Enter);
             // 
             // IDButton
@@ -96,7 +96,7 @@ namespace UoFiddler.Controls.UserControls
             this.IDButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.IDButton.Name = "IDButton";
             this.IDButton.Size = new System.Drawing.Size(34, 22);
-            this.IDButton.Text = "Find";
+            this.IDButton.Text = "查找";
             this.IDButton.Click += new System.EventHandler(this.OnClickFindID);
             // 
             // IDNextButton
@@ -105,7 +105,7 @@ namespace UoFiddler.Controls.UserControls
             this.IDNextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.IDNextButton.Name = "IDNextButton";
             this.IDNextButton.Size = new System.Drawing.Size(62, 22);
-            this.IDNextButton.Text = "Find Next";
+            this.IDNextButton.Text = "查找下一个";
             this.IDNextButton.Click += new System.EventHandler(this.OnClickNextID);
             // 
             // toolStripSeparator1
@@ -117,7 +117,7 @@ namespace UoFiddler.Controls.UserControls
             // 
             this.KeyWordEntry.Name = "KeyWordEntry";
             this.KeyWordEntry.Size = new System.Drawing.Size(116, 25);
-            this.KeyWordEntry.Text = "KeyWord...";
+            this.KeyWordEntry.Text = "关键词...";
             this.KeyWordEntry.Enter += new System.EventHandler(this.KeyWordEntry_Enter);
             // 
             // KeyWordButton
@@ -126,7 +126,7 @@ namespace UoFiddler.Controls.UserControls
             this.KeyWordButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.KeyWordButton.Name = "KeyWordButton";
             this.KeyWordButton.Size = new System.Drawing.Size(34, 22);
-            this.KeyWordButton.Text = "Find";
+            this.KeyWordButton.Text = "查找";
             this.KeyWordButton.Click += new System.EventHandler(this.OnClickFindKeyWord);
             // 
             // KeyWordNextButton
@@ -135,7 +135,7 @@ namespace UoFiddler.Controls.UserControls
             this.KeyWordNextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.KeyWordNextButton.Name = "KeyWordNextButton";
             this.KeyWordNextButton.Size = new System.Drawing.Size(62, 22);
-            this.KeyWordNextButton.Text = "Find Next";
+            this.KeyWordNextButton.Text = "查找下一个";
             this.KeyWordNextButton.Click += new System.EventHandler(this.OnClickNextKeyWord);
             // 
             // dataGridView1
@@ -166,14 +166,14 @@ namespace UoFiddler.Controls.UserControls
             // 
             this.addEntryToolStripMenuItem.Name = "addEntryToolStripMenuItem";
             this.addEntryToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.addEntryToolStripMenuItem.Text = "Add Entry";
+            this.addEntryToolStripMenuItem.Text = "添加条目";
             this.addEntryToolStripMenuItem.Click += new System.EventHandler(this.OnAddEntry);
             // 
             // deleteEntryToolStripMenuItem
             // 
             this.deleteEntryToolStripMenuItem.Name = "deleteEntryToolStripMenuItem";
             this.deleteEntryToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.deleteEntryToolStripMenuItem.Text = "Delete Entry";
+            this.deleteEntryToolStripMenuItem.Text = "删除条目";
             this.deleteEntryToolStripMenuItem.Click += new System.EventHandler(this.OnDeleteEntry);
             // 
             // toolStrip2
@@ -196,7 +196,7 @@ namespace UoFiddler.Controls.UserControls
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(35, 22);
-            this.toolStripButton1.Text = "Save";
+            this.toolStripButton1.Text = "保存";
             this.toolStripButton1.Click += new System.EventHandler(this.OnClickSave);
             // 
             // toolStripSeparator3
@@ -211,7 +211,7 @@ namespace UoFiddler.Controls.UserControls
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(83, 22);
-            this.toolStripButton2.Text = "Export to CSV";
+            this.toolStripButton2.Text = "导出为 CSV";
             this.toolStripButton2.Click += new System.EventHandler(this.OnClickExport);
             // 
             // toolStripButton3
@@ -221,7 +221,7 @@ namespace UoFiddler.Controls.UserControls
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(100, 22);
-            this.toolStripButton3.Text = "Import from CSV";
+            this.toolStripButton3.Text = "从 CSV 导入";
             this.toolStripButton3.Click += new System.EventHandler(this.OnClickImport);
             // 
             // collapsibleSplitter1

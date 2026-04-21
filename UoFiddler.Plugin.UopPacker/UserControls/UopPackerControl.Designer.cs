@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  *
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
     partial class UopPackerControl
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -114,7 +114,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(147, 15);
             label1.TabIndex = 0;
-            label1.Text = "Convert from MUL to UOP";
+            label1.Text = "从 MUL 转换为 UOP";
             // 
             // label2
             // 
@@ -124,7 +124,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(63, 15);
             label2.TabIndex = 1;
-            label2.Text = "Input MUL";
+            label2.Text = "输入 MUL";
             // 
             // inmul
             // 
@@ -152,7 +152,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(56, 15);
             label3.TabIndex = 3;
-            label3.Text = "Input IDX";
+            label3.Text = "输入 IDX";
             // 
             // inmulbtn
             // 
@@ -213,7 +213,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(72, 15);
             label7.TabIndex = 16;
-            label7.Text = "Output UOP";
+            label7.Text = "输出 UOP";
             // 
             // multype
             // 
@@ -223,7 +223,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             multype.Name = "multype";
             multype.Size = new System.Drawing.Size(241, 23);
             multype.TabIndex = 19;
-            multype.Text = "File Type";
+            multype.Text = "文件类型";
             // 
             // label4
             // 
@@ -233,7 +233,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(61, 15);
             label4.TabIndex = 20;
-            label4.Text = "Input type";
+            label4.Text = "输入类型";
             // 
             // label5
             // 
@@ -243,7 +243,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(56, 15);
             label5.TabIndex = 21;
-            label5.Text = "Map n# ?";
+            label5.Text = "地图编号?";
             // 
             // mulMapIndex
             // 
@@ -297,7 +297,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(56, 15);
             label6.TabIndex = 37;
-            label6.Text = "Map n# ?";
+            label6.Text = "地图编号?";
             // 
             // label8
             // 
@@ -307,7 +307,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(61, 15);
             label8.TabIndex = 36;
-            label8.Text = "Input type";
+            label8.Text = "输入类型";
             // 
             // uoptype
             // 
@@ -318,7 +318,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             uoptype.Name = "uoptype";
             uoptype.Size = new System.Drawing.Size(241, 23);
             uoptype.TabIndex = 35;
-            uoptype.Text = "File Type";
+            uoptype.Text = "文件类型";
             // 
             // inuop
             // 
@@ -337,7 +337,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(62, 15);
             label9.TabIndex = 32;
-            label9.Text = "Input UOP";
+            label9.Text = "输入 UOP";
             // 
             // uoptomul
             // 
@@ -392,7 +392,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(66, 15);
             label10.TabIndex = 27;
-            label10.Text = "Output IDX";
+            label10.Text = "输出 IDX";
             // 
             // outmul
             // 
@@ -411,7 +411,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(73, 15);
             label11.TabIndex = 25;
-            label11.Text = "Output MUL";
+            label11.Text = "输出 MUL";
             // 
             // label12
             // 
@@ -421,7 +421,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label12.Name = "label12";
             label12.Size = new System.Drawing.Size(147, 15);
             label12.TabIndex = 24;
-            label12.Text = "Convert from UOP to MUL";
+            label12.Text = "从 UOP 转换为 MUL";
             // 
             // OperationTypeTabControl
             // 
@@ -452,7 +452,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             ExtractAllFilesTabPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             ExtractAllFilesTabPage.Size = new System.Drawing.Size(637, 442);
             ExtractAllFilesTabPage.TabIndex = 1;
-            ExtractAllFilesTabPage.Text = "Every file";
+            ExtractAllFilesTabPage.Text = "全部文件";
             ExtractAllFilesTabPage.UseVisualStyleBackColor = true;
             // 
             // SingleFileExtractButton
@@ -461,7 +461,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             SingleFileExtractButton.Name = "SingleFileExtractButton";
             SingleFileExtractButton.Size = new System.Drawing.Size(116, 23);
             SingleFileExtractButton.TabIndex = 14;
-            SingleFileExtractButton.Text = "Single Uop Extract";
+            SingleFileExtractButton.Text = "单个 UOP 解包";
             SingleFileExtractButton.UseVisualStyleBackColor = true;
             SingleFileExtractButton.Click += SingleFileExtractButtonClick;
             // 
@@ -471,7 +471,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             SingleFileUopArtExtractButton.Name = "SingleFileUopArtExtractButton";
             SingleFileUopArtExtractButton.Size = new System.Drawing.Size(131, 23);
             SingleFileUopArtExtractButton.TabIndex = 13;
-            SingleFileUopArtExtractButton.Text = "Single Uop Art Extract";
+            SingleFileUopArtExtractButton.Text = "单个 UOP 美术解包";
             SingleFileUopArtExtractButton.UseVisualStyleBackColor = true;
             SingleFileUopArtExtractButton.Click += SingleFileUopArtExtractButtonClick;
             // 
@@ -482,7 +482,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             StartFolderButton.Name = "StartFolderButton";
             StartFolderButton.Size = new System.Drawing.Size(326, 27);
             StartFolderButton.TabIndex = 12;
-            StartFolderButton.Text = "Start";
+            StartFolderButton.Text = "开始";
             StartFolderButton.UseVisualStyleBackColor = true;
             StartFolderButton.Click += StartFolderButtonClick;
             // 
@@ -502,14 +502,14 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             statustext.Name = "statustext";
             statustext.Size = new System.Drawing.Size(330, 17);
             statustext.Spring = true;
-            statustext.Text = "Status";
+            statustext.Text = "状态";
             statustext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toolStripStatusLabel2
             // 
             toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             toolStripStatusLabel2.Size = new System.Drawing.Size(282, 17);
-            toolStripStatusLabel2.Text = "The extraction/packing process may take some time";
+            toolStripStatusLabel2.Text = "解包/打包过程可能需要一些时间";
             // 
             // pack
             // 
@@ -520,7 +520,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             pack.Size = new System.Drawing.Size(119, 19);
             pack.TabIndex = 10;
             pack.TabStop = true;
-            pack.Text = "Pack MUL to UOP";
+            pack.Text = "打包 MUL 到 UOP";
             pack.UseVisualStyleBackColor = true;
             // 
             // extract
@@ -532,7 +532,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             extract.Size = new System.Drawing.Size(130, 19);
             extract.TabIndex = 9;
             extract.TabStop = true;
-            extract.Text = "Extract UOP to MUL";
+            extract.Text = "解包 UOP 到 MUL";
             extract.UseVisualStyleBackColor = true;
             // 
             // label13
@@ -543,7 +543,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(40, 15);
             label13.TabIndex = 6;
-            label13.Text = "Folder";
+            label13.Text = "文件夹";
             // 
             // inputfolder
             // 
@@ -606,7 +606,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             ExtractSingleFileTabPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             ExtractSingleFileTabPage.Size = new System.Drawing.Size(637, 442);
             ExtractSingleFileTabPage.TabIndex = 0;
-            ExtractSingleFileTabPage.Text = "One file";
+            ExtractSingleFileTabPage.Text = "单个文件";
             ExtractSingleFileTabPage.UseVisualStyleBackColor = true;
             // 
             // compressionBox
@@ -627,7 +627,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             CheckBoxAutoFill.Name = "CheckBoxAutoFill";
             CheckBoxAutoFill.Size = new System.Drawing.Size(65, 19);
             CheckBoxAutoFill.TabIndex = 41;
-            CheckBoxAutoFill.Text = "Autofill";
+            CheckBoxAutoFill.Text = "自动填充";
             CheckBoxAutoFill.UseVisualStyleBackColor = true;
             CheckBoxAutoFill.CheckedChanged += CheckBoxAutoFill_CheckedChanged;
             // 
@@ -638,7 +638,7 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             checkBoxOverwriteSaveUop.Name = "checkBoxOverwriteSaveUop";
             checkBoxOverwriteSaveUop.Size = new System.Drawing.Size(104, 19);
             checkBoxOverwriteSaveUop.TabIndex = 40;
-            checkBoxOverwriteSaveUop.Text = "Overwrite .uop";
+            checkBoxOverwriteSaveUop.Text = "覆盖 .uop 文件";
             checkBoxOverwriteSaveUop.UseVisualStyleBackColor = true;
             // 
             // MainStatusStrip
@@ -663,13 +663,13 @@ namespace UoFiddler.Plugin.UopPacker.UserControls
             // 
             guilabel.Name = "guilabel";
             guilabel.Size = new System.Drawing.Size(260, 17);
-            guilabel.Text = "RunUO's LegacyMUL Converter v4 3rd party GUI";
+            guilabel.Text = "RunUO 的 LegacyMUL Converter v4 第三方 GUI";
             // 
             // VersionLabel
             // 
             VersionLabel.Name = "VersionLabel";
             VersionLabel.Size = new System.Drawing.Size(99, 17);
-            VersionLabel.Text = "Unknown Version";
+            VersionLabel.Text = "未知版本";
             // 
             // splitContainer
             // 

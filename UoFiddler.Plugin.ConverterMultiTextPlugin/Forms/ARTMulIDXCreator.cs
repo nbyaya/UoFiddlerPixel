@@ -1,7 +1,7 @@
 ﻿// =============================================================================
-//  ARTMulIDXCreator.cs  –  Form Code-Behind  VERSION 2.0
-//  Alle neuen Tabs: Hues, Map/Statics, Multi, Skills, Validator, IdxPatcher,
-//  BatchSetup, HexViewer, DirCompare
+//  ARTMulIDXCreator.cs – 窗体代码隐藏  版本 2.0
+//  所有新增选项卡：Hues、Map/Statics、Multi、Skills、Validator、IdxPatcher、
+//  BatchSetup、HexViewer、DirCompare
 // =============================================================================
 
 using System;
@@ -17,7 +17,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
     public partial class ARTMulIDXCreator : Form
     {
         // =====================================================================
-        //  Felder
+        //  字段
         // =====================================================================
 
         private BinaryReader _reader;
@@ -33,22 +33,22 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         private const int Human = (int)CreatureType.Human;
 
         // =====================================================================
-        //  Konstruktor
+        //  构造函数
         // =====================================================================
 
         public ARTMulIDXCreator() { InitializeComponent(); PopulateMapSizeCombo(); }
 
         // =====================================================================
-        //  TAB: Create Muls
+        //  选项卡：创建 Muls
         // =====================================================================
 
-        #region ArtIDX erstellen
+        #region 创建 ArtIDX
 
         private void CreateArtFiles(IndexFormat format = IndexFormat.Legacy)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(textBox1.Text)) { ShowWarn("Bitte zuerst Verzeichnis wählen."); return; }
+                if (string.IsNullOrWhiteSpace(textBox1.Text)) { ShowWarn("请先选择目录。"); return; }
                 long count = MulFileHelper.ParseEntryCount(textBox2.Text, 65500, 1);
                 lbCreatedMul.Text = MulFileHelper.CreateIndexAndMul(textBox1.Text, "artidx.MUL", "art.MUL", count, format);
             }
@@ -74,9 +74,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 string dir = textBox1.Text;
                 string oa = Path.Combine(dir, "Art.mul"), oi = Path.Combine(dir, "Artidx.mul");
                 string na = Path.Combine(dir, "texmaps.mul"), ni = Path.Combine(dir, "texidx.mul");
-                if (!File.Exists(oa) || !File.Exists(oi)) { lbCreatedMul.Text = "Art.mul / Artidx.mul nicht gefunden."; return; }
+                if (!File.Exists(oa) || !File.Exists(oi)) { lbCreatedMul.Text = "未找到 Art.mul / Artidx.mul。"; return; }
                 File.Move(oa, na); File.Move(oi, ni);
-                lbCreatedMul.Text = $"Umbenannt:\n  {na}\n  {ni}";
+                lbCreatedMul.Text = $"已重命名：\n  {na}\n  {ni}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -84,10 +84,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB: Read Muls
+        //  选项卡：读取 Muls
         // =====================================================================
 
-        #region Read Muls
+        #region 读取 Muls
 
         private void BtnCountEntries_Click(object s, EventArgs e)
         {
@@ -95,7 +95,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 var (idx, _) = MulFileHelper.LoadAndSummarize(Path.Combine(d.SelectedPath, "artidx.MUL"));
-                lblEntryCount.Text = $"Einträge: {idx.Count:N0}  [{idx.Format}]";
+                lblEntryCount.Text = $"条目数：{idx.Count:N0}  [{idx.Format}]";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -127,10 +127,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB: TileData
+        //  选项卡：TileData
         // =====================================================================
 
-        #region TileData erstellen
+        #region 创建 TileData
 
         private void BtCreateTiledata_Click(object s, EventArgs e)
         {
@@ -141,7 +141,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 int land = ParseInt(tblandTileGroups.Text, 512), stat = ParseInt(tbstaticTileGroups.Text, 2048);
                 string path = Path.Combine(d.SelectedPath, "Tiledata.mul");
                 TileDataFile.CreateEmpty(land, stat).SaveToFile(path);
-                lbTileDataCreate.Text = $"Erstellt: {path}\nLand: {land * 32:N0}  Static: {stat * 32:N0}";
+                lbTileDataCreate.Text = $"已创建：{path}\n地形：{land * 32:N0}  静态：{stat * 32:N0}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -154,7 +154,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 string path = Path.Combine(d.SelectedPath, "Tiledata.mul");
                 TileDataFile.CreateEmpty().SaveToFile(path);
-                MessageBox.Show($"Leere Standard-Tiledata.mul erstellt:\n{path}");
+                MessageBox.Show($"已创建空的默认 Tiledata.mul：\n{path}");
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -168,14 +168,14 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 string path = Path.Combine(d.SelectedPath, "Tiledata.mul");
                 if (File.Exists(path)) File.Delete(path);
                 TileDataFile.CreateEmpty(land, stat).SaveToFile(path);
-                MessageBox.Show($"Simple Tiledata erstellt:\n{path}");
+                MessageBox.Show($"已创建简单 Tiledata：\n{path}");
             }
             catch (Exception ex) { ShowErr(ex); }
         }
 
         #endregion
 
-        #region TileData lesen
+        #region 读取 TileData
 
         private void BtTiledatainfo_Click(object s, EventArgs e)
         {
@@ -184,7 +184,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 tbDirTileData.Text = d.SelectedPath;
                 string path = Path.Combine(d.SelectedPath, "Tiledata.mul");
-                if (!File.Exists(path)) { textBoxTileDataInfo.Text = "Tiledata.mul nicht gefunden."; return; }
+                if (!File.Exists(path)) { textBoxTileDataInfo.Text = "未找到 Tiledata.mul。"; return; }
                 var td = new TileDataFile(); td.LoadFromFile(path); textBoxTileDataInfo.Text = td.GetSummary();
             }
             catch (Exception ex) { ShowErr(ex); }
@@ -196,19 +196,19 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 string path = Path.Combine(d.SelectedPath, "Tiledata.mul");
-                if (!File.Exists(path)) { textBoxTileDataInfo.Text = "Tiledata.mul nicht gefunden."; return; }
+                if (!File.Exists(path)) { textBoxTileDataInfo.Text = "未找到 Tiledata.mul。"; return; }
                 int idx = ParseInt(textBoxTiledataIndex.Text, 0);
                 var td = new TileDataFile(); td.LoadFromFile(path);
-                var sb = new StringBuilder($"=== Index {idx} ===\n");
-                sb.AppendLine(idx < td.LandTiles.Count ? $"[Land   ] {td.LandTiles[idx]}" : $"[Land   ] nicht vorhanden");
-                sb.AppendLine(idx < td.StaticTiles.Count ? $"[Static ] {td.StaticTiles[idx]}" : $"[Static ] nicht vorhanden");
+                var sb = new StringBuilder($"=== 索引 {idx} ===\n");
+                sb.AppendLine(idx < td.LandTiles.Count ? $"[地形   ] {td.LandTiles[idx]}" : $"[地形   ] 不存在");
+                sb.AppendLine(idx < td.StaticTiles.Count ? $"[静态 ] {td.StaticTiles[idx]}" : $"[静态 ] 不存在");
                 textBoxTileDataInfo.Text = sb.ToString();
             }
             catch (Exception ex) { ShowErr(ex); }
         }
 
-        public void BtReadLandTile_Click(object s, EventArgs e) => ReadTileData("Land");
-        public void BtReadStaticTile_Click(object s, EventArgs e) => ReadTileData("Static");
+        public void BtReadLandTile_Click(object s, EventArgs e) => ReadTileData("地形");
+        public void BtReadStaticTile_Click(object s, EventArgs e) => ReadTileData("静态");
 
         public void ReadTileData(string tt)
         {
@@ -216,12 +216,12 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 string path = Path.Combine(d.SelectedPath, "Tiledata.mul");
-                if (!File.Exists(path)) { textBoxTileDataInfo.Text = "Tiledata.mul nicht gefunden."; return; }
+                if (!File.Exists(path)) { textBoxTileDataInfo.Text = "未找到 Tiledata.mul。"; return; }
                 int idx = ParseInt(textBoxTiledataIndex.Text, 0);
                 var td = new TileDataFile(); td.LoadFromFile(path);
-                if (tt == "Land" && idx < td.LandTiles.Count) textBoxTileDataInfo.Text = $"[Land {idx}]\n{td.LandTiles[idx]}";
-                else if (tt == "Static" && idx < td.StaticTiles.Count) textBoxTileDataInfo.Text = $"[Static {idx}]\n{td.StaticTiles[idx]}";
-                else textBoxTileDataInfo.Text = $"Index {idx} für '{tt}' nicht vorhanden.";
+                if (tt == "地形" && idx < td.LandTiles.Count) textBoxTileDataInfo.Text = $"[地形 {idx}]\n{td.LandTiles[idx]}";
+                else if (tt == "静态" && idx < td.StaticTiles.Count) textBoxTileDataInfo.Text = $"[静态 {idx}]\n{td.StaticTiles[idx]}";
+                else textBoxTileDataInfo.Text = $"索引 {idx} 在 '{tt}' 中不存在。";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -232,7 +232,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 var td = new TileDataFile(); td.LoadFromFile(Path.Combine(d.SelectedPath, "Tiledata.mul"));
-                textBoxTileDataInfo.Text = td.GetSummary() + "\n\nBekannte Flags:\n" + string.Join(", ", TileDataFlags.KnownFlags.Keys);
+                textBoxTileDataInfo.Text = td.GetSummary() + "\n\n已知标志：\n" + string.Join(", ", TileDataFlags.KnownFlags.Keys);
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -243,7 +243,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 string path = Path.Combine(d.SelectedPath, "Tiledata.mul");
-                if (!File.Exists(path)) { textBoxTileDataInfo.Text = "Tiledata.mul nicht gefunden."; return; }
+                if (!File.Exists(path)) { textBoxTileDataInfo.Text = "未找到 Tiledata.mul。"; return; }
                 string raw = textBoxTiledataIndex.Text.Trim();
                 int idx = raw.StartsWith("0x", StringComparison.OrdinalIgnoreCase) ? Convert.ToInt32(raw.Substring(2), 16) : ParseInt(raw, 0);
                 textBoxTileDataInfo.Text = HexViewHelper.ReadHex(path, (long)idx * 836, 836);
@@ -257,7 +257,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 var td = new TileDataFile(); td.LoadFromFile(Path.Combine(d.SelectedPath, "Tiledata.mul"));
-                lblTileDataEntryCount.Text = $"Land: {td.LandTiles.Count:N0}  |  Static: {td.StaticTiles.Count:N0}  [{td.Version}]";
+                lblTileDataEntryCount.Text = $"地形：{td.LandTiles.Count:N0}  |  静态：{td.StaticTiles.Count:N0}  [{td.Version}]";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -270,7 +270,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 int land = ParseInt(tblandTileGroups.Text, 512), stat = ParseInt(tbstaticTileGroups.Text, 2048);
                 string path = Path.Combine(d.SelectedPath, "Tiledata.mul");
                 TileDataFile.CreateEmpty(land, stat).SaveToFile(path);
-                lblTileDataEntryCount.Text = $"Land: {land * 32:N0}  Static: {stat * 32:N0}";
+                lblTileDataEntryCount.Text = $"地形：{land * 32:N0}  静态：{stat * 32:N0}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -281,14 +281,14 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 using var ofd = new OpenFileDialog { Filter = "MUL|*.mul" }; if (ofd.ShowDialog() != DialogResult.OK) return;
                 var td = new TileDataFile(); td.LoadFromFile(ofd.FileName);
-                lblTileDataEntryCount.Text = $"Land: {td.LandTiles.Count:N0}  Static: {td.StaticTiles.Count:N0}  [{td.Version}]";
+                lblTileDataEntryCount.Text = $"地形：{td.LandTiles.Count:N0}  静态：{td.StaticTiles.Count:N0}  [{td.Version}]";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
 
         #endregion
 
-        #region TileData ReadOut
+        #region TileData 读出
 
         private void ButtonReadTileData_Click(object s, EventArgs e)
         {
@@ -366,10 +366,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB: Texturen
+        //  选项卡：纹理
         // =====================================================================
 
-        #region Texturen
+        #region 纹理
 
         private void BtCreateTextur_Click(object s, EventArgs e)
         {
@@ -381,7 +381,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 using var mw = new BinaryWriter(File.Open(Path.Combine(d.SelectedPath, "TexMaps.mul"), FileMode.Create));
                 using var iw = new BinaryWriter(File.Open(Path.Combine(d.SelectedPath, "TexIdx.mul"), FileMode.Create));
                 for (int i = 0; i < count; i++) { bool big = !only2 && (i % 2 != 0); int dim = big ? 128 : 64; for (int p = 0; p < dim * dim; p++) mw.Write((short)0); iw.Write(dim); iw.Write(dim); iw.Write(big ? 1 : 0); }
-                lbTextureCount.Text = $"Erstellt: {count:N0} Einträge"; tbIndexCount.Text = count.ToString();
+                lbTextureCount.Text = $"已创建：{count:N0} 个条目"; tbIndexCount.Text = count.ToString();
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -394,7 +394,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 int count = int.TryParse(tbIndexCountTexture.Text, out int c) ? c : 16383;
                 using var iw = new BinaryWriter(File.Open(Path.Combine(d.SelectedPath, "TexIdx.mul"), FileMode.Create));
                 for (int i = 0; i < count; i++) { iw.Write(0); iw.Write(0); iw.Write(0); }
-                lbTextureCount.Text = $"Leere TexIdx.mul: {count:N0}";
+                lbTextureCount.Text = $"空的 TexIdx.mul：{count:N0}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -402,7 +402,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB: RadarColor
+        //  选项卡：RadarColor
         // =====================================================================
 
         #region RadarColor
@@ -416,7 +416,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 string path = Path.Combine(d.SelectedPath, "radarcol.mul");
                 using var w = new BinaryWriter(File.Open(path, FileMode.Create));
                 for (int i = 0; i < count; i++) w.Write((short)0);
-                lbRadarColor.Text = $"radarcol.mul: {count:N0} Farben\n{path}";
+                lbRadarColor.Text = $"radarcol.mul：{count:N0} 种颜色\n{path}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -424,10 +424,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB: Palette
+        //  选项卡：调色板
         // =====================================================================
 
-        #region Palette
+        #region 调色板
 
         private void BtCreatePalette_Click(object s, EventArgs e)
         {
@@ -436,7 +436,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 _palette.Colors.Clear(); _palette.CreateGrayscale();
                 string path = Path.Combine(d.SelectedPath, "Palette.mul"); _palette.Save(path);
-                lbCreatePalette.Text = $"Graustufen-Palette:\n{path}";
+                lbCreatePalette.Text = $"灰度调色板：\n{path}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -448,7 +448,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 _palette.Colors.Clear(); InitUoPalette();
                 string path = Path.Combine(d.SelectedPath, "Palette.mul"); _palette.Save(path);
-                lbCreateColorPalette.Text = $"UO-Palette erstellt:\n{path}";
+                lbCreateColorPalette.Text = $"已创建 UO 调色板：\n{path}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -473,10 +473,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB: Animation
+        //  选项卡：动画
         // =====================================================================
 
-        #region Animation
+        #region 动画
 
         private void BtnLoadAnimationMulData_Click(object s, EventArgs e)
         {
@@ -509,7 +509,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 int count = 0;
                 await Task.Run(() => { using var r = new BinaryReader(File.OpenRead(ofd.FileName)); while (r.BaseStream.Position + 12 <= r.BaseStream.Length) { r.ReadInt32(); r.ReadInt32(); r.ReadInt32(); count++; } });
-                lblNewIdCount.Text = $"Einträge: {count:N0}";
+                lblNewIdCount.Text = $"条目数：{count:N0}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -522,22 +522,22 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             tbProcessAminidx.Clear();
             try
             {
-                if (!File.Exists(tbfilename.Text)) { tbProcessAminidx.AppendText("Quelldatei nicht gefunden!\n"); return; }
-                if (!int.TryParse(txtOrigCreatureID.Text, System.Globalization.NumberStyles.HexNumber, null, out int cid)) { tbProcessAminidx.AppendText("Ungültige Animations-ID (Hex).\n"); return; }
+                if (!File.Exists(tbfilename.Text)) { tbProcessAminidx.AppendText("未找到源文件！\n"); return; }
+                if (!int.TryParse(txtOrigCreatureID.Text, System.Globalization.NumberStyles.HexNumber, null, out int cid)) { tbProcessAminidx.AppendText("无效的动画 ID（十六进制）。\n"); return; }
                 int copyCount;
                 if (chkHighDetail.Checked) copyCount = HighDetail;
                 else if (chkLowDetail.Checked) copyCount = LowDetail;
                 else if (chkHuman.Checked) copyCount = Human;
-                else if (!int.TryParse(txtNewCreatureID.Text, out copyCount)) { tbProcessAminidx.AppendText("Ungültige Kopienzahl.\n"); return; }
+                else if (!int.TryParse(txtNewCreatureID.Text, out copyCount)) { tbProcessAminidx.AppendText("无效的副本数量。\n"); return; }
                 string outFile = string.IsNullOrWhiteSpace(txtOutputFilename.Text)
                     ? Path.Combine(txtOutputDirectory.Text, "anim.idx")
                     : Path.Combine(txtOutputDirectory.Text, "anim" + txtOutputFilename.Text + ".idx");
                 File.Copy(tbfilename.Text, outFile, true);
                 string result = AnimationFile.CopyCreatureIdx(outFile, cid, copyCount, msg => tbProcessAminidx.AppendText(msg + "\n"));
                 tbProcessAminidx.AppendText(result + "\n");
-                _newIdCount += copyCount; lblNewIdCount.Text = $"Erstellte IDs: {_newIdCount:N0}";
+                _newIdCount += copyCount; lblNewIdCount.Text = $"已创建的 ID：{_newIdCount:N0}";
             }
-            catch (Exception ex) { tbProcessAminidx.AppendText($"Fehler: {ex.Message}\n"); }
+            catch (Exception ex) { tbProcessAminidx.AppendText($"错误：{ex.Message}\n"); }
         }
 
         private void BtnProcessClickOldVersion(object s, EventArgs e)
@@ -545,14 +545,14 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             tbProcessAminidx.Clear();
             try
             {
-                if (!File.Exists(tbfilename.Text)) { tbProcessAminidx.AppendText("Quelldatei nicht gefunden!\n"); return; }
-                if (!int.TryParse(txtOrigCreatureID.Text, System.Globalization.NumberStyles.HexNumber, null, out int cid)) { tbProcessAminidx.AppendText("Ungültige ID.\n"); return; }
-                if (!int.TryParse(txtNewCreatureID.Text, out int cc)) { tbProcessAminidx.AppendText("Ungültige Kopienzahl.\n"); return; }
+                if (!File.Exists(tbfilename.Text)) { tbProcessAminidx.AppendText("未找到源文件！\n"); return; }
+                if (!int.TryParse(txtOrigCreatureID.Text, System.Globalization.NumberStyles.HexNumber, null, out int cid)) { tbProcessAminidx.AppendText("无效的 ID。\n"); return; }
+                if (!int.TryParse(txtNewCreatureID.Text, out int cc)) { tbProcessAminidx.AppendText("无效的副本数量。\n"); return; }
                 string result = AnimationFile.CopyCreatureIdx(tbfilename.Text, cid, cc, msg => tbProcessAminidx.AppendText(msg + "\n"));
                 tbProcessAminidx.AppendText(result + "\n");
-                _newIdCount += cc; lblNewIdCount.Text = $"Erstellte IDs: {_newIdCount:N0}";
+                _newIdCount += cc; lblNewIdCount.Text = $"已创建的 ID：{_newIdCount:N0}";
             }
-            catch (Exception ex) { tbProcessAminidx.AppendText($"Fehler: {ex.Message}\n"); }
+            catch (Exception ex) { tbProcessAminidx.AppendText($"错误：{ex.Message}\n"); }
         }
 
         private void BtnSingleEmptyAnimMul_Click(object s, EventArgs e)
@@ -561,7 +561,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 using var _ = File.Create(Path.Combine(d.SelectedPath, "anim.mul"));
-                tbProcessAminidx.AppendText($"Leere anim.mul: {d.SelectedPath}\n");
+                tbProcessAminidx.AppendText($"空的 anim.mul：{d.SelectedPath}\n");
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -569,12 +569,12 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB: Artmul
+        //  选项卡：Artmul
         // =====================================================================
 
         #region Artmul
 
-        private void BtnCreateArtIdx_Click(object s, EventArgs e) { using var sfd = new SaveFileDialog { Filter = "MUL|*.mul" }; if (sfd.ShowDialog() != DialogResult.OK) return; try { infoARTIDXMULID.AppendText(MulFileHelper.ExtendIndex(sfd.FileName, 1_000_000) + "\n"); } catch (Exception ex) { infoARTIDXMULID.AppendText($"Fehler: {ex.Message}\n"); } }
+        private void BtnCreateArtIdx_Click(object s, EventArgs e) { using var sfd = new SaveFileDialog { Filter = "MUL|*.mul" }; if (sfd.ShowDialog() != DialogResult.OK) return; try { infoARTIDXMULID.AppendText(MulFileHelper.ExtendIndex(sfd.FileName, 1_000_000) + "\n"); } catch (Exception ex) { infoARTIDXMULID.AppendText($"错误：{ex.Message}\n"); } }
         private void BtnCreateArtIdx100K_Click(object s, EventArgs e) => CreateArtIdxFixed(100_000);
         private void BtnCreateArtIdx150K_Click(object s, EventArgs e) => CreateArtIdxFixed(150_000);
         private void BtnCreateArtIdx200K_Click(object s, EventArgs e) => CreateArtIdxFixed(200_000);
@@ -583,10 +583,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
         private void CreateArtIdxFixed(long entries)
         {
-            using var sfd = new SaveFileDialog { Filter = "MUL|*.mul", Title = $"artidx ({entries:N0}) speichern" };
+            using var sfd = new SaveFileDialog { Filter = "MUL|*.mul", Title = $"保存 artidx（{entries:N0} 个条目）" };
             if (sfd.ShowDialog() != DialogResult.OK) return;
             try { infoARTIDXMULID.AppendText(MulFileHelper.ExtendIndex(sfd.FileName, entries) + "\n"); }
-            catch (Exception ex) { infoARTIDXMULID.AppendText($"Fehler: {ex.Message}\n"); }
+            catch (Exception ex) { infoARTIDXMULID.AppendText($"错误：{ex.Message}\n"); }
         }
 
         private void BtnReadArtIdx_Click(object s, EventArgs e)
@@ -596,9 +596,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 var idx = new MulIndexFile(); idx.LoadFromFile(ofd.FileName);
                 infoARTIDXMULID.AppendText(idx.GetSummary() + "\n" + ofd.FileName + "\n");
-                lblIndexCount.Text = $"Gesamt: {idx.Count:N0}";
+                lblIndexCount.Text = $"总计：{idx.Count:N0}";
             }
-            catch (Exception ex) { infoARTIDXMULID.AppendText($"Fehler: {ex.Message}\n"); }
+            catch (Exception ex) { infoARTIDXMULID.AppendText($"错误：{ex.Message}\n"); }
         }
 
         private void ReadArtmul2_Click(object s, EventArgs e)
@@ -607,8 +607,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 string path = Path.Combine(d.SelectedPath, "artidx.mul");
-                if (!File.Exists(path)) { MessageBox.Show("artidx.mul nicht gefunden."); return; }
-                lblIndexCount.Text = $"artidx.mul: {new FileInfo(path).Length / 12:N0} Einträge";
+                if (!File.Exists(path)) { MessageBox.Show("未找到 artidx.mul。"); return; }
+                lblIndexCount.Text = $"artidx.mul：{new FileInfo(path).Length / 12:N0} 个条目";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -617,7 +617,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             using var ofd = new OpenFileDialog { Filter = "MUL|*.mul" }; if (ofd.ShowDialog() != DialogResult.OK) return;
             try { var idx = new MulIndexFile(); idx.LoadFromFile(ofd.FileName); infoARTIDXMULID.AppendText(idx.GetDetailedInfo(300)); }
-            catch (Exception ex) { infoARTIDXMULID.AppendText($"Fehler: {ex.Message}\n"); }
+            catch (Exception ex) { infoARTIDXMULID.AppendText($"错误：{ex.Message}\n"); }
         }
 
         private void BtnCreateNewArtidx(object s, EventArgs e)
@@ -636,11 +636,11 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             try
             {
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
-                if (!int.TryParse(tbxNewIndex.Text, out int count) || count <= 0) { MessageBox.Show("Gültige Zahl eingeben."); return; }
+                if (!int.TryParse(tbxNewIndex.Text, out int count) || count <= 0) { MessageBox.Show("请输入有效的数字。"); return; }
                 byte[] bytes = new byte[count * 12];
                 for (int i = 0; i < count; i++) { int o = i * 12; bytes[o] = bytes[o + 1] = bytes[o + 2] = bytes[o + 3] = 0xFF; }
                 string path = Path.Combine(d.SelectedPath, "artidx.mul"); File.WriteAllBytes(path, bytes);
-                MessageBox.Show($"Old artidx.mul: {count:N0} Einträge\n{path}");
+                MessageBox.Show($"旧版 artidx.mul：{count:N0} 个条目\n{path}");
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -653,8 +653,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 if (!int.TryParse(tbxNewIndex2.Text, out int total) || total <= 0 ||
                    !int.TryParse(tbxArtsCount.Text, out int arts) || arts < 0 ||
                    !int.TryParse(tbxLandTilesCount.Text, out int land) || land < 0 || arts + land != total)
-                { MessageBox.Show("Fehler: Arts + LandTiles muss Gesamt ergeben."); return; }
-                MessageBox.Show(MulFileHelper.CreateIndexAndMul(d.SelectedPath, "artidx.mul", "art.mul", total) + $"\n\nArts: {arts:N0}  LandTiles: {land:N0}");
+                { MessageBox.Show("错误：物品数 + 地形数 必须等于总数。"); return; }
+                MessageBox.Show(MulFileHelper.CreateIndexAndMul(d.SelectedPath, "artidx.mul", "art.mul", total) + $"\n\n物品：{arts:N0}  地形：{land:N0}");
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -662,10 +662,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB: Sound
+        //  选项卡：声音
         // =====================================================================
 
-        #region Sound
+        #region 声音
 
         private void CreateOrgSoundMul_Click(object s, EventArgs e)
         {
@@ -684,7 +684,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 if (folderBrowserDialog.ShowDialog() != DialogResult.OK) return;
                 var sf = new SoundFile(); int cnt = sf.LoadIndex(Path.Combine(folderBrowserDialog.SelectedPath, "SoundIdx.mul"));
-                IndexSizeLabel.Text = $"SoundIdx.mul: {cnt:N0} Einträge";
+                IndexSizeLabel.Text = $"SoundIdx.mul：{cnt:N0} 个条目";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -692,7 +692,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB: Gump
+        //  选项卡：Gump
         // =====================================================================
 
         #region Gump
@@ -702,9 +702,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             try
             {
                 if (folderBrowserDialog.ShowDialog() != DialogResult.OK) return;
-                if (!int.TryParse(IndexSizeTextBox.Text, out int size) || size <= 0) { MessageBox.Show("Ungültige Größe."); return; }
+                if (!int.TryParse(IndexSizeTextBox.Text, out int size) || size <= 0) { MessageBox.Show("无效的大小。"); return; }
                 GumpFile.CreateEmpty(folderBrowserDialog.SelectedPath, size);
-                gumpLabel.Text = $"Gump erstellt: {size:N0}";
+                gumpLabel.Text = $"已创建 Gump：{size:N0}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -714,7 +714,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             try
             {
                 if (folderBrowserDialog.ShowDialog() != DialogResult.OK) return;
-                gumpLabel.Text = $"Gump-Einträge: {GumpFile.CountEntries(folderBrowserDialog.SelectedPath):N0}";
+                gumpLabel.Text = $"Gump 条目数：{GumpFile.CountEntries(folderBrowserDialog.SelectedPath):N0}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -722,7 +722,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB NEU: Hues
+        //  新增选项卡：Hues
         // =====================================================================
 
         #region Hues
@@ -734,7 +734,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 string path = Path.Combine(d.SelectedPath, "hues.mul");
                 HuesFile.CreateEmpty().SaveToFile(path);
-                lblHuesOutput.Text = $"hues.mul erstellt:\n  {path}\n  {HuesFile.TotalEntries:N0} Hue-Einträge  ({new FileInfo(path).Length:N0} Byte)";
+                lblHuesOutput.Text = $"已创建 hues.mul：\n  {path}\n  {HuesFile.TotalEntries:N0} 个色调条目（{new FileInfo(path).Length:N0} 字节）";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -743,9 +743,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             try
             {
-                using var ofd = new OpenFileDialog { Filter = "MUL|*.mul", Title = "hues.mul öffnen" }; if (ofd.ShowDialog() != DialogResult.OK) return;
+                using var ofd = new OpenFileDialog { Filter = "MUL|*.mul", Title = "打开 hues.mul" }; if (ofd.ShowDialog() != DialogResult.OK) return;
                 var hf = new HuesFile(); hf.LoadFromFile(ofd.FileName);
-                var sb = new StringBuilder(hf.GetSummary() + "\n\nErste 20 Einträge:\n");
+                var sb = new StringBuilder(hf.GetSummary() + "\n\n前 20 个条目：\n");
                 for (int i = 0; i < Math.Min(20, hf.Count); i++) sb.AppendLine($"  [{i,4}] {hf.Entries[i]}");
                 lblHuesOutput.Text = sb.ToString();
             }
@@ -755,7 +755,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB NEU: Map/Statics
+        //  新增选项卡：Map/Statics
         // =====================================================================
 
         #region Map / Statics
@@ -826,7 +826,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB NEU: Multi
+        //  新增选项卡：Multi
         // =====================================================================
 
         #region Multi
@@ -851,7 +851,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 int idx = ParseInt(tbMultiIndex.Text, 0);
                 bool hs = checkBoxMultiHS.Checked;
                 var tiles = MultiFile.ReadMulti(d.SelectedPath, idx, hs);
-                var sb = new StringBuilder($"multi.idx: {total:N0} Einträge\n\nMulti [{idx}] – {tiles.Count} Tiles:\n");
+                var sb = new StringBuilder($"multi.idx：{total:N0} 个条目\n\nMulti [{idx}] – {tiles.Count} 个图块：\n");
                 foreach (var t in tiles) sb.AppendLine($"  {t}");
                 lblMultiOutput.Text = sb.ToString();
             }
@@ -861,7 +861,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB NEU: Skills
+        //  新增选项卡：Skills
         // =====================================================================
 
         #region Skills
@@ -872,7 +872,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             {
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 SkillsFile.CreateDefault().SaveToFile(d.SelectedPath);
-                lblSkillsOutput.Text = $"Standard-Skills erstellt ({SkillsFile.DefaultSkillNames.Length} Skills):\n  {d.SelectedPath}";
+                lblSkillsOutput.Text = $"已创建标准技能（{SkillsFile.DefaultSkillNames.Length} 个技能）：\n  {d.SelectedPath}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -884,7 +884,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 using var d = new FolderBrowserDialog(); if (d.ShowDialog() != DialogResult.OK) return;
                 int count = ParseInt(tbSkillCount.Text, 58);
                 SkillsFile.CreateEmpty(count).SaveToFile(d.SelectedPath);
-                lblSkillsOutput.Text = $"Leere Skills erstellt ({count}):\n  {d.SelectedPath}";
+                lblSkillsOutput.Text = $"已创建空的技能文件（{count} 个技能）：\n  {d.SelectedPath}";
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -903,7 +903,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB NEU: Validator
+        //  新增选项卡：Validator
         // =====================================================================
 
         #region Validator
@@ -912,17 +912,17 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             try
             {
-                using var ofd = new OpenFileDialog { Filter = "IDX|*.idx;*.mul", Title = "IDX-Datei wählen" }; if (ofd.ShowDialog() != DialogResult.OK) return;
+                using var ofd = new OpenFileDialog { Filter = "IDX|*.idx;*.mul", Title = "选择 IDX 文件" }; if (ofd.ShowDialog() != DialogResult.OK) return;
                 string idxPath = ofd.FileName;
                 string mulPath = Path.ChangeExtension(idxPath, ".mul");
                 if (!File.Exists(mulPath))
                 {
-                    using var ofd2 = new OpenFileDialog { Filter = "MUL|*.mul", Title = "Zugehörige MUL wählen" };
+                    using var ofd2 = new OpenFileDialog { Filter = "MUL|*.mul", Title = "选择对应的 MUL 文件" };
                     if (ofd2.ShowDialog() == DialogResult.OK) mulPath = ofd2.FileName; else mulPath = null;
                 }
                 var result = MulValidator.Validate(idxPath, mulPath ?? string.Empty);
                 textBoxValidatorOutput.Text = result.ToString();
-                lblValidatorStatus.Text = result.IsHealthy ? "✓ Keine Fehler" : "✗ " + result.BrokenEntries + " Fehler";
+                lblValidatorStatus.Text = result.IsHealthy ? "✓ 无错误" : "✗ " + result.BrokenEntries + " 个错误";
                 lblValidatorStatus.ForeColor = result.IsHealthy ? Color.DarkGreen : Color.Red;
             }
             catch (Exception ex) { ShowErr(ex); }
@@ -932,10 +932,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             try
             {
-                using var da = new FolderBrowserDialog { Description = "Verzeichnis A wählen" }; if (da.ShowDialog() != DialogResult.OK) return;
-                using var db = new FolderBrowserDialog { Description = "Verzeichnis B wählen" }; if (db.ShowDialog() != DialogResult.OK) return;
+                using var da = new FolderBrowserDialog { Description = "选择目录 A" }; if (da.ShowDialog() != DialogResult.OK) return;
+                using var db = new FolderBrowserDialog { Description = "选择目录 B" }; if (db.ShowDialog() != DialogResult.OK) return;
                 textBoxValidatorOutput.Text = MulValidator.CompareDirectories(da.SelectedPath, db.SelectedPath);
-                lblValidatorStatus.Text = "Vergleich abgeschlossen."; lblValidatorStatus.ForeColor = Color.Navy;
+                lblValidatorStatus.Text = "比较完成。"; lblValidatorStatus.ForeColor = Color.Navy;
             }
             catch (Exception ex) { ShowErr(ex); }
         }
@@ -943,7 +943,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB NEU: IDX Patcher
+        //  新增选项卡：IDX Patcher
         // =====================================================================
 
         #region IDX Patcher
@@ -955,8 +955,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             try
             {
-                if (!File.Exists(tbPatchIdxPath.Text)) { ShowWarn("IDX nicht gefunden."); return; }
-                if (!int.TryParse(tbPatchIndex.Text, out int idx)) { ShowWarn("Ungültiger Index."); return; }
+                if (!File.Exists(tbPatchIdxPath.Text)) { ShowWarn("未找到 IDX 文件。"); return; }
+                if (!int.TryParse(tbPatchIndex.Text, out int idx)) { ShowWarn("无效的索引。"); return; }
                 long lookup = tbPatchLookup.Text.StartsWith("0x", StringComparison.OrdinalIgnoreCase)
                     ? Convert.ToInt64(tbPatchLookup.Text.Substring(2), 16)
                     : long.Parse(tbPatchLookup.Text);
@@ -971,8 +971,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             try
             {
-                if (!File.Exists(tbPatchIdxPath.Text)) { ShowWarn("IDX nicht gefunden."); return; }
-                if (!int.TryParse(tbPatchIndex.Text, out int idx)) { ShowWarn("Ungültiger Index."); return; }
+                if (!File.Exists(tbPatchIdxPath.Text)) { ShowWarn("未找到 IDX 文件。"); return; }
+                if (!int.TryParse(tbPatchIndex.Text, out int idx)) { ShowWarn("无效的索引。"); return; }
                 textBoxPatcherOutput.Text = IdxPatcher.ClearEntry(tbPatchIdxPath.Text, idx);
             }
             catch (Exception ex) { ShowErr(ex); }
@@ -982,7 +982,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             try
             {
-                if (!File.Exists(tbPatchIdxPath.Text)) { ShowWarn("IDX nicht gefunden."); return; }
+                if (!File.Exists(tbPatchIdxPath.Text)) { ShowWarn("未找到 IDX 文件。"); return; }
                 int from = ParseInt(tbPatchRangeFrom.Text, 0);
                 int count = ParseInt(tbPatchRangeCount.Text, 20);
                 textBoxPatcherOutput.Text = IdxPatcher.ReadRange(tbPatchIdxPath.Text, from, count);
@@ -993,7 +993,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         // =====================================================================
-        //  TAB NEU: Batch Setup
+        //  新增选项卡：Batch Setup
         // =====================================================================
 
         #region Batch Setup
@@ -1002,7 +1002,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             try
             {
-                using var d = new FolderBrowserDialog { Description = "Ziel-Verzeichnis für alle Shard-Dateien" }; if (d.ShowDialog() != DialogResult.OK) return;
+                using var d = new FolderBrowserDialog { Description = "所有分片文件的目标目录" }; if (d.ShowDialog() != DialogResult.OK) return;
                 btnBatchCreate.Enabled = false;
                 textBoxBatchLog.Clear();
                 var opt = new BatchSetupOptions
@@ -1023,28 +1023,28 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                 string log = await Task.Run(() => BatchSetup.CreateAll(d.SelectedPath, opt,
                     msg => Invoke((Action)(() => textBoxBatchLog.AppendText(msg + "\r\n")))));
                 textBoxBatchLog.Text = log;
-                lblBatchStatus.Text = "Fertig!"; lblBatchStatus.ForeColor = Color.DarkGreen;
+                lblBatchStatus.Text = "完成！"; lblBatchStatus.ForeColor = Color.DarkGreen;
             }
-            catch (Exception ex) { textBoxBatchLog.AppendText($"FEHLER: {ex.Message}\r\n"); lblBatchStatus.Text = "Fehler!"; lblBatchStatus.ForeColor = Color.Red; }
+            catch (Exception ex) { textBoxBatchLog.AppendText($"错误：{ex.Message}\r\n"); lblBatchStatus.Text = "错误！"; lblBatchStatus.ForeColor = Color.Red; }
             finally { btnBatchCreate.Enabled = true; }
         }
 
         #endregion
 
         // =====================================================================
-        //  TAB NEU: Hex Viewer
+        //  新增选项卡：Hex Viewer
         // =====================================================================
 
         #region Hex Viewer
 
         private void BtnHexBrowse_Click(object s, EventArgs e)
-        { using var ofd = new OpenFileDialog { Filter = "MUL|*.mul|Alle|*.*" }; if (ofd.ShowDialog() == DialogResult.OK) { tbHexFilePath.Text = ofd.FileName; lblHexFileInfo.Text = HexViewHelper.GetFileInfo(ofd.FileName); } }
+        { using var ofd = new OpenFileDialog { Filter = "MUL|*.mul|所有文件|*.*" }; if (ofd.ShowDialog() == DialogResult.OK) { tbHexFilePath.Text = ofd.FileName; lblHexFileInfo.Text = HexViewHelper.GetFileInfo(ofd.FileName); } }
 
         private void BtnHexRead_Click(object s, EventArgs e)
         {
             try
             {
-                if (!File.Exists(tbHexFilePath.Text)) { ShowWarn("Datei nicht gefunden."); return; }
+                if (!File.Exists(tbHexFilePath.Text)) { ShowWarn("文件未找到。"); return; }
                 long offset = tbHexOffset.Text.StartsWith("0x", StringComparison.OrdinalIgnoreCase)
                     ? Convert.ToInt64(tbHexOffset.Text.Substring(2), 16)
                     : long.Parse(tbHexOffset.Text);
@@ -1058,9 +1058,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             try
             {
-                if (!File.Exists(tbHexFilePath.Text)) { ShowWarn("Datei nicht gefunden."); return; }
+                if (!File.Exists(tbHexFilePath.Text)) { ShowWarn("文件未找到。"); return; }
                 string patternStr = tbHexPattern.Text.Replace(" ", "").Replace("-", "");
-                if (patternStr.Length % 2 != 0 || patternStr.Length == 0) { ShowWarn("Ungültiges Hex-Muster (z.B. FF00AB)."); return; }
+                if (patternStr.Length % 2 != 0 || patternStr.Length == 0) { ShowWarn("无效的十六进制模式（例如 FF00AB）。"); return; }
                 byte[] pat = new byte[patternStr.Length / 2];
                 for (int i = 0; i < pat.Length; i++) pat[i] = Convert.ToByte(patternStr.Substring(i * 2, 2), 16);
                 textBoxHexOutput.Text = HexViewHelper.SearchPattern(tbHexFilePath.Text, pat);
@@ -1070,24 +1070,24 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
         private void BtnHexFileInfo_Click(object s, EventArgs e)
         {
-            if (!File.Exists(tbHexFilePath.Text)) { ShowWarn("Datei nicht gefunden."); return; }
+            if (!File.Exists(tbHexFilePath.Text)) { ShowWarn("文件未找到。"); return; }
             textBoxHexOutput.Text = HexViewHelper.GetFileInfo(tbHexFilePath.Text);
         }
 
         #endregion
 
         // =====================================================================
-        //  Hilfsmethoden
+        //  辅助方法
         // =====================================================================
 
-        #region Hilfsmethoden
+        #region 辅助方法
 
         private static int ParseInt(string s, int def) => (string.IsNullOrWhiteSpace(s) || !int.TryParse(s.Trim(), out int v)) ? def : v;
 
         private void DisposeReader() { try { _reader?.Dispose(); } catch { } _reader = null; }
 
-        private static void ShowErr(Exception ex) => MessageBox.Show(ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        private static void ShowWarn(string msg) => MessageBox.Show(msg, "Hinweis", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        private static void ShowErr(Exception ex) => MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        private static void ShowWarn(string msg) => MessageBox.Show(msg, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         private void InitUoPalette()
         {

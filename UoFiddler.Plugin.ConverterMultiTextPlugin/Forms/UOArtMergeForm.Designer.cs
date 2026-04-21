@@ -1,11 +1,11 @@
 ﻿// /***************************************************************************
 //  *
-//  * $Author: Turley
+//  * $作者: Turley
 //  * 
-//  * "THE BEER-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer in return.
+//  * "啤酒软件许可协议"
+//  * 只要你保留此声明，你可以随意使用本代码。
+//  * 如果我们某天相遇，你觉得这个工具不错，
+//  * 可以请我喝一杯啤酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
     partial class UOArtMergeForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理正在使用的所有资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 此方法的内容使用代码编辑器。
         /// </summary>
         private void InitializeComponent()
         {
@@ -131,27 +131,27 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbCountOrg.AutoSize = true;
             lbCountOrg.Location = new System.Drawing.Point(3, 427);
             lbCountOrg.Name = "lbCountOrg";
-            lbCountOrg.Size = new System.Drawing.Size(40, 15);
+            lbCountOrg.Size = new System.Drawing.Size(32, 15);
             lbCountOrg.TabIndex = 6;
-            lbCountOrg.Text = "Count";
+            lbCountOrg.Text = "数量";
             // 
             // lbIndex
             // 
             lbIndex.AutoSize = true;
             lbIndex.Location = new System.Drawing.Point(184, 427);
             lbIndex.Name = "lbIndex";
-            lbIndex.Size = new System.Drawing.Size(36, 15);
+            lbIndex.Size = new System.Drawing.Size(32, 15);
             lbIndex.TabIndex = 5;
-            lbIndex.Text = "Index";
+            lbIndex.Text = "索引";
             // 
             // lbOrginal
             // 
             lbOrginal.AutoSize = true;
             lbOrginal.Location = new System.Drawing.Point(3, 12);
             lbOrginal.Name = "lbOrginal";
-            lbOrginal.Size = new System.Drawing.Size(190, 15);
+            lbOrginal.Size = new System.Drawing.Size(128, 15);
             lbOrginal.TabIndex = 4;
-            lbOrginal.Text = "Ultima Online Dir Art.mul or (.uop)";
+            lbOrginal.Text = "原始UO资源 Art.mul / .uop";
             // 
             // pictureBoxOrg
             // 
@@ -193,8 +193,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             saveToolStripMenuItem.Image = Properties.Resources.Save2;
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            saveToolStripMenuItem.Text = "Save";
-            saveToolStripMenuItem.ToolTipText = "Save Art.mul";
+            saveToolStripMenuItem.Text = "保存";
+            saveToolStripMenuItem.ToolTipText = "保存 Art.mul";
             saveToolStripMenuItem.Click += OnClickSave;
             // 
             // toolStripSeparator2
@@ -207,8 +207,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             mirrorToolStripMenuItem.Image = Properties.Resources.reload;
             mirrorToolStripMenuItem.Name = "mirrorToolStripMenuItem";
             mirrorToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            mirrorToolStripMenuItem.Text = "Mirror";
-            mirrorToolStripMenuItem.ToolTipText = "Mirror Image";
+            mirrorToolStripMenuItem.Text = "镜像";
+            mirrorToolStripMenuItem.ToolTipText = "镜像翻转图片";
             mirrorToolStripMenuItem.Click += MirrorToolStripMenuItem_Click;
             // 
             // toolStripSeparator5
@@ -221,8 +221,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             removeToolStripMenuItem.Image = Properties.Resources.a_black_square_with_round_corners_and_within_the_b;
             removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            removeToolStripMenuItem.Text = "Remove";
-            removeToolStripMenuItem.ToolTipText = "Remove Image";
+            removeToolStripMenuItem.Text = "移除";
+            removeToolStripMenuItem.ToolTipText = "移除图片";
             removeToolStripMenuItem.Click += Btremoveitemfromindex_Click;
             // 
             // toolStripSeparator4
@@ -235,8 +235,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             copyToolStripMenuItem.Image = Properties.Resources.Copy;
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             copyToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            copyToolStripMenuItem.Text = "Copy";
-            copyToolStripMenuItem.ToolTipText = "Copy Art Image to Clipboard";
+            copyToolStripMenuItem.Text = "复制";
+            copyToolStripMenuItem.ToolTipText = "复制美术图片到剪贴板";
             copyToolStripMenuItem.Click += CopyToolStripMenuItem_Click;
             // 
             // importToolStripMenuItem
@@ -244,8 +244,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             importToolStripMenuItem.Image = Properties.Resources.import;
             importToolStripMenuItem.Name = "importToolStripMenuItem";
             importToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            importToolStripMenuItem.Text = "Import";
-            importToolStripMenuItem.ToolTipText = "Import Image from Clipboard";
+            importToolStripMenuItem.Text = "导入";
+            importToolStripMenuItem.ToolTipText = "从剪贴板导入图片";
             importToolStripMenuItem.Click += ImportToolStripclipboardMenuItem_Click;
             // 
             // toolStripSeparator6
@@ -276,8 +276,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             moveArtToolStripMenuItem1.Image = Properties.Resources.right;
             moveArtToolStripMenuItem1.Name = "moveArtToolStripMenuItem1";
             moveArtToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
-            moveArtToolStripMenuItem1.Text = "Move Art";
-            moveArtToolStripMenuItem1.ToolTipText = "Move Art Image";
+            moveArtToolStripMenuItem1.Text = "移动美术资源";
+            moveArtToolStripMenuItem1.ToolTipText = "移动美术图片";
             moveArtToolStripMenuItem1.Click += BtLeftMoveItem_Click;
             // 
             // toolStripSeparator3
@@ -290,8 +290,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             copyToolStripMenuItemListBoxLeft.Image = Properties.Resources.Copy;
             copyToolStripMenuItemListBoxLeft.Name = "copyToolStripMenuItemListBoxLeft";
             copyToolStripMenuItemListBoxLeft.Size = new System.Drawing.Size(123, 22);
-            copyToolStripMenuItemListBoxLeft.Text = "Copy";
-            copyToolStripMenuItemListBoxLeft.ToolTipText = "Copy Art Image to Clipboard";
+            copyToolStripMenuItemListBoxLeft.Text = "复制";
+            copyToolStripMenuItemListBoxLeft.ToolTipText = "复制美术图片到剪贴板";
             copyToolStripMenuItemListBoxLeft.Click += CopyToolStripMenuItemListBoxLeft_Click;
             // 
             // listBoxLeft
@@ -323,27 +323,27 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbIndexLeft.AutoSize = true;
             lbIndexLeft.Location = new System.Drawing.Point(184, 427);
             lbIndexLeft.Name = "lbIndexLeft";
-            lbIndexLeft.Size = new System.Drawing.Size(36, 15);
+            lbIndexLeft.Size = new System.Drawing.Size(32, 15);
             lbIndexLeft.TabIndex = 7;
-            lbIndexLeft.Text = "Index";
+            lbIndexLeft.Text = "索引";
             // 
             // lbCountLeft
             // 
             lbCountLeft.AutoSize = true;
             lbCountLeft.Location = new System.Drawing.Point(4, 427);
             lbCountLeft.Name = "lbCountLeft";
-            lbCountLeft.Size = new System.Drawing.Size(40, 15);
+            lbCountLeft.Size = new System.Drawing.Size(32, 15);
             lbCountLeft.TabIndex = 7;
-            lbCountLeft.Text = "Count";
+            lbCountLeft.Text = "数量";
             // 
             // lbLeft
             // 
             lbLeft.AutoSize = true;
             lbLeft.Location = new System.Drawing.Point(3, 12);
             lbLeft.Name = "lbLeft";
-            lbLeft.Size = new System.Drawing.Size(94, 15);
+            lbLeft.Size = new System.Drawing.Size(80, 15);
             lbLeft.TabIndex = 5;
-            lbLeft.Text = "Selected Art.mul";
+            lbLeft.Text = "左侧 Art.mul";
             // 
             // panel2
             // 
@@ -362,27 +362,27 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbIndexRight.AutoSize = true;
             lbIndexRight.Location = new System.Drawing.Point(184, 427);
             lbIndexRight.Name = "lbIndexRight";
-            lbIndexRight.Size = new System.Drawing.Size(36, 15);
+            lbIndexRight.Size = new System.Drawing.Size(32, 15);
             lbIndexRight.TabIndex = 6;
-            lbIndexRight.Text = "Index";
+            lbIndexRight.Text = "索引";
             // 
             // lbCountRight
             // 
             lbCountRight.AutoSize = true;
             lbCountRight.Location = new System.Drawing.Point(3, 427);
             lbCountRight.Name = "lbCountRight";
-            lbCountRight.Size = new System.Drawing.Size(40, 15);
+            lbCountRight.Size = new System.Drawing.Size(32, 15);
             lbCountRight.TabIndex = 5;
-            lbCountRight.Text = "Count";
+            lbCountRight.Text = "数量";
             // 
             // lbRight
             // 
             lbRight.AutoSize = true;
             lbRight.Location = new System.Drawing.Point(3, 12);
             lbRight.Name = "lbRight";
-            lbRight.Size = new System.Drawing.Size(94, 15);
+            lbRight.Size = new System.Drawing.Size(80, 15);
             lbRight.TabIndex = 4;
-            lbRight.Text = "Selected Art.mul";
+            lbRight.Text = "右侧 Art.mul";
             // 
             // pictureBoxRight
             // 
@@ -424,8 +424,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             moveArtToolStripMenuItem.Image = Properties.Resources.left;
             moveArtToolStripMenuItem.Name = "moveArtToolStripMenuItem";
             moveArtToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            moveArtToolStripMenuItem.Text = "Move Art";
-            moveArtToolStripMenuItem.ToolTipText = "Move Art Image";
+            moveArtToolStripMenuItem.Text = "移动美术资源";
+            moveArtToolStripMenuItem.ToolTipText = "移动美术图片";
             moveArtToolStripMenuItem.Click += BtRightMoveItem_Click;
             // 
             // toolStripSeparator1
@@ -438,8 +438,8 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             copyToolStripMenuItemListBoxRight.Image = Properties.Resources.Copy;
             copyToolStripMenuItemListBoxRight.Name = "copyToolStripMenuItemListBoxRight";
             copyToolStripMenuItemListBoxRight.Size = new System.Drawing.Size(123, 22);
-            copyToolStripMenuItemListBoxRight.Text = "Copy";
-            copyToolStripMenuItemListBoxRight.ToolTipText = "Copy Art Image to Clipboard";
+            copyToolStripMenuItemListBoxRight.Text = "复制";
+            copyToolStripMenuItemListBoxRight.ToolTipText = "复制美术图片到剪贴板";
             copyToolStripMenuItemListBoxRight.Click += CopyToolStripMenuItemListBoxRight_Click;
             // 
             // btLeftLoad
@@ -448,7 +448,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btLeftLoad.Name = "btLeftLoad";
             btLeftLoad.Size = new System.Drawing.Size(75, 23);
             btLeftLoad.TabIndex = 6;
-            btLeftLoad.Text = "Left Load";
+            btLeftLoad.Text = "加载左侧";
             btLeftLoad.UseVisualStyleBackColor = true;
             btLeftLoad.Click += BtLeftLoad_Click;
             // 
@@ -491,7 +491,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btRightLoad.Name = "btRightLoad";
             btRightLoad.Size = new System.Drawing.Size(75, 23);
             btRightLoad.TabIndex = 16;
-            btRightLoad.Text = "Left Load";
+            btRightLoad.Text = "加载右侧";
             btRightLoad.UseVisualStyleBackColor = true;
             btRightLoad.Click += BtRightLoad_Click;
             // 
@@ -517,9 +517,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxSameHeight.AutoSize = true;
             checkBoxSameHeight.Location = new System.Drawing.Point(415, 480);
             checkBoxSameHeight.Name = "checkBoxSameHeight";
-            checkBoxSameHeight.Size = new System.Drawing.Size(92, 19);
+            checkBoxSameHeight.Size = new System.Drawing.Size(68, 19);
             checkBoxSameHeight.TabIndex = 19;
-            checkBoxSameHeight.Text = "Same height";
+            checkBoxSameHeight.Text = "等高显示";
             checkBoxSameHeight.UseVisualStyleBackColor = true;
             checkBoxSameHeight.CheckedChanged += CheckBoxSameHeight_CheckedChanged;
             // 
@@ -528,9 +528,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxOnChangeShowDiff.AutoSize = true;
             checkBoxOnChangeShowDiff.Location = new System.Drawing.Point(512, 480);
             checkBoxOnChangeShowDiff.Name = "checkBoxOnChangeShowDiff";
-            checkBoxOnChangeShowDiff.Size = new System.Drawing.Size(143, 19);
+            checkBoxOnChangeShowDiff.Size = new System.Drawing.Size(101, 19);
             checkBoxOnChangeShowDiff.TabIndex = 20;
-            checkBoxOnChangeShowDiff.Text = "Show only Differences";
+            checkBoxOnChangeShowDiff.Text = "仅显示差异项";
             checkBoxOnChangeShowDiff.UseVisualStyleBackColor = true;
             checkBoxOnChangeShowDiff.Click += OnChangeShowDiff;
             // 
@@ -549,9 +549,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             checkBoxfFreeIDchoice.AutoSize = true;
             checkBoxfFreeIDchoice.Location = new System.Drawing.Point(661, 480);
             checkBoxfFreeIDchoice.Name = "checkBoxfFreeIDchoice";
-            checkBoxfFreeIDchoice.Size = new System.Drawing.Size(98, 19);
+            checkBoxfFreeIDchoice.Size = new System.Drawing.Size(80, 19);
             checkBoxfFreeIDchoice.TabIndex = 22;
-            checkBoxfFreeIDchoice.Text = "free ID choice";
+            checkBoxfFreeIDchoice.Text = "自由ID选择";
             checkBoxfFreeIDchoice.UseVisualStyleBackColor = true;
             checkBoxfFreeIDchoice.CheckedChanged += CheckBoxfFreeIDchoice_CheckedChanged;
             // 
@@ -571,7 +571,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btSaveXML.Name = "btSaveXML";
             btSaveXML.Size = new System.Drawing.Size(75, 23);
             btSaveXML.TabIndex = 24;
-            btSaveXML.Text = "Save XML";
+            btSaveXML.Text = "保存XML";
             btSaveXML.UseVisualStyleBackColor = true;
             btSaveXML.Click += BtSaveXML_Click;
             // 
@@ -581,7 +581,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             btDelete.Name = "btDelete";
             btDelete.Size = new System.Drawing.Size(58, 23);
             btDelete.TabIndex = 26;
-            btDelete.Text = "Delete";
+            btDelete.Text = "删除";
             btDelete.UseVisualStyleBackColor = true;
             btDelete.Click += BtDelete_Click;
             // 
@@ -629,9 +629,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             label2.AutoSize = true;
             label2.Location = new System.Drawing.Point(180, 572);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(88, 15);
+            label2.Size = new System.Drawing.Size(56, 15);
             label2.TabIndex = 34;
-            label2.Text = "Hex addresses :";
+            label2.Text = "十六进制:";
             // 
             // OnClickSearch
             // 
@@ -639,7 +639,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             OnClickSearch.Name = "OnClickSearch";
             OnClickSearch.Size = new System.Drawing.Size(57, 23);
             OnClickSearch.TabIndex = 33;
-            OnClickSearch.Text = "Search";
+            OnClickSearch.Text = "搜索";
             OnClickSearch.UseVisualStyleBackColor = true;
             OnClickSearch.Click += OnClickSearch_Click;
             // 
@@ -655,9 +655,9 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             lbInfo.AutoSize = true;
             lbInfo.Location = new System.Drawing.Point(112, 539);
             lbInfo.Name = "lbInfo";
-            lbInfo.Size = new System.Drawing.Size(69, 15);
+            lbInfo.Size = new System.Drawing.Size(56, 15);
             lbInfo.TabIndex = 35;
-            lbInfo.Text = "Index ID Nr:";
+            lbInfo.Text = "索引ID号:";
             // 
             // DetailTextBox
             // 
@@ -702,7 +702,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "UOArtMergeForm";
-            Text = "UO Art Merge";
+            Text = "UO 美术资源合并工具";
             panel1Art.ResumeLayout(false);
             panel1Art.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxOrg).EndInit();

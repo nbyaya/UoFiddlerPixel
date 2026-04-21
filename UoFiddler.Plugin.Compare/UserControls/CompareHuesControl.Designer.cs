@@ -176,7 +176,7 @@ namespace UoFiddler.Plugin.Compare.UserControls
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 27);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Load";
+            this.button1.Text = "加载";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.OnClickLoad);
             // 

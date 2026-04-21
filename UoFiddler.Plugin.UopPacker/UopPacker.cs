@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  *
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -28,27 +28,27 @@ namespace UoFiddler.Plugin.UopPacker
         }
 
         /// <summary>
-        /// Name of the plugin
+        /// 插件名称
         /// </summary>
-        public override string Name { get; } = "UOP Packer";
+        public override string Name { get; } = "UOP 打包器";
 
         /// <summary>
-        /// Description of the Plugin's purpose
+        /// 插件用途描述
         /// </summary>
-        public override string Description { get; } = "UOP packer/unpacker\r\nUses RunUO UOP packer";
+        public override string Description { get; } = "UOP 打包/解包工具\r\n使用 RunUO UOP 打包器";
 
         /// <summary>
-        /// Author of the plugin
+        /// 插件作者
         /// </summary>
         public override string Author { get; } = "Feeh / Epila";
 
         /// <summary>
-        /// Version of the plugin
+        /// 插件版本
         /// </summary>
         public override string Version { get { return _ver.ToString(); } }
 
         /// <summary>
-        /// Host of the plugin.
+        /// 插件宿主。
         /// </summary>
         public override IPluginHost Host { get; set; }
 
@@ -65,8 +65,8 @@ namespace UoFiddler.Plugin.UopPacker
         {
             TabPage page = new TabPage
             {
-                Tag = 0, // at end used for undock/dock feature to define the order
-                Text = "UOP Packer"
+                Tag = 0, // 用于定义顺序的停靠/取消停靠功能
+                Text = "UOP 打包器"
             };
             page.Controls.Add(new UopPackerControl(Version));
             tabControl.TabPages.Add(page);

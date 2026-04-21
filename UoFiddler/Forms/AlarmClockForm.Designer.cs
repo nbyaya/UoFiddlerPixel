@@ -2,10 +2,10 @@
 //  *
 //  * $Author: Turley
 //  * 
-//  * "THE BEER-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer in return.
+//  * "啤酒许可证"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯啤酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Forms
     partial class AlarmClockForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -66,7 +66,7 @@ namespace UoFiddler.Forms
             timeLabel.Name = "timeLabel";
             timeLabel.Size = new System.Drawing.Size(66, 15);
             timeLabel.TabIndex = 1;
-            timeLabel.Text = "CountTime";
+            timeLabel.Text = "倒计时";
             // 
             // startButton
             // 
@@ -74,7 +74,7 @@ namespace UoFiddler.Forms
             startButton.Name = "startButton";
             startButton.Size = new System.Drawing.Size(47, 23);
             startButton.TabIndex = 2;
-            startButton.Text = "Start";
+            startButton.Text = "开始";
             startButton.UseVisualStyleBackColor = true;
             startButton.Click += startButton_Click;
             // 
@@ -84,7 +84,7 @@ namespace UoFiddler.Forms
             stopButton.Name = "stopButton";
             stopButton.Size = new System.Drawing.Size(44, 23);
             stopButton.TabIndex = 3;
-            stopButton.Text = "Stop";
+            stopButton.Text = "停止";
             stopButton.UseVisualStyleBackColor = true;
             stopButton.Click += stopButton_Click;
             // 
@@ -95,7 +95,7 @@ namespace UoFiddler.Forms
             LabelTimeReal.Name = "LabelTimeReal";
             LabelTimeReal.Size = new System.Drawing.Size(55, 15);
             LabelTimeReal.TabIndex = 4;
-            LabelTimeReal.Text = "RealTime";
+            LabelTimeReal.Text = "当前时间";
             // 
             // btLoadWave
             // 
@@ -103,7 +103,7 @@ namespace UoFiddler.Forms
             btLoadWave.Name = "btLoadWave";
             btLoadWave.Size = new System.Drawing.Size(43, 23);
             btLoadWave.TabIndex = 5;
-            btLoadWave.Text = "Load";
+            btLoadWave.Text = "加载";
             btLoadWave.UseVisualStyleBackColor = true;
             btLoadWave.Click += btLoadWave_Click;
             // 
@@ -117,7 +117,7 @@ namespace UoFiddler.Forms
             snoozeButton.Name = "snoozeButton";
             snoozeButton.Size = new System.Drawing.Size(57, 23);
             snoozeButton.TabIndex = 6;
-            snoozeButton.Text = "5 min";
+            snoozeButton.Text = "5分钟";
             snoozeButton.UseVisualStyleBackColor = true;
             snoozeButton.Click += snoozeButton_Click;
             // 
@@ -136,7 +136,7 @@ namespace UoFiddler.Forms
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "AlarmClockForm";
-            Text = "Alarm Clock";
+            Text = "闹钟";
             ResumeLayout(false);
             PerformLayout();
         }

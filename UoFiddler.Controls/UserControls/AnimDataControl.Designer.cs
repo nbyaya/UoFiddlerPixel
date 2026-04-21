@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.UserControls
     partial class AnimDataControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Controls.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -150,7 +150,7 @@ namespace UoFiddler.Controls.UserControls
             addToolStripMenuItem.Image = Properties.Resources.Add;
             addToolStripMenuItem.Name = "addToolStripMenuItem";
             addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            addToolStripMenuItem.Text = "Add";
+            addToolStripMenuItem.Text = "添加";
             // 
             // AddTextBox
             // 
@@ -164,7 +164,7 @@ namespace UoFiddler.Controls.UserControls
             removeToolStripMenuItem.Image = Properties.Resources.Remove;
             removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            removeToolStripMenuItem.Text = "Remove";
+            removeToolStripMenuItem.Text = "移除";
             removeToolStripMenuItem.Click += OnClickRemoveAnim;
             // 
             // saveToolStripMenuItem
@@ -172,7 +172,7 @@ namespace UoFiddler.Controls.UserControls
             saveToolStripMenuItem.Image = Properties.Resources.Save2;
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Text = "保存";
             saveToolStripMenuItem.Click += OnClickSave;
             // 
             // findToolStripMenuItem
@@ -181,8 +181,8 @@ namespace UoFiddler.Controls.UserControls
             findToolStripMenuItem.Image = Properties.Resources.Mark;
             findToolStripMenuItem.Name = "findToolStripMenuItem";
             findToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            findToolStripMenuItem.Text = "Find";
-            findToolStripMenuItem.ToolTipText = "finds the address via hex address or name";
+            findToolStripMenuItem.Text = "查找";
+            findToolStripMenuItem.ToolTipText = "通过十六进制地址或名称查找地址";
             // 
             // toolStripTextBoxFindAdress
             // 
@@ -225,7 +225,7 @@ namespace UoFiddler.Controls.UserControls
             groupBox1.Size = new System.Drawing.Size(321, 587);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Preview";
+            groupBox1.Text = "预览";
             // 
             // statusStripAnimData
             // 
@@ -244,16 +244,16 @@ namespace UoFiddler.Controls.UserControls
             toolStripDropDownButtonSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripDropDownButtonSettings.Name = "toolStripDropDownButtonSettings";
             toolStripDropDownButtonSettings.Size = new System.Drawing.Size(62, 20);
-            toolStripDropDownButtonSettings.Text = "Settings";
-            toolStripDropDownButtonSettings.ToolTipText = "Settings";
+            toolStripDropDownButtonSettings.Text = "设置";
+            toolStripDropDownButtonSettings.ToolTipText = "设置";
             // 
             // animateToolStripMenuItem
             // 
             animateToolStripMenuItem.Image = Properties.Resources.Animate;
             animateToolStripMenuItem.Name = "animateToolStripMenuItem";
             animateToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            animateToolStripMenuItem.Text = "Animate";
-            animateToolStripMenuItem.ToolTipText = "Animates the animation";
+            animateToolStripMenuItem.Text = "动画";
+            animateToolStripMenuItem.ToolTipText = "播放动画";
             animateToolStripMenuItem.Click += OnClickStartStop;
             // 
             // hueToolStripMenuItem
@@ -261,8 +261,8 @@ namespace UoFiddler.Controls.UserControls
             hueToolStripMenuItem.Image = Properties.Resources.colordialog;
             hueToolStripMenuItem.Name = "hueToolStripMenuItem";
             hueToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            hueToolStripMenuItem.Text = "Hue";
-            hueToolStripMenuItem.ToolTipText = "Displays the Hue colors";
+            hueToolStripMenuItem.Text = "色调";
+            hueToolStripMenuItem.ToolTipText = "显示色调颜色";
             hueToolStripMenuItem.Click += OnClick_Hue;
             // 
             // toolStripSeparator1
@@ -275,27 +275,27 @@ namespace UoFiddler.Controls.UserControls
             exportAsGIFToolStripMenuItem.Image = Properties.Resources.Animation;
             exportAsGIFToolStripMenuItem.Name = "exportAsGIFToolStripMenuItem";
             exportAsGIFToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            exportAsGIFToolStripMenuItem.Text = "Export as GIF";
-            exportAsGIFToolStripMenuItem.ToolTipText = "Creates a Gif file";
+            exportAsGIFToolStripMenuItem.Text = "导出为 GIF";
+            exportAsGIFToolStripMenuItem.ToolTipText = "创建 GIF 文件";
             exportAsGIFToolStripMenuItem.Click += OnClick_ExportAsGif;
             // 
             // toolStripStatusBaseGraphic
             // 
             toolStripStatusBaseGraphic.Name = "toolStripStatusBaseGraphic";
             toolStripStatusBaseGraphic.Size = new System.Drawing.Size(116, 17);
-            toolStripStatusBaseGraphic.Text = "Base Graphic: 0 (0x0)";
+            toolStripStatusBaseGraphic.Text = "基础图形: 0 (0x0)";
             // 
             // toolStripStatusGraphic
             // 
             toolStripStatusGraphic.Name = "toolStripStatusGraphic";
             toolStripStatusGraphic.Size = new System.Drawing.Size(89, 17);
-            toolStripStatusGraphic.Text = "Graphic: 0 (0x0)";
+            toolStripStatusGraphic.Text = "图形: 0 (0x0)";
             // 
             // toolStripStatusHue
             // 
             toolStripStatusHue.Name = "toolStripStatusHue";
             toolStripStatusHue.Size = new System.Drawing.Size(41, 15);
-            toolStripStatusHue.Text = "Hue: 0";
+            toolStripStatusHue.Text = "色调: 0";
             // 
             // AminDataMainPictureBox
             // 
@@ -319,7 +319,7 @@ namespace UoFiddler.Controls.UserControls
             StartStopToolStripMenuItem.Image = Properties.Resources.Animate;
             StartStopToolStripMenuItem.Name = "StartStopToolStripMenuItem";
             StartStopToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            StartStopToolStripMenuItem.Text = "Start  / Stop";
+            StartStopToolStripMenuItem.Text = "开始 / 停止";
             StartStopToolStripMenuItem.Click += OnClickStartStop;
             // 
             // toolStripSeparator2
@@ -332,7 +332,7 @@ namespace UoFiddler.Controls.UserControls
             exportAsAnimatedGifToolStripMenuItem.Image = Properties.Resources.Animation;
             exportAsAnimatedGifToolStripMenuItem.Name = "exportAsAnimatedGifToolStripMenuItem";
             exportAsAnimatedGifToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            exportAsAnimatedGifToolStripMenuItem.Text = "Export as animated Gif";
+            exportAsAnimatedGifToolStripMenuItem.Text = "导出为动画 GIF";
             exportAsAnimatedGifToolStripMenuItem.Click += OnClick_ExportAsGif;
             // 
             // groupBox3
@@ -355,7 +355,7 @@ namespace UoFiddler.Controls.UserControls
             btnOnClickImport.Name = "btnOnClickImport";
             btnOnClickImport.Size = new System.Drawing.Size(61, 27);
             btnOnClickImport.TabIndex = 8;
-            btnOnClickImport.Text = "Import...";
+            btnOnClickImport.Text = "导入...";
             btnOnClickImport.UseVisualStyleBackColor = true;
             btnOnClickImport.Click += BtnOnClickImport_Click;
             // 
@@ -365,7 +365,7 @@ namespace UoFiddler.Controls.UserControls
             btnOnClickExport.Name = "btnOnClickExport";
             btnOnClickExport.Size = new System.Drawing.Size(59, 27);
             btnOnClickExport.TabIndex = 7;
-            btnOnClickExport.Text = "Export...";
+            btnOnClickExport.Text = "导出...";
             btnOnClickExport.UseVisualStyleBackColor = true;
             btnOnClickExport.Click += BtnOnClickExport_Click;
             // 
@@ -377,7 +377,7 @@ namespace UoFiddler.Controls.UserControls
             button6.Name = "button6";
             button6.Size = new System.Drawing.Size(49, 27);
             button6.TabIndex = 6;
-            button6.Text = "Save";
+            button6.Text = "保存";
             button6.UseVisualStyleBackColor = true;
             button6.Click += OnClickSave;
             // 
@@ -400,7 +400,7 @@ namespace UoFiddler.Controls.UserControls
             groupBox4.Size = new System.Drawing.Size(280, 423);
             groupBox4.TabIndex = 4;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Frames";
+            groupBox4.Text = "帧";
             // 
             // frameCountLabel
             // 
@@ -409,7 +409,7 @@ namespace UoFiddler.Controls.UserControls
             frameCountLabel.Name = "frameCountLabel";
             frameCountLabel.Size = new System.Drawing.Size(43, 15);
             frameCountLabel.TabIndex = 5;
-            frameCountLabel.Text = "Count:";
+            frameCountLabel.Text = "计数:";
             // 
             // button1
             // 
@@ -419,7 +419,7 @@ namespace UoFiddler.Controls.UserControls
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(75, 27);
             button1.TabIndex = 1;
-            button1.Text = "Start/Stop";
+            button1.Text = "开始/停止";
             button1.UseVisualStyleBackColor = true;
             button1.Click += OnClickStartStop;
             // 
@@ -430,7 +430,7 @@ namespace UoFiddler.Controls.UserControls
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(61, 27);
             button5.TabIndex = 4;
-            button5.Text = "Remove";
+            button5.Text = "移除";
             button5.UseVisualStyleBackColor = true;
             button5.Click += OnClickRemove;
             // 
@@ -441,7 +441,7 @@ namespace UoFiddler.Controls.UserControls
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(59, 27);
             button2.TabIndex = 2;
-            button2.Text = "Add";
+            button2.Text = "添加";
             button2.UseVisualStyleBackColor = true;
             button2.Click += OnClickAdd;
             // 
@@ -465,7 +465,7 @@ namespace UoFiddler.Controls.UserControls
             checkBoxRelative.Name = "checkBoxRelative";
             checkBoxRelative.Size = new System.Drawing.Size(67, 19);
             checkBoxRelative.TabIndex = 1;
-            checkBoxRelative.Text = "Relative";
+            checkBoxRelative.Text = "相对";
             checkBoxRelative.UseVisualStyleBackColor = true;
             checkBoxRelative.CheckedChanged += OnCheckChange;
             // 
@@ -515,7 +515,7 @@ namespace UoFiddler.Controls.UserControls
             groupBox2.Size = new System.Drawing.Size(280, 95);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Data";
+            groupBox2.Text = "数据";
             // 
             // label2
             // 
@@ -525,7 +525,7 @@ namespace UoFiddler.Controls.UserControls
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(72, 15);
             label2.TabIndex = 3;
-            label2.Text = "Frame Delay";
+            label2.Text = "帧延迟";
             // 
             // numericUpDownFrameDelay
             // 
@@ -545,7 +545,7 @@ namespace UoFiddler.Controls.UserControls
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(63, 15);
             label1.TabIndex = 1;
-            label1.Text = "Start Delay";
+            label1.Text = "起始延迟";
             // 
             // numericUpDownStartDelay
             // 

@@ -2,10 +2,10 @@
 //  *
 //  * $Author: Turley
 //  * 
-//  * "THE BEER-WARE LICENSE"
-//  * As long as you retain this notice you can do whatever you want with 
-//  * this stuff. If we meet some day, and you think this stuff is worth it,
-//  * you can buy me a beer in return.
+//  * "啤酒许可证"
+//  * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+//  * 如果我们某天相遇，并且你认为这个东西有价值，
+//  * 你可以请我喝杯啤酒作为回报。
 //  *
 //  ***************************************************************************/
 
@@ -24,26 +24,26 @@ namespace UoFiddler.Forms
 {
     public partial class AlarmClockForm : Form
     {
-        private Timer timer; // no value assigned yet
+        private Timer timer; // 尚未赋值
         private Timer realTimeTimer;
         private DateTime alarmTime;
-        private SoundPlayer alarmSound = new SoundPlayer(@"C:\Windows\Media\Alarm01.wav"); // Path to alarm sound file Default alarm sound file
+        private SoundPlayer alarmSound = new SoundPlayer(@"C:\Windows\Media\Alarm01.wav"); // 闹钟声音文件路径 默认闹钟声音文件
 
         #region AlarmClockForm
         public AlarmClockForm()
         {
             InitializeComponent();
             timer1 = new Timer();
-            timer1.Interval = 1000; // Set timer to 1 second
+            timer1.Interval = 1000; // 设置定时器为1秒
             timer1.Tick += Timer_Tick;
 
             realTimeTimer = new Timer();
-            realTimeTimer.Interval = 1000; // Set timer to 1 second
+            realTimeTimer.Interval = 1000; // 设置定时器为1秒
             realTimeTimer.Tick += RealTimeTimer_Tick;
             realTimeTimer.Start();
 
             timer = new Timer();
-            timer.Interval = 1000; // Set timer to 1 second
+            timer.Interval = 1000; // 设置定时器为1秒
             timer.Tick += SnoozeTimer_Tick;
 
             this.FormClosing += AlarmClockForm_FormClosing;
@@ -55,7 +55,7 @@ namespace UoFiddler.Forms
         #region startButton
         private void startButton_Click(object sender, EventArgs e)
         {
-            // Set the alarm time to the selected time in dateTimePicker1
+            // 将闹钟时间设置为 dateTimePicker1 中选择的时间
             alarmTime = dateTimePicker1.Value;
 
             timer1.Start();
@@ -80,7 +80,7 @@ namespace UoFiddler.Forms
                 timer1.Stop();
                 timeLabel.Text = "00:00:00";
 
-                // Play the alarm sound
+                // 播放闹钟声音
                 alarmSound.PlayLooping();
             }
             else
@@ -110,7 +110,7 @@ namespace UoFiddler.Forms
         private void btLoadWave_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialogWave = new OpenFileDialog();
-            openFileDialogWave.Filter = "WAV Files|*.wav";
+            openFileDialogWave.Filter = "WAV文件|*.wav";
 
             if (openFileDialogWave.ShowDialog() == DialogResult.OK)
             {
@@ -133,7 +133,7 @@ namespace UoFiddler.Forms
         #region SnoozeTimer
         private void SnoozeTimer_Tick(object sender, EventArgs e)
         {
-            TimeSpan remainingTime = alarmTime - DateTime.Now; // Calculate the remaining snooze time
+            TimeSpan remainingTime = alarmTime - DateTime.Now; // 计算剩余贪睡时间
 
             if (remainingTime.TotalSeconds <= 0)
             {
@@ -151,11 +151,11 @@ namespace UoFiddler.Forms
         #region snoozeButton
         private void snoozeButton_Click(object sender, EventArgs e)
         {
-            timer1.Stop(); // Stop the original alarm timer
-            alarmSound.Stop(); // Stop the alarm sound
-            alarmTime = DateTime.Now.AddMinutes(5); // Set the alarm time to 5 minutes from now
-            timer.Start(); // Start the snooze timer
-            timeLabel.Text = "05:00:00"; // Display the initial snooze time
+            timer1.Stop(); // 停止原始闹钟定时器
+            alarmSound.Stop(); // 停止闹钟声音
+            alarmTime = DateTime.Now.AddMinutes(5); // 将闹钟时间设置为从现在起5分钟后
+            timer.Start(); // 启动贪睡定时器
+            timeLabel.Text = "05:00:00"; // 显示初始贪睡时间
         }
         #endregion
     }

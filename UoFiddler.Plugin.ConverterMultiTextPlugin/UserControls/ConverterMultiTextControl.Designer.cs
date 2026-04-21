@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: Turley
+ * $作者: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要你保留此声明，你可以随意使用本软件。
+ * 如果我们某天相遇，你觉得这个软件值得，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
     partial class ConverterMultiTextControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 设计器必需的变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理正在使用的所有资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 此方法的内容使用代码编辑器。
         /// </summary>
         private void InitializeComponent()
         {
@@ -135,7 +135,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtnMultiOpen.Name = "BtnMultiOpen";
             BtnMultiOpen.Size = new System.Drawing.Size(92, 23);
             BtnMultiOpen.TabIndex = 0;
-            BtnMultiOpen.Text = "Open";
+            BtnMultiOpen.Text = "打开";
             BtnMultiOpen.UseVisualStyleBackColor = true;
             BtnMultiOpen.Click += BtnMultiOpen_Click;
             // 
@@ -145,7 +145,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtnSpeichernTxt.Name = "BtnSpeichernTxt";
             BtnSpeichernTxt.Size = new System.Drawing.Size(92, 23);
             BtnSpeichernTxt.TabIndex = 1;
-            BtnSpeichernTxt.Text = "Save";
+            BtnSpeichernTxt.Text = "保存";
             BtnSpeichernTxt.UseVisualStyleBackColor = true;
             BtnSpeichernTxt.Click += BtnSpeichernTxt_Click;
             // 
@@ -155,7 +155,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtnUmwandeln.Name = "BtnUmwandeln";
             BtnUmwandeln.Size = new System.Drawing.Size(92, 23);
             BtnUmwandeln.TabIndex = 2;
-            BtnUmwandeln.Text = "Convert";
+            BtnUmwandeln.Text = "转换";
             BtnUmwandeln.UseVisualStyleBackColor = true;
             BtnUmwandeln.Click += BtnUmwandeln_Click;
             // 
@@ -165,7 +165,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             btnCopyTBox2.Name = "btnCopyTBox2";
             btnCopyTBox2.Size = new System.Drawing.Size(43, 23);
             btnCopyTBox2.TabIndex = 3;
-            btnCopyTBox2.Text = "Copy";
+            btnCopyTBox2.Text = "复制";
             btnCopyTBox2.UseVisualStyleBackColor = true;
             btnCopyTBox2.Click += BtnCopyTBox2_Click;
             // 
@@ -207,21 +207,21 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             // 
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             copyToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            copyToolStripMenuItem.Text = "Copy";
+            copyToolStripMenuItem.Text = "复制";
             copyToolStripMenuItem.Click += BtnCopyTBox2_Click;
             // 
             // clearToolStripMenuItem
             // 
             clearToolStripMenuItem.Name = "clearToolStripMenuItem";
             clearToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            clearToolStripMenuItem.Text = "Clear";
+            clearToolStripMenuItem.Text = "清空";
             clearToolStripMenuItem.Click += Btclear_Click;
             // 
             // importClipboardToolStripMenuItem
             // 
             importClipboardToolStripMenuItem.Name = "importClipboardToolStripMenuItem";
             importClipboardToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            importClipboardToolStripMenuItem.Text = "Import Clipboard";
+            importClipboardToolStripMenuItem.Text = "从剪贴板导入";
             importClipboardToolStripMenuItem.Click += ImportClipboardToolStripMenuItem_Click;
             // 
             // textBox2
@@ -244,7 +244,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(76, 15);
             label3.TabIndex = 8;
-            label3.Text = "to HexCode :";
+            label3.Text = "转为十六进制：";
             // 
             // TabControl1
             // 
@@ -272,7 +272,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             tabPageMain.Padding = new System.Windows.Forms.Padding(3);
             tabPageMain.Size = new System.Drawing.Size(960, 337);
             tabPageMain.TabIndex = 0;
-            tabPageMain.Text = "Main";
+            tabPageMain.Text = "主界面";
             tabPageMain.UseVisualStyleBackColor = true;
             // 
             // lbIsoTiloSlicer
@@ -282,7 +282,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbIsoTiloSlicer.Name = "lbIsoTiloSlicer";
             lbIsoTiloSlicer.Size = new System.Drawing.Size(69, 15);
             lbIsoTiloSlicer.TabIndex = 3;
-            lbIsoTiloSlicer.Text = "IsoTiloSlicer";
+            lbIsoTiloSlicer.Text = "等距图块切割器";
             // 
             // BtIsoTiloSlicer
             // 
@@ -301,7 +301,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbAltitudeTool.Name = "lbAltitudeTool";
             lbAltitudeTool.Size = new System.Drawing.Size(71, 15);
             lbAltitudeTool.TabIndex = 1;
-            lbAltitudeTool.Text = "AltitudeTool";
+            lbAltitudeTool.Text = "高度工具";
             // 
             // BtAltitudeTool
             // 
@@ -323,7 +323,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             tabPageAnimation.Name = "tabPageAnimation";
             tabPageAnimation.Size = new System.Drawing.Size(960, 337);
             tabPageAnimation.TabIndex = 3;
-            tabPageAnimation.Text = "Animation";
+            tabPageAnimation.Text = "动画";
             tabPageAnimation.UseVisualStyleBackColor = true;
             // 
             // lbAnimationVD
@@ -333,7 +333,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbAnimationVD.Name = "lbAnimationVD";
             lbAnimationVD.Size = new System.Drawing.Size(81, 15);
             lbAnimationVD.TabIndex = 18;
-            lbAnimationVD.Text = "Animation VD";
+            lbAnimationVD.Text = "动画VD工具";
             // 
             // lbAnimationEdit
             // 
@@ -342,7 +342,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbAnimationEdit.Name = "lbAnimationEdit";
             lbAnimationEdit.Size = new System.Drawing.Size(86, 15);
             lbAnimationEdit.TabIndex = 17;
-            lbAnimationEdit.Text = "Animation Edit";
+            lbAnimationEdit.Text = "动画编辑器";
             // 
             // BtAnimationVDForm
             // 
@@ -360,7 +360,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtAnimationEditFormButton.Location = new System.Drawing.Point(3, 12);
             BtAnimationEditFormButton.Name = "BtAnimationEditFormButton";
             BtAnimationEditFormButton.Size = new System.Drawing.Size(59, 56);
-            BtAnimationEditFormButton.TabIndex = 15;
             BtAnimationEditFormButton.UseVisualStyleBackColor = true;
             BtAnimationEditFormButton.Click += BtAnimationEditFormButton_Click;
             // 
@@ -388,7 +387,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             tabPageGraphic.Name = "tabPageGraphic";
             tabPageGraphic.Size = new System.Drawing.Size(960, 337);
             tabPageGraphic.TabIndex = 2;
-            tabPageGraphic.Text = "Graphic";
+            tabPageGraphic.Text = "图像";
             tabPageGraphic.UseVisualStyleBackColor = true;
             // 
             // labelParticleGray
@@ -398,7 +397,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             labelParticleGray.Name = "labelParticleGray";
             labelParticleGray.Size = new System.Drawing.Size(73, 15);
             labelParticleGray.TabIndex = 28;
-            labelParticleGray.Text = "Particle Gray";
+            labelParticleGray.Text = "粒子灰度工具";
             // 
             // buttonParticleGray
             // 
@@ -417,7 +416,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbConverter.Name = "lbConverter";
             lbConverter.Size = new System.Drawing.Size(59, 15);
             lbConverter.TabIndex = 26;
-            lbConverter.Text = "Converter";
+            lbConverter.Text = "转换器";
             // 
             // BtConverter
             // 
@@ -425,7 +424,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtConverter.Location = new System.Drawing.Point(209, 193);
             BtConverter.Name = "BtConverter";
             BtConverter.Size = new System.Drawing.Size(56, 64);
-            BtConverter.TabIndex = 25;
             BtConverter.UseVisualStyleBackColor = true;
             BtConverter.Click += BtConverter_Click;
             // 
@@ -436,7 +434,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbTransitions.Name = "lbTransitions";
             lbTransitions.Size = new System.Drawing.Size(63, 15);
             lbTransitions.TabIndex = 24;
-            lbTransitions.Text = "Transitions";
+            lbTransitions.Text = "过渡效果";
             // 
             // BtTransitions
             // 
@@ -444,7 +442,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtTransitions.Location = new System.Drawing.Point(106, 193);
             BtTransitions.Name = "BtTransitions";
             BtTransitions.Size = new System.Drawing.Size(56, 64);
-            BtTransitions.TabIndex = 23;
             BtTransitions.UseVisualStyleBackColor = true;
             BtTransitions.Click += BtTransitions_Click;
             // 
@@ -455,7 +452,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbTileArtForm.Name = "lbTileArtForm";
             lbTileArtForm.Size = new System.Drawing.Size(73, 15);
             lbTileArtForm.TabIndex = 22;
-            lbTileArtForm.Text = "Land Tile Art";
+            lbTileArtForm.Text = "地面图块美术";
             // 
             // BtTileArtForm
             // 
@@ -463,7 +460,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtTileArtForm.Location = new System.Drawing.Point(106, 104);
             BtTileArtForm.Name = "BtTileArtForm";
             BtTileArtForm.Size = new System.Drawing.Size(56, 66);
-            BtTileArtForm.TabIndex = 21;
             BtTileArtForm.UseVisualStyleBackColor = true;
             BtTileArtForm.Click += BtTileArtForm_Click;
             // 
@@ -474,7 +470,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(80, 15);
             label5.TabIndex = 20;
-            label5.Text = "Gump ID Calc";
+            label5.Text = "GumpID计算器";
             // 
             // BtGumpIDRechner
             // 
@@ -482,7 +478,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtGumpIDRechner.Location = new System.Drawing.Point(209, 19);
             BtGumpIDRechner.Name = "BtGumpIDRechner";
             BtGumpIDRechner.Size = new System.Drawing.Size(56, 64);
-            BtGumpIDRechner.TabIndex = 19;
             BtGumpIDRechner.UseVisualStyleBackColor = true;
             BtGumpIDRechner.Click += BtGumpIDRechner_Click;
             // 
@@ -493,7 +488,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbUoArtMerge.Name = "lbUoArtMerge";
             lbUoArtMerge.Size = new System.Drawing.Size(78, 15);
             lbUoArtMerge.TabIndex = 18;
-            lbUoArtMerge.Text = "Uo Art Merge";
+            lbUoArtMerge.Text = "UO美术合并";
             // 
             // BtUOArtMerge
             // 
@@ -501,7 +496,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtUOArtMerge.Location = new System.Drawing.Point(106, 19);
             BtUOArtMerge.Name = "BtUOArtMerge";
             BtUOArtMerge.Size = new System.Drawing.Size(56, 64);
-            BtUOArtMerge.TabIndex = 17;
             BtUOArtMerge.UseVisualStyleBackColor = true;
             BtUOArtMerge.Click += BtUOArtMerge_Click;
             // 
@@ -512,7 +506,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbGumpsEdit.Name = "lbGumpsEdit";
             lbGumpsEdit.Size = new System.Drawing.Size(68, 15);
             lbGumpsEdit.TabIndex = 16;
-            lbGumpsEdit.Text = "Gumps Edit";
+            lbGumpsEdit.Text = "界面编辑";
             // 
             // lbTextureCutter
             // 
@@ -521,7 +515,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbTextureCutter.Name = "lbTextureCutter";
             lbTextureCutter.Size = new System.Drawing.Size(81, 15);
             lbTextureCutter.TabIndex = 15;
-            lbTextureCutter.Text = "Texture Cutter";
+            lbTextureCutter.Text = "纹理切割器";
             // 
             // lbGraficCutter
             // 
@@ -530,7 +524,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbGraficCutter.Name = "lbGraficCutter";
             lbGraficCutter.Size = new System.Drawing.Size(74, 15);
             lbGraficCutter.TabIndex = 14;
-            lbGraficCutter.Text = "Grafic Cutter";
+            lbGraficCutter.Text = "图形切割器";
             // 
             // BtGumpsEdit
             // 
@@ -538,7 +532,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtGumpsEdit.Location = new System.Drawing.Point(3, 193);
             BtGumpsEdit.Name = "BtGumpsEdit";
             BtGumpsEdit.Size = new System.Drawing.Size(56, 64);
-            BtGumpsEdit.TabIndex = 13;
             BtGumpsEdit.UseVisualStyleBackColor = true;
             BtGumpsEdit.Click += BtGumpsEdit_Click;
             // 
@@ -548,7 +541,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             ButtonGraficCutterForm.Location = new System.Drawing.Point(3, 19);
             ButtonGraficCutterForm.Name = "ButtonGraficCutterForm";
             ButtonGraficCutterForm.Size = new System.Drawing.Size(56, 64);
-            ButtonGraficCutterForm.TabIndex = 11;
             ButtonGraficCutterForm.UseVisualStyleBackColor = true;
             ButtonGraficCutterForm.Click += ButtonGraficCutterForm_Click;
             // 
@@ -558,7 +550,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             TextureCutter.Location = new System.Drawing.Point(3, 106);
             TextureCutter.Name = "TextureCutter";
             TextureCutter.Size = new System.Drawing.Size(56, 64);
-            TextureCutter.TabIndex = 12;
             TextureCutter.UseVisualStyleBackColor = true;
             TextureCutter.Click += TextureCutter_Click;
             // 
@@ -574,7 +565,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             tabPageMap.Name = "tabPageMap";
             tabPageMap.Size = new System.Drawing.Size(960, 337);
             tabPageMap.TabIndex = 4;
-            tabPageMap.Text = "Map";
+            tabPageMap.Text = "地图";
             tabPageMap.UseVisualStyleBackColor = true;
             // 
             // lbUoMap
@@ -584,7 +575,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbUoMap.Name = "lbUoMap";
             lbUoMap.Size = new System.Drawing.Size(49, 15);
             lbUoMap.TabIndex = 18;
-            lbUoMap.Text = "Uo Map";
+            lbUoMap.Text = "UO地图";
             // 
             // UOMap
             // 
@@ -592,7 +583,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             UOMap.Location = new System.Drawing.Point(6, 172);
             UOMap.Name = "UOMap";
             UOMap.Size = new System.Drawing.Size(59, 57);
-            UOMap.TabIndex = 17;
             UOMap.UseVisualStyleBackColor = true;
             UOMap.Click += UOMap_Click;
             // 
@@ -603,7 +593,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbCopyMapReplace.Name = "lbCopyMapReplace";
             lbCopyMapReplace.Size = new System.Drawing.Size(106, 15);
             lbCopyMapReplace.TabIndex = 16;
-            lbCopyMapReplace.Text = "Copy Map Replace";
+            lbCopyMapReplace.Text = "复制并替换地图";
             // 
             // BtMapReplace
             // 
@@ -611,7 +601,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtMapReplace.Location = new System.Drawing.Point(6, 91);
             BtMapReplace.Name = "BtMapReplace";
             BtMapReplace.Size = new System.Drawing.Size(59, 57);
-            BtMapReplace.TabIndex = 15;
             BtMapReplace.UseVisualStyleBackColor = true;
             BtMapReplace.Click += BtMapReplace_Click;
             // 
@@ -622,7 +611,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbMapMaker.Name = "lbMapMaker";
             lbMapMaker.Size = new System.Drawing.Size(67, 15);
             lbMapMaker.TabIndex = 14;
-            lbMapMaker.Text = "Map Maker";
+            lbMapMaker.Text = "地图生成器";
             // 
             // BtMapMaker
             // 
@@ -630,7 +619,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtMapMaker.Location = new System.Drawing.Point(6, 10);
             BtMapMaker.Name = "BtMapMaker";
             BtMapMaker.Size = new System.Drawing.Size(59, 57);
-            BtMapMaker.TabIndex = 13;
             BtMapMaker.UseVisualStyleBackColor = true;
             BtMapMaker.Click += BtMapMaker_Click;
             // 
@@ -644,7 +632,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             tabPageClient.Name = "tabPageClient";
             tabPageClient.Size = new System.Drawing.Size(960, 337);
             tabPageClient.TabIndex = 5;
-            tabPageClient.Text = "Client";
+            tabPageClient.Text = "客户端";
             tabPageClient.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -654,7 +642,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(65, 15);
             label4.TabIndex = 15;
-            label4.Text = "Create Mul";
+            label4.Text = "创建Mul文件";
             // 
             // BtArtMul
             // 
@@ -662,7 +650,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtArtMul.Location = new System.Drawing.Point(92, 13);
             BtArtMul.Name = "BtArtMul";
             BtArtMul.Size = new System.Drawing.Size(56, 59);
-            BtArtMul.TabIndex = 14;
             BtArtMul.UseVisualStyleBackColor = true;
             BtArtMul.Click += BtArtMul_Click;
             // 
@@ -673,7 +660,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbDecriptClient.Name = "lbDecriptClient";
             lbDecriptClient.Size = new System.Drawing.Size(76, 15);
             lbDecriptClient.TabIndex = 13;
-            lbDecriptClient.Text = "DecriptClient";
+            lbDecriptClient.Text = "客户端解密";
             // 
             // BtDecriptClient
             // 
@@ -681,7 +668,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtDecriptClient.Location = new System.Drawing.Point(3, 13);
             BtDecriptClient.Name = "BtDecriptClient";
             BtDecriptClient.Size = new System.Drawing.Size(56, 59);
-            BtDecriptClient.TabIndex = 12;
             BtDecriptClient.UseVisualStyleBackColor = true;
             BtDecriptClient.Click += BtDecriptClient_Click;
             // 
@@ -694,7 +680,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             tabPageScript.Padding = new System.Windows.Forms.Padding(3);
             tabPageScript.Size = new System.Drawing.Size(960, 337);
             tabPageScript.TabIndex = 6;
-            tabPageScript.Text = "Scripts";
+            tabPageScript.Text = "脚本";
             tabPageScript.UseVisualStyleBackColor = true;
             // 
             // lbScriptCreator
@@ -704,7 +690,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             lbScriptCreator.Name = "lbScriptCreator";
             lbScriptCreator.Size = new System.Drawing.Size(79, 15);
             lbScriptCreator.TabIndex = 1;
-            lbScriptCreator.Text = "Script Creator";
+            lbScriptCreator.Text = "脚本生成器";
             // 
             // btScriptCreator
             // 
@@ -713,7 +699,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             btScriptCreator.Location = new System.Drawing.Point(6, 6);
             btScriptCreator.Name = "btScriptCreator";
             btScriptCreator.Size = new System.Drawing.Size(55, 66);
-            btScriptCreator.TabIndex = 0;
             btScriptCreator.UseVisualStyleBackColor = false;
             btScriptCreator.Click += BtScriptCreator_Click;
             // 
@@ -740,7 +725,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             tabPageTextureConverter.Padding = new System.Windows.Forms.Padding(3);
             tabPageTextureConverter.Size = new System.Drawing.Size(960, 337);
             tabPageTextureConverter.TabIndex = 1;
-            tabPageTextureConverter.Text = "Text Converter";
+            tabPageTextureConverter.Text = "文本转换器";
             tabPageTextureConverter.UseVisualStyleBackColor = true;
             // 
             // PanelMinMax
@@ -772,7 +757,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             LBMaximum.Name = "LBMaximum";
             LBMaximum.Size = new System.Drawing.Size(62, 15);
             LBMaximum.TabIndex = 19;
-            LBMaximum.Text = "Maximum";
+            LBMaximum.Text = "最大值";
             // 
             // TBMinimum
             // 
@@ -791,7 +776,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             LBMinimum.Name = "LBMinimum";
             LBMinimum.Size = new System.Drawing.Size(60, 15);
             LBMinimum.TabIndex = 18;
-            LBMinimum.Text = "Minimum";
+            LBMinimum.Text = "最小值";
             // 
             // LBResult
             // 
@@ -800,7 +785,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             LBResult.Name = "LBResult";
             LBResult.Size = new System.Drawing.Size(39, 15);
             LBResult.TabIndex = 16;
-            LBResult.Text = "Result";
+            LBResult.Text = "结果";
             // 
             // BtnGenerate
             // 
@@ -808,7 +793,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtnGenerate.Name = "BtnGenerate";
             BtnGenerate.Size = new System.Drawing.Size(75, 23);
             BtnGenerate.TabIndex = 17;
-            BtnGenerate.Text = "Generate";
+            BtnGenerate.Text = "生成";
             BtnGenerate.UseVisualStyleBackColor = true;
             BtnGenerate.Click += BtnGenerate_Click;
             // 
@@ -818,7 +803,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtTest.Name = "BtTest";
             BtTest.Size = new System.Drawing.Size(92, 23);
             BtTest.TabIndex = 13;
-            BtTest.Text = "Test";
+            BtTest.Text = "测试";
             BtTest.UseVisualStyleBackColor = true;
             BtTest.Click += BtTest_Click;
             // 
@@ -828,7 +813,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             Btclear.Name = "Btclear";
             Btclear.Size = new System.Drawing.Size(40, 23);
             Btclear.TabIndex = 12;
-            Btclear.Text = "clear";
+            Btclear.Text = "清空";
             Btclear.UseVisualStyleBackColor = true;
             Btclear.Click += Btclear_Click;
             // 
@@ -838,7 +823,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtMorseCode.Name = "BtMorseCode";
             BtMorseCode.Size = new System.Drawing.Size(92, 23);
             BtMorseCode.TabIndex = 11;
-            BtMorseCode.Text = "Morse code";
+            BtMorseCode.Text = "摩斯密码";
             BtMorseCode.UseVisualStyleBackColor = true;
             BtMorseCode.Click += BtMorseCode_Click;
             // 
@@ -849,7 +834,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             checkBoxASCII.Name = "checkBoxASCII";
             checkBoxASCII.Size = new System.Drawing.Size(94, 19);
             checkBoxASCII.TabIndex = 10;
-            checkBoxASCII.Text = "back original";
+            checkBoxASCII.Text = "恢复原始格式";
             checkBoxASCII.UseVisualStyleBackColor = true;
             // 
             // BtBinaryCode
@@ -858,7 +843,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             BtBinaryCode.Name = "BtBinaryCode";
             BtBinaryCode.Size = new System.Drawing.Size(92, 23);
             BtBinaryCode.TabIndex = 9;
-            BtBinaryCode.Text = "Binary Code";
+            BtBinaryCode.Text = "二进制编码";
             BtBinaryCode.UseVisualStyleBackColor = true;
             BtBinaryCode.Click += BtBinaryCode_Click;
             // 
@@ -883,7 +868,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.UserControls
             // 
             toolStripStatusLabelTime.Name = "toolStripStatusLabelTime";
             toolStripStatusLabelTime.Size = new System.Drawing.Size(33, 17);
-            toolStripStatusLabelTime.Text = "Time";
+            toolStripStatusLabelTime.Text = "时间";
             // 
             // ConverterMultiTextControl
             // 

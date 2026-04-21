@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Forms
     partial class ManageToolsForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -116,7 +116,7 @@ namespace UoFiddler.Forms
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 15);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Argument list";
+            this.label1.Text = "参数列表";
             // 
             // button2
             // 
@@ -126,7 +126,7 @@ namespace UoFiddler.Forms
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 27);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Add";
+            this.button2.Text = "添加";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.OnAddTool);
             // 
@@ -138,7 +138,7 @@ namespace UoFiddler.Forms
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(88, 27);
             this.button3.TabIndex = 6;
-            this.button3.Text = "Remove";
+            this.button3.Text = "移除";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.OnClickRemoveTool);
             // 
@@ -150,7 +150,7 @@ namespace UoFiddler.Forms
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(88, 27);
             this.button4.TabIndex = 8;
-            this.button4.Text = "Remove";
+            this.button4.Text = "移除";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.OnClickRemoveArg);
             // 
@@ -206,7 +206,7 @@ namespace UoFiddler.Forms
             this.groupBox3.Size = new System.Drawing.Size(453, 176);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tool list";
+            this.groupBox3.Text = "工具列表";
             // 
             // groupBox4
             // 
@@ -220,7 +220,7 @@ namespace UoFiddler.Forms
             this.groupBox4.Size = new System.Drawing.Size(453, 177);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Argument list";
+            this.groupBox4.Text = "参数列表";
             // 
             // splitContainer2
             // 
@@ -258,7 +258,7 @@ namespace UoFiddler.Forms
             this.groupBox1.Size = new System.Drawing.Size(263, 115);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tool";
+            this.groupBox1.Text = "工具";
             // 
             // button5
             // 
@@ -268,7 +268,7 @@ namespace UoFiddler.Forms
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(88, 27);
             this.button5.TabIndex = 6;
-            this.button5.Text = "Save";
+            this.button5.Text = "保存";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.OnClickSaveTool);
             // 
@@ -319,7 +319,7 @@ namespace UoFiddler.Forms
             this.groupBox2.Size = new System.Drawing.Size(263, 115);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Argument";
+            this.groupBox2.Text = "参数";
             // 
             // button7
             // 
@@ -329,7 +329,7 @@ namespace UoFiddler.Forms
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(88, 27);
             this.button7.TabIndex = 7;
-            this.button7.Text = "Save";
+            this.button7.Text = "保存";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.OnClickSaveArg);
             // 
@@ -361,7 +361,7 @@ namespace UoFiddler.Forms
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(88, 27);
             this.button6.TabIndex = 9;
-            this.button6.Text = "Add";
+            this.button6.Text = "添加";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.OnAddArg);
             // 
@@ -376,7 +376,7 @@ namespace UoFiddler.Forms
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ManageToolsForm";
             this.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Text = "Manage Tools";
+            this.Text = "管理工具";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnClosing);
             this.Load += new System.EventHandler(this.OnLoad);
             this.splitContainer1.Panel1.ResumeLayout(false);

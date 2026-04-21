@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Forms
     partial class PathSettingsForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -79,8 +79,8 @@ namespace UoFiddler.Forms
             newDirAndMulToolStripMenuItem.Image = Properties.Resources.reload_files;
             newDirAndMulToolStripMenuItem.Name = "newDirAndMulToolStripMenuItem";
             newDirAndMulToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            newDirAndMulToolStripMenuItem.Text = "Reload  all Files and New";
-            newDirAndMulToolStripMenuItem.ToolTipText = "Reload  and Load all .Mul files from Dir";
+            newDirAndMulToolStripMenuItem.Text = "重新加载所有文件并新建";
+            newDirAndMulToolStripMenuItem.ToolTipText = "重新加载并从目录加载所有 .mul 文件";
             newDirAndMulToolStripMenuItem.Click += newDirAndMulToolStripMenuItem_Click;
             // 
             // loadSingleMulFileToolStripMenuItem
@@ -88,8 +88,8 @@ namespace UoFiddler.Forms
             loadSingleMulFileToolStripMenuItem.Image = Properties.Resources.Directory;
             loadSingleMulFileToolStripMenuItem.Name = "loadSingleMulFileToolStripMenuItem";
             loadSingleMulFileToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            loadSingleMulFileToolStripMenuItem.Text = "Load Single Mul File";
-            loadSingleMulFileToolStripMenuItem.ToolTipText = "Load Singe File from Dir";
+            loadSingleMulFileToolStripMenuItem.Text = "加载单个 Mul 文件";
+            loadSingleMulFileToolStripMenuItem.ToolTipText = "从目录加载单个文件";
             loadSingleMulFileToolStripMenuItem.Click += loadSingleMulFileToolStripMenuItem_Click;
             // 
             // DeleteLineToolStripMenuItem
@@ -97,8 +97,8 @@ namespace UoFiddler.Forms
             DeleteLineToolStripMenuItem.Image = Properties.Resources.indentLeft;
             DeleteLineToolStripMenuItem.Name = "DeleteLineToolStripMenuItem";
             DeleteLineToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            DeleteLineToolStripMenuItem.Text = "Delete Line";
-            DeleteLineToolStripMenuItem.ToolTipText = "Remove Line";
+            DeleteLineToolStripMenuItem.Text = "删除行";
+            DeleteLineToolStripMenuItem.ToolTipText = "移除行";
             DeleteLineToolStripMenuItem.Click += DeleteLineToolStripMenuItem_Click;
             // 
             // tsPathSettingsMenu
@@ -118,7 +118,7 @@ namespace UoFiddler.Forms
             tsBtnReloadPaths.ImageTransparentColor = System.Drawing.Color.Magenta;
             tsBtnReloadPaths.Name = "tsBtnReloadPaths";
             tsBtnReloadPaths.Size = new System.Drawing.Size(79, 22);
-            tsBtnReloadPaths.Text = "Reload paths";
+            tsBtnReloadPaths.Text = "重新加载路径";
             tsBtnReloadPaths.Click += ReloadPath;
             // 
             // tsBtnSetPathManual
@@ -127,7 +127,7 @@ namespace UoFiddler.Forms
             tsBtnSetPathManual.ImageTransparentColor = System.Drawing.Color.Magenta;
             tsBtnSetPathManual.Name = "tsBtnSetPathManual";
             tsBtnSetPathManual.Size = new System.Drawing.Size(97, 22);
-            tsBtnSetPathManual.Text = "Set path manual";
+            tsBtnSetPathManual.Text = "手动设置路径";
             tsBtnSetPathManual.Click += OnClickManual;
             // 
             // tsTbRootPath
@@ -143,8 +143,8 @@ namespace UoFiddler.Forms
             tsBtnBackup.ImageTransparentColor = System.Drawing.Color.Magenta;
             tsBtnBackup.Name = "tsBtnBackup";
             tsBtnBackup.Size = new System.Drawing.Size(50, 22);
-            tsBtnBackup.Text = "Backup";
-            tsBtnBackup.ToolTipText = "Copies directory folder to destination folder 1 to 1";
+            tsBtnBackup.Text = "备份";
+            tsBtnBackup.ToolTipText = "将目录文件夹完整复制到目标文件夹";
             tsBtnBackup.Click += tsBtnBackup_Click;
             // 
             // PathSettingsForm
@@ -160,7 +160,7 @@ namespace UoFiddler.Forms
             MaximumSize = new System.Drawing.Size(791, 917);
             MinimumSize = new System.Drawing.Size(744, 340);
             Name = "PathSettingsForm";
-            Text = "Path Settings";
+            Text = "路径设置";
             contextMenuPath.ResumeLayout(false);
             tsPathSettingsMenu.ResumeLayout(false);
             tsPathSettingsMenu.PerformLayout();

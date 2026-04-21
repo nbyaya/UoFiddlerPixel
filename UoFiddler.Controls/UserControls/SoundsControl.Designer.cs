@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.UserControls
     partial class SoundsControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Controls.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -132,7 +132,7 @@ namespace UoFiddler.Controls.UserControls
             cmStripSounds.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { nameSortToolStripMenuItem, tsSeparator1, showFreeSlotsToolStripMenuItem, nextFreeSlotToolStripMenuItem, tsSeparator2, playSoundToolStripMenuItem, stopToolStripMenuItem, loopToolStripMenuItem, toolStripMenuItem1, replaceToolStripMenuItem, extractSoundToolStripMenuItem, removeSoundToolStripMenuItem, itemSave, toolStripSeparator1 });
             cmStripSounds.Name = "contextMenuStrip1";
             cmStripSounds.Size = new System.Drawing.Size(169, 248);
-            cmStripSounds.Tag = "Start and Stop";
+            cmStripSounds.Tag = "开始和停止";
             // 
             // nameSortToolStripMenuItem
             // 
@@ -140,7 +140,7 @@ namespace UoFiddler.Controls.UserControls
             nameSortToolStripMenuItem.Image = Properties.Resources.Animate;
             nameSortToolStripMenuItem.Name = "nameSortToolStripMenuItem";
             nameSortToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            nameSortToolStripMenuItem.Text = "Name Sort";
+            nameSortToolStripMenuItem.Text = "按名称排序";
             nameSortToolStripMenuItem.Click += OnChangeSort;
             // 
             // tsSeparator1
@@ -154,7 +154,7 @@ namespace UoFiddler.Controls.UserControls
             showFreeSlotsToolStripMenuItem.Image = Properties.Resources.Search;
             showFreeSlotsToolStripMenuItem.Name = "showFreeSlotsToolStripMenuItem";
             showFreeSlotsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            showFreeSlotsToolStripMenuItem.Text = "Show free slots";
+            showFreeSlotsToolStripMenuItem.Text = "显示空闲槽位";
             showFreeSlotsToolStripMenuItem.Click += ShowFreeSlotsClick;
             // 
             // nextFreeSlotToolStripMenuItem
@@ -163,7 +163,7 @@ namespace UoFiddler.Controls.UserControls
             nextFreeSlotToolStripMenuItem.Image = Properties.Resources.Mark;
             nextFreeSlotToolStripMenuItem.Name = "nextFreeSlotToolStripMenuItem";
             nextFreeSlotToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            nextFreeSlotToolStripMenuItem.Text = "Find next free slot";
+            nextFreeSlotToolStripMenuItem.Text = "查找下一个空闲槽位";
             nextFreeSlotToolStripMenuItem.Click += NextFreeSlotToolStripMenuItem_Click;
             // 
             // tsSeparator2
@@ -178,7 +178,7 @@ namespace UoFiddler.Controls.UserControls
             playSoundToolStripMenuItem.Image = Properties.Resources.right;
             playSoundToolStripMenuItem.Name = "playSoundToolStripMenuItem";
             playSoundToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            playSoundToolStripMenuItem.Text = "Play";
+            playSoundToolStripMenuItem.Text = "播放";
             playSoundToolStripMenuItem.Click += OnClickPlay;
             // 
             // stopToolStripMenuItem
@@ -186,7 +186,7 @@ namespace UoFiddler.Controls.UserControls
             stopToolStripMenuItem.Image = Properties.Resources.stop;
             stopToolStripMenuItem.Name = "stopToolStripMenuItem";
             stopToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            stopToolStripMenuItem.Text = "Stop";
+            stopToolStripMenuItem.Text = "停止";
             stopToolStripMenuItem.Click += OnClickStop;
             // 
             // loopToolStripMenuItem
@@ -194,7 +194,7 @@ namespace UoFiddler.Controls.UserControls
             loopToolStripMenuItem.Image = Properties.Resources.reload;
             loopToolStripMenuItem.Name = "loopToolStripMenuItem";
             loopToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            loopToolStripMenuItem.Text = "Loop";
+            loopToolStripMenuItem.Text = "循环";
             loopToolStripMenuItem.Click += loopToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
@@ -208,7 +208,7 @@ namespace UoFiddler.Controls.UserControls
             replaceToolStripMenuItem.Image = Properties.Resources.replace;
             replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
             replaceToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            replaceToolStripMenuItem.Text = "Insert/Replace";
+            replaceToolStripMenuItem.Text = "插入/替换";
             replaceToolStripMenuItem.Click += OnClickReplace;
             // 
             // extractSoundToolStripMenuItem
@@ -217,7 +217,7 @@ namespace UoFiddler.Controls.UserControls
             extractSoundToolStripMenuItem.Image = Properties.Resources.Export;
             extractSoundToolStripMenuItem.Name = "extractSoundToolStripMenuItem";
             extractSoundToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            extractSoundToolStripMenuItem.Text = "Extract";
+            extractSoundToolStripMenuItem.Text = "提取";
             extractSoundToolStripMenuItem.Click += OnClickExtract;
             // 
             // removeSoundToolStripMenuItem
@@ -226,7 +226,7 @@ namespace UoFiddler.Controls.UserControls
             removeSoundToolStripMenuItem.Image = Properties.Resources.Remove;
             removeSoundToolStripMenuItem.Name = "removeSoundToolStripMenuItem";
             removeSoundToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            removeSoundToolStripMenuItem.Text = "Remove";
+            removeSoundToolStripMenuItem.Text = "移除";
             removeSoundToolStripMenuItem.Click += OnClickRemove;
             // 
             // itemSave
@@ -234,7 +234,7 @@ namespace UoFiddler.Controls.UserControls
             itemSave.Image = Properties.Resources.Save2;
             itemSave.Name = "itemSave";
             itemSave.Size = new System.Drawing.Size(168, 22);
-            itemSave.Text = "Save";
+            itemSave.Text = "保存";
             itemSave.Click += OnClickSave;
             // 
             // toolStripSeparator1
@@ -296,7 +296,7 @@ namespace UoFiddler.Controls.UserControls
             stopButton.Name = "stopButton";
             stopButton.ShowDropDownArrow = false;
             stopButton.Size = new System.Drawing.Size(35, 20);
-            stopButton.Text = "Stop";
+            stopButton.Text = "停止";
             stopButton.Visible = false;
             stopButton.Click += OnClickStop;
             // 
@@ -351,7 +351,7 @@ namespace UoFiddler.Controls.UserControls
             groupBox1.Size = new System.Drawing.Size(424, 92);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Generic";
+            groupBox1.Text = "常规";
             // 
             // tableLayoutPanel3
             // 
@@ -381,7 +381,7 @@ namespace UoFiddler.Controls.UserControls
             exportAllSoundsButton.Name = "exportAllSoundsButton";
             exportAllSoundsButton.Size = new System.Drawing.Size(144, 24);
             exportAllSoundsButton.TabIndex = 9;
-            exportAllSoundsButton.Text = "Export all sounds";
+            exportAllSoundsButton.Text = "导出所有声音";
             exportAllSoundsButton.UseVisualStyleBackColor = true;
             exportAllSoundsButton.Click += ExportAllSoundsButton_Click;
             // 
@@ -393,7 +393,7 @@ namespace UoFiddler.Controls.UserControls
             ExportSoundListCsvButton.Name = "ExportSoundListCsvButton";
             ExportSoundListCsvButton.Size = new System.Drawing.Size(159, 29);
             ExportSoundListCsvButton.TabIndex = 0;
-            ExportSoundListCsvButton.Text = "Export sound list (.csv)";
+            ExportSoundListCsvButton.Text = "导出声音列表 (.csv)";
             ExportSoundListCsvButton.UseVisualStyleBackColor = true;
             ExportSoundListCsvButton.Click += OnClickExportSoundListCsv;
             // 
@@ -405,7 +405,7 @@ namespace UoFiddler.Controls.UserControls
             SaveFileButton.Name = "SaveFileButton";
             SaveFileButton.Size = new System.Drawing.Size(85, 27);
             SaveFileButton.TabIndex = 1;
-            SaveFileButton.Text = "Save";
+            SaveFileButton.Text = "保存";
             SaveFileButton.UseVisualStyleBackColor = true;
             SaveFileButton.Click += OnClickSave;
             // 
@@ -419,7 +419,7 @@ namespace UoFiddler.Controls.UserControls
             includeSoundIdCheckBox.Name = "includeSoundIdCheckBox";
             includeSoundIdCheckBox.Size = new System.Drawing.Size(200, 29);
             includeSoundIdCheckBox.TabIndex = 10;
-            includeSoundIdCheckBox.Text = "Export with sound id in file name";
+            includeSoundIdCheckBox.Text = "导出时在文件名中包含声音ID";
             includeSoundIdCheckBox.UseVisualStyleBackColor = true;
             // 
             // SortByNameCheckbox
@@ -431,7 +431,7 @@ namespace UoFiddler.Controls.UserControls
             SortByNameCheckbox.Name = "SortByNameCheckbox";
             SortByNameCheckbox.Size = new System.Drawing.Size(119, 29);
             SortByNameCheckbox.TabIndex = 2;
-            SortByNameCheckbox.Text = "Sort tree by name";
+            SortByNameCheckbox.Text = "按名称排序树";
             SortByNameCheckbox.UseVisualStyleBackColor = true;
             SortByNameCheckbox.CheckedChanged += OnChangeSort;
             // 
@@ -447,7 +447,7 @@ namespace UoFiddler.Controls.UserControls
             SelectedSoundGroup.Size = new System.Drawing.Size(424, 190);
             SelectedSoundGroup.TabIndex = 1;
             SelectedSoundGroup.TabStop = false;
-            SelectedSoundGroup.Text = "Current Sound";
+            SelectedSoundGroup.Text = "当前声音";
             // 
             // tableLayoutPanel4
             // 
@@ -480,7 +480,7 @@ namespace UoFiddler.Controls.UserControls
             PlaySoundButton.Name = "PlaySoundButton";
             PlaySoundButton.Size = new System.Drawing.Size(95, 29);
             PlaySoundButton.TabIndex = 0;
-            PlaySoundButton.Text = "Play";
+            PlaySoundButton.Text = "播放";
             PlaySoundButton.UseVisualStyleBackColor = true;
             PlaySoundButton.Click += OnClickPlay;
             // 
@@ -504,7 +504,7 @@ namespace UoFiddler.Controls.UserControls
             StopSoundButton.Name = "StopSoundButton";
             StopSoundButton.Size = new System.Drawing.Size(88, 29);
             StopSoundButton.TabIndex = 2;
-            StopSoundButton.Text = "Stop";
+            StopSoundButton.Text = "停止";
             StopSoundButton.UseVisualStyleBackColor = true;
             StopSoundButton.Click += OnClickStop;
             // 
@@ -516,7 +516,7 @@ namespace UoFiddler.Controls.UserControls
             ExtractSoundButton.Name = "ExtractSoundButton";
             ExtractSoundButton.Size = new System.Drawing.Size(95, 25);
             ExtractSoundButton.TabIndex = 3;
-            ExtractSoundButton.Text = "Extract";
+            ExtractSoundButton.Text = "提取";
             ExtractSoundButton.UseVisualStyleBackColor = true;
             ExtractSoundButton.Click += OnClickExtract;
             // 
@@ -528,7 +528,7 @@ namespace UoFiddler.Controls.UserControls
             RemoveSoundButton.Name = "RemoveSoundButton";
             RemoveSoundButton.Size = new System.Drawing.Size(88, 25);
             RemoveSoundButton.TabIndex = 4;
-            RemoveSoundButton.Text = "Remove";
+            RemoveSoundButton.Text = "移除";
             RemoveSoundButton.UseVisualStyleBackColor = true;
             RemoveSoundButton.Click += OnClickRemove;
             // 
@@ -544,7 +544,7 @@ namespace UoFiddler.Controls.UserControls
             groupBox2.Size = new System.Drawing.Size(424, 115);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Search";
+            groupBox2.Text = "搜索";
             // 
             // tableLayoutPanel5
             // 
@@ -578,7 +578,7 @@ namespace UoFiddler.Controls.UserControls
             GoPrevResultButton.Name = "GoPrevResultButton";
             GoPrevResultButton.Size = new System.Drawing.Size(76, 29);
             GoPrevResultButton.TabIndex = 5;
-            GoPrevResultButton.Text = "Prev";
+            GoPrevResultButton.Text = "上一个";
             GoPrevResultButton.UseVisualStyleBackColor = true;
             GoPrevResultButton.Click += GoPrevResultButton_Click;
             // 
@@ -600,7 +600,7 @@ namespace UoFiddler.Controls.UserControls
             GoNextResultButton.Name = "GoNextResultButton";
             GoNextResultButton.Size = new System.Drawing.Size(76, 29);
             GoNextResultButton.TabIndex = 3;
-            GoNextResultButton.Text = "Next";
+            GoNextResultButton.Text = "下一个";
             GoNextResultButton.UseVisualStyleBackColor = true;
             GoNextResultButton.Click += GoNextResultButton_Click;
             // 
@@ -612,7 +612,7 @@ namespace UoFiddler.Controls.UserControls
             SearchByIdButton.Name = "SearchByIdButton";
             SearchByIdButton.Size = new System.Drawing.Size(94, 29);
             SearchByIdButton.TabIndex = 4;
-            SearchByIdButton.Text = "Search by Id";
+            SearchByIdButton.Text = "按ID搜索";
             SearchByIdButton.UseVisualStyleBackColor = true;
             SearchByIdButton.Click += SearchByIdButton_Click;
             // 
@@ -624,7 +624,7 @@ namespace UoFiddler.Controls.UserControls
             SearchByNameButton.Name = "SearchByNameButton";
             SearchByNameButton.Size = new System.Drawing.Size(120, 29);
             SearchByNameButton.TabIndex = 1;
-            SearchByNameButton.Text = "Search by Name";
+            SearchByNameButton.Text = "按名称搜索";
             SearchByNameButton.UseVisualStyleBackColor = true;
             SearchByNameButton.Click += SearchByNameButton_Click;
             // 
@@ -639,7 +639,7 @@ namespace UoFiddler.Controls.UserControls
             groupBox3.Size = new System.Drawing.Size(424, 249);
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Insert \\ Replace";
+            groupBox3.Text = "插入/替换";
             // 
             // tableLayoutPanel6
             // 
@@ -732,7 +732,7 @@ namespace UoFiddler.Controls.UserControls
             AddInsertReplaceButton.Name = "AddInsertReplaceButton";
             AddInsertReplaceButton.Size = new System.Drawing.Size(121, 29);
             AddInsertReplaceButton.TabIndex = 7;
-            AddInsertReplaceButton.Text = "Add \\ Replace";
+            AddInsertReplaceButton.Text = "添加/替换";
             AddInsertReplaceButton.UseVisualStyleBackColor = true;
             AddInsertReplaceButton.Click += AddInsertReplaceButton_Click;
             // 
@@ -743,7 +743,7 @@ namespace UoFiddler.Controls.UserControls
             IDCount.Name = "IDCount";
             IDCount.Size = new System.Drawing.Size(57, 15);
             IDCount.TabIndex = 8;
-            IDCount.Text = "ID Count:";
+            IDCount.Text = "ID 计数:";
             // 
             // SoundsControl
             // 

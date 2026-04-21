@@ -2,10 +2,10 @@
  *
  * $Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "THE BEER-WARE LICENSE" (啤酒软件授权协议)
+ * 只要您保留此声明，您就可以对本代码做任何处理。
+ * 如果将来我们相遇，并且您认为这些东西有价值，
+ * 您可以请我喝啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.UserControls
     partial class DressControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Controls.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -202,7 +202,7 @@ namespace UoFiddler.Controls.UserControls
             FindNextItemButton.Name = "FindNextItemButton";
             FindNextItemButton.Size = new System.Drawing.Size(83, 27);
             FindNextItemButton.TabIndex = 1;
-            FindNextItemButton.Text = "Find next";
+            FindNextItemButton.Text = "查找下一个";
             FindNextItemButton.UseVisualStyleBackColor = true;
             FindNextItemButton.Click += FindNextItemButton_Click;
             // 
@@ -255,7 +255,7 @@ namespace UoFiddler.Controls.UserControls
             checkBoxHuman.Size = new System.Drawing.Size(65, 19);
             checkBoxHuman.TabIndex = 5;
             checkBoxHuman.TabStop = true;
-            checkBoxHuman.Text = "Human";
+            checkBoxHuman.Text = "人类";
             checkBoxHuman.UseVisualStyleBackColor = true;
             checkBoxHuman.CheckedChanged += OnChangeHuman;
             // 
@@ -267,7 +267,7 @@ namespace UoFiddler.Controls.UserControls
             checkBoxGargoyle.Name = "checkBoxGargoyle";
             checkBoxGargoyle.Size = new System.Drawing.Size(72, 19);
             checkBoxGargoyle.TabIndex = 4;
-            checkBoxGargoyle.Text = "Gargoyle";
+            checkBoxGargoyle.Text = "石像鬼";
             checkBoxGargoyle.UseVisualStyleBackColor = true;
             checkBoxGargoyle.CheckedChanged += OnChangeGargoyle;
             // 
@@ -279,7 +279,7 @@ namespace UoFiddler.Controls.UserControls
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(104, 29);
             button1.TabIndex = 1;
-            button1.Text = "Export Report";
+            button1.Text = "导出报告";
             button1.UseVisualStyleBackColor = true;
             button1.Click += OnClickBuildAnimationList;
             // 
@@ -291,7 +291,7 @@ namespace UoFiddler.Controls.UserControls
             LayerSort.Name = "LayerSort";
             LayerSort.Size = new System.Drawing.Size(78, 19);
             LayerSort.TabIndex = 3;
-            LayerSort.Text = "Layer Sort";
+            LayerSort.Text = "图层排序";
             LayerSort.UseVisualStyleBackColor = true;
             LayerSort.CheckedChanged += OnChangeSort;
             // 
@@ -303,7 +303,7 @@ namespace UoFiddler.Controls.UserControls
             checkBoxElve.Name = "checkBoxElve";
             checkBoxElve.Size = new System.Drawing.Size(38, 19);
             checkBoxElve.TabIndex = 2;
-            checkBoxElve.Text = "Elf";
+            checkBoxElve.Text = "精灵";
             checkBoxElve.UseVisualStyleBackColor = true;
             checkBoxElve.CheckedChanged += OnChangeElve;
             // 
@@ -315,7 +315,7 @@ namespace UoFiddler.Controls.UserControls
             checkBoxfemale.Name = "checkBoxfemale";
             checkBoxfemale.Size = new System.Drawing.Size(64, 19);
             checkBoxfemale.TabIndex = 1;
-            checkBoxfemale.Text = "Female";
+            checkBoxfemale.Text = "女性";
             checkBoxfemale.UseVisualStyleBackColor = true;
             checkBoxfemale.CheckedChanged += OnChangeFemale;
             // 
@@ -326,7 +326,7 @@ namespace UoFiddler.Controls.UserControls
             buttonDress.Name = "buttonDress";
             buttonDress.Size = new System.Drawing.Size(88, 27);
             buttonDress.TabIndex = 0;
-            buttonDress.Text = "Dress Item";
+            buttonDress.Text = "穿戴物品";
             buttonDress.UseVisualStyleBackColor = true;
             buttonDress.Click += OnClick_Dress;
             // 
@@ -388,14 +388,14 @@ namespace UoFiddler.Controls.UserControls
             // 
             unDressToolStripMenuItem.Name = "unDressToolStripMenuItem";
             unDressToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            unDressToolStripMenuItem.Text = "UnDress";
+            unDressToolStripMenuItem.Text = "脱下";
             unDressToolStripMenuItem.Click += OnClick_UnDress;
             // 
             // huToolStripMenuItem
             // 
             huToolStripMenuItem.Name = "huToolStripMenuItem";
             huToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            huToolStripMenuItem.Text = "Hue";
+            huToolStripMenuItem.Text = "色调";
             huToolStripMenuItem.Click += OnClickHue;
             // 
             // hueToolStripMenuItem
@@ -403,7 +403,7 @@ namespace UoFiddler.Controls.UserControls
             hueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripTextBox1 });
             hueToolStripMenuItem.Name = "hueToolStripMenuItem";
             hueToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            hueToolStripMenuItem.Text = "Hue..";
+            hueToolStripMenuItem.Text = "色调...";
             // 
             // toolStripTextBox1
             // 
@@ -420,7 +420,7 @@ namespace UoFiddler.Controls.UserControls
             // 
             unDressAllToolStripMenuItem.Name = "unDressAllToolStripMenuItem";
             unDressAllToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            unDressAllToolStripMenuItem.Text = "UnDress All";
+            unDressAllToolStripMenuItem.Text = "全部脱下";
             unDressAllToolStripMenuItem.Click += OnClickUndressAll;
             // 
             // groupBox1
@@ -434,7 +434,7 @@ namespace UoFiddler.Controls.UserControls
             groupBox1.Size = new System.Drawing.Size(160, 54);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Mount";
+            groupBox1.Text = "坐骑";
             // 
             // textBoxMount
             // 
@@ -478,7 +478,7 @@ namespace UoFiddler.Controls.UserControls
             groupBoxAnimate.Size = new System.Drawing.Size(245, 112);
             groupBoxAnimate.TabIndex = 1;
             groupBoxAnimate.TabStop = false;
-            groupBoxAnimate.Text = "Facing/Action";
+            groupBoxAnimate.Text = "朝向/动作";
             // 
             // ActionBar
             // 
@@ -490,7 +490,7 @@ namespace UoFiddler.Controls.UserControls
             ActionBar.Name = "ActionBar";
             ActionBar.Size = new System.Drawing.Size(240, 40);
             ActionBar.TabIndex = 1;
-            toolTip1.SetToolTip(ActionBar, "0 Walk_01");
+            toolTip1.SetToolTip(ActionBar, "0 行走_01");
             ActionBar.Scroll += OnScroll_Action;
             // 
             // FacingBar
@@ -528,7 +528,7 @@ namespace UoFiddler.Controls.UserControls
             // 
             showAnimationToolStripMenuItem.Name = "showAnimationToolStripMenuItem";
             showAnimationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            showAnimationToolStripMenuItem.Text = "Show Animation";
+            showAnimationToolStripMenuItem.Text = "显示动画";
             showAnimationToolStripMenuItem.Click += OnClick_ChangeDisplay;
             // 
             // animateToolStripMenuItem
@@ -536,7 +536,7 @@ namespace UoFiddler.Controls.UserControls
             animateToolStripMenuItem.CheckOnClick = true;
             animateToolStripMenuItem.Name = "animateToolStripMenuItem";
             animateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            animateToolStripMenuItem.Text = "Animate";
+            animateToolStripMenuItem.Text = "动画";
             animateToolStripMenuItem.Click += OnClick_Animate;
             // 
             // extractImageToolStripMenuItem
@@ -544,34 +544,34 @@ namespace UoFiddler.Controls.UserControls
             extractImageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { asBmpToolStripMenuItem, asTiffToolStripMenuItem, asJpgToolStripMenuItem, asPngToolStripMenuItem });
             extractImageToolStripMenuItem.Name = "extractImageToolStripMenuItem";
             extractImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            extractImageToolStripMenuItem.Text = "Export Image..";
+            extractImageToolStripMenuItem.Text = "导出图像...";
             // 
             // asBmpToolStripMenuItem
             // 
             asBmpToolStripMenuItem.Name = "asBmpToolStripMenuItem";
             asBmpToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asBmpToolStripMenuItem.Text = "As Bmp";
+            asBmpToolStripMenuItem.Text = "Bmp 格式";
             asBmpToolStripMenuItem.Click += OnClickExtractImageBmp;
             // 
             // asTiffToolStripMenuItem
             // 
             asTiffToolStripMenuItem.Name = "asTiffToolStripMenuItem";
             asTiffToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asTiffToolStripMenuItem.Text = "As Tiff";
+            asTiffToolStripMenuItem.Text = "Tiff 格式";
             asTiffToolStripMenuItem.Click += OnClickExtractImageTiff;
             // 
             // asJpgToolStripMenuItem
             // 
             asJpgToolStripMenuItem.Name = "asJpgToolStripMenuItem";
             asJpgToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asJpgToolStripMenuItem.Text = "As Jpg";
+            asJpgToolStripMenuItem.Text = "Jpg 格式";
             asJpgToolStripMenuItem.Click += OnClickExtractImageJpg;
             // 
             // asPngToolStripMenuItem
             // 
             asPngToolStripMenuItem.Name = "asPngToolStripMenuItem";
             asPngToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            asPngToolStripMenuItem.Text = "As Png";
+            asPngToolStripMenuItem.Text = "Png 格式";
             asPngToolStripMenuItem.Click += OnClickExtractImagePng;
             // 
             // extractAnimationToolStripMenuItem
@@ -579,34 +579,34 @@ namespace UoFiddler.Controls.UserControls
             extractAnimationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { asBmpToolStripMenuItem1, asTiffToolStripMenuItem1, asJpgToolStripMenuItem1, asPngToolStripMenuItem1, toolStripSeparator2, asAnimatedGifloopingToolStripMenuItem, asAnimatedGifnoLoopingToolStripMenuItem });
             extractAnimationToolStripMenuItem.Name = "extractAnimationToolStripMenuItem";
             extractAnimationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            extractAnimationToolStripMenuItem.Text = "Export Animation..";
+            extractAnimationToolStripMenuItem.Text = "导出动画...";
             // 
             // asBmpToolStripMenuItem1
             // 
             asBmpToolStripMenuItem1.Name = "asBmpToolStripMenuItem1";
             asBmpToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
-            asBmpToolStripMenuItem1.Text = "As Bmp";
+            asBmpToolStripMenuItem1.Text = "Bmp 格式";
             asBmpToolStripMenuItem1.Click += OnClickExtractAnimBmp;
             // 
             // asTiffToolStripMenuItem1
             // 
             asTiffToolStripMenuItem1.Name = "asTiffToolStripMenuItem1";
             asTiffToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
-            asTiffToolStripMenuItem1.Text = "As Tiff";
+            asTiffToolStripMenuItem1.Text = "Tiff 格式";
             asTiffToolStripMenuItem1.Click += OnClickExtractAnimTiff;
             // 
             // asJpgToolStripMenuItem1
             // 
             asJpgToolStripMenuItem1.Name = "asJpgToolStripMenuItem1";
             asJpgToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
-            asJpgToolStripMenuItem1.Text = "As Jpg";
+            asJpgToolStripMenuItem1.Text = "Jpg 格式";
             asJpgToolStripMenuItem1.Click += OnClickExtractAnimJpg;
             // 
             // asPngToolStripMenuItem1
             // 
             asPngToolStripMenuItem1.Name = "asPngToolStripMenuItem1";
             asPngToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
-            asPngToolStripMenuItem1.Text = "As Png";
+            asPngToolStripMenuItem1.Text = "Png 格式";
             asPngToolStripMenuItem1.Click += OnClickExtractAnimPng;
             // 
             // toolStripSeparator2
@@ -618,14 +618,14 @@ namespace UoFiddler.Controls.UserControls
             // 
             asAnimatedGifloopingToolStripMenuItem.Name = "asAnimatedGifloopingToolStripMenuItem";
             asAnimatedGifloopingToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            asAnimatedGifloopingToolStripMenuItem.Text = "As animated Gif (looping)";
+            asAnimatedGifloopingToolStripMenuItem.Text = "动态 GIF (循环)";
             asAnimatedGifloopingToolStripMenuItem.Click += OnClickExtractAnimGifLooping;
             // 
             // asAnimatedGifnoLoopingToolStripMenuItem
             // 
             asAnimatedGifnoLoopingToolStripMenuItem.Name = "asAnimatedGifnoLoopingToolStripMenuItem";
             asAnimatedGifnoLoopingToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            asAnimatedGifnoLoopingToolStripMenuItem.Text = "As animated Gif (no looping)";
+            asAnimatedGifnoLoopingToolStripMenuItem.Text = "动态 GIF (不循环)";
             asAnimatedGifnoLoopingToolStripMenuItem.Click += OnClickExtractAnimGifNoLooping;
             // 
             // TextBox

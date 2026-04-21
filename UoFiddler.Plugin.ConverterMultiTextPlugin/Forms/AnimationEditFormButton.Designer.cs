@@ -11,7 +11,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         private void InitializeComponent()
         {
@@ -19,7 +19,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnimationEditFormButton));
 
             // ================================================================
-            // === EXISTING CONTROLS (Frame Editor) ===========================
+            // === 现有控件（帧编辑器）========================================
             // ================================================================
             contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
             loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -151,7 +151,7 @@
             btSaveAllFramesSeparate = new System.Windows.Forms.Button();
             btClearAllFrames = new System.Windows.Forms.Button();
 
-            // Anim Browser
+            // 动画浏览器
             panelAnimBrowser = new System.Windows.Forms.Panel();
             listBoxAnimBodies = new System.Windows.Forms.ListBox();
             listBoxAnimActions = new System.Windows.Forms.ListBox();
@@ -182,7 +182,7 @@
             labelAnimSearch = new System.Windows.Forms.Label();
             panelAnimPreviewBg = new System.Windows.Forms.Panel();
 
-            // Art Browser
+            // 素材浏览器
             panelArtBrowser = new System.Windows.Forms.Panel();
             listBoxArtItems = new System.Windows.Forms.ListBox();
             picBoxArtPreview = new System.Windows.Forms.PictureBox();
@@ -246,7 +246,7 @@
             SuspendLayout();
 
             // ================================================================
-            // === CONTEXT MENU STRIP 1 =======================================
+            // === 上下文菜单 1 ===============================================
             // ================================================================
             contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
                 loadToolStripMenuItem, toolStripMenuItemLoadSingeAll, toolStripSeparator4,
@@ -257,13 +257,13 @@
 
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             loadToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            loadToolStripMenuItem.Text = "Load one All";
-            loadToolStripMenuItem.ToolTipText = "Load one image into all active frames";
+            loadToolStripMenuItem.Text = "加载一个到全部";
+            loadToolStripMenuItem.ToolTipText = "将一张图像加载到所有活动帧中";
             loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
 
             toolStripMenuItemLoadSingeAll.Name = "toolStripMenuItemLoadSingeAll";
             toolStripMenuItemLoadSingeAll.Size = new System.Drawing.Size(212, 22);
-            toolStripMenuItemLoadSingeAll.Text = "Load Single All";
+            toolStripMenuItemLoadSingeAll.Text = "加载单个到全部";
             toolStripMenuItemLoadSingeAll.Click += loadToolStripMenuItemAllSingle_Click;
 
             toolStripSeparator4.Name = "toolStripSeparator4";
@@ -271,12 +271,12 @@
 
             loadOnImageAllMIrrorToolStripMenuItem.Name = "loadOnImageAllMIrrorToolStripMenuItem";
             loadOnImageAllMIrrorToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            loadOnImageAllMIrrorToolStripMenuItem.Text = "Load one Image All Mirror";
+            loadOnImageAllMIrrorToolStripMenuItem.Text = "加载一个到全部（镜像）";
             loadOnImageAllMIrrorToolStripMenuItem.Click += loadOneImageAllMirrorToolStripMenuItem_Click;
 
             loadSingleAllMirrorToolStripMenuItem.Name = "loadSingleAllMirrorToolStripMenuItem";
             loadSingleAllMirrorToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            loadSingleAllMirrorToolStripMenuItem.Text = "Load Single All Mirror";
+            loadSingleAllMirrorToolStripMenuItem.Text = "加载单个到全部（镜像）";
             loadSingleAllMirrorToolStripMenuItem.Click += loadToolStripMenuItemAllSingleMirror_Click;
 
             toolStripSeparator2.Name = "toolStripSeparator2";
@@ -284,7 +284,7 @@
 
             startToolStripMenuItem.Name = "startToolStripMenuItem";
             startToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            startToolStripMenuItem.Text = "Start Animation";
+            startToolStripMenuItem.Text = "开始动画";
             startToolStripMenuItem.Click += startToolStripMenuItem_Click;
 
             toolStripSeparator1.Name = "toolStripSeparator1";
@@ -292,11 +292,11 @@
 
             imageFadeinToolStripMenuItem.Name = "imageFadeinToolStripMenuItem";
             imageFadeinToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            imageFadeinToolStripMenuItem.Text = "Load Background Image";
+            imageFadeinToolStripMenuItem.Text = "加载背景图像";
             imageFadeinToolStripMenuItem.Click += imageFadeinToolStripMenuItem_Click;
 
             // ================================================================
-            // === MENU STRIP =================================================
+            // === 菜单栏 =====================================================
             // ================================================================
             menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { loadToolStripMenuItem1 });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -309,16 +309,16 @@
                 loadOneImageAllMirrorToolStripMenuItem, loadOneSingleAllMirorToolStripMenuItem });
             loadToolStripMenuItem1.Name = "loadToolStripMenuItem1";
             loadToolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
-            loadToolStripMenuItem1.Text = "Menu";
+            loadToolStripMenuItem1.Text = "菜单";
 
             loadImageAllToolStripMenuItem.Name = "loadImageAllToolStripMenuItem";
             loadImageAllToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            loadImageAllToolStripMenuItem.Text = "Load One Image All";
+            loadImageAllToolStripMenuItem.Text = "加载一个图像到全部";
             loadImageAllToolStripMenuItem.Click += loadToolStripMenuItem1_Click;
 
             loadSingleAllToolStripMenuItem.Name = "loadSingleAllToolStripMenuItem";
             loadSingleAllToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            loadSingleAllToolStripMenuItem.Text = "Load Single All";
+            loadSingleAllToolStripMenuItem.Text = "加载单个到全部";
             loadSingleAllToolStripMenuItem.Click += loadToolStripMenuItemAllSingle_Click;
 
             toolStripSeparator3.Name = "toolStripSeparator3";
@@ -326,16 +326,16 @@
 
             loadOneImageAllMirrorToolStripMenuItem.Name = "loadOneImageAllMirrorToolStripMenuItem";
             loadOneImageAllMirrorToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            loadOneImageAllMirrorToolStripMenuItem.Text = "Load One Image All Mirror";
+            loadOneImageAllMirrorToolStripMenuItem.Text = "加载一个图像到全部（镜像）";
             loadOneImageAllMirrorToolStripMenuItem.Click += loadOneImageAllMirrorToolStripMenuItem_Click;
 
             loadOneSingleAllMirorToolStripMenuItem.Name = "loadOneSingleAllMirorToolStripMenuItem";
             loadOneSingleAllMirorToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            loadOneSingleAllMirorToolStripMenuItem.Text = "Load One Single All Mirror";
+            loadOneSingleAllMirorToolStripMenuItem.Text = "加载单个到全部（镜像）";
             loadOneSingleAllMirorToolStripMenuItem.Click += loadToolStripMenuItemAllSingleMirror_Click;
 
             // ================================================================
-            // === CHECKBOXES (unrolled) =======================================
+            // === 复选框（展开）===============================================
             // ================================================================
             checkBox1.AutoSize = true;
             checkBox1.Checked = true;
@@ -344,7 +344,7 @@
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new System.Drawing.Size(68, 19);
             checkBox1.TabIndex = 11;
-            checkBox1.Text = "Frame 1";
+            checkBox1.Text = "帧 1";
             checkBox1.UseVisualStyleBackColor = true;
 
             checkBox2.AutoSize = true;
@@ -354,7 +354,7 @@
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new System.Drawing.Size(68, 19);
             checkBox2.TabIndex = 12;
-            checkBox2.Text = "Frame 2";
+            checkBox2.Text = "帧 2";
             checkBox2.UseVisualStyleBackColor = true;
 
             checkBox3.AutoSize = true;
@@ -364,7 +364,7 @@
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new System.Drawing.Size(68, 19);
             checkBox3.TabIndex = 13;
-            checkBox3.Text = "Frame 3";
+            checkBox3.Text = "帧 3";
             checkBox3.UseVisualStyleBackColor = true;
 
             checkBox4.AutoSize = true;
@@ -374,7 +374,7 @@
             checkBox4.Name = "checkBox4";
             checkBox4.Size = new System.Drawing.Size(68, 19);
             checkBox4.TabIndex = 14;
-            checkBox4.Text = "Frame 4";
+            checkBox4.Text = "帧 4";
             checkBox4.UseVisualStyleBackColor = true;
 
             checkBox5.AutoSize = true;
@@ -384,7 +384,7 @@
             checkBox5.Name = "checkBox5";
             checkBox5.Size = new System.Drawing.Size(68, 19);
             checkBox5.TabIndex = 15;
-            checkBox5.Text = "Frame 5";
+            checkBox5.Text = "帧 5";
             checkBox5.UseVisualStyleBackColor = true;
 
             checkBox6.AutoSize = true;
@@ -394,7 +394,7 @@
             checkBox6.Name = "checkBox6";
             checkBox6.Size = new System.Drawing.Size(68, 19);
             checkBox6.TabIndex = 16;
-            checkBox6.Text = "Frame 6";
+            checkBox6.Text = "帧 6";
             checkBox6.UseVisualStyleBackColor = true;
 
             checkBox7.AutoSize = true;
@@ -404,7 +404,7 @@
             checkBox7.Name = "checkBox7";
             checkBox7.Size = new System.Drawing.Size(68, 19);
             checkBox7.TabIndex = 17;
-            checkBox7.Text = "Frame 7";
+            checkBox7.Text = "帧 7";
             checkBox7.UseVisualStyleBackColor = true;
 
             checkBox8.AutoSize = true;
@@ -414,7 +414,7 @@
             checkBox8.Name = "checkBox8";
             checkBox8.Size = new System.Drawing.Size(68, 19);
             checkBox8.TabIndex = 18;
-            checkBox8.Text = "Frame 8";
+            checkBox8.Text = "帧 8";
             checkBox8.UseVisualStyleBackColor = true;
 
             checkBox9.AutoSize = true;
@@ -424,7 +424,7 @@
             checkBox9.Name = "checkBox9";
             checkBox9.Size = new System.Drawing.Size(68, 19);
             checkBox9.TabIndex = 19;
-            checkBox9.Text = "Frame 9";
+            checkBox9.Text = "帧 9";
             checkBox9.UseVisualStyleBackColor = true;
 
             checkBox10.AutoSize = true;
@@ -434,11 +434,11 @@
             checkBox10.Name = "checkBox10";
             checkBox10.Size = new System.Drawing.Size(74, 19);
             checkBox10.TabIndex = 20;
-            checkBox10.Text = "Frame 10";
+            checkBox10.Text = "帧 10";
             checkBox10.UseVisualStyleBackColor = true;
 
             // ================================================================
-            // === SELECTABLE PICTURE BOXES (unrolled) ========================
+            // === 可选图片框（展开）===========================================
             // ================================================================
             selectablePictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             selectablePictureBox1.CurrentIndex = 0;
@@ -561,7 +561,7 @@
             selectablePictureBox10.PreviewKeyDown += pictureBox_PreviewKeyDown;
 
             // ================================================================
-            // === NUMERIC UP DOWN CONTROLS ===================================
+            // === 数字输入控件 ===============================================
             // ================================================================
             numericUpDownStartDelay.Location = new System.Drawing.Point(95, 69);
             numericUpDownStartDelay.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
@@ -576,13 +576,13 @@
             numericUpDownFrameDelay.Value = new decimal(new int[] { 4, 0, 0, 0 });
 
             // ================================================================
-            // === START BUTTON + LABELS ======================================
+            // === 开始按钮 + 标签 ============================================
             // ================================================================
             startAnimationButton.Location = new System.Drawing.Point(9, 12);
             startAnimationButton.Name = "startAnimationButton";
             startAnimationButton.Size = new System.Drawing.Size(47, 23);
             startAnimationButton.TabIndex = 34;
-            startAnimationButton.Text = "Start";
+            startAnimationButton.Text = "开始";
             startAnimationButton.UseVisualStyleBackColor = true;
             startAnimationButton.Click += startAnimationButton_Click;
 
@@ -601,10 +601,10 @@
             delayLabel.AutoSize = true;
             delayLabel.Location = new System.Drawing.Point(10, 44);
             delayLabel.Name = "delayLabel";
-            delayLabel.Text = "Speed: --";
+            delayLabel.Text = "速度: --";
 
             // ================================================================
-            // === DRAW CONTROL PANEL =========================================
+            // === 绘制控制面板 ===============================================
             // ================================================================
             tboxBrushSize.Location = new System.Drawing.Point(9, 58);
             tboxBrushSize.Name = "tboxBrushSize";
@@ -618,13 +618,13 @@
             btColordialog.Location = new System.Drawing.Point(162, 29);
             btColordialog.Name = "btColordialog";
             btColordialog.Size = new System.Drawing.Size(56, 23);
-            btColordialog.Text = "Color";
+            btColordialog.Text = "颜色";
             btColordialog.UseVisualStyleBackColor = true;
 
             btDrawAllSelectableBox.Location = new System.Drawing.Point(224, 28);
             btDrawAllSelectableBox.Name = "btDrawAllSelectableBox";
             btDrawAllSelectableBox.Size = new System.Drawing.Size(59, 23);
-            btDrawAllSelectableBox.Text = "Draw All";
+            btDrawAllSelectableBox.Text = "全部绘制";
             btDrawAllSelectableBox.UseVisualStyleBackColor = true;
             btDrawAllSelectableBox.Click += btDrawAllSelectableBox_Click;
 
@@ -636,26 +636,26 @@
 
             labelSize.AutoSize = true;
             labelSize.Location = new System.Drawing.Point(14, 11);
-            labelSize.Text = "Size";
+            labelSize.Text = "大小";
 
             labelColorHexCode.AutoSize = true;
             labelColorHexCode.Location = new System.Drawing.Point(70, 11);
-            labelColorHexCode.Text = "Color Code";
+            labelColorHexCode.Text = "颜色代码";
 
             labelDrawAll.AutoSize = true;
             labelDrawAll.Location = new System.Drawing.Point(214, 11);
-            labelDrawAll.Text = "Not active";
+            labelDrawAll.Text = "未激活";
 
             btPipette.Location = new System.Drawing.Point(162, 58);
             btPipette.Name = "btPipette";
             btPipette.Size = new System.Drawing.Size(56, 23);
-            btPipette.Text = "Pipette";
+            btPipette.Text = "吸管";
             btPipette.UseVisualStyleBackColor = true;
             btPipette.Click += btPipette_Click;
 
             lbColorCode.AutoSize = true;
             lbColorCode.Location = new System.Drawing.Point(224, 85);
-            lbColorCode.Text = "ColorCode";
+            lbColorCode.Text = "颜色代码";
 
             panelFarbCodeTB.Location = new System.Drawing.Point(136, 29);
             panelFarbCodeTB.Size = new System.Drawing.Size(27, 23);
@@ -672,23 +672,23 @@
                 btColordialog, labelSize, numericUpDownBrushSize });
 
             // ================================================================
-            // === ANIMATION CONTROL PANEL ====================================
+            // === 动画控制面板 ===============================================
             // ================================================================
             lbCounter.AutoSize = true;
             lbCounter.Location = new System.Drawing.Point(56, 16);
-            lbCounter.Text = "Frame:";
+            lbCounter.Text = "帧:";
 
             lbSpeed.AutoSize = true;
             lbSpeed.Location = new System.Drawing.Point(10, 100);
-            lbSpeed.Text = "Speed:";
+            lbSpeed.Text = "速度:";
 
             lbStartPosition.AutoSize = true;
             lbStartPosition.Location = new System.Drawing.Point(9, 71);
-            lbStartPosition.Text = "Start position:";
+            lbStartPosition.Text = "起始位置:";
 
             lbImage.AutoSize = true;
             lbImage.Location = new System.Drawing.Point(11, 131);
-            lbImage.Text = "Image:";
+            lbImage.Text = "图像:";
 
             numericUpDownImageShow.Location = new System.Drawing.Point(95, 129);
             numericUpDownImageShow.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
@@ -705,7 +705,7 @@
                 frameLabel, delayLabel });
 
             // ================================================================
-            // === TAB CONTROL ================================================
+            // === 选项卡控件 =================================================
             // ================================================================
             tabControl1.Location = new System.Drawing.Point(6, 27);
             tabControl1.Name = "tabControl1";
@@ -714,16 +714,16 @@
                 tabPageFrame, tabPageAnimtion, tabPageAnimBrowser, tabPageArtBrowser });
 
             // ================================================================
-            // === TAB PAGE: FRAME ============================================
+            // === 选项卡页：帧 ===============================================
             // ================================================================
             tabPageFrame.Location = new System.Drawing.Point(4, 24);
             tabPageFrame.Name = "tabPageFrame";
             tabPageFrame.Padding = new System.Windows.Forms.Padding(3);
             tabPageFrame.Size = new System.Drawing.Size(1272, 299);
-            tabPageFrame.Text = "Frame Editor";
+            tabPageFrame.Text = "帧编辑器";
             tabPageFrame.UseVisualStyleBackColor = true;
 
-            // Zoom buttons (unrolled)
+            // 缩放按钮（展开）
             zoomInButton1.Location = new System.Drawing.Point(6, 270);
             zoomInButton1.Name = "zoomInButton1";
             zoomInButton1.Size = new System.Drawing.Size(27, 23);
@@ -906,19 +906,19 @@
             tabPageFrame.Controls.Add(zoomOutButton10);
 
             // ================================================================
-            // === TAB PAGE: ANIMATION (Clipboard) ============================
+            // === 选项卡页：动画（剪贴板）=====================================
             // ================================================================
             tabPageAnimtion.Location = new System.Drawing.Point(4, 24);
             tabPageAnimtion.Name = "tabPageAnimtion";
             tabPageAnimtion.Padding = new System.Windows.Forms.Padding(3);
             tabPageAnimtion.Size = new System.Drawing.Size(1272, 299);
-            tabPageAnimtion.Text = "Clipboard Animation";
+            tabPageAnimtion.Text = "剪贴板动画";
             tabPageAnimtion.UseVisualStyleBackColor = true;
 
             CheckBoxTransparent.AutoSize = true;
             CheckBoxTransparent.Location = new System.Drawing.Point(388, 8);
             CheckBoxTransparent.Name = "CheckBoxTransparent";
-            CheckBoxTransparent.Text = "Transparent";
+            CheckBoxTransparent.Text = "透明";
             CheckBoxTransparent.UseVisualStyleBackColor = true;
             CheckBoxTransparent.CheckedChanged += CheckBoxTransparent_CheckedChanged;
 
@@ -929,26 +929,26 @@
             ContextMenuStripListBox.Size = new System.Drawing.Size(181, 142);
 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Text = "删除";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
 
             deleteAllToolStripMenuItem.Name = "deleteAllToolStripMenuItem";
-            deleteAllToolStripMenuItem.Text = "Delete All";
+            deleteAllToolStripMenuItem.Text = "全部删除";
             deleteAllToolStripMenuItem.Click += deleteAllToolStripMenuItem_Click;
 
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
 
             playToolStripMenuItem.Name = "playToolStripMenuItem";
-            playToolStripMenuItem.Text = "Play";
+            playToolStripMenuItem.Text = "播放";
             playToolStripMenuItem.Click += playToolStripMenuItem_Click;
 
             stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            stopToolStripMenuItem.Text = "Stop";
+            stopToolStripMenuItem.Text = "停止";
             stopToolStripMenuItem.Click += stopToolStripMenuItem_Click;
 
             exchangeToolStripMenuItem.Name = "exchangeToolStripMenuItem";
-            exchangeToolStripMenuItem.Text = "Exchange";
+            exchangeToolStripMenuItem.Text = "交换";
             exchangeToolStripMenuItem.Click += exchangeToolStripMenuItem_Click;
 
             ListBoxAll.ContextMenuStrip = ContextMenuStripListBox;
@@ -964,7 +964,7 @@
             ContextMenuStripImageAll.Size = new System.Drawing.Size(121, 26);
 
             clipbordAllSingleToolStripMenuItem.Name = "clipbordAllSingleToolStripMenuItem";
-            clipbordAllSingleToolStripMenuItem.Text = "Clipboard";
+            clipbordAllSingleToolStripMenuItem.Text = "剪贴板";
             clipbordAllSingleToolStripMenuItem.Click += clipbordAllSingleToolStripMenuItem_Click;
 
             PictureBoxAll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -977,54 +977,54 @@
             tabPageAnimtion.Controls.AddRange(new System.Windows.Forms.Control[] { CheckBoxTransparent, ListBoxAll, PictureBoxAll });
 
             // ================================================================
-            // === TAB PAGE: ANIM BROWSER =====================================
+            // === 选项卡页：动画浏览器 =======================================
             // ================================================================
             tabPageAnimBrowser.Location = new System.Drawing.Point(4, 24);
             tabPageAnimBrowser.Name = "tabPageAnimBrowser";
             tabPageAnimBrowser.Padding = new System.Windows.Forms.Padding(3);
             tabPageAnimBrowser.Size = new System.Drawing.Size(1272, 299);
-            tabPageAnimBrowser.Text = "Animation Browser (MUL/UOP)";
+            tabPageAnimBrowser.Text = "动画浏览器 (MUL/UOP)";
             tabPageAnimBrowser.UseVisualStyleBackColor = true;
 
             labelAnimBodies.AutoSize = true;
             labelAnimBodies.Location = new System.Drawing.Point(5, 5);
-            labelAnimBodies.Text = "Body ID:";
+            labelAnimBodies.Text = "身体 ID:";
             labelAnimBodies.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
 
             labelAnimActions.AutoSize = true;
             labelAnimActions.Location = new System.Drawing.Point(100, 5);
-            labelAnimActions.Text = "Action:";
+            labelAnimActions.Text = "动作:";
             labelAnimActions.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
 
             labelAnimDirections.AutoSize = true;
             labelAnimDirections.Location = new System.Drawing.Point(230, 5);
-            labelAnimDirections.Text = "Direction:";
+            labelAnimDirections.Text = "方向:";
             labelAnimDirections.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
 
             labelAnimFrames.AutoSize = true;
             labelAnimFrames.Location = new System.Drawing.Point(345, 5);
-            labelAnimFrames.Text = "Frames:";
+            labelAnimFrames.Text = "帧:";
             labelAnimFrames.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
 
             labelAnimFile.AutoSize = true;
             labelAnimFile.Location = new System.Drawing.Point(5, 215);
-            labelAnimFile.Text = "Source:";
+            labelAnimFile.Text = "源文件:";
 
             labelAnimHue.AutoSize = true;
             labelAnimHue.Location = new System.Drawing.Point(5, 245);
-            labelAnimHue.Text = "Hue:";
+            labelAnimHue.Text = "色调:";
 
             labelAnimZoom.AutoSize = true;
             labelAnimZoom.Location = new System.Drawing.Point(90, 245);
-            labelAnimZoom.Text = "Zoom:";
+            labelAnimZoom.Text = "缩放:";
 
             labelAnimSpeed.AutoSize = true;
             labelAnimSpeed.Location = new System.Drawing.Point(170, 245);
-            labelAnimSpeed.Text = "Speed(ms):";
+            labelAnimSpeed.Text = "速度(毫秒):";
 
             labelAnimSearch.AutoSize = true;
             labelAnimSearch.Location = new System.Drawing.Point(5, 270);
-            labelAnimSearch.Text = "Search Body:";
+            labelAnimSearch.Text = "搜索身体:";
 
             listBoxAnimBodies.Location = new System.Drawing.Point(5, 22);
             listBoxAnimBodies.Name = "listBoxAnimBodies";
@@ -1062,7 +1062,7 @@
             labelAnimFrameInfo.AutoSize = false;
             labelAnimFrameInfo.Location = new System.Drawing.Point(460, 224);
             labelAnimFrameInfo.Size = new System.Drawing.Size(800, 20);
-            labelAnimFrameInfo.Text = "Select Body > Action > Direction to load frames";
+            labelAnimFrameInfo.Text = "选择身体 > 动作 > 方向以加载帧";
             labelAnimFrameInfo.Font = new System.Drawing.Font("Segoe UI", 8F);
 
             comboBoxAnimFile.Location = new System.Drawing.Point(50, 212);
@@ -1096,44 +1096,44 @@
             btAnimSearch.Location = new System.Drawing.Point(158, 267);
             btAnimSearch.Name = "btAnimSearch";
             btAnimSearch.Size = new System.Drawing.Size(75, 23);
-            btAnimSearch.Text = "Search";
+            btAnimSearch.Text = "搜索";
             btAnimSearch.UseVisualStyleBackColor = true;
 
             btAnimPlay.Location = new System.Drawing.Point(840, 22);
             btAnimPlay.Name = "btAnimPlay";
             btAnimPlay.Size = new System.Drawing.Size(80, 26);
-            btAnimPlay.Text = "Play";
+            btAnimPlay.Text = "播放";
             btAnimPlay.BackColor = System.Drawing.Color.FromArgb(70, 140, 70);
             btAnimPlay.ForeColor = System.Drawing.Color.White;
 
             btAnimStop.Location = new System.Drawing.Point(840, 53);
             btAnimStop.Name = "btAnimStop";
             btAnimStop.Size = new System.Drawing.Size(80, 26);
-            btAnimStop.Text = "Stop";
+            btAnimStop.Text = "停止";
             btAnimStop.UseVisualStyleBackColor = true;
 
             btAnimCopyFramesToEditor.Location = new System.Drawing.Point(840, 90);
             btAnimCopyFramesToEditor.Name = "btAnimCopyFramesToEditor";
             btAnimCopyFramesToEditor.Size = new System.Drawing.Size(125, 26);
-            btAnimCopyFramesToEditor.Text = "To Frame Editor";
+            btAnimCopyFramesToEditor.Text = "发送到帧编辑器";
             btAnimCopyFramesToEditor.UseVisualStyleBackColor = true;
 
             btAnimCopyFrameClipboard.Location = new System.Drawing.Point(840, 122);
             btAnimCopyFrameClipboard.Name = "btAnimCopyFrameClipboard";
             btAnimCopyFrameClipboard.Size = new System.Drawing.Size(125, 26);
-            btAnimCopyFrameClipboard.Text = "Copy Frame to Clipboard";
+            btAnimCopyFrameClipboard.Text = "复制帧到剪贴板";
             btAnimCopyFrameClipboard.UseVisualStyleBackColor = true;
 
             btAnimExportFrames.Location = new System.Drawing.Point(840, 154);
             btAnimExportFrames.Name = "btAnimExportFrames";
             btAnimExportFrames.Size = new System.Drawing.Size(125, 26);
-            btAnimExportFrames.Text = "Export All Frames...";
+            btAnimExportFrames.Text = "导出所有帧...";
             btAnimExportFrames.UseVisualStyleBackColor = true;
 
             btAnimLoadFromFile.Location = new System.Drawing.Point(840, 186);
             btAnimLoadFromFile.Name = "btAnimLoadFromFile";
             btAnimLoadFromFile.Size = new System.Drawing.Size(125, 26);
-            btAnimLoadFromFile.Text = "Load from File...";
+            btAnimLoadFromFile.Text = "从文件加载...";
             btAnimLoadFromFile.UseVisualStyleBackColor = true;
 
             tabPageAnimBrowser.Controls.AddRange(new System.Windows.Forms.Control[] {
@@ -1147,32 +1147,32 @@
                 btAnimExportFrames, btAnimLoadFromFile });
 
             // ================================================================
-            // === TAB PAGE: ART BROWSER ======================================
+            // === 选项卡页：素材浏览器 =======================================
             // ================================================================
             tabPageArtBrowser.Location = new System.Drawing.Point(4, 24);
             tabPageArtBrowser.Name = "tabPageArtBrowser";
             tabPageArtBrowser.Padding = new System.Windows.Forms.Padding(3);
             tabPageArtBrowser.Size = new System.Drawing.Size(1272, 299);
-            tabPageArtBrowser.Text = "Art Browser (art.mul/uop)";
+            tabPageArtBrowser.Text = "素材浏览器 (art.mul/uop)";
             tabPageArtBrowser.UseVisualStyleBackColor = true;
 
             labelArtItems.AutoSize = true;
             labelArtItems.Location = new System.Drawing.Point(5, 5);
-            labelArtItems.Text = "Art Items:";
+            labelArtItems.Text = "素材项:";
             labelArtItems.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
 
             labelArtInfo.AutoSize = false;
             labelArtInfo.Location = new System.Drawing.Point(240, 268);
             labelArtInfo.Size = new System.Drawing.Size(800, 20);
-            labelArtInfo.Text = "Select an art item to preview";
+            labelArtInfo.Text = "选择一个素材项以预览";
 
             labelArtSearch.AutoSize = true;
             labelArtSearch.Location = new System.Drawing.Point(5, 247);
-            labelArtSearch.Text = "Search ID:";
+            labelArtSearch.Text = "搜索 ID:";
 
             labelArtZoom.AutoSize = true;
             labelArtZoom.Location = new System.Drawing.Point(5, 270);
-            labelArtZoom.Text = "Zoom:";
+            labelArtZoom.Text = "缩放:";
 
             listBoxArtItems.Location = new System.Drawing.Point(5, 22);
             listBoxArtItems.Name = "listBoxArtItems";
@@ -1189,13 +1189,13 @@
 
             rbArtStatic.AutoSize = true;
             rbArtStatic.Location = new System.Drawing.Point(445, 10);
-            rbArtStatic.Text = "Static (art.mul)";
+            rbArtStatic.Text = "静态 (art.mul)";
             rbArtStatic.Checked = true;
             rbArtStatic.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
 
             rbArtLand.AutoSize = true;
             rbArtLand.Location = new System.Drawing.Point(445, 30);
-            rbArtLand.Text = "Land Tiles";
+            rbArtLand.Text = "地形图块";
             rbArtLand.Font = new System.Drawing.Font("Segoe UI", 8F);
 
             tboxArtSearch.Location = new System.Drawing.Point(65, 245);
@@ -1205,7 +1205,7 @@
             btArtSearch.Location = new System.Drawing.Point(135, 245);
             btArtSearch.Name = "btArtSearch";
             btArtSearch.Size = new System.Drawing.Size(65, 23);
-            btArtSearch.Text = "Search";
+            btArtSearch.Text = "搜索";
             btArtSearch.UseVisualStyleBackColor = true;
 
             numericArtZoom.Location = new System.Drawing.Point(45, 268);
@@ -1218,31 +1218,31 @@
             btArtLoadPrevious.Location = new System.Drawing.Point(445, 60);
             btArtLoadPrevious.Name = "btArtLoadPrevious";
             btArtLoadPrevious.Size = new System.Drawing.Size(60, 23);
-            btArtLoadPrevious.Text = "Prev";
+            btArtLoadPrevious.Text = "上一个";
             btArtLoadPrevious.UseVisualStyleBackColor = true;
 
             btArtLoadNext.Location = new System.Drawing.Point(510, 60);
             btArtLoadNext.Name = "btArtLoadNext";
             btArtLoadNext.Size = new System.Drawing.Size(60, 23);
-            btArtLoadNext.Text = "Next";
+            btArtLoadNext.Text = "下一个";
             btArtLoadNext.UseVisualStyleBackColor = true;
 
             btArtCopyClipboard.Location = new System.Drawing.Point(445, 100);
             btArtCopyClipboard.Name = "btArtCopyClipboard";
             btArtCopyClipboard.Size = new System.Drawing.Size(140, 26);
-            btArtCopyClipboard.Text = "Copy to Clipboard";
+            btArtCopyClipboard.Text = "复制到剪贴板";
             btArtCopyClipboard.UseVisualStyleBackColor = true;
 
             btArtCopyToFrameEditor.Location = new System.Drawing.Point(445, 132);
             btArtCopyToFrameEditor.Name = "btArtCopyToFrameEditor";
             btArtCopyToFrameEditor.Size = new System.Drawing.Size(140, 26);
-            btArtCopyToFrameEditor.Text = "To Frame Editor";
+            btArtCopyToFrameEditor.Text = "发送到帧编辑器";
             btArtCopyToFrameEditor.UseVisualStyleBackColor = true;
 
             btArtExport.Location = new System.Drawing.Point(445, 164);
             btArtExport.Name = "btArtExport";
             btArtExport.Size = new System.Drawing.Size(140, 26);
-            btArtExport.Text = "Export as PNG/BMP...";
+            btArtExport.Text = "导出为 PNG/BMP...";
             btArtExport.UseVisualStyleBackColor = true;
 
             tabPageArtBrowser.Controls.AddRange(new System.Windows.Forms.Control[] {
@@ -1255,7 +1255,7 @@
                 labelArtInfo });
 
             // ================================================================
-            // === ANIMATION PICTURE BOXES (Preview) ==========================
+            // === 动画图片框（预览）==========================================
             // ================================================================
             AnimationPictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             AnimationPictureBox2.Location = new System.Drawing.Point(0, 0);
@@ -1264,7 +1264,7 @@
             AnimationPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 
             comboBoxImageBackgrund.FormattingEnabled = true;
-            comboBoxImageBackgrund.Items.AddRange(new object[] { "Green", "Water", "Sand", "Street", "Forest", "Dirt", "Dungeon", "Cave", "Clear" });
+            comboBoxImageBackgrund.Items.AddRange(new object[] { "绿色", "水", "沙", "街道", "森林", "泥土", "地牢", "洞穴", "透明" });
             comboBoxImageBackgrund.Location = new System.Drawing.Point(585, 372);
             comboBoxImageBackgrund.Name = "comboBoxImageBackgrund";
             comboBoxImageBackgrund.Size = new System.Drawing.Size(118, 23);
@@ -1278,7 +1278,7 @@
             ShowAnimationPictureBox2.AutoSize = true;
             ShowAnimationPictureBox2.Location = new System.Drawing.Point(585, 401);
             ShowAnimationPictureBox2.Name = "ShowAnimationPictureBox2";
-            ShowAnimationPictureBox2.Text = "Fade in =>";
+            ShowAnimationPictureBox2.Text = "淡入 =>";
             ShowAnimationPictureBox2.UseVisualStyleBackColor = true;
             ShowAnimationPictureBox2.CheckedChanged += ShowAnimationPictureBox2_CheckedChanged;
 
@@ -1304,7 +1304,7 @@
 
             lbSize.AutoSize = true;
             lbSize.Location = new System.Drawing.Point(585, 492);
-            lbSize.Text = "Size:";
+            lbSize.Text = "大小:";
 
             numericUpDownWidthAnimationPictureBox.Location = new System.Drawing.Point(665, 463);
             numericUpDownWidthAnimationPictureBox.Maximum = new decimal(new int[] { 176, 0, 0, 0 });
@@ -1318,7 +1318,7 @@
 
             lbHighWight.AutoSize = true;
             lbHighWight.Location = new System.Drawing.Point(588, 443);
-            lbHighWight.Text = "Height and Width:";
+            lbHighWight.Text = "高度和宽度:";
 
             numericUpDownColor.Location = new System.Drawing.Point(626, 511);
             numericUpDownColor.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
@@ -1327,45 +1327,45 @@
 
             lbSize2.AutoSize = true;
             lbSize2.Location = new System.Drawing.Point(669, 492);
-            lbSize2.Text = "Size:";
+            lbSize2.Text = "大小:";
 
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(626, 492);
-            label1.Text = "Color:";
+            label1.Text = "颜色:";
 
             checkBoxShowFrame.AutoSize = true;
             checkBoxShowFrame.Location = new System.Drawing.Point(585, 421);
             checkBoxShowFrame.Name = "checkBoxShowFrame";
-            checkBoxShowFrame.Text = "Frame visible";
+            checkBoxShowFrame.Text = "显示边框";
             checkBoxShowFrame.UseVisualStyleBackColor = true;
 
             // ================================================================
-            // === SAVE / CLEAR BUTTONS =======================================
+            // === 保存 / 清除按钮 ============================================
             // ================================================================
             btSaveAnimationGif.Location = new System.Drawing.Point(910, 390);
             btSaveAnimationGif.Name = "btSaveAnimationGif";
             btSaveAnimationGif.Size = new System.Drawing.Size(140, 28);
-            btSaveAnimationGif.Text = "Export Spritesheet";
+            btSaveAnimationGif.Text = "导出精灵表";
             btSaveAnimationGif.UseVisualStyleBackColor = true;
             btSaveAnimationGif.Click += btSaveAnimationGif_Click;
 
             btSaveAllFramesSeparate.Location = new System.Drawing.Point(910, 424);
             btSaveAllFramesSeparate.Name = "btSaveAllFramesSeparate";
             btSaveAllFramesSeparate.Size = new System.Drawing.Size(140, 28);
-            btSaveAllFramesSeparate.Text = "Export Frames (sep.)";
+            btSaveAllFramesSeparate.Text = "导出各帧（单独）";
             btSaveAllFramesSeparate.UseVisualStyleBackColor = true;
             btSaveAllFramesSeparate.Click += btSaveAllFramesSeparate_Click;
 
             btClearAllFrames.Location = new System.Drawing.Point(910, 458);
             btClearAllFrames.Name = "btClearAllFrames";
             btClearAllFrames.Size = new System.Drawing.Size(140, 28);
-            btClearAllFrames.Text = "Clear All Frames";
+            btClearAllFrames.Text = "清除所有帧";
             btClearAllFrames.UseVisualStyleBackColor = true;
             btClearAllFrames.BackColor = System.Drawing.Color.FromArgb(255, 220, 220);
             btClearAllFrames.Click += btClearAllFrames_Click;
 
             // ================================================================
-            // === FORM SETUP =================================================
+            // === 窗体设置 ===================================================
             // ================================================================
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1378,7 +1378,7 @@
             MinimumSize = new System.Drawing.Size(1100, 600);
             Name = "AnimationEditFormButton";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            Text = "Animation Edit";
+            Text = "动画编辑";
             FormClosing += AnimationEdit_FormClosing;
             Load += OnLoad;
 
@@ -1461,7 +1461,7 @@
         #endregion
 
         // ================================================================
-        // === PRIVATE CONTROL DECLARATIONS ===============================
+        // === 私有控件声明 ===============================================
         // ================================================================
 
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

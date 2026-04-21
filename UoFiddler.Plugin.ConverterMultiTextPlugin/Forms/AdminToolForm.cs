@@ -3,10 +3,10 @@
  * $Author: Nikodemus
  * Coder: Nikodemus
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -26,22 +26,22 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 {
     public partial class AdminToolForm : Form
     {
-        private static AdminToolForm _instance; // Static variable to store the instance
+        private static AdminToolForm _instance; // 静态变量，用于存储实例
         private AdminToolForm _adminToolForm;
 
 
         public AdminToolForm()
         {
-            // Check whether an instance of the shape is already open
+            // 检查窗体是否已打开
             if (_instance != null && !_instance.IsDisposed)
             {
-                // An instance is already open, so show the existing instance and close the new instance
+                // 已存在实例，则聚焦现有实例并关闭新实例
                 _instance.Focus();
                 Close();
                 return;
             }
 
-            // No other instance was found, so save this instance
+            // 未找到其他实例，则保存当前实例
             _instance = this;
 
             InitializeComponent();
@@ -57,32 +57,32 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         }
         #endregion
 
-        #region ÖffneAdminToolForm
+        #region 打开管理工具窗体
         public void ÖffneAdminToolForm()
         {
-            // Check if the AdminToolForm has already been discarded or is null
+            // 检查 AdminToolForm 是否已释放或为空
             if (_adminToolForm == null || _adminToolForm.IsDisposed)
             {
-                // Create a new instance of the AdminToolForm
+                // 创建 AdminToolForm 的新实例
                 _adminToolForm = new AdminToolForm();
-                // Show the form
+                // 显示窗体
                 _adminToolForm.Show();
             }
             else
             {
-                // Show the already existing form
+                // 聚焦已存在的窗体
                 _adminToolForm.Focus();
             }
         }
         #endregion
 
-        #region AdminToolForm
-        // Method to get the already opened instance
+        #region 管理工具窗体
+        // 获取已打开实例的方法
         public static AdminToolForm GetInstance()
         {
             if (_instance == null || _instance.IsDisposed)
             {
-                // If no instance exists or the instance has been discarded, create a new instance
+                // 如果没有实例或实例已释放，则创建新实例
                 _instance = new AdminToolForm();
             }
 
@@ -95,18 +95,18 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         {
             string address = textBoxAdress.Text;
 
-            // Verify that the address is a valid IP address or domain
+            // 验证地址是否为有效的 IP 地址或域名
             if (!IsValidIPAddress(address) && !IsValidDomainName(address))
             {
-                // If the address is invalid, display a message and exit the method
-                MessageBox.Show("The entered address is invalid. Please enter a valid IP address or domain.");
+                // 如果地址无效，显示消息并退出方法
+                MessageBox.Show("输入的地址无效。请输入有效的 IP 地址或域名。");
                 return;
             }
 
-            // Create a new Ping object
+            // 创建新的 Ping 对象
             Ping pingSender = new();
 
-            // Attempt to send three pings to the address
+            // 尝试向地址发送三个 ping
             for (int i = 0; i < 3; i++)
             {
                 try
@@ -115,40 +115,40 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
 
                     if (reply.Status == IPStatus.Success)
                     {
-                        // If the ping is successful, display the reply information
-                        textBoxPingAusgabe.AppendText($"Answer from {reply.Address}: Time={reply.RoundtripTime}ms\n");
+                        // 如果 ping 成功，显示回复信息
+                        textBoxPingAusgabe.AppendText($"来自 {reply.Address} 的回复：时间={reply.RoundtripTime}ms\n");
                     }
                     else
                     {
-                        // If the ping fails, display the error status
-                        textBoxPingAusgabe.AppendText($"Error: {reply.Status}\n");
+                        // 如果 ping 失败，显示错误状态
+                        textBoxPingAusgabe.AppendText($"错误：{reply.Status}\n");
                     }
                 }
                 catch (PingException ex)
                 {
-                    // If a PingException is thrown, display the exception message
-                    textBoxPingAusgabe.AppendText($"PingException: {ex.Message}\n");
+                    // 如果抛出 PingException，显示异常消息
+                    textBoxPingAusgabe.AppendText($"PingException：{ex.Message}\n");
                 }
             }
 
-            // Display the address in the label
+            // 在标签中显示地址
             labelIP.Text = address;
         }
 
         #endregion
 
         #region IsValidIPAddress
-        // Checks whether the specified string is a valid IP address
+        // 检查指定字符串是否为有效的 IP 地址
         private static bool IsValidIPAddress(string address)
         {
-            // Check the IPv4 address
+            // 检查 IPv4 地址
             string patternIPv4 = @"^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
             if (Regex.IsMatch(address, patternIPv4))
             {
                 return true;
             }
 
-            // Check the IPv6 address
+            // 检查 IPv6 地址
             string patternIPv6 = @"^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$";
             if (Regex.IsMatch(address, patternIPv6))
             {
@@ -160,7 +160,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         #region IsValidDomainName
-        // Checks whether the specified string is a valid domain
+        // 检查指定字符串是否为有效域名
         private static bool IsValidDomainName(string address)
         {
             string pattern = @"^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$";
@@ -171,10 +171,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #region textBoxAdress_KeyDown
         private void TextBoxAdress_KeyDown(object sender, KeyEventArgs e)
         {
-            // Check if the Enter key was pressed
+            // 检查是否按下了 Enter 键
             if (e.KeyCode == Keys.Enter)
             {
-                // Start ping
+                // 开始 ping
                 BtnPing_Click(this, EventArgs.Empty);
             }
         }
@@ -184,36 +184,36 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         private async void BtnTracert_Click(object sender, EventArgs e)
         {
             string address = textBoxAdress.Text;
-            // Verify that the address is a valid IP address or domain
+            // 验证地址是否为有效的 IP 地址或域名
             if (IsValidIPAddressTracert(address) || IsValidDomainNameTracert(address))
             {
-                // Empty the textBoxPingOutput
+                // 清空 textBoxPingOutput
                 textBoxPingAusgabe.Clear();
-                // Maximum TTL value
+                // 最大 TTL 值
                 int maxHops = 30;
-                // Current TTL value
+                // 当前 TTL 值
                 int currentHop = 1;
-                // Goal achieved?
+                // 是否到达目标？
                 bool targetReached = false;
-                // Create ping object
+                // 创建 ping 对象
                 Ping pingSender = new();
-                // Create ping options
+                // 创建 ping 选项
                 PingOptions pingOptions = new(currentHop, true);
-                // Create buffer
+                // 创建缓冲区
                 byte[] buffer = new byte[32];
-                // Set timeout
+                // 设置超时
                 int timeout = 5000;
                 try
                 {
-                    // Create IPHostEntry object for the destination address
+                    // 为目标地址创建 IPHostEntry 对象
                     IPHostEntry hostEntry = Dns.GetHostEntry(address);
-                    // Set target IP address
+                    // 设置目标 IP 地址
                     IPAddress targetAddress = hostEntry.AddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetworkV6) ?? hostEntry.AddressList[0];
                     while (!targetReached && currentHop <= maxHops)
                     {
-                        // Send ping
+                        // 发送 ping
                         PingReply reply = await pingSender.SendPingAsync(targetAddress, timeout, buffer, pingOptions);
-                        // show result
+                        // 显示结果
                         if (reply.Status == IPStatus.Success)
                         {
                             textBoxPingAusgabe.AppendText(currentHop + "\t" + reply.Address.ToString() + "\r\n");
@@ -227,27 +227,27 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                         {
                             textBoxPingAusgabe.AppendText(currentHop + "\t*\r\n");
                         }
-                        // Increase TTL value
+                        // 增加 TTL 值
                         currentHop++;
                         pingOptions.Ttl = currentHop;
                     }
                 }
                 catch (SocketException)
                 {
-                    // If a SocketException occurs, a message is displayed
-                    MessageBox.Show("The entered address is invalid. Please enter a valid IP address or domain.");
+                    // 如果发生 SocketException，显示消息
+                    MessageBox.Show("输入的地址无效。请输入有效的 IP 地址或域名。");
                 }
             }
             else
             {
-                // If the address is invalid, a message will be displayed
-                MessageBox.Show("The entered address is invalid. Please enter a valid IP address or domain.");
+                // 如果地址无效，显示消息
+                MessageBox.Show("输入的地址无效。请输入有效的 IP 地址或域名。");
             }
         }
         #endregion
 
         #region IsValidIPAddressTracert
-        // Checks whether the specified string is a valid IP address
+        // 检查指定字符串是否为有效的 IP 地址
         private static bool IsValidIPAddressTracert(string address)
         {
             return IPAddress.TryParse(address, out _);
@@ -255,7 +255,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         #region IsValidDomainNameTracert
-        // Checks whether the specified string is a valid domain
+        // 检查指定字符串是否为有效域名
         private static bool IsValidDomainNameTracert(string address)
         {
             return Uri.CheckHostName(address) != UriHostNameType.Unknown;
@@ -263,10 +263,10 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         #endregion
 
         #region btnClose
-        // Method of closing the form
+        // 关闭窗体的方法
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            // Set the instance variable to null to allow the form to be reopened
+            // 将实例变量设置为 null，以便允许重新打开窗体
             _instance = null;
             Close();
         }
@@ -289,19 +289,19 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
                     var response = await client.GetAsync("http://google.com/generate_204");
                     if (response.IsSuccessStatusCode)
                     {
-                        LabelInternetStatus.Text = "Internet connected";
+                        LabelInternetStatus.Text = "已连接互联网";
                         LabelInternetStatus.ForeColor = Color.Green;
                     }
                     else
                     {
-                        LabelInternetStatus.Text = "Internet not connected";
+                        LabelInternetStatus.Text = "未连接互联网";
                         LabelInternetStatus.ForeColor = Color.Red;
                     }
                 }
             }
             catch
             {
-                LabelInternetStatus.Text = "Internet not connected";
+                LabelInternetStatus.Text = "未连接互联网";
                 LabelInternetStatus.ForeColor = Color.Red;
             }
         }

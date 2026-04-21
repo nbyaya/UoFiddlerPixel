@@ -1,11 +1,11 @@
 /***************************************************************************
  *
- * $Author: Turley
+ * @Author: Turley
  * 
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with 
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒软件许可协议"
+ * 只要你保留此声明，你可以随意使用此代码。
+ * 如果我们某天相遇，你觉得此代码值得，
+ * 可以请我喝一杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.Forms
     partial class ItemDetailForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -37,11 +37,11 @@ namespace UoFiddler.Controls.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -117,48 +117,48 @@ namespace UoFiddler.Controls.Forms
             this.asPngToolStripMenuItem});
             this.extractImageToolStripMenuItem.Name = "extractImageToolStripMenuItem";
             this.extractImageToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.extractImageToolStripMenuItem.Text = "Export Image..";
+            this.extractImageToolStripMenuItem.Text = "导出图像..";
             // 
             // asBmpToolStripMenuItem
             // 
             this.asBmpToolStripMenuItem.Name = "asBmpToolStripMenuItem";
             this.asBmpToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.asBmpToolStripMenuItem.Text = "As Bmp";
+            this.asBmpToolStripMenuItem.Text = "BMP 格式";
             this.asBmpToolStripMenuItem.Click += new System.EventHandler(this.Extract_Image_ClickBmp);
             // 
             // asTiffToolStripMenuItem
             // 
             this.asTiffToolStripMenuItem.Name = "asTiffToolStripMenuItem";
             this.asTiffToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.asTiffToolStripMenuItem.Text = "As Tiff";
+            this.asTiffToolStripMenuItem.Text = "TIFF 格式";
             this.asTiffToolStripMenuItem.Click += new System.EventHandler(this.Extract_Image_ClickTiff);
             // 
             // asJpgToolStripMenuItem
             // 
             this.asJpgToolStripMenuItem.Name = "asJpgToolStripMenuItem";
             this.asJpgToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.asJpgToolStripMenuItem.Text = "As Jpg";
+            this.asJpgToolStripMenuItem.Text = "JPG 格式";
             this.asJpgToolStripMenuItem.Click += new System.EventHandler(this.Extract_Image_ClickJpg);
             // 
             // asPngToolStripMenuItem
             // 
             this.asPngToolStripMenuItem.Name = "asPngToolStripMenuItem";
             this.asPngToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.asPngToolStripMenuItem.Text = "As Png";
+            this.asPngToolStripMenuItem.Text = "PNG 格式";
             this.asPngToolStripMenuItem.Click += new System.EventHandler(this.Extract_Image_ClickPng);
             // 
             // setHueToolStripMenuItem
             // 
             this.setHueToolStripMenuItem.Name = "setHueToolStripMenuItem";
             this.setHueToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.setHueToolStripMenuItem.Text = "Set Hue";
+            this.setHueToolStripMenuItem.Text = "设置色调";
             this.setHueToolStripMenuItem.Click += new System.EventHandler(this.OnClick_Hue);
             // 
             // animateToolStripMenuItem
             // 
             this.animateToolStripMenuItem.Name = "animateToolStripMenuItem";
             this.animateToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.animateToolStripMenuItem.Text = "Animate";
+            this.animateToolStripMenuItem.Text = "播放动画";
             this.animateToolStripMenuItem.Click += new System.EventHandler(this.OnClickAnimate);
             // 
             // Data
@@ -182,7 +182,7 @@ namespace UoFiddler.Controls.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ItemDetailForm";
-            this.Text = "ItemDetail";
+            this.Text = "物品详情";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnClose);
             this.Load += new System.EventHandler(this.OnLoad);
             this.splitContainer1.Panel1.ResumeLayout(false);

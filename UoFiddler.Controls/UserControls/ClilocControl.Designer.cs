@@ -14,14 +14,14 @@ namespace UoFiddler.Controls.UserControls
     partial class ClilocControl
     {
         /// <summary> 
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Controls.UserControls
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region 组件设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -99,7 +99,7 @@ namespace UoFiddler.Controls.UserControls
             copyCliLocNumberToolStripMenuItem.Image = Properties.Resources.Clipbord;
             copyCliLocNumberToolStripMenuItem.Name = "copyCliLocNumberToolStripMenuItem";
             copyCliLocNumberToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            copyCliLocNumberToolStripMenuItem.Text = "Copy CliLoc Number";
+            copyCliLocNumberToolStripMenuItem.Text = "复制 CliLoc 编号";
             copyCliLocNumberToolStripMenuItem.Click += OnCLick_CopyClilocNumber;
             // 
             // copyCliLocTextToolStripMenuItem
@@ -107,7 +107,7 @@ namespace UoFiddler.Controls.UserControls
             copyCliLocTextToolStripMenuItem.Image = Properties.Resources.Clipbord;
             copyCliLocTextToolStripMenuItem.Name = "copyCliLocTextToolStripMenuItem";
             copyCliLocTextToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            copyCliLocTextToolStripMenuItem.Text = "Copy CliLoc Text";
+            copyCliLocTextToolStripMenuItem.Text = "复制 CliLoc 文本";
             copyCliLocTextToolStripMenuItem.Click += OnCLick_CopyClilocText;
             // 
             // copyToolStripMenuItem
@@ -115,7 +115,7 @@ namespace UoFiddler.Controls.UserControls
             copyToolStripMenuItem.Image = Properties.Resources.Clipbord;
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             copyToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            copyToolStripMenuItem.Text = "Copy Mark";
+            copyToolStripMenuItem.Text = "复制标记";
             copyToolStripMenuItem.Click += copyToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
@@ -128,7 +128,7 @@ namespace UoFiddler.Controls.UserControls
             addEntryToolStripMenuItem.Image = Properties.Resources.Add2;
             addEntryToolStripMenuItem.Name = "addEntryToolStripMenuItem";
             addEntryToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            addEntryToolStripMenuItem.Text = "Add Entry";
+            addEntryToolStripMenuItem.Text = "添加条目";
             addEntryToolStripMenuItem.Click += OnClick_AddEntry;
             // 
             // deleteEntryToolStripMenuItem
@@ -136,7 +136,7 @@ namespace UoFiddler.Controls.UserControls
             deleteEntryToolStripMenuItem.Image = Properties.Resources.Delete02;
             deleteEntryToolStripMenuItem.Name = "deleteEntryToolStripMenuItem";
             deleteEntryToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            deleteEntryToolStripMenuItem.Text = "Delete Entry";
+            deleteEntryToolStripMenuItem.Text = "删除条目";
             deleteEntryToolStripMenuItem.Click += OnClick_DeleteEntry;
             // 
             // addHtmlLocalizedToolStripMenuItem
@@ -144,8 +144,8 @@ namespace UoFiddler.Controls.UserControls
             addHtmlLocalizedToolStripMenuItem.Image = Properties.Resources.Covert;
             addHtmlLocalizedToolStripMenuItem.Name = "addHtmlLocalizedToolStripMenuItem";
             addHtmlLocalizedToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            addHtmlLocalizedToolStripMenuItem.Text = "AddHtmlLocalized";
-            addHtmlLocalizedToolStripMenuItem.ToolTipText = "AddHtmlLocalized generator";
+            addHtmlLocalizedToolStripMenuItem.Text = "添加 HtmlLocalized";
+            addHtmlLocalizedToolStripMenuItem.ToolTipText = "HtmlLocalized 生成器";
             addHtmlLocalizedToolStripMenuItem.Click += addHtmlLocalizedToolStripMenuItem_Click;
             // 
             // toolStrip1
@@ -160,7 +160,7 @@ namespace UoFiddler.Controls.UserControls
             // 
             // LangComboBox
             // 
-            LangComboBox.Items.AddRange(new object[] { "English", "German", "Custom 1", "Custom 2" });
+            LangComboBox.Items.AddRange(new object[] { "英语", "德语", "自定义 1", "自定义 2" });
             LangComboBox.Name = "LangComboBox";
             LangComboBox.Size = new System.Drawing.Size(140, 25);
             LangComboBox.SelectedIndexChanged += OnLangChange;
@@ -175,7 +175,7 @@ namespace UoFiddler.Controls.UserControls
             GotoEntry.MaxLength = 10;
             GotoEntry.Name = "GotoEntry";
             GotoEntry.Size = new System.Drawing.Size(116, 25);
-            GotoEntry.Text = "Enter Number";
+            GotoEntry.Text = "输入编号";
             GotoEntry.Enter += GotoEntry_Enter;
             GotoEntry.KeyDown += GotoEntry_KeyDown;
             // 
@@ -185,7 +185,7 @@ namespace UoFiddler.Controls.UserControls
             GotoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             GotoButton.Name = "GotoButton";
             GotoButton.Size = new System.Drawing.Size(37, 22);
-            GotoButton.Text = "Goto";
+            GotoButton.Text = "跳转";
             GotoButton.Click += GotoNr;
             // 
             // FindEntry
@@ -193,7 +193,7 @@ namespace UoFiddler.Controls.UserControls
             FindEntry.AcceptsTab = true;
             FindEntry.Name = "FindEntry";
             FindEntry.Size = new System.Drawing.Size(163, 25);
-            FindEntry.Text = "Enter Text";
+            FindEntry.Text = "输入文本";
             FindEntry.Enter += FindEntry_Enter;
             FindEntry.KeyDown += FindEntry_KeyDown;
             // 
@@ -203,7 +203,7 @@ namespace UoFiddler.Controls.UserControls
             FindButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             FindButton.Name = "FindButton";
             FindButton.Size = new System.Drawing.Size(34, 22);
-            FindButton.Text = "Find";
+            FindButton.Text = "查找";
             FindButton.Click += FindEntryClick;
             // 
             // RegexToolStripButton
@@ -213,7 +213,7 @@ namespace UoFiddler.Controls.UserControls
             RegexToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RegexToolStripButton.Name = "RegexToolStripButton";
             RegexToolStripButton.Size = new System.Drawing.Size(129, 22);
-            RegexToolStripButton.Text = "Use regular expression";
+            RegexToolStripButton.Text = "使用正则表达式";
             // 
             // toolStripSeparator2
             // 
@@ -226,7 +226,7 @@ namespace UoFiddler.Controls.UserControls
             toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
             toolStripButton1.Size = new System.Drawing.Size(35, 22);
-            toolStripButton1.Text = "Save";
+            toolStripButton1.Text = "保存";
             toolStripButton1.Click += OnClickSave;
             // 
             // toolStripSeparator5
@@ -240,7 +240,7 @@ namespace UoFiddler.Controls.UserControls
             ClilocExportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ClilocExportButton.Name = "ClilocExportButton";
             ClilocExportButton.Size = new System.Drawing.Size(45, 22);
-            ClilocExportButton.Text = "Export";
+            ClilocExportButton.Text = "导出";
             ClilocExportButton.Click += OnClickExportCSV;
             // 
             // toolStripDropDownButton1
@@ -250,7 +250,7 @@ namespace UoFiddler.Controls.UserControls
             toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             toolStripDropDownButton1.Size = new System.Drawing.Size(56, 22);
-            toolStripDropDownButton1.Text = "Import";
+            toolStripDropDownButton1.Text = "导入";
             // 
             // cSVToolStripMenuItem
             // 

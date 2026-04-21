@@ -1,11 +1,11 @@
 ﻿/***************************************************************************
  *
- * $Author: Turley
+ * $Author: Turley $
  *
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
 
@@ -14,14 +14,14 @@ namespace UoFiddler.Forms
     partial class LoadProfileForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，则为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -31,11 +31,11 @@ namespace UoFiddler.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
@@ -73,7 +73,7 @@ namespace UoFiddler.Forms
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(99, 27);
             button1.TabIndex = 1;
-            button1.Text = "Load Profile";
+            button1.Text = "加载配置文件";
             button1.UseVisualStyleBackColor = true;
             button1.Click += OnClickLoad;
             // 
@@ -93,7 +93,7 @@ namespace UoFiddler.Forms
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(99, 27);
             button2.TabIndex = 3;
-            button2.Text = "Create Profile";
+            button2.Text = "创建配置文件";
             button2.UseVisualStyleBackColor = true;
             button2.Click += OnClickCreate;
             // 
@@ -107,7 +107,7 @@ namespace UoFiddler.Forms
             groupBox1.Size = new System.Drawing.Size(295, 66);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Load";
+            groupBox1.Text = "加载";
             // 
             // groupBox2
             // 
@@ -123,7 +123,7 @@ namespace UoFiddler.Forms
             groupBox2.Size = new System.Drawing.Size(295, 96);
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Create";
+            groupBox2.Text = "创建";
             // 
             // bt_Delete_List
             // 
@@ -131,7 +131,7 @@ namespace UoFiddler.Forms
             bt_Delete_List.Name = "bt_Delete_List";
             bt_Delete_List.Size = new System.Drawing.Size(53, 23);
             bt_Delete_List.TabIndex = 6;
-            bt_Delete_List.Text = "Delete";
+            bt_Delete_List.Text = "删除";
             bt_Delete_List.UseVisualStyleBackColor = true;
             bt_Delete_List.Click += bt_Delete_List_Click;
             // 
@@ -143,7 +143,7 @@ namespace UoFiddler.Forms
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(57, 15);
             label1.TabIndex = 5;
-            label1.Text = "Based On";
+            label1.Text = "基于";
             // 
             // comboBoxBasedOn
             // 
@@ -161,7 +161,7 @@ namespace UoFiddler.Forms
             LBStrgAltP.Name = "LBStrgAltP";
             LBStrgAltP.Size = new System.Drawing.Size(78, 15);
             LBStrgAltP.TabIndex = 6;
-            LBStrgAltP.Text = "Strg + Alt + P";
+            LBStrgAltP.Text = "Ctrl + Alt + P";
             // 
             // LoadProfileForm
             // 
@@ -179,7 +179,7 @@ namespace UoFiddler.Forms
             MinimizeBox = false;
             Name = "LoadProfileForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Choose Profile";
+            Text = "选择配置文件";
             FormClosed += LoadProfile_FormClosed;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

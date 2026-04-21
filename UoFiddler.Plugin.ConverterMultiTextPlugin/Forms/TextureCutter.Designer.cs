@@ -202,7 +202,7 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
             ButtonLoadImage.Name = "ButtonLoadImage";
             ButtonLoadImage.Size = new System.Drawing.Size(48, 23);
             ButtonLoadImage.TabIndex = 1;
-            ButtonLoadImage.Text = "Load";
+            ButtonLoadImage.Text = "加载";
             ButtonLoadImage.UseVisualStyleBackColor = true;
             ButtonLoadImage.Click += ButtonLoadImage_Click;
             // 
