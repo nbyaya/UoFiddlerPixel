@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable enable annotations
+
 namespace UoFiddler.Controls.Uop
 {
     public class IndexDataFileInfo

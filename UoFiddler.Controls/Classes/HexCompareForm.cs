@@ -134,7 +134,7 @@ namespace UoFiddler.Controls.Forms
         // ══════════════════════════════════════════════════════════════════════
         //  Layout builder
         // ══════════════════════════════════════════════════════════════════════
-        private void InitLayout()
+        private new void InitLayout()
         {
             Text = "Animation Hex Compare";
             Size = new Size(1300, 720);

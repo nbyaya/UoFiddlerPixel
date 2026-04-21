@@ -2,12 +2,14 @@
  *
  * $Author: Turley
  *
- * "THE BEER-WARE LICENSE"
- * As long as you retain this notice you can do whatever you want with
- * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * "啤酒许可证"
+ * 只要你保留此声明，你就可以对这个东西做任何你想做的事情。
+ * 如果我们某天相遇，并且你认为这个东西有价值，
+ * 你可以请我喝杯啤酒作为回报。
  *
  ***************************************************************************/
+
+#nullable enable annotations
 
 using System;
 using System.Collections.Generic;
@@ -36,8 +38,8 @@ namespace UoFiddler.Controls.Forms
         private int _currentAction;
         private int _currentBody;
         private int _currentDir;
-        private Point _framePoint; //  point for the first animation (original one)
-        private Point _additionalFramePoint; // separate point for the second animation to allow independent positioning
+        private Point _framePoint; // 第一个动画（原始）的点
+        private Point _additionalFramePoint; // 第二个动画的独立点，允许独立定位
         private bool _showOnlyValid;
         private static bool _drawEmpty;
         private static bool _drawFull;
@@ -60,7 +62,7 @@ namespace UoFiddler.Controls.Forms
         private int _previousBody = -1;
         private int _previousAction = -1;
 
-        // Gemini Added Fields
+        // Gemini 添加的字段
         private float _zoomFactor = 1.0f;
         private bool _relativeMode = false;
         private int _accumulatedRelativeX = 0;
@@ -69,7 +71,7 @@ namespace UoFiddler.Controls.Forms
         private int _lastRelativeY = 0;
         private bool _updatingUi = false;
 
-        // Second Animation
+        // 第二个动画
         private bool _secondAnimActivated = false;
         private int _secondAnimID = 0;
         private int _secondAnimFileIndex = 0; // 0=anim, 1=anim2...
@@ -77,138 +79,138 @@ namespace UoFiddler.Controls.Forms
         private bool _isSecondAnimInFront = false;
         private UopAnimationDataManager _secondUopManager;
 
-        // Sequence Tab – Runtime State        
-        private System.ComponentModel.BindingList<SequenceViewModelItem> _sequenceViewModelList; // ViewModel for the DataGridView
-        private int _seqPreviewDirection; // Direction for the preview in the Sequence tab
-        private int _seqPreviewFrameIndex; // Frame index for the preview in the Sequence tab
-        private int _seqCurrentAction = -1; // Current action for the sequence being edited
-        private Models.Uop.AnimationSequenceEntry _currentSeqEntry; // Current sequence entry being edited
+        // 序列选项卡 – 运行时状态        
+        private System.ComponentModel.BindingList<SequenceViewModelItem> _sequenceViewModelList; // DataGridView 的 ViewModel
+        private int _seqPreviewDirection; // 序列选项卡中预览的方向
+        private int _seqPreviewFrameIndex; // 序列选项卡中预览的帧索引
+        private int _seqCurrentAction = -1; // 当前正在编辑的序列的动作
+        private Models.Uop.AnimationSequenceEntry _currentSeqEntry; // 当前正在编辑的序列条目
 
-        private bool isAnimationVisible = false; // Second animation
-        private AnimIdx additionalAnimation = null; // Second animation
+        private bool isAnimationVisible = false; // 第二个动画
+        private AnimIdx additionalAnimation = null; // 第二个动画
 
-        private static bool _drawCrosshair = true; // Default = visible
+        private static bool _drawCrosshair = true; // 默认 = 可见
 
-        private HexCompareForm _hexCompare; // Form for hex comparison of frames between two animations
+        private HexCompareForm _hexCompare; // 用于在两个动画之间比较帧的十六进制比较窗体
 
-        // Background preview
+        // 背景预览
         private Bitmap _backgroundImage = null;
         private string _backgroundMode = "None";
 
 
-        #region [ Offsets Human ]
+        #region [ 偏移量 人类 ]
         private static readonly int[][][] Offsets = new int[][][]
         {
-            new int[][] // Direction 0
+            new int[][] // 方向 0
             {
-                new int[] { -12, -53 }, // Frame 0
-                new int[] { -13, -55 }, // Frame 1
-                new int[] { -12, -55 }, // Frame 2
-                new int[] { -12, -53 }, // Frame 3
-                new int[] { -12, -53 }, // Frame 4
-                new int[] { -12, -53 }, // Frame 5
-                new int[] { -12, -55 }, // Frame 6
-                new int[] { -11, -54 }, // Frame 7
-                new int[] { -12, -53 }, // Frame 8
-                new int[] { -12, -53 }  // Frame 9
+                new int[] { -12, -53 }, // 帧 0
+                new int[] { -13, -55 }, // 帧 1
+                new int[] { -12, -55 }, // 帧 2
+                new int[] { -12, -53 }, // 帧 3
+                new int[] { -12, -53 }, // 帧 4
+                new int[] { -12, -53 }, // 帧 5
+                new int[] { -12, -55 }, // 帧 6
+                new int[] { -11, -54 }, // 帧 7
+                new int[] { -12, -53 }, // 帧 8
+                new int[] { -12, -53 }  // 帧 9
             },
-            new int[][] // Direction 1
+            new int[][] // 方向 1
             {
-                new int[] { -16, -54 }, // Frame 0
-                new int[] { -14, -55 }, // Frame 1
-                new int[] { -13, -55 }, // Frame 2
-                new int[] { -13, -55 }, // Frame 3
-                new int[] { -16, -53 }, // Frame 4
-                new int[] { -19, -53 }, // Frame 5
-                new int[] { -12, -55 }, // Frame 6
-                new int[] { -9, -56 },  // Frame 7
-                new int[] { -10, -55 }, // Frame 8
-                new int[] { -14, -54 }  // Frame 9
+                new int[] { -16, -54 }, // 帧 0
+                new int[] { -14, -55 }, // 帧 1
+                new int[] { -13, -55 }, // 帧 2
+                new int[] { -13, -55 }, // 帧 3
+                new int[] { -16, -53 }, // 帧 4
+                new int[] { -19, -53 }, // 帧 5
+                new int[] { -12, -55 }, // 帧 6
+                new int[] { -9, -56 },  // 帧 7
+                new int[] { -10, -55 }, // 帧 8
+                new int[] { -14, -54 }  // 帧 9
             },
-            new int[][] // Direction 2
+            new int[][] // 方向 2
             {
-                new int[] { -22, -54 }, // Frame 0
-                new int[] { -14, -56 }, // Frame 1
-                new int[] { -11, -57 }, // Frame 2
-                new int[] { -13, -55 }, // Frame 3
-                new int[] { -18, -55 }, // Frame 4
-                new int[] { -22, -54 }, // Frame 5
-                new int[] { -13, -56 }, // Frame 6
-                new int[] { -14, -56 }, // Frame 7
-                new int[] { -15, -56 }, // Frame 8
-                new int[] { -16, -55 }  // Frame 9
+                new int[] { -22, -54 }, // 帧 0
+                new int[] { -14, -56 }, // 帧 1
+                new int[] { -11, -57 }, // 帧 2
+                new int[] { -13, -55 }, // 帧 3
+                new int[] { -18, -55 }, // 帧 4
+                new int[] { -22, -54 }, // 帧 5
+                new int[] { -13, -56 }, // 帧 6
+                new int[] { -14, -56 }, // 帧 7
+                new int[] { -15, -56 }, // 帧 8
+                new int[] { -16, -55 }  // 帧 9
             },
-            new int[][] // Direction 3
+            new int[][] // 方向 3
             {
-                new int[] { -17, -56 }, // Frame 0
-                new int[] { -12, -56 }, // Frame 1
-                new int[] { -13, -57 }, // Frame 2
-                new int[] { -15, -57 }, // Frame 3
-                new int[] { -15, -56 }, // Frame 4
-                new int[] { -16, -56 }, // Frame 5
-                new int[] { -16, -57 }, // Frame 6
-                new int[] { -14, -57 }, // Frame 7
-                new int[] { -14, -57 }, // Frame 8
-                new int[] { -15, -56 }  // Frame 9
+                new int[] { -17, -56 }, // 帧 0
+                new int[] { -12, -56 }, // 帧 1
+                new int[] { -13, -57 }, // 帧 2
+                new int[] { -15, -57 }, // 帧 3
+                new int[] { -15, -56 }, // 帧 4
+                new int[] { -16, -56 }, // 帧 5
+                new int[] { -16, -57 }, // 帧 6
+                new int[] { -14, -57 }, // 帧 7
+                new int[] { -14, -57 }, // 帧 8
+                new int[] { -15, -56 }  // 帧 9
             },
-            new int[][] // Direction 4
+            new int[][] // 方向 4
             {
-                new int[] { -10, -56 }, // Frame 0
-                new int[] { -11, -57 }, // Frame 1
-                new int[] { -11, -58 }, // Frame 2
-                new int[] { -11, -58 }, // Frame 3
-                new int[] { -12, -57 }, // Frame 4
-                new int[] { -12, -57 }, // Frame 5
-                new int[] { -12, -58 }, // Frame 6
-                new int[] { -12, -58 }, // Frame 7
-                new int[] { -11, -57 }, // Frame 8
-                new int[] { -10, -57 }  // Frame 9
+                new int[] { -10, -56 }, // 帧 0
+                new int[] { -11, -57 }, // 帧 1
+                new int[] { -11, -58 }, // 帧 2
+                new int[] { -11, -58 }, // 帧 3
+                new int[] { -12, -57 }, // 帧 4
+                new int[] { -12, -57 }, // 帧 5
+                new int[] { -12, -58 }, // 帧 6
+                new int[] { -12, -58 }, // 帧 7
+                new int[] { -11, -57 }, // 帧 8
+                new int[] { -10, -57 }  // 帧 9
             }
         };
         #endregion
 
-        #region [ HorseRunOffsets ]
+        #region [ 马奔跑偏移量 ]
         private static readonly int[][][] HorseRunOffsets = new int[][][]
         {
-            new int[][] // Direction 0
+            new int[][] // 方向 0
             {
-                new int[] { -14, -73 }, // Frame 0
-                new int[] { -16, -74 }, // Frame 1
-                new int[] { -17, -69 }, // Frame 2
-                new int[] { -16, -73 }, // Frame 3
-                new int[] { -16, -74 }, // Frame 4                
+                new int[] { -14, -73 }, // 帧 0
+                new int[] { -16, -74 }, // 帧 1
+                new int[] { -17, -69 }, // 帧 2
+                new int[] { -16, -73 }, // 帧 3
+                new int[] { -16, -74 }, // 帧 4                
             },
-            new int[][] // Direction 1
+            new int[][] // 方向 1
             {
-                new int[] { -18, -74 }, // Frame 0
-                new int[] { -20, -74 }, // Frame 1
-                new int[] { -21, -69 }, // Frame 2
-                new int[] { -20, -73 }, // Frame 3
-                new int[] { -18, -75 }, // Frame 4                
+                new int[] { -18, -74 }, // 帧 0
+                new int[] { -20, -74 }, // 帧 1
+                new int[] { -21, -69 }, // 帧 2
+                new int[] { -20, -73 }, // 帧 3
+                new int[] { -18, -75 }, // 帧 4                
             },
-            new int[][] // Direction 2
+            new int[][] // 方向 2
             {
-                new int[] { -14, -75 }, // Frame 0
-                new int[] { -15, -76 }, // Frame 1
-                new int[] { -15, -71 }, // Frame 2
-                new int[] { -15, -75 }, // Frame 3
-                new int[] { -14, -76 }, // Frame 4                
+                new int[] { -14, -75 }, // 帧 0
+                new int[] { -15, -76 }, // 帧 1
+                new int[] { -15, -71 }, // 帧 2
+                new int[] { -15, -75 }, // 帧 3
+                new int[] { -14, -76 }, // 帧 4                
             },
-            new int[][] // Direction 3
+            new int[][] // 方向 3
             {
-                new int[] { -18, -76 }, // Frame 0
-                new int[] { -19, -77 }, // Frame 1
-                new int[] { -20, -72 }, // Frame 2
-                new int[] { -19, -76 }, // Frame 3
-                new int[] { -19, -76 }, // Frame 4                
+                new int[] { -18, -76 }, // 帧 0
+                new int[] { -19, -77 }, // 帧 1
+                new int[] { -20, -72 }, // 帧 2
+                new int[] { -19, -76 }, // 帧 3
+                new int[] { -19, -76 }, // 帧 4                
             },
-            new int[][] // Direction 4
+            new int[][] // 方向 4
             {
-                new int[] { -13, -76 }, // Frame 0
-                new int[] { -14, -77 }, // Frame 1
-                new int[] { -15, -73 }, // Frame 2
-                new int[] { -14, -76 }, // Frame 3
-                new int[] { -14, -77 }, // Frame 4                
+                new int[] { -13, -76 }, // 帧 0
+                new int[] { -14, -77 }, // 帧 1
+                new int[] { -15, -73 }, // 帧 2
+                new int[] { -14, -76 }, // 帧 3
+                new int[] { -14, -77 }, // 帧 4                
             }
         };
         #endregion
@@ -234,89 +236,89 @@ namespace UoFiddler.Controls.Forms
         {
             new string[]
             {
-                "Walk",
-                "Run",
-                "Idle",
-                "Eat",
-                "Alert",
-                "Attack1",
-                "Attack2",
-                "GetHit",
-                "Die1",
-                "Idle",
-                "Fidget",
-                "LieDown",
-                "Die2"
-            }, //animal
+                "行走",
+                "奔跑",
+                "空闲",
+                "进食",
+                "警觉",
+                "攻击1",
+                "攻击2",
+                "受击",
+                "死亡1",
+                "空闲",
+                "烦躁",
+                "躺下",
+                "死亡2"
+            }, //动物
             new string[]
             {
-                "Walk",
-                "Idle",
-                "Die1",
-                "Die2",
-                "Attack1",
-                "Attack2",
-                "Attack3",
-                "AttackBow",
-                "AttackCrossBow",
-                "AttackThrow",
-                "GetHit",
-                "Pillage",
-                "Stomp",
-                "Cast2",
-                "Cast3",
-                "BlockRight",
-                "BlockLeft",
-                "Idle",
-                "Fidget",
-                "Fly",
-                "TakeOff",
-                "GetHitInAir"
-            }, //Monster
+                "行走",
+                "空闲",
+                "死亡1",
+                "死亡2",
+                "攻击1",
+                "攻击2",
+                "攻击3",
+                "弓攻击",
+                "弩攻击",
+                "投掷攻击",
+                "受击",
+                "掠夺",
+                "踩踏",
+                "施法2",
+                "施法3",
+                "右格挡",
+                "左格挡",
+                "空闲",
+                "烦躁",
+                "飞行",
+                "起飞",
+                "空中受击"
+            }, //怪物
             new string[]
             {
-                "Walk_01",
-                "WalkStaff_01",
-                "Run_01",
-                "RunStaff_01",
-                "Idle_01",
-                "Idle_01",
-                "Fidget_Yawn_Stretch_01",
-                "CombatIdle1H_01",
-                "CombatIdle1H_01",
-                "AttackSlash1H_01",
-                "AttackPierce1H_01",
-                "AttackBash1H_01",
-                "AttackBash2H_01",
-                "AttackSlash2H_01",
-                "AttackPierce2H_01",
-                "CombatAdvance_1H_01",
-                "Spell1",
-                "Spell2",
-                "AttackBow_01",
-                "AttackCrossbow_01",
-                "GetHit_Fr_Hi_01",
-                "Die_Hard_Fwd_01",
-                "Die_Hard_Back_01",
-                "Horse_Walk_01",
-                "Horse_Run_01",
-                "Horse_Idle_01",
-                "Horse_Attack1H_SlashRight_01",
-                "Horse_AttackBow_01",
-                "Horse_AttackCrossbow_01",
-                "Horse_Attack2H_SlashRight_01",
-                "Block_Shield_Hard_01",
-                "Punch_Punch_Jab_01",
-                "Bow_Lesser_01",
-                "Salute_Armed1h_01",
-                "Ingest_Eat_01"
-            }, //human
+                "行走_01",
+                "持杖行走_01",
+                "奔跑_01",
+                "持杖奔跑_01",
+                "空闲_01",
+                "空闲_01",
+                "打哈欠/伸懒腰_01",
+                "单手战斗空闲_01",
+                "单手战斗空闲_01",
+                "单手挥砍攻击_01",
+                "单手穿刺攻击_01",
+                "单手钝击攻击_01",
+                "双手钝击攻击_01",
+                "双手挥砍攻击_01",
+                "双手穿刺攻击_01",
+                "单手战斗前进_01",
+                "法术1",
+                "法术2",
+                "弓攻击_01",
+                "弩攻击_01",
+                "受击_前/高_01",
+                "死亡_硬直前倒_01",
+                "死亡_硬直后倒_01",
+                "骑马行走_01",
+                "骑马奔跑_01",
+                "骑马空闲_01",
+                "骑马单手右挥砍攻击_01",
+                "骑马弓攻击_01",
+                "骑马弩攻击_01",
+                "骑马双手右挥砍攻击_01",
+                "盾牌格挡_硬_01",
+                "拳击_刺拳_01",
+                "鞠躬_小_01",
+                "单手武器敬礼_01",
+                "进食_吞咽_01"
+            }, //人类
             new string[]
             {
-                "Walk", "Run", "Idle", "Eat", "Alert", "Attack1", "Attack2", "GetHit", "Die1", "Idle",
-                "Fidget", "LieDown", "Die2", "Attack3", "AttackBow", "AttackCrossBow", "AttackThrow",
-                "Pillage", "Stomp", "Cast2", "Cast3", "BlockRight", "BlockLeft", "Fly", "TakeOff", "GetHitInAir"
-            } // UOP Creature (Extended)
+                "行走", "奔跑", "空闲", "进食", "警觉", "攻击1", "攻击2", "受击", "死亡1", "空闲",
+                "烦躁", "躺下", "死亡2", "攻击3", "弓攻击", "弩攻击", "投掷攻击",
+                "掠夺", "踩踏", "施法2", "施法3", "右格挡", "左格挡", "飞行", "起飞", "空中受击"
+            } // UOP 生物（扩展）
         };
 
         private void LoadMulAnimations()
@@ -373,7 +375,7 @@ namespace UoFiddler.Controls.Forms
                         {
                             continue;
                         }
-                        // ✅ checkBoxIDBlue berücksichtigen
+                        // ✅ 考虑 checkBoxIDBlue
                         node.ForeColor = checkBoxIDBlue.Checked ? Color.Blue : Color.Red;
                     }
 
@@ -382,9 +384,9 @@ namespace UoFiddler.Controls.Forms
 
                 AnimationListTreeView.Nodes.AddRange(nodes.Where(n => n != null).ToArray());
 
-                // ✅ Status-Label aktualisieren
+                // ✅ 更新状态标签
                 toolStripStatusDisplayLabelAnimation.Text =
-                    $"Number of animations: {animationCount}";
+                    $"动画数量: {animationCount}";
             }
             finally
             {
@@ -409,9 +411,9 @@ namespace UoFiddler.Controls.Forms
             Options.LoadedUltimaClass["AnimationEdit"] = true;
             ControlEvents.FilePathChangeEvent += OnFilePathChangeEvent;
 
-            // ── File selection for main animation 
+            // ── 主动画文件选择
             SelectFileToolStripComboBox.Items.Clear();
-            SelectFileToolStripComboBox.Items.Add("Choose anim file");
+            SelectFileToolStripComboBox.Items.Add("选择动画文件");
 
             string root = Files.RootDir;
             if (!string.IsNullOrEmpty(root) && Directory.Exists(root))
@@ -436,12 +438,12 @@ namespace UoFiddler.Controls.Forms
             }
             SelectFileToolStripComboBox.SelectedIndex = 0;
 
-            // ── Zoom 
+            // ── 缩放
             ZoomNumericUpDown.Items.Clear();
             ZoomNumericUpDown.Items.AddRange(new object[] { "25%", "50%", "100%", "200%", "300%", "400%", "500%" });
             ZoomNumericUpDown.SelectedIndex = ZoomNumericUpDown.Items.IndexOf("100%");
 
-            // ── Second animation file 
+            // ── 第二个动画文件
             SecondAnimFileComboBox.Items.Clear();
             if (!string.IsNullOrEmpty(root) && Directory.Exists(root))
             {
@@ -468,11 +470,11 @@ namespace UoFiddler.Controls.Forms
                 SecondAnimFileComboBox.SelectedIndex = 0;
             }
 
-            // ── UOP Mapping Checkbox
+            // ── UOP 映射复选框
             /*var toolStrip = SelectFileToolStripComboBox.GetCurrentParent();
             if (toolStrip != null)
             {
-                var mappingCheckBox = new ToolStripButton("Map UOP")
+                var mappingCheckBox = new ToolStripButton("映射 UOP")
                 {
                     CheckOnClick = true,
                     Checked = _useUopMapping
@@ -491,7 +493,7 @@ namespace UoFiddler.Controls.Forms
 
             SetupExportVdMenu();
 
-            // ── TreeView logic
+            // ── TreeView 逻辑
             AnimationListTreeView.BeginUpdate();
             try
             {
@@ -553,7 +555,7 @@ namespace UoFiddler.Controls.Forms
                                 continue;
                             }
 
-                            // Color logic for invalid animations
+                            // 无效动画的颜色逻辑
                             node.ForeColor = checkBoxIDBlue.Checked ? Color.Blue : Color.Red;
                         }
 
@@ -562,7 +564,7 @@ namespace UoFiddler.Controls.Forms
 
                     AnimationListTreeView.Nodes.AddRange(nodes.Where(n => n != null).ToArray());
 
-                    toolStripStatusDisplayLabelAnimation.Text = $"Number of animations: {animationCount}"; // Update the label with the number of animations
+                    toolStripStatusDisplayLabelAnimation.Text = $"动画数量: {animationCount}"; // 用动画数量更新标签
                 }
             }
             finally
@@ -579,35 +581,35 @@ namespace UoFiddler.Controls.Forms
 
         private void SetupExportVdMenu()
         {
-            // The search revealed the name is tovdToolStripMenuItem
-            // This field is defined in the Designer.cs file, but is accessible here.
+            // 搜索显示该名称是 tovdToolStripMenuItem
+            // 此字段在 Designer.cs 文件中定义，但在此处可访问。
             if (this.tovdToolStripMenuItem != null)
             {
                 tovdToolStripMenuItem.Click -= OnClickExportToVD;
                 tovdToolStripMenuItem.DropDownItems.Clear();
-                tovdToolStripMenuItem.Text = "To vd..";
+                tovdToolStripMenuItem.Text = "导出为 vd..";
 
-                var animalMul = new ToolStripMenuItem("Animal (mul)");
+                var animalMul = new ToolStripMenuItem("动物 (mul)");
                 animalMul.Tag = "animal_mul";
                 animalMul.Click += OnClickExportVdRemap;
 
-                var monsterMul = new ToolStripMenuItem("MONSTER (mul)");
+                var monsterMul = new ToolStripMenuItem("怪物 (mul)");
                 monsterMul.Tag = "monster_mul";
                 monsterMul.Click += OnClickExportVdRemap;
 
-                var seaMonsterMul = new ToolStripMenuItem("SEA-MONSTER (mul)");
+                var seaMonsterMul = new ToolStripMenuItem("海洋怪物 (mul)");
                 seaMonsterMul.Tag = "sea_monster_mul";
                 seaMonsterMul.Click += OnClickExportVdRemap;
 
-                var equipmentMul = new ToolStripMenuItem("EQUIPMENT (mul)");
+                var equipmentMul = new ToolStripMenuItem("装备 (mul)");
                 equipmentMul.Tag = "equipment_mul";
                 equipmentMul.Click += OnClickExportVdRemap;
 
-                var creaturesUop = new ToolStripMenuItem("CREATURES (UOP)");
+                var creaturesUop = new ToolStripMenuItem("生物 (UOP)");
                 creaturesUop.Tag = "creatures_uop";
                 creaturesUop.Click += OnClickExportVdRemap;
 
-                var equipmentUop = new ToolStripMenuItem("EQUIPEMENT (UOP)");
+                var equipmentUop = new ToolStripMenuItem("装备 (UOP)");
                 equipmentUop.Tag = "equipement_uop";
                 equipmentUop.Click += OnClickExportVdRemap;
 
@@ -621,8 +623,8 @@ namespace UoFiddler.Controls.Forms
                     equipmentUop
                 });
 
-                // Add "To .bin" option
-                var toBinToolStripMenuItem = new ToolStripMenuItem("To .bin");
+                // 添加“导出为 .bin”选项
+                var toBinToolStripMenuItem = new ToolStripMenuItem("导出为 .bin");
                 toBinToolStripMenuItem.Click += OnClickExportToBin;
                 exportToolStripMenuItem1.DropDownItems.Add(toBinToolStripMenuItem);
             }
@@ -644,7 +646,7 @@ namespace UoFiddler.Controls.Forms
             _showOnlyValid = false;
             ShowOnlyValidToolStripMenuItem.Checked = false;
 
-            // Clear UOP related data on file path change
+            // 文件路径更改时清除 UOP 相关数据
             _uopManager = null;
 
             OnLoad(null);
@@ -709,8 +711,8 @@ namespace UoFiddler.Controls.Forms
                 return;
             }
 
-            // TODO: why is bitmapWidth constant and height is taken from picturebox?
-            // TODO: looks like the value is the same as array size for pallete in AnimIdx
+            // TODO: 为什么 bitmapWidth 是常数而高度取自图片框？
+            // TODO: 看起来该值与 AnimIdx 中调色板的数组大小相同
             AnimIdx edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
             Bitmap bmp1 = new Bitmap(bitmapWidth, bitmapHeight, PixelFormat.Format16bppArgb1555);
             if (edit != null)
@@ -741,10 +743,10 @@ namespace UoFiddler.Controls.Forms
                 return;
             }
 
-            // ✅ GÉRER LES ANIMATIONS UOP
+            // ✅ 处理 UOP 动画
             if (_fileType == 6)
             {
-                // Déterminer le NOUVEAU body/action AVANT de sauvegarder
+                // 在保存前确定新的 body/action
                 int newBody = _currentBody;
                 int newAction = _currentAction;
 
@@ -769,31 +771,31 @@ namespace UoFiddler.Controls.Forms
                     newAction = (int)AnimationListTreeView.SelectedNode.Tag;
                 }
 
-                // ✅ SAUVEGARDER les modifications de l'ancien body/action AVANT de changer
+                // ✅ 在更改之前保存旧 body/action 的修改
                 bool hasChanged = (_previousBody != -1 && (_previousBody != newBody || _previousAction != newAction));
 
                 if (hasChanged && FramesListView.Items.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"💾 Saving previous animation: Body={_previousBody}, Action={_previousAction}, Direction={_currentDir}");
+                    System.Diagnostics.Debug.WriteLine($"💾 保存之前的动画: Body={_previousBody}, Action={_previousAction}, Direction={_currentDir}");
                     UpdateUopData(applyToAllFrames: true);
                 }
 
-                // Mettre à jour les valeurs actuelles
+                // 更新当前值
                 _currentBody = newBody;
                 _currentAction = newAction;
 
                 PopulateSequenceGrid(_currentBody);
 
-                // Enregistrer pour la prochaine fois
+                // 保存以备下次使用
                 _previousBody = _currentBody;
                 _previousAction = _currentAction;
 
                 DisplayUopAnimation();
                 NotifyHexEditor();
-                return; // ← SORTIR ICI pour les animations UOP
+                return; // ← 对 UOP 动画在此退出
             }
 
-            // ✅ GÉRER LES ANIMATIONS MUL (le reste du code existant)
+            // ✅ 处理 MUL 动画（其余现有代码）
             if (AnimationListTreeView.SelectedNode.Parent == null)
             {
                 if (AnimationListTreeView.SelectedNode.Tag != null)
@@ -885,7 +887,7 @@ namespace UoFiddler.Controls.Forms
             AnimationPictureBox.Invalidate();
             SetPaletteBox();
 
-            // Sequence Tab für MUL befüllen
+            // 为 MUL 填充序列选项卡
             PopulateSequenceGrid(_currentBody);
             NotifyHexEditor();
         }
@@ -894,7 +896,7 @@ namespace UoFiddler.Controls.Forms
         {
             if (_uopManager == null) return;
 
-            // ✅ CHANGEMENT CRUCIAL : Utiliser GetUopAnimation au lieu de charger depuis le fichier !
+            // ✅ 关键更改：使用 GetUopAnimation 而不是从文件加载！
             var uopAnim = _uopManager.GetUopAnimation(_currentBody, _currentAction, _currentDir);
             if (uopAnim == null)
             {
@@ -907,7 +909,7 @@ namespace UoFiddler.Controls.Forms
             {
                 FramesListView.Clear();
 
-                // ✅ Afficher les frames depuis le cache
+                // ✅ 从缓存显示帧
                 int width = 80;
                 int height = 110;
                 for (int i = 0; i < uopAnim.Frames.Count; i++)
@@ -966,7 +968,7 @@ namespace UoFiddler.Controls.Forms
                 actionStart = 0;
                 if (_fileType == 6)
                 {
-                    actionEnd = 100; // Common upper bound for UOP actions
+                    actionEnd = 100; // UOP 动作的常见上限
                 }
                 else
                 {
@@ -1097,12 +1099,12 @@ namespace UoFiddler.Controls.Forms
 
             if (_fileType == 6)
             {
-                // UOP animation
+                // UOP 动画
                 var uopAnim = _uopManager?.GetUopAnimation(_currentBody, _currentAction, _currentDir);
                 if (uopAnim != null && frameIndex >= 0 && frameIndex < uopAnim.Frames.Count)
                 {
                     var frame = uopAnim.Frames[frameIndex];
-                    toolStripStatusLabelFrameSize.Text = $"Frame {frameIndex}: {frame.Image.Width} x {frame.Image.Height} px";
+                    toolStripStatusLabelFrameSize.Text = $"帧 {frameIndex}: {frame.Image.Width} x {frame.Image.Height} 像素";
                 }
                 else
                 {
@@ -1111,7 +1113,7 @@ namespace UoFiddler.Controls.Forms
             }
             else if (_fileType != 0)
             {
-                // MUL animation
+                // MUL 动画
                 AnimIdx edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
                 if (edit != null)
                 {
@@ -1119,7 +1121,7 @@ namespace UoFiddler.Controls.Forms
                     if (currentBits != null && frameIndex >= 0 && frameIndex < currentBits.Length && currentBits[frameIndex] != null)
                     {
                         Bitmap bmp = currentBits[frameIndex];
-                        toolStripStatusLabelFrameSize.Text = $"Frame {frameIndex}: {bmp.Width} x {bmp.Height} px";
+                        toolStripStatusLabelFrameSize.Text = $"帧 {frameIndex}: {bmp.Width} x {bmp.Height} 像素";
                     }
                     else
                     {
@@ -1160,13 +1162,13 @@ namespace UoFiddler.Controls.Forms
                     if (_uopManager.LoadUopFiles())
                     {
                         _uopManager.ProcessUopData();
-                        _uopManager.LoadMainMisc(); // Load MainMisc but don't auto-scan everything
+                        _uopManager.LoadMainMisc(); // 加载 MainMisc 但不要自动扫描所有
                         RefreshMainMiscButtonState();
                         LoadUopAnimations();
                     }
                     else
                     {
-                        MessageBox.Show("No AnimationFrame*.uop files found or loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("未找到或无法加载 AnimationFrame*.uop 文件。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         _uopManager = null;
                     }
                 }
@@ -1175,7 +1177,7 @@ namespace UoFiddler.Controls.Forms
                     Cursor = Cursors.Default;
                 }
             }
-            else // It's a .mul file
+            else // 这是 .mul 文件
             {
                 groupBox1.Visible = true;
                 groupBox2.Visible = true;
@@ -1190,7 +1192,7 @@ namespace UoFiddler.Controls.Forms
                 {
                     if (selection.StartsWith("anim") && !int.TryParse(selection.Substring(4), out _fileType))
                     {
-                        _fileType = 0; // fallback
+                        _fileType = 0; // 后备
                     }
                 }
 
@@ -1221,7 +1223,7 @@ namespace UoFiddler.Controls.Forms
             string result = "";
             if (bodyDefUsed)
             {
-                result += $" (body {originalMappedBody})";
+                result += $" (身体 {originalMappedBody})";
             }
 
             if (fileType > 1)
@@ -1236,14 +1238,14 @@ namespace UoFiddler.Controls.Forms
         {
             if (_uopManager == null) return;
 
-            // ❌ ENLEVÉ : Ne plus effacer le cache automatiquement !
+            // ❌ 已移除：不再自动清除缓存！
             // _uopManager.ClearCache();
 
-            // ✅ Réinitialiser l'état précédent lors du rechargement
+            // ✅ 重新加载时重置之前的状态
             _previousBody = -1;
             _previousAction = -1;
 
-            // Capture current TreeView state
+            // 捕获当前 TreeView 状态
             List<string> expandedPaths = GetExpandedNodePaths(AnimationListTreeView);
             string? selectedPath = GetSelectedNodePath(AnimationListTreeView);
 
@@ -1254,7 +1256,7 @@ namespace UoFiddler.Controls.Forms
                 FramesListView.Clear();
                 AnimationPictureBox.Invalidate();
 
-                // ✅ NOUVEAU : Scanner d'abord le CACHE pour les animations importées
+                // ✅ 新增：首先扫描缓存中已导入的动画
                 HashSet<int> animationsInCache = new HashSet<int>();
                 foreach (var cacheKey in _uopManager._animCache.Keys)
                 {
@@ -1269,10 +1271,10 @@ namespace UoFiddler.Controls.Forms
                 {
                     List<int> availableActions = _uopManager.GetAvailableActions(animId);
 
-                    // 1. Check if effectively empty in UOP (no real actions with frames)
+                    // 1. 检查 UOP 中是否确实有实际动作（有帧的动作）
                     bool hasRealActions = false;
 
-                    // ✅ CHANGEMENT : Vérifier d'abord le CACHE !
+                    // ✅ 更改：首先检查缓存！
                     if (animationsInCache.Contains(animId))
                     {
                         hasRealActions = true;
@@ -1305,7 +1307,7 @@ namespace UoFiddler.Controls.Forms
                         }
                     }
 
-                    // 2. Check MUL existence (reste identique)
+                    // 2. 检查 MUL 是否存在（与之前相同）
                     int mulBody = animId;
                     if (BodyTable.Entries != null && BodyTable.Entries.TryGetValue(mulBody, out BodyTableEntry entry))
                     {
@@ -1355,7 +1357,7 @@ namespace UoFiddler.Controls.Forms
                             bool isReal = _uopManager.IsActionReal(animId, action);
                             Color nodeColor = Color.Black;
 
-                            if (!isReal) // It's a mapped action
+                            if (!isReal) // 这是一个映射动作
                             {
                                 nodeColor = _useUopMapping ? Color.Blue : Color.Red;
                             }
@@ -1389,7 +1391,7 @@ namespace UoFiddler.Controls.Forms
                 AnimationListTreeView.EndUpdate();
             }
 
-            // Restore TreeView state
+            // 恢复 TreeView 状态
             ExpandNodesByPath(AnimationListTreeView, expandedPaths);
             SelectNodeByPath(AnimationListTreeView, selectedPath);
 
@@ -1399,16 +1401,16 @@ namespace UoFiddler.Controls.Forms
             }
         }
 
-        #region [ OnDirectionChanged ] // Direction change event handler, crucial for UOP animations to save changes before switching and to update the display correctly
+        #region [ OnDirectionChanged ] // 方向更改事件处理程序，对于 UOP 动画在切换前保存更改并正确更新显示至关重要
         private void OnDirectionChanged(object sender, EventArgs e)
         {
-            // UOP: save Changes
+            // UOP: 保存更改
             if (_fileType == 6 && FramesListView.Items.Count > 0)
             {
                 UpdateUopData(applyToAllFrames: true);
             }
 
-            // Set _currentDir FIRST
+            // 首先设置 _currentDir
             _currentDir = DirectionTrackBar.Value;
 
             if (checkBoxMount.Checked)
@@ -1416,7 +1418,7 @@ namespace UoFiddler.Controls.Forms
                 _currentAction = 24;
             }
 
-            // Second animation BEFORE AfterSelectTreeView — just like in the old version
+            // 在 AfterSelectTreeView 之前处理第二个动画——就像旧版本一样
             if (isAnimationVisible)
             {
                 string selectedGender = comboBoxMenWoman.SelectedItem?.ToString() ?? "men";
@@ -1429,13 +1431,13 @@ namespace UoFiddler.Controls.Forms
                 AnimationPictureBox.Invalidate();
             }
 
-            // AfterSelectTreeView LAST — loads main animation, but does not overwrite isAnimationVisible
+            // 最后调用 AfterSelectTreeView — 加载主动画，但不覆盖 isAnimationVisible
             AfterSelectTreeView(null, null);
             NotifyHexEditor();
         }
         #endregion
 
-        #region [  AnimationPictureBox_OnSizeChanged ] // Recalculate frame point on size change to keep it centered
+        #region [  AnimationPictureBox_OnSizeChanged ] // 大小更改时重新计算帧点以使其居中
         private void AnimationPictureBox_OnSizeChanged(object sender, EventArgs e)
         {
             _framePoint = new Point(AnimationPictureBox.Width / 2, AnimationPictureBox.Height / 2);
@@ -1460,7 +1462,7 @@ namespace UoFiddler.Controls.Forms
                         }
                         else
                         {
-                            // Log or handle error
+                            // 记录或处理错误
                             return;
                         }
                     }
@@ -1472,12 +1474,12 @@ namespace UoFiddler.Controls.Forms
                         }
                         else
                         {
-                            // Log or handle error
+                            // 记录或处理错误
                             return;
                         }
                     }
 
-                    if (offsets.Length >= 2) // Ensure there are at least two elements
+                    if (offsets.Length >= 2) // 确保至少有两个元素
                     {
                         int xOffset = offsets[0];
                         int yOffset = offsets[1];
@@ -1489,7 +1491,7 @@ namespace UoFiddler.Controls.Forms
                     }
                     else
                     {
-                        // Log or handle error for invalid offsets
+                        // 记录或处理无效偏移量
                     }
                 }
             }
@@ -1504,7 +1506,7 @@ namespace UoFiddler.Controls.Forms
 
             e.Graphics.Clear(Color.LightGray);
 
-            // Hintergrundbild kacheln (tiling)
+            // 平铺背景图像
             if (_backgroundImage != null)
             {
                 using (var tb = new System.Drawing.TextureBrush(_backgroundImage,
@@ -1520,19 +1522,19 @@ namespace UoFiddler.Controls.Forms
                 e.Graphics.DrawLine(Pens.Black, new Point(0, _framePoint.Y), new Point(AnimationPictureBox.Width, _framePoint.Y));
             }
 
-            // Men Woman Animation alignment
+            // 男/女动画对齐
             if (isAnimationVisible && additionalAnimation != null)
             {
-                AdjustAdditionalAnimationPosition(); // Ensure this method is called
+                AdjustAdditionalAnimationPosition(); // 确保调用此方法
 
                 Bitmap[] additionalBits = additionalAnimation.GetFrames();
                 if (additionalBits?.Length > 0 && FramesTrackBar.Value >= 0 && FramesTrackBar.Value < additionalBits.Length && additionalBits[FramesTrackBar.Value] != null)
                 {
-                    // Draw the additional animation at the specified position
+                    // 在指定位置绘制附加动画
                     e.Graphics.DrawImage(additionalBits[FramesTrackBar.Value], _additionalFramePoint.X, _additionalFramePoint.Y);
                 }
             }
-            // Men Woman Animation alignment
+            // 男/女动画对齐
 
             if (_secondAnimActivated && !_isSecondAnimInFront) DrawSecondAnimation(e.Graphics);
 
@@ -1587,19 +1589,19 @@ namespace UoFiddler.Controls.Forms
                     e.Graphics.DrawRectangle(Pens.Red, new Rectangle(x, y, w, h));
                 }
 
-                // Bounding box : calculer sur TOUTES les frames de l'action (toutes directions)
+                // 边界框：在所有方向的所有帧上计算
                 if (_drawBoundingBox)
                 {
                     float z = _zoomFactor;
 
-                    // valeurs initiales hors plage
+                    // 初始值超出范围
                     int minLeft = int.MaxValue;
                     int maxRight = int.MinValue;
                     int minTop = int.MaxValue;
                     int maxBottom = int.MinValue;
                     bool foundAny = false;
 
-                    // Parcourir les 5 directions et toutes les frames disponibles
+                    // 遍历 5 个方向及其所有可用帧
                     for (int dir = 0; dir < 5; dir++)
                     {
                         var animDir = _uopManager.GetUopAnimation(_currentBody, _currentAction, dir);
@@ -1614,7 +1616,7 @@ namespace UoFiddler.Controls.Forms
                             int iw = f.Image.Width;
                             int ih = f.Image.Height;
 
-                            // coordonnées relatives au pivot : left/top sont négatifs si l'image dépasse à gauche/haut
+                            // 相对于枢轴的坐标：如果图像向左/向上超出，左/上为负
                             int left = -cX;
                             int right = iw - cX;
                             int top = -cY - ih;
@@ -1643,7 +1645,7 @@ namespace UoFiddler.Controls.Forms
                     }
                     else if (uopAnim.Header != null)
                     {
-                        // fallback si aucune frame trouvée : utiliser header existant
+                        // 如果找不到帧，则使用现有标头作为后备
                         int bbWidth = (int)((uopAnim.Header.BoundRight - uopAnim.Header.BoundLeft) * z);
                         int bbHeight = (int)((uopAnim.Header.BoundBottom - uopAnim.Header.BoundTop) * z);
                         int bbX = x + (w / 2) - (bbWidth / 2);
@@ -1656,8 +1658,8 @@ namespace UoFiddler.Controls.Forms
                     }
                 }
 
-                // --- remplace le calcul précédent du cropping box X/Y par ce bloc ---
-                // --- Cropping box : calcul corrigé pour rester cohérent avec le dessin de l'image ---
+                // --- 用此块替换之前裁剪框 X/Y 的计算 ---
+                // --- 裁剪框：修正计算以保持与图像绘制一致 ---
                 if (_drawCroppingBox && frame.IndexInfo != null)
                 {
                     int origLeft = (int)frame.IndexInfo.Left;
@@ -1668,7 +1670,7 @@ namespace UoFiddler.Controls.Forms
                     int cw = (int)((origRight - origLeft) * _zoomFactor);
                     int ch = (int)((origBottom - origTop) * _zoomFactor);
 
-                    // Use direct Pivot-relative coordinates as stored in IndexInfo
+                    // 使用 IndexInfo 中存储的直接相对枢轴坐标
                     int cx = _framePoint.X + (int)(origLeft * _zoomFactor);
                     int cy = _framePoint.Y + (int)(origTop * _zoomFactor);
 
@@ -1722,7 +1724,7 @@ namespace UoFiddler.Controls.Forms
 
             if (_secondAnimActivated && _isSecondAnimInFront) DrawSecondAnimation(e.Graphics);
 
-            // Draw Reference Point Arrow
+            // 绘制参考点箭头
             int refX = (int)(RefXNumericUpDown.Value * (decimal)_zoomFactor);
             int refY = (int)(RefYNumericUpDown.Value * (decimal)_zoomFactor);
             Point[] arrayPoints = {
@@ -1738,7 +1740,7 @@ namespace UoFiddler.Controls.Forms
             e.Graphics.FillPolygon(_whiteUnDraw, arrayPoints);
             e.Graphics.DrawPolygon(_blackUndraw, arrayPoints);
 
-            // Draw additional animation on top if checkbox is checked
+            // 如果复选框被选中，则在顶部绘制附加动画
             if (checkBoxMount.Checked && isAnimationVisible && additionalAnimation != null)
             {
                 AdjustAdditionalAnimationPosition();
@@ -1750,9 +1752,9 @@ namespace UoFiddler.Controls.Forms
                 }
             }
         }
-        //End of Soulblighter Modification
+        //Soulblighter 修改结束
 
-        //Soulblighter Modification
+        //Soulblighter 修改
         private void OnFrameCountBarChanged(object sender, EventArgs e)
         {
             if (_fileType == 0)
@@ -1819,7 +1821,7 @@ namespace UoFiddler.Controls.Forms
             AnimationPictureBox.Invalidate();
             NotifyHexEditor();
         }
-        //End of Soulblighter Modification
+        //Soulblighter 修改结束
 
 
         private void OnCenterYValueChanged(object sender, EventArgs e)
@@ -1852,7 +1854,7 @@ namespace UoFiddler.Controls.Forms
             }
             catch (Exception)
             {
-                // ignored
+                // 忽略
             }
         }
 
@@ -1898,7 +1900,7 @@ namespace UoFiddler.Controls.Forms
             }
             else
             {
-                // Correctly cast from UInt16 (ushort) to int
+                // 正确地从 UInt16 (ushort) 转换为 int
                 if (AnimationListTreeView.SelectedNode.Parent.Tag is ushort ushortBody)
                 {
                     body = (int)ushortBody;
@@ -1948,13 +1950,13 @@ namespace UoFiddler.Controls.Forms
                             }
                             catch (Exception ex)
                             {
-                                System.Diagnostics.Debug.WriteLine($"Failed to save image {filename}: {ex.Message}");
+                                System.Diagnostics.Debug.WriteLine($"保存图像 {filename} 失败：{ex.Message}");
                             }
                         }
                     }
                 }
 
-                MessageBox.Show($"Images saved to {path}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"图像已保存到 {path}", "已保存", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -2018,7 +2020,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            MessageBox.Show($"Frames saved to {path}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information,
+            MessageBox.Show($"帧已保存到 {path}", "已保存", MessageBoxButtons.OK, MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
         }
 
@@ -2035,8 +2037,8 @@ namespace UoFiddler.Controls.Forms
 
                 if (AnimationListTreeView.SelectedNode.Parent == null)
                 {
-                    // Remove Body (Animation)
-                    DialogResult result = MessageBox.Show($"Are you sure to remove UOP animation {_currentBody}?", "Remove",
+                    // 移除身体（动画）
+                    DialogResult result = MessageBox.Show($"确定要移除 UOP 动画 {_currentBody} 吗？", "移除",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                     if (result != DialogResult.Yes) return;
 
@@ -2046,7 +2048,7 @@ namespace UoFiddler.Controls.Forms
                         child.ForeColor = Color.Red;
                     }
 
-                    // Loop all possible actions for this body: mark modified (do NOT commit now)
+                    // 循环此身体的所有可能动作：标记为已修改（现在不提交）
                     bool anyModified = false;
                     for (int action = 0; action < 100; action++)
                     {
@@ -2064,15 +2066,15 @@ namespace UoFiddler.Controls.Forms
 
                     if (anyModified)
                     {
-                        // Track the AnimID so SaveModifiedAnimationsToUopHybrid will process it later
+                        // 跟踪 AnimID，以便 SaveModifiedAnimationsToUopHybrid 稍后处理
                         UoFiddler.Controls.Uop.VdImportHelper.MarkAnimIdModified(_currentBody);
-                        System.Diagnostics.Debug.WriteLine($"🔖 Removed Body {_currentBody}: flagged for save (deferred commit).");
+                        System.Diagnostics.Debug.WriteLine($"🔖 已移除身体 {_currentBody}：标记为待保存（延迟提交）。");
                     }
                 }
                 else
                 {
-                    // Remove Action
-                    DialogResult result = MessageBox.Show($"Are you sure to remove UOP action {_currentAction}?", "Remove",
+                    // 移除动作
+                    DialogResult result = MessageBox.Show($"确定要移除 UOP 动作 {_currentAction} 吗？", "移除",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                     if (result != DialogResult.Yes) return;
 
@@ -2092,9 +2094,9 @@ namespace UoFiddler.Controls.Forms
 
                     if (modified)
                     {
-                        // Flag for saving later (single Save will persist all flagged IDs)
+                        // 标记待稍后保存（单次保存将持久化所有标记的 ID）
                         UoFiddler.Controls.Uop.VdImportHelper.MarkAnimIdModified(_currentBody);
-                        System.Diagnostics.Debug.WriteLine($"🔖 Removed Action {_currentAction} for Body {_currentBody}: flagged for save (deferred commit).");
+                        System.Diagnostics.Debug.WriteLine($"🔖 已移除动作 {_currentAction}（身体 {_currentBody}）：标记为待保存（延迟提交）。");
                     }
                 }
 
@@ -2113,7 +2115,7 @@ namespace UoFiddler.Controls.Forms
 
             if (AnimationListTreeView.SelectedNode.Parent == null)
             {
-                DialogResult result = MessageBox.Show($"Are you sure to remove animation {_currentBody}", "Remove",
+                DialogResult result = MessageBox.Show($"确定要移除动画 {_currentBody}", "移除",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (result != DialogResult.Yes)
                 {
@@ -2141,7 +2143,7 @@ namespace UoFiddler.Controls.Forms
             }
             else
             {
-                DialogResult result = MessageBox.Show($"Are you sure to remove action {_currentAction}", "Remove",
+                DialogResult result = MessageBox.Show($"确定要移除动作 {_currentAction}", "移除",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (result != DialogResult.Yes)
                 {
@@ -2200,16 +2202,16 @@ namespace UoFiddler.Controls.Forms
             AnimationEdit.Save(_fileType, Options.OutputPath);
             Options.ChangedUltimaClass["Animations"] = false;
 
-            MessageBox.Show($"AnimationFile saved to {Options.OutputPath}", "Saved", MessageBoxButtons.OK,
+            MessageBox.Show($"动画文件已保存到 {Options.OutputPath}", "已保存", MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
-        //My Soulblighter Modification
+        //我的 Soulblighter 修改
         private void OnClickRemoveFrame(object sender, EventArgs e)
         {
             if (_fileType == 6)
             {
-                MessageBox.Show("Unavailable for .UOP format", "Restricted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("UOP 格式不可用", "受限", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -2241,7 +2243,7 @@ namespace UoFiddler.Controls.Forms
                 Options.ChangedUltimaClass["Animations"] = true;
             }
         }
-        //End of Soulblighter Modification
+        //Soulblighter 修改结束
 
         private void OnClickReplace(object sender, EventArgs e)
         {
@@ -2255,9 +2257,9 @@ namespace UoFiddler.Controls.Forms
                 int frameIndex = (int)FramesListView.SelectedItems[0].Tag;
 
                 dialog.Multiselect = false;
-                dialog.Title = $"Choose image file to replace at {frameIndex}";
+                dialog.Title = $"选择图像文件以替换帧 {frameIndex}";
                 dialog.CheckFileExists = true;
-                dialog.Filter = "Image files (*.tif;*.tiff;*.bmp;*.png)|*.tif;*.tiff;*.bmp;*.png";
+                dialog.Filter = "图像文件 (*.tif;*.tiff;*.bmp;*.png)|*.tif;*.tiff;*.bmp;*.png";
 
                 if (dialog.ShowDialog() != DialogResult.OK)
                 {
@@ -2322,7 +2324,7 @@ namespace UoFiddler.Controls.Forms
         {
             if (_fileType == 6)
             {
-                MessageBox.Show("Unavailable for .UOP format", "Restricted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("UOP 格式不可用", "受限", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -2331,16 +2333,16 @@ namespace UoFiddler.Controls.Forms
                 using (OpenFileDialog dialog = new OpenFileDialog())
                 {
                     dialog.Multiselect = true;
-                    dialog.Title = "Choose image file to add";
+                    dialog.Title = "选择要添加的图像文件";
                     dialog.CheckFileExists = true;
-                    dialog.Filter = "Gif files (*.gif;)|*.gif; |Bitmap files (*.bmp;)|*.bmp; |Tiff files (*.tif;*.tiff)|*.tif;*.tiff; |Png files (*.png;)|*.png; |Jpeg files (*.jpeg;*.jpg;)|*.jpeg;*.jpg;";
+                    dialog.Filter = "Gif 文件 (*.gif;)|*.gif; |位图文件 (*.bmp;)|*.bmp; |Tiff 文件 (*.tif;*.tiff)|*.tif;*.tiff; |Png 文件 (*.png;)|*.png; |Jpeg 文件 (*.jpeg;*.jpg;)|*.jpeg;*.jpg;";
 
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {
                         FramesListView.BeginUpdate();
                         try
                         {
-                            //My Soulblighter Modifications
+                            //我的 Soulblighter 修改
                             foreach (var fileName in dialog.FileNames)
                             {
                                 using (var bmpTemp = new Bitmap(fileName))
@@ -2362,12 +2364,12 @@ namespace UoFiddler.Controls.Forms
                                         continue;
                                     }
 
-                                    //Gif Especial Properties
+                                    //Gif 特殊属性
                                     if (dialog.FileName.Contains(".gif"))
                                     {
                                         FrameDimension dimension = new FrameDimension(bitmap.FrameDimensionsList[0]);
 
-                                        // Number of frames
+                                        // 帧数
                                         int frameCount = bitmap.GetFrameCount(dimension);
 
                                         Bitmap[] bitBmp = new Bitmap[frameCount];
@@ -2399,7 +2401,7 @@ namespace UoFiddler.Controls.Forms
 
                                         Options.ChangedUltimaClass["Animations"] = true;
                                     }
-                                    //End of Soulblighter Modifications
+                                    //Soulblighter 修改结束
                                     else
                                     {
                                         edit.AddFrame(bitmap);
@@ -2462,14 +2464,14 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Refresh List
+            // 刷新列表
             _currentDir = DirectionTrackBar.Value;
             AfterSelectTreeView(null, null);
         }
 
         private void AddImageAtCertainIndex(int frameCount, Bitmap[] bitBmp, Bitmap bmp, FrameDimension dimension, AnimIdx edit)
         {
-            // Return an Image at a certain index
+            // 返回特定索引的图像
             for (int index = 0; index < frameCount; index++)
             {
                 bmp.SelectActiveFrame(dimension, index);
@@ -2538,7 +2540,7 @@ namespace UoFiddler.Controls.Forms
                 edit.ExportPalette(path, (string)menu.Tag == "bmp" ? 1 : 2);
             }
 
-            MessageBox.Show($"Palette saved to {Options.OutputPath}", "Saved", MessageBoxButtons.OK,
+            MessageBox.Show($"调色板已保存到 {Options.OutputPath}", "已保存", MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
@@ -2552,9 +2554,9 @@ namespace UoFiddler.Controls.Forms
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = false;
-                dialog.Title = "Choose palette file";
+                dialog.Title = "选择调色板文件";
                 dialog.CheckFileExists = true;
-                dialog.Filter = "txt files (*.txt)|*.txt";
+                dialog.Filter = "txt 文件 (*.txt)|*.txt";
                 if (dialog.ShowDialog() != DialogResult.OK)
                 {
                     return;
@@ -2587,14 +2589,14 @@ namespace UoFiddler.Controls.Forms
 
                         palette[i] = ushort.Parse(line);
 
-                        // My Soulblighter Modification
-                        // Convert color 0,0,0 to 0,0,8
-                        // TODO: find out why do we need this replacement
+                        // 我的 Soulblighter 修改
+                        // 将颜色 0,0,0 转换为 0,0,8
+                        // TODO: 找出为什么需要这个替换
                         if (palette[i] == 32768)
                         {
                             palette[i] = 32769;
                         }
-                        // End of Soulblighter Modification
+                        // Soulblighter 修改结束
                     }
 
                     edit.ReplacePalette(palette);
@@ -2615,15 +2617,15 @@ namespace UoFiddler.Controls.Forms
                 using (OpenFileDialog dialog = new OpenFileDialog())
                 {
                     dialog.Multiselect = false;
-                    dialog.Title = "Choose VD file to import to UOP";
+                    dialog.Title = "选择要导入到 UOP 的 VD 文件";
                     dialog.CheckFileExists = true;
-                    dialog.Filter = "VD files (*.vd)|*.vd";
+                    dialog.Filter = "VD 文件 (*.vd)|*.vd";
                     if (dialog.ShowDialog() != DialogResult.OK)
                         return;
 
                     try
                     {
-                        // ✅ Choisir le fichier UOP cible
+                        // ✅ 选择目标 UOP 文件
                         string targetUopPath = null;
                         using (var fileSelectForm = new UopFileSelectionForm(_uopManager.LoadedUopFiles))
                         {
@@ -2637,25 +2639,25 @@ namespace UoFiddler.Controls.Forms
                             }
                         }
 
-                        // ✅ Import du VD
+                        // ✅ 导入 VD
                         bool success = VdImportHelper.ImportCreaturesVdToUop(dialog.FileName, _uopManager, _currentBody, targetUopPath);
                         if (!success)
                         {
-                            MessageBox.Show("Failed to import VD file.", "Error",
+                            MessageBox.Show("导入 VD 文件失败。", "错误",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
 
-                        // ✅ Sauvegarder en mode HYBRIDE
+                        // ✅ 以 HYBRID 模式保存
                         string destinationPath = Path.Combine(Options.OutputPath, Path.GetFileName(targetUopPath));
                         if (VdImportHelper.SaveModifiedAnimationsToUopHybrid(_uopManager, _currentBody, destinationPath))
                         {
                             MessageBox.Show(
-                                $"✅ Animation {_currentBody} importée en mode HYBRIDE !\n\n" +
-                                $"📁 Fichier : {destinationPath}\n\n" +
-                                $"🔹 32 entrées Jenkins créées (actions 0-31)\n" +
-                                $"🔹 1 entrée numérique créée (action 0 - reconnaissance client)",
-                                "Import Complete",
+                                $"✅ 动画 {_currentBody} 已成功以 HYBRID 模式导入！\n\n" +
+                                $"📁 文件：{destinationPath}\n\n" +
+                                $"🔹 创建了 32 个 Jenkins 条目（动作 0-31）\n" +
+                                $"🔹 创建了 1 个数字条目（动作 0 - 客户端识别）",
+                                "导入完成",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
 
@@ -2665,8 +2667,8 @@ namespace UoFiddler.Controls.Forms
                         }
                         else
                         {
-                            MessageBox.Show("❌ Import successful but save failed. Check logs.",
-                                "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("❌ 导入成功但保存失败。请检查日志。",
+                                "保存错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                             _uopManager.ClearCache();
                             LoadUopAnimations();
@@ -2675,15 +2677,15 @@ namespace UoFiddler.Controls.Forms
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"❌ Error importing VD: {ex.Message}\n\n{ex.StackTrace}",
-                            "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"❌ 导入 VD 时出错：{ex.Message}\n\n{ex.StackTrace}",
+                            "导入错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 return;
             }
 
             // ================================================
-            // === MUL / LEGACY TEIL (mit alten guten Features) ===
+            // === MUL / LEGACY 部分（保留旧的好功能） ===
             // ================================================
             if (_fileType == 0)
             {
@@ -2693,9 +2695,9 @@ namespace UoFiddler.Controls.Forms
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = false;
-                dialog.Title = "Choose VD file";
+                dialog.Title = "选择 VD 文件";
                 dialog.CheckFileExists = true;
-                dialog.Filter = "VD files (*.vd)|*.vd";
+                dialog.Filter = "VD 文件 (*.vd)|*.vd";
 
                 if (dialog.ShowDialog() != DialogResult.OK)
                     return;
@@ -2704,15 +2706,15 @@ namespace UoFiddler.Controls.Forms
 
                 int currentType = animLength switch
                 {
-                    22 => 0,  // Monster
-                    13 => 1,  // Animal
-                    35 => 2,  // Human/Equipment
+                    22 => 0,  // 怪物
+                    13 => 1,  // 动物
+                    35 => 2,  // 人类/装备
                     _ => -1
                 };
 
                 if (currentType == -1)
                 {
-                    MessageBox.Show($"Unknown animation length: {animLength}", "Import Error",
+                    MessageBox.Show($"未知的动画长度：{animLength}", "导入错误",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -2731,33 +2733,33 @@ namespace UoFiddler.Controls.Forms
                         }
                         catch (EndOfStreamException)
                         {
-                            MessageBox.Show("Not a valid VD file (too short).", "Import",
+                            MessageBox.Show("不是有效的 VD 文件（太短）。", "导入",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
 
-                        toolStripStatusLabelVDAminInfo.Text = $"File Type: {firstShort}, Animation Type: {animType}";
+                        toolStripStatusLabelVDAminInfo.Text = $"文件类型: {firstShort}, 动画类型: {animType}";
 
                         bool recognized = (firstShort == 0x5644) || (firstShort == 6);
 
                         if (!recognized)
                         {
-                            toolStripStatusLabelVDAminInfo.Text += " - Not an Anim File.";
-                            MessageBox.Show("Not an Anim File.", "Import",
+                            toolStripStatusLabelVDAminInfo.Text += " - 不是动画文件。";
+                            MessageBox.Show("不是动画文件。", "导入",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
 
                         if (animType != currentType)
                         {
-                            toolStripStatusLabelVDAminInfo.Text += $" - Wrong Anim Id (Type). Expected: {currentType}, Got: {animType}";
+                            toolStripStatusLabelVDAminInfo.Text += $" - 错误的动画 ID（类型）。预期: {currentType}, 得到: {animType}";
 
                             MessageBox.Show(
-                                $"The selected .vd file has an animation type of {animType} (Got: {animType}),\n" +
-                                $"but the program expects an animation type of {currentType} (Expected: {currentType}).\n\n" +
-                                "This results in a 'Wrong Anim Id ( Type )' error.\n" +
-                                "Please check the .vd file and ensure it has the correct animation type.",
-                                "Wrong Animation Type", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                $"所选 .vd 文件的动画类型为 {animType}（得到: {animType}），\n" +
+                                $"但程序预期动画类型为 {currentType}（预期: {currentType}）。\n\n" +
+                                "这会导致“错误的动画 ID（类型）”错误。\n" +
+                                "请检查 .vd 文件并确保其具有正确的动画类型。",
+                                "错误的动画类型", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                             return;
                         }
@@ -2766,7 +2768,7 @@ namespace UoFiddler.Controls.Forms
                     }
                 }
 
-                // Update tree
+                // 更新树
                 bool valid = false;
                 TreeNode node = GetNode(_currentBody);
                 if (node != null)
@@ -2786,12 +2788,12 @@ namespace UoFiddler.Controls.Forms
                     node.ForeColor = valid ? Color.Black : Color.Red;
                 }
 
-                toolStripStatusLabelVDAminInfo.Text += $" - Successfully imported into slot {_currentBody}";
+                toolStripStatusLabelVDAminInfo.Text += $" - 成功导入到槽位 {_currentBody}";
 
                 Options.ChangedUltimaClass["Animations"] = true;
                 AfterSelectTreeView(this, null);
 
-                MessageBox.Show("Successfully imported animation to the slot", "Import",
+                MessageBox.Show("成功将动画导入到槽位", "导入",
                     MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }
@@ -2804,7 +2806,7 @@ namespace UoFiddler.Controls.Forms
             }
 
             double scale = 1.0;
-            string input = Microsoft.VisualBasic.Interaction.InputBox("Redimensionnement (%)", "Export VD", "100");
+            string input = Microsoft.VisualBasic.Interaction.InputBox("缩放 (%)", "导出 VD", "100");
             if (!string.IsNullOrEmpty(input))
             {
                 if (double.TryParse(input, out double percent))
@@ -2813,7 +2815,7 @@ namespace UoFiddler.Controls.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Valeur invalide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("无效的值。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -2826,7 +2828,7 @@ namespace UoFiddler.Controls.Forms
             string fileName = Path.Combine(path, $"anim{_fileType}_0x{_currentBody:X}.vd");
             AnimationEdit.ExportToVD(_fileType, _currentBody, fileName, scale);
 
-            MessageBox.Show($"Animation saved to {Options.OutputPath}", "Export", MessageBoxButtons.OK,
+            MessageBox.Show($"动画已保存到 {Options.OutputPath}", "导出", MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
@@ -2839,7 +2841,7 @@ namespace UoFiddler.Controls.Forms
 
             if (AnimationListTreeView.SelectedNode.Parent == null)
             {
-                MessageBox.Show("Please select a specific action to export as .bin", "Export .bin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请选择一个具体的动作以导出为 .bin", "导出 .bin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -2853,27 +2855,27 @@ namespace UoFiddler.Controls.Forms
             var fileInfo = _uopManager.GetAnimationData(body, action, 0);
             if (fileInfo == null)
             {
-                MessageBox.Show("No data found for this action.", "Export .bin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("未找到此动作的数据。", "导出 .bin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // GetData(0) retrieves the full blob for UOP (AMOU) format
+            // GetData(0) 检索 UOP (AMOU) 格式的完整 blob
             byte[] data = fileInfo.GetData(0);
             if (data == null || data.Length == 0)
             {
-                MessageBox.Show("Data is empty.", "Export .bin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("数据为空。", "导出 .bin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                sfd.Filter = "BIN File (*.bin)|*.bin";
-                sfd.Title = $"Save Action {action} to .bin";
+                sfd.Filter = "BIN 文件 (*.bin)|*.bin";
+                sfd.Title = $"保存动作 {action} 为 .bin";
                 sfd.FileName = $"anim_{body}_{action}.bin";
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     File.WriteAllBytes(sfd.FileName, data);
-                    MessageBox.Show($"Saved to {sfd.FileName}", "Export .bin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"已保存到 {sfd.FileName}", "导出 .bin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -2885,8 +2887,8 @@ namespace UoFiddler.Controls.Forms
 
             (short animType, int vdLength) = GetVdTargetType(targetType);
 
-            // 1. Determine Target Action Names (Left Column Labels)
-            // If we are exporting to a specific MUL format, we prefer the standard MUL action names for that type.
+            // 1. 确定目标动作名称（左列标签）
+            // 如果导出到特定的 MUL 格式，我们首选该类型的标准 MUL 动作名称。
             string[] targetSystemActionNames;
             if (targetType == "monster_mul") targetSystemActionNames = _animNames[1];
             else if (targetType == "animal_mul" || targetType == "sea_monster_mul") targetSystemActionNames = _animNames[0];
@@ -2898,10 +2900,10 @@ namespace UoFiddler.Controls.Forms
             {
                 targetActionNames.Add(i < targetSystemActionNames.Length && !string.IsNullOrEmpty(targetSystemActionNames[i])
                     ? $"{i:D2} {targetSystemActionNames[i]}"
-                    : $"{i:D2} (Action)");
+                    : $"{i:D2} (动作)");
             }
 
-            // 2. Determine Source Action Names (Right Column Dropdown Options)
+            // 2. 确定源动作名称（右列下拉选项）
             Dictionary<int, string> sourceActionNames;
             if (_uopManager != null)
             {
@@ -2922,7 +2924,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // 3. Prepare Mapping Data
+            // 3. 准备映射数据
             var vdSlotToAbstractMap = new Dictionary<int, int[]>();
             bool isDirectUopMapping = false;
 
@@ -2999,10 +3001,10 @@ namespace UoFiddler.Controls.Forms
                 remapMap = new Dictionary<int, int>();
             }
 
-            var uopGroupIndexOptions = new List<Models.Uop.UopIndexOption> { new Models.Uop.UopIndexOption { Id = -1, DisplayName = "--- None ---" } };
+            var uopGroupIndexOptions = new List<Models.Uop.UopIndexOption> { new Models.Uop.UopIndexOption { Id = -1, DisplayName = "--- 无 ---" } };
             uopGroupIndexOptions.AddRange(availableUopGroupIndexes.Select(uopGroupIndex =>
             {
-                string name = sourceActionNames.TryGetValue(uopGroupIndex, out var n) ? n : "Unknown";
+                string name = sourceActionNames.TryGetValue(uopGroupIndex, out var n) ? n : "未知";
                 return new Models.Uop.UopIndexOption { Id = uopGroupIndex, DisplayName = $"{uopGroupIndex} ({name})" };
             }));
 
@@ -3056,7 +3058,7 @@ namespace UoFiddler.Controls.Forms
                 if (remapperForm.ShowDialog(this) == DialogResult.OK)
                 {
                     double scale = 1.0;
-                    string input = Microsoft.VisualBasic.Interaction.InputBox("Redimensionnement (%)", "Export VD", "100");
+                    string input = Microsoft.VisualBasic.Interaction.InputBox("缩放 (%)", "导出 VD", "100");
                     if (!string.IsNullOrEmpty(input))
                     {
                         if (double.TryParse(input, out double percent))
@@ -3065,7 +3067,7 @@ namespace UoFiddler.Controls.Forms
                         }
                         else
                         {
-                            MessageBox.Show("Valeur invalide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("无效的值。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                     }
@@ -3106,15 +3108,15 @@ namespace UoFiddler.Controls.Forms
 
                     using (SaveFileDialog sfd = new SaveFileDialog())
                     {
-                        sfd.Filter = "VD File (*.vd)|*.vd";
-                        sfd.Title = "Save VD File";
+                        sfd.Filter = "VD 文件 (*.vd)|*.vd";
+                        sfd.Title = "保存 VD 文件";
                         sfd.FileName = $"anim_{targetType}_{_currentBody}.vd";
                         if (sfd.ShowDialog() == DialogResult.OK)
                         {
                             using (FileStream fs = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
                             using (BinaryWriter writer = new BinaryWriter(fs))
                             {
-                                if (animType == 4) // Creatures (UOP) - Use Optimized Export
+                                if (animType == 4) // 生物 (UOP) - 使用优化导出
                                 {
                                     var remapping = new Dictionary<int, int>();
                                     foreach (var kvp in finalMapping)
@@ -3125,15 +3127,15 @@ namespace UoFiddler.Controls.Forms
                                         }
                                     }
 
-                                    // Ensure existing modified animations are serialized first
+                                    // 确保在序列化之前提交已修改的动画
                                     if (_uopManager != null)
                                     {
                                         _uopManager.CommitAllChanges();
-                                        System.Diagnostics.Debug.WriteLine("Export VD: CommitAllChanges called to serialize modified UOP animations before VD export.");
+                                        System.Diagnostics.Debug.WriteLine("导出 VD：在 VD 导出之前调用 CommitAllChanges 以序列化已修改的 UOP 动画。");
                                     }
 
-                                    // NEW: For exported animations that exist only as UOAnimation (generated from MUL)
-                                    // create UopAnimIdx in cache and populate frames so CommitChanges can encode them.
+                                    // 新：对于仅作为 UOAnimation 存在（从 MUL 生成）的导出动画，
+                                    // 在缓存中创建 UopAnimIdx 并填充帧，以便 CommitChanges 可以对它们进行编码。
                                     if (_uopManager != null)
                                     {
                                         foreach (var kvp in remapping)
@@ -3150,13 +3152,13 @@ namespace UoFiddler.Controls.Forms
                                                 var fi = _uopManager.GetAnimationData(_currentBody, sourceGroup, 0);
                                                 if (fi != null)
                                                 {
-                                                    // already has source data, nothing to do
+                                                    // 已有源数据，无需操作
                                                     continue;
                                                 }
 
-                                                System.Diagnostics.Debug.WriteLine($"Export VD: creating in-memory UOP entry for Anim={_currentBody} Action={sourceGroup}");
+                                                System.Diagnostics.Debug.WriteLine($"导出 VD：为 Anim={_currentBody} Action={sourceGroup} 创建内存 UOP 条目");
 
-                                                // Determine frames per direction
+                                                // 确定每个方向的帧数
                                                 int framesPerDir = exported.FramesPerDirection;
                                                 if (framesPerDir <= 0)
                                                 {
@@ -3168,7 +3170,7 @@ namespace UoFiddler.Controls.Forms
 
                                                 for (int dir = 0; dir < 5; dir++)
                                                 {
-                                                    // create new UopAnimIdx and ensure in cache
+                                                    // 创建新的 UopAnimIdx 并确保在缓存中
                                                     var uopAnim = _uopManager.CreateNewUopAnimation(_currentBody, sourceGroup, dir);
                                                     uopAnim.Frames.Clear();
 
@@ -3179,7 +3181,7 @@ namespace UoFiddler.Controls.Forms
                                                         int globalIndex = dir * framesPerDir + f;
                                                         if (globalIndex < 0 || exported.Frames == null || globalIndex >= exported.Frames.Count) break;
 
-                                                        // Use reflection to extract the frame data (ureliable names: try common variations)
+                                                        // 使用反射提取帧数据（名称不可靠：尝试常见变体）
                                                         object frameEntry = exported.Frames[globalIndex];
                                                         if (frameEntry == null) continue;
 
@@ -3189,7 +3191,7 @@ namespace UoFiddler.Controls.Forms
 
                                                         if (frameData == null) continue;
 
-                                                        // Extract image (DirectBitmap or Bitmap)
+                                                        // 提取图像（DirectBitmap 或 Bitmap）
                                                         object imageObj = frameData.GetType().GetProperty("Image")?.GetValue(frameData)
                                                                           ?? frameData.GetType().GetProperty("Bitmap")?.GetValue(frameData)
                                                                           ?? frameData.GetType().GetProperty("Img")?.GetValue(frameData);
@@ -3198,12 +3200,12 @@ namespace UoFiddler.Controls.Forms
                                                         if (imageObj is Bitmap b) bmp = new Bitmap(b);
                                                         else if (imageObj != null)
                                                         {
-                                                            // try property "Bitmap"
+                                                            // 尝试属性 "Bitmap"
                                                             var p = imageObj.GetType().GetProperty("Bitmap")?.GetValue(imageObj);
                                                             if (p is Bitmap pb) bmp = new Bitmap(pb);
                                                             else
                                                             {
-                                                                // try ToBitmap method
+                                                                // 尝试 ToBitmap 方法
                                                                 var mi = imageObj.GetType().GetMethod("ToBitmap") ?? imageObj.GetType().GetMethod("GetBitmap");
                                                                 if (mi != null)
                                                                 {
@@ -3215,14 +3217,14 @@ namespace UoFiddler.Controls.Forms
 
                                                         if (bmp == null)
                                                         {
-                                                            System.Diagnostics.Debug.WriteLine($"Export VD: unable to retrieve Bitmap for frame {globalIndex} (Anim {_currentBody} Act {sourceGroup} Dir {dir})");
+                                                            System.Diagnostics.Debug.WriteLine($"导出 VD：无法为帧 {globalIndex}（Anim {_currentBody} Act {sourceGroup} Dir {dir}）检索 Bitmap");
                                                             continue;
                                                         }
 
                                                         var decoded = new UoFiddler.Controls.Uop.DecodedUopFrame();
                                                         decoded.Image = new Bitmap(bmp);
 
-                                                        // Header: try to read CenterX/CenterY/Width/Height from frameData
+                                                        // 标头：尝试从 frameData 读取 CenterX/CenterY/Width/Height
                                                         short centerX = 0, centerY = 0;
                                                         ushort width = (ushort)decoded.Image.Width, height = (ushort)decoded.Image.Height;
 
@@ -3248,7 +3250,7 @@ namespace UoFiddler.Controls.Forms
                                                                 if (cy != null) centerY = Convert.ToInt16(cy);
                                                             }
                                                         }
-                                                        catch { /* best effort only */ }
+                                                        catch { /* 尽力而为 */ }
 
                                                         decoded.Header = new UoFiddler.Controls.Uop.UopFrameHeader
                                                         {
@@ -3258,7 +3260,7 @@ namespace UoFiddler.Controls.Forms
                                                             Height = height
                                                         };
 
-                                                        // Palette: try to extract list<Color>
+                                                        // 调色板：尝试提取列表<Color>
                                                         try
                                                         {
                                                             var paletteObj = frameData.GetType().GetProperty("Palette")?.GetValue(frameData);
@@ -3270,7 +3272,7 @@ namespace UoFiddler.Controls.Forms
                                                                     if (entry is Color c) palList.Add(c);
                                                                     else
                                                                     {
-                                                                        // try properties R,G,B,A
+                                                                        // 尝试属性 R,G,B,A
                                                                         var r = entry.GetType().GetProperty("R")?.GetValue(entry);
                                                                         var g = entry.GetType().GetProperty("G")?.GetValue(entry);
                                                                         var b2 = entry.GetType().GetProperty("B")?.GetValue(entry);
@@ -3284,21 +3286,21 @@ namespace UoFiddler.Controls.Forms
                                                                 decoded.Palette = palList;
                                                             }
                                                         }
-                                                        catch { /* ignore palette if unavailable */ }
+                                                        catch { /* 调色板不可用时忽略 */ }
 
                                                         uopAnim.Frames.Add(decoded);
                                                     } // framesPerDir
                                                     uopAnim.IsModified = true;
-                                                    // Commit per action after filling all directions for reliability (will be called below)
-                                                } // dir loop
+                                                    // 填充此动作的所有方向后，提交更改（将在下面执行）
+                                                } // dir 循环
 
-                                                // After populating the cached UopAnimIdx entries for this action, request commit
+                                                // 填充此动作的缓存 UopAnimIdx 条目后，请求提交
                                                 _uopManager.CommitChanges(_currentBody, sourceGroup);
-                                                System.Diagnostics.Debug.WriteLine($"Export VD: committed in-memory UOP data for Anim={_currentBody} Action={sourceGroup}");
+                                                System.Diagnostics.Debug.WriteLine($"导出 VD：已提交 Anim={_currentBody} Action={sourceGroup} 的内存 UOP 数据");
                                             }
                                             catch (Exception ex)
                                             {
-                                                System.Diagnostics.Debug.WriteLine($"Export VD: failed to create in-memory UOP entry for Anim {_currentBody} Action {sourceGroup}: {ex.Message}");
+                                                System.Diagnostics.Debug.WriteLine($"导出 VD：为 Anim {_currentBody} Action {sourceGroup} 创建内存 UOP 条目失败：{ex.Message}");
                                             }
                                         } // foreach remapping
                                     } // if _uopManager != null
@@ -3311,7 +3313,7 @@ namespace UoFiddler.Controls.Forms
                                     Uop.VdExportHelper.WriteVDAnimations(writer, exportedAnimations, animType, scale);
                                 }
                             }
-                            MessageBox.Show($"Successfully exported to {sfd.FileName}", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"成功导出到 {sfd.FileName}", "导出完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
@@ -3322,12 +3324,12 @@ namespace UoFiddler.Controls.Forms
         {
             return new Dictionary<int, string>
             {
-                {0, "Walk Combat"}, {1, "Idle Combat"}, {2, "Die Backward"}, {3, "Die Forward"}, {4, "Attack 1"},
-                {5, "Attack 2"}, {6, "Attack 3"}, {7, "AttackBow"}, {8, "AttackCrossBow"}, {9, "AttackThrow"},
-                {10, "Get Hit"}, {11, "Rummage"}, {12, "Spellcast"}, {13, "Spellcast2"}, {14, "Spellcast3"},
-                {15, "BlockRight"}, {16, "BlockLeft"}, {17, "Idle"}, {18, "Fidget"}, {19, "Fly"}, {20, "TakeOff"},
-                {21, "GetHitInAir"}, {22, "Walk"}, {23, "Special"}, {24, "Run"}, {25, "Idle"}, {26, "Fidget"},
-                {27, "Roar"}, {28, "Peace to Combat"}, {29, "Mounted - Walk"}, {30, "Mounted - Run"}, {31, "Mounted - Idle"}
+                {0, "行走战斗"}, {1, "空闲战斗"}, {2, "向后死亡"}, {3, "向前死亡"}, {4, "攻击 1"},
+                {5, "攻击 2"}, {6, "攻击 3"}, {7, "弓攻击"}, {8, "弩攻击"}, {9, "投掷攻击"},
+                {10, "受击"}, {11, "翻找"}, {12, "施法"}, {13, "施法2"}, {14, "施法3"},
+                {15, "右格挡"}, {16, "左格挡"}, {17, "空闲"}, {18, "烦躁"}, {19, "飞行"}, {20, "起飞"},
+                {21, "空中受击"}, {22, "行走"}, {23, "特殊"}, {24, "奔跑"}, {25, "空闲"},
+                {26, "烦躁"}, {27, "咆哮"}, {28, "和平转战斗"}, {29, "骑马 - 行走"}, {30, "骑马 - 奔跑"}, {31, "骑马 - 空闲"}
             };
         }
 
@@ -3352,10 +3354,10 @@ namespace UoFiddler.Controls.Forms
         private string GetActionDescription(int animId, int actionId)
         {
             Dictionary<int, string> namesDictionary;
-            // Access _uopManager directly since GetActionDescription is no longer static
+            // 直接访问 _uopManager，因为 GetActionDescription 不再是静态的
             List<int> availableActions = _uopManager.GetAvailableActions(animId);
 
-            if (availableActions.Count > 32) // Heuristic based on user's input
+            if (availableActions.Count > 32) // 基于用户输入启发式
             {
                 namesDictionary = GetCharActionNamesDictionary();
             }
@@ -3368,7 +3370,7 @@ namespace UoFiddler.Controls.Forms
             {
                 return name;
             }
-            return "Unknown Action";
+            return "未知动作";
         }
 
 
@@ -3428,10 +3430,10 @@ namespace UoFiddler.Controls.Forms
             }
         }
 
-        //My Soulblighter Modification
+        //我的 Soulblighter 修改
         private void SameCenterButton_Click(object sender, EventArgs e)
         {
-            // TODO: there is no undo for same center button
+            // TODO：相同中心按钮没有撤消功能
             try
             {
                 if (_fileType == 0)
@@ -3508,13 +3510,13 @@ namespace UoFiddler.Controls.Forms
             }
             catch (NullReferenceException)
             {
-                // TODO: add logging or fix?
-                // ignored
+                // TODO：添加日志记录或修复？
+                // 忽略
             }
         }
-        //End of Soulblighter Modification
+        //Soulblighter 修改结束
 
-        //My Soulblighter Modification
+        //我的 Soulblighter 修改
         private void FromGifToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_fileType == 0)
@@ -3525,9 +3527,9 @@ namespace UoFiddler.Controls.Forms
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = false;
-                dialog.Title = "Choose palette file";
+                dialog.Title = "选择调色板文件";
                 dialog.CheckFileExists = true;
-                dialog.Filter = "Gif files (*.gif)|*.gif";
+                dialog.Filter = "Gif 文件 (*.gif)|*.gif";
                 if (dialog.ShowDialog() != DialogResult.OK)
                 {
                     return;
@@ -3541,8 +3543,8 @@ namespace UoFiddler.Controls.Forms
                 }
 
                 FrameDimension dimension = new FrameDimension(bit.FrameDimensionsList[0]);
-                // Number of frames
-                //int frameCount = bit.GetFrameCount(dimension); // TODO: unused variable?
+                // 帧数
+                //int frameCount = bit.GetFrameCount(dimension); // TODO：未使用的变量？
                 bit.SelectActiveFrame(dimension, 0);
                 UpdateGifPalette(bit, edit);
                 SetPaletteBox();
@@ -3576,7 +3578,7 @@ namespace UoFiddler.Controls.Forms
             AnimationPictureBox.Invalidate();
         }
 
-        // Change center of frame on key press
+        // 按键时更改帧中心
         private void TxtSendData_KeyDown(object sender, KeyEventArgs e)
         {
             if (AnimationTimer.Enabled)
@@ -3614,7 +3616,7 @@ namespace UoFiddler.Controls.Forms
             AnimationPictureBox.Invalidate();
         }
 
-        // Change center of Reference Point on key press
+        // 按键时更改参考点中心
         private void TxtSendData_KeyDown2(object sender, KeyEventArgs e)
         {
             if (_lockButton || !ToolStripLockButton.Enabled)
@@ -3659,12 +3661,12 @@ namespace UoFiddler.Controls.Forms
             RefYNumericUpDown.Enabled = !_lockButton;
         }
 
-        // Add in all Directions
+        // 添加所有方向
         private void AllDirectionsAddToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_fileType != 0)
             {
-                // ✅ UOP: Check if we need to select a target file
+                // ✅ UOP：检查是否需要选择目标文件
                 string targetUopPath = null;
                 if (_fileType == 6 && _uopManager != null)
                 {
@@ -3688,7 +3690,7 @@ namespace UoFiddler.Controls.Forms
                             }
                             else
                             {
-                                return; // Cancelled
+                                return; // 已取消
                             }
                         }
                     }
@@ -3697,16 +3699,16 @@ namespace UoFiddler.Controls.Forms
                 using (OpenFileDialog dialog = new OpenFileDialog())
                 {
                     dialog.Multiselect = true;
-                    dialog.Title = "Choose images (Multiple of 5) to add to all directions";
+                    dialog.Title = "选择图像（5 的倍数）添加到所有方向";
                     dialog.CheckFileExists = true;
-                    dialog.Filter = "Image Files (*.bmp, *.jpg, *.png, *.tiff, *.gif)|*.bmp;*.jpg;*.png;*.tiff;*.gif";
+                    dialog.Filter = "图像文件 (*.bmp, *.jpg, *.png, *.tiff, *.gif)|*.bmp;*.jpg;*.png;*.tiff;*.gif";
 
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {
                         if (dialog.FileNames.Length == 0 || dialog.FileNames.Length % 5 != 0)
                         {
-                            MessageBox.Show("Please select a number of images that is a multiple of 5 (e.g., 5, 10, 15...).\nThe images will be distributed evenly across the 5 directions.",
-                                "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("请选择 5 的倍数张图像（例如 5、10、15...）。\n图像将均匀分布在 5 个方向上。",
+                                "无效选择", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
@@ -3717,20 +3719,20 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Refresh List
+            // 刷新列表
             _currentDir = DirectionTrackBar.Value;
             AfterSelectTreeView(null, null);
         }
 
         private void AddFilesAllDirections(OpenFileDialog dialog, string targetUopPath = null)
         {
-            // Ensure strict alphabetical order
+            // 确保严格的字母顺序
             var fileList = dialog.FileNames.OrderBy(f => f).ToList();
 
             int totalFiles = fileList.Count;
             int filesPerDir = totalFiles / 5;
 
-            if (_fileType == 6) // UOP - Batch Process
+            if (_fileType == 6) // UOP - 批处理
             {
                 for (int dir = 0; dir < 5; dir++)
                 {
@@ -3780,7 +3782,7 @@ namespace UoFiddler.Controls.Forms
                     }
                 }
                 _uopManager.CommitChanges(_currentBody, _currentAction);
-                _uopManager.ClearCache(); // Force reload for BB update
+                _uopManager.ClearCache(); // 强制重新加载以更新 BB
             }
             else // MUL
             {
@@ -3956,12 +3958,12 @@ namespace UoFiddler.Controls.Forms
             AnimationPictureBox.Invalidate();
         }
 
-        // All Directions with Canvas
+        // 所有方向带画布
         private void AllDirectionsAddWithCanvasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_fileType == 6)
             {
-                MessageBox.Show("Unavailable for .UOP format", "Restricted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("UOP 格式不可用", "受限", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -3972,9 +3974,9 @@ namespace UoFiddler.Controls.Forms
                     using (OpenFileDialog dialog = new OpenFileDialog())
                     {
                         dialog.Multiselect = true;
-                        dialog.Title = "Choose 5 GIFs to add";
+                        dialog.Title = "选择 5 个 GIF 添加";
                         dialog.CheckFileExists = true;
-                        dialog.Filter = "Image Files (*.bmp, *.jpg, *.png, *.tiff, *.gif)|*.bmp;*.jpg;*.png;*.tiff;*.gif";
+                        dialog.Filter = "图像文件 (*.bmp, *.jpg, *.png, *.tiff, *.gif)|*.bmp;*.jpg;*.png;*.tiff;*.gif";
                         if (dialog.ShowDialog() == DialogResult.OK)
                         {
                             Color customConvert = Color.FromArgb(255, (int)numericUpDownRed.Value, (int)numericUpDownGreen.Value, (int)numericUpDownBlue.Value);
@@ -3985,7 +3987,7 @@ namespace UoFiddler.Controls.Forms
                                 AddSelectedFiles(dialog, customConvert);
                             }
 
-                            // Looping if dialog.FileNames.Length != 5
+                            // 如果 dialog.FileNames.Length != 5 则循环
                             while (dialog.FileNames.Length != 5)
                             {
                                 if (dialog.ShowDialog() == DialogResult.Cancel)
@@ -4012,14 +4014,14 @@ namespace UoFiddler.Controls.Forms
                     }
                 }
 
-                // Refresh List after Canvas reduction
+                // 画布缩小后刷新列表
                 _currentDir = DirectionTrackBar.Value;
                 AfterSelectTreeView(null, null);
             }
             catch (OutOfMemoryException)
             {
-                // TODO: add logging or fix?
-                // ignored
+                // TODO：添加日志记录或修复？
+                // 忽略
             }
         }
 
@@ -4032,7 +4034,7 @@ namespace UoFiddler.Controls.Forms
                     continue;
                 }
 
-                // dialog.Filename replaced by dialog.FileNames[w]
+                // dialog.Filename 替换为 dialog.FileNames[w]
                 if (!System.IO.File.Exists(dialog.FileNames[w])) continue;
 
                 using (Bitmap bmpTemp = new Bitmap(dialog.FileNames[w]))
@@ -4069,15 +4071,15 @@ namespace UoFiddler.Controls.Forms
             int frameCount = bmp.GetFrameCount(dimension);
             ProgressBar.Maximum = frameCount;
 
-            // Extract frames to array
+            // 将帧提取到数组中
             Bitmap[] bitBmp = new Bitmap[frameCount];
             for (int index = 0; index < frameCount; index++)
             {
                 bmp.SelectActiveFrame(dimension, index);
-                bitBmp[index] = new Bitmap(bmp); // Clone
+                bitBmp[index] = new Bitmap(bmp); // 克隆
             }
 
-            // --- Canvas Algorithm (Duplicate of AddAnimationX1 logic) ---
+            // --- 画布算法（与 AddAnimationX1 逻辑重复）---
             int top = 0;
             int bottom = 0;
             int left = 0;
@@ -4091,7 +4093,7 @@ namespace UoFiddler.Controls.Forms
             bool var = true;
             bool breakOk = false;
 
-            // Top
+            // 顶部
             for (int yf = 0; yf < bitBmp[0].Height; yf++)
             {
                 for (int frameIdx = 0; frameIdx < frameCount; frameIdx++)
@@ -4147,7 +4149,7 @@ namespace UoFiddler.Controls.Forms
                 if (breakOk) { breakOk = false; break; }
             }
 
-            // Bottom
+            // 底部
             for (int yf = bitBmp[0].Height - 1; yf > 0; yf--)
             {
                 for (int frameIdx = 0; frameIdx < frameCount; frameIdx++)
@@ -4189,7 +4191,7 @@ namespace UoFiddler.Controls.Forms
                 if (breakOk) { breakOk = false; break; }
             }
 
-            // Left
+            // 左侧
             for (int xf = 0; xf < bitBmp[0].Width; xf++)
             {
                 for (int frameIdx = 0; frameIdx < frameCount; frameIdx++)
@@ -4231,7 +4233,7 @@ namespace UoFiddler.Controls.Forms
                 if (breakOk) { breakOk = false; break; }
             }
 
-            // Right
+            // 右侧
             for (int xf = bitBmp[0].Width - 1; xf > 0; xf--)
             {
                 for (int frameIdx = 0; frameIdx < frameCount; frameIdx++)
@@ -4279,9 +4281,9 @@ namespace UoFiddler.Controls.Forms
                 if (rect.Width <= 0 || rect.Height <= 0) continue;
                 bitBmp[index] = bitBmp[index].Clone(rect, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
             }
-            // --- End Canvas Algorithm ---
+            // --- 画布算法结束 ---
 
-            // Add frames
+            // 添加帧
             for (int index = 0; index < frameCount; index++)
             {
                 var frame = new UoFiddler.Controls.Uop.DecodedUopFrame();
@@ -4303,7 +4305,7 @@ namespace UoFiddler.Controls.Forms
                 ListViewItem item = new ListViewItem(newIndex.ToString(), 0) { Tag = newIndex };
                 FramesListView.Items.Add(item);
 
-                // Update TileSize to fit new image
+                // 更新 TileSize 以适合新图像
                 int width = FramesListView.TileSize.Width - 5;
                 if (frame.Image.Width > width) width = frame.Image.Width;
                 int height = FramesListView.TileSize.Height - 5;
@@ -4344,11 +4346,11 @@ namespace UoFiddler.Controls.Forms
 
                     if (r == kR && g == kG && b == kB)
                     {
-                        ptr[i + 3] = 0; // Transparent
+                        ptr[i + 3] = 0; // 透明
                     }
                     else
                     {
-                        ptr[i + 3] = 255; // Opaque
+                        ptr[i + 3] = 255; // 不透明
                     }
                 }
             }
@@ -4365,13 +4367,13 @@ namespace UoFiddler.Controls.Forms
 
             FrameDimension dimension = new FrameDimension(bmp.FrameDimensionsList[0]);
 
-            // Number of frames
+            // 帧数
             int frameCount = bmp.GetFrameCount(dimension);
             ProgressBar.Maximum = frameCount;
             bmp.SelectActiveFrame(dimension, 0);
             UpdateGifPalette(bmp, edit);
 
-            // Return an Image at a certain index
+            // 返回特定索引的图像
             Bitmap[] bitBmp = new Bitmap[frameCount];
             for (int index = 0; index < frameCount; index++)
             {
@@ -4380,7 +4382,7 @@ namespace UoFiddler.Controls.Forms
                 bitBmp[index] = bmp;
             }
 
-            // Canvas algorithm
+            // 画布算法
             int top = 0;
             int bottom = 0;
             int left = 0;
@@ -4394,7 +4396,7 @@ namespace UoFiddler.Controls.Forms
             bool var = true;
             bool breakOk = false;
 
-            // Top
+            // 顶部
             for (int yf = 0; yf < bitBmp[0].Height; yf++)
             {
                 for (int frameIdx = 0; frameIdx < frameCount; frameIdx++)
@@ -4463,7 +4465,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Bottom
+            // 底部
             for (int yf = bitBmp[0].Height - 1; yf > 0; yf--)
             {
                 for (int frameIdx = 0; frameIdx < frameCount; frameIdx++)
@@ -4532,7 +4534,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Left
+            // 左侧
             for (int xf = 0; xf < bitBmp[0].Width; xf++)
             {
                 for (int frameIdx = 0; frameIdx < frameCount; frameIdx++)
@@ -4601,7 +4603,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Right
+            // 右侧
             for (int xf = bitBmp[0].Width - 1; xf > 0; xf--)
             {
                 for (int frameIdx = 0; frameIdx < frameCount; frameIdx++)
@@ -4677,7 +4679,7 @@ namespace UoFiddler.Controls.Forms
                 bitBmp[index] = bitBmp[index].Clone(rect, PixelFormat.Format16bppArgb1555);
             }
 
-            // End of Canvas algorithm
+            // 画布算法结束
 
             for (int index = 0; index < frameCount; index++)
             {
@@ -4741,12 +4743,12 @@ namespace UoFiddler.Controls.Forms
             Options.ChangedUltimaClass["Animations"] = true;
         }
 
-        //Add with Canvas
+        //带画布添加
         private void AddWithCanvasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_fileType == 6)
             {
-                MessageBox.Show("Unavailable for .UOP format", "Restricted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("UOP 格式不可用", "受限", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -4757,21 +4759,21 @@ namespace UoFiddler.Controls.Forms
                     using (OpenFileDialog dialog = new OpenFileDialog())
                     {
                         dialog.Multiselect = false;
-                        dialog.Title = "Choose image file to add";
+                        dialog.Title = "选择要添加的图像文件";
                         dialog.CheckFileExists = true;
-                        dialog.Filter = "Gif files (*.gif;)|*.gif;";
+                        dialog.Filter = "Gif 文件 (*.gif;)|*.gif;";
                         if (dialog.ShowDialog() == DialogResult.OK)
                         {
                             Color customConvert = Color.FromArgb(255, (int)numericUpDownRed.Value,
                                 (int)numericUpDownGreen.Value, (int)numericUpDownBlue.Value);
-                            //My Soulblighter Modifications
+                            //我的 Soulblighter 修改
                             for (int w = 0; w < dialog.FileNames.Length; w++)
                             {
-                                // dialog.Filename replaced by dialog.FileNames[w]
+                                // dialog.Filename 替换为 dialog.FileNames[w]
                                 Bitmap bmp = new Bitmap(dialog.FileNames[w]);
 
-                                // TODO: fix checking file extension
-                                // Gif Especial Properties
+                                // TODO：修复检查文件扩展名
+                                // Gif 特殊属性
                                 if (!dialog.FileNames[w].Contains(".gif"))
                                 {
                                     continue;
@@ -4783,14 +4785,14 @@ namespace UoFiddler.Controls.Forms
                     }
                 }
 
-                // Refresh List after Canvas reduction
+                // 画布缩小后刷新列表
                 _currentDir = DirectionTrackBar.Value;
                 AfterSelectTreeView(null, null);
             }
             catch (OutOfMemoryException)
             {
-                // TODO: add logging or fix?
-                // ignored
+                // TODO：添加日志记录或修复？
+                // 忽略
             }
         }
 
@@ -4799,9 +4801,9 @@ namespace UoFiddler.Controls.Forms
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = true;
-                dialog.Title = "Choose images to generate from";
+                dialog.Title = "选择要从中生成的图像";
                 dialog.CheckFileExists = true;
-                dialog.Filter = "Image files (*.tif;*.tiff;*.bmp;*.png;*.jpg;*.jpeg)|*.tif;*.tiff;*.bmp;*.png;*.jpg;*.jpeg";
+                dialog.Filter = "图像文件 (*.tif;*.tiff;*.bmp;*.png;*.jpg;*.jpeg)|*.tif;*.tiff;*.bmp;*.png;*.jpg;*.jpeg";
                 if (dialog.ShowDialog() != DialogResult.OK)
                 {
                     return;
@@ -4823,11 +4825,11 @@ namespace UoFiddler.Controls.Forms
                 }
             }
         }
-        //End of Soulblighter Modification
+        //Soulblighter 修改结束
 
         private static unsafe Bitmap ConvertBmpAnim(Bitmap bmp, int red, int green, int blue)
         {
-            //Extra background
+            //额外背景
             int extraBack = (red / 8 * 1024) + (green / 8 * 32) + (blue / 8) + 32768;
 
             BitmapData bd = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format16bppArgb1555);
@@ -4846,18 +4848,18 @@ namespace UoFiddler.Controls.Forms
                 ushort* curNew = lineNew;
                 for (int x = 0; x < bmp.Width; ++x)
                 {
-                    //My Soulblighter Modification
-                    // Convert color 0,0,0 to 0,0,8
+                    //我的 Soulblighter 修改
+                    // 将颜色 0,0,0 转换为 0,0,8
                     if (cur[x] == 32768)
                     {
                         curNew[x] = 32769;
                     }
 
-                    if (cur[x] != 65535 && cur[x] != extraBack && cur[x] > 32768) //True White == BackGround
+                    if (cur[x] != 65535 && cur[x] != extraBack && cur[x] > 32768) //真白 == 背景
                     {
                         curNew[x] = cur[x];
                     }
-                    //End of Soulblighter Modification
+                    //Soulblighter 修改结束
                 }
             }
             bmp.UnlockBits(bd);
@@ -4874,7 +4876,7 @@ namespace UoFiddler.Controls.Forms
 
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
             {
-                dialog.Description = "Select directory";
+                dialog.Description = "选择目录";
                 dialog.ShowNewFolderButton = true;
                 if (dialog.ShowDialog() != DialogResult.OK)
                 {
@@ -4894,14 +4896,14 @@ namespace UoFiddler.Controls.Forms
                     AnimationEdit.ExportToVD(_fileType, index, fileName);
                 }
 
-                MessageBox.Show($"All Animations saved to {dialog.SelectedPath}",
-                    "Export", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show($"所有动画已保存到 {dialog.SelectedPath}",
+                    "导出", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }
 
         private void CbSaveCoordinates_CheckedChanged(object sender, EventArgs e)
         {
-            // Get position of all animations in array
+            // 获取数组中所有动画的位置
             if (SaveCoordinatesCheckBox.Checked)
             {
                 DirectionTrackBar.Enabled = false;
@@ -4952,7 +4954,7 @@ namespace UoFiddler.Controls.Forms
             int max = DirectionTrackBar.Maximum;
             for (int i = 0; i <= max; i++)
             {
-                // positionne la direction courante pour l'itération
+                // 为迭代设置当前方向
                 DirectionTrackBar.Value = i;
                 _currentDir = i;
 
@@ -4965,7 +4967,7 @@ namespace UoFiddler.Controls.Forms
 
                     if (_fileType == UOP_FILE_TYPE)
                     {
-                        // UOP: utiliser le gestionnaire UOP et sa structure de frames
+                        // UOP：使用 UOP 管理器及其帧结构
                         if (_uopManager == null) continue;
 
                         var uopAnim = _uopManager.GetUopAnimation(_currentBody, _currentAction, _currentDir);
@@ -4982,7 +4984,7 @@ namespace UoFiddler.Controls.Forms
                     }
                     else
                     {
-                        // MUL / legacy: protéger l'accès à Frames
+                        // MUL / legacy：保护对 Frames 的访问
                         AnimIdx edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
                         if (edit == null || edit.Frames == null) continue;
                         if (FramesTrackBar.Value >= edit.Frames.Count) continue;
@@ -5002,13 +5004,13 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // restaure la direction initiale
+            // 恢复初始方向
             DirectionTrackBar.Value = originalDir;
             _currentDir = originalDir;
             DirectionTrackBar.Enabled = true;
         }
 
-        // Gemini Added Methods
+        // Gemini 添加的方法
 
         private void OnZoomChanged(object sender, EventArgs e)
         {
@@ -5026,7 +5028,7 @@ namespace UoFiddler.Controls.Forms
             _relativeMode = RelativeCheckBox.Checked;
             if (_relativeMode)
             {
-                // Reset NUDs to 0
+                // 将 NUD 重置为 0
                 _accumulatedRelativeX = 0;
                 _accumulatedRelativeY = 0;
                 _lastRelativeX = 0;
@@ -5038,9 +5040,8 @@ namespace UoFiddler.Controls.Forms
             }
             else
             {
-                // Restore absolute values? 
-                // Actually when unchecking, we usually want to see the current absolute value.
-                // Trigger refresh
+                // 取消选中时，通常我们希望看到当前的绝对值。
+                // 触发刷新
                 AfterSelectTreeView(null, null);
             }
         }
@@ -5108,14 +5109,14 @@ namespace UoFiddler.Controls.Forms
 
         private void ZoomNumericUpDown_Click(object sender, EventArgs e)
         {
-            // This might be triggered if configured as button, but we use OnZoomChanged for ComboBox
+            // 如果配置为按钮，可能会触发此事件，但我们使用 OnZoomChanged 处理 ComboBox
         }
 
         private void LoadSecondAnimationFile(string fileName)
         {
             string root = Files.RootDir;
 
-            // Check for UOP
+            // 检查 UOP
             if (fileName.EndsWith(".uop", StringComparison.OrdinalIgnoreCase))
             {
                 string fullPath = System.IO.Path.Combine(root, fileName);
@@ -5124,12 +5125,12 @@ namespace UoFiddler.Controls.Forms
                     _secondUopManager = new UopAnimationDataManager();
                     _secondUopManager.LoadUopFiles();
                     _secondUopManager.ProcessUopData();
-                    _secondAnimFileIndex = 6; // UOP type
+                    _secondAnimFileIndex = 6; // UOP 类型
                 }
                 return;
             }
 
-            // Handle MUL (combobox items are "anim", "anim2" etc. without extension)
+            // 处理 MUL（组合框项目是“anim”、“anim2”等，没有扩展名）
             _secondUopManager = null;
             if (fileName.Equals("anim", StringComparison.OrdinalIgnoreCase))
             {
@@ -5148,19 +5149,19 @@ namespace UoFiddler.Controls.Forms
 
         private int GetAnimationType(int body, int fileType)
         {
-            if (fileType == 6) return 3; // UOP Creature mapping
+            if (fileType == 6) return 3; // UOP 生物映射
             int length = Animations.GetAnimLength(body, fileType);
-            if (length == 13) return 0; // Animal
-            if (length == 22) return 1; // Monster
-            if (length == 35) return 2; // Human
+            if (length == 13) return 0; // 动物
+            if (length == 22) return 1; // 怪物
+            if (length == 35) return 2; // 人类
             return 1;
         }
 
         private int MapAction(int action, int sourceType, int targetType)
         {
-            // Forced Remapping: People (2) <-> UOP Creature (3)
+            // 强制重映射：人类（2）<-> UOP 生物（3）
 
-            // Case 1: Main is People (MUL), Second is UOP Creature
+            // 情况 1：主动画是人类（MUL），第二个动画是 UOP 生物
             if (sourceType == 2 && targetType == 3)
             {
                 if (action == 23) return 29; // Horse_Walk_01 -> MountWalk
@@ -5168,15 +5169,15 @@ namespace UoFiddler.Controls.Forms
                 if (action == 25) return 31; // Horse_Idle_01 -> MountIdle
             }
 
-            // Case 2: Main is UOP Creature, Second is People (MUL)
+            // 情况 2：主动画是 UOP 生物，第二个动画是人类（MUL）
             if (sourceType == 3 && targetType == 2)
             {
-                // Mapping priority 1
+                // 映射优先级 1
                 if (action == 29) return 23; // MountWalk -> Horse_Walk_01
                 if (action == 30) return 24; // MountRun -> Horse_Run_01
                 if (action == 31) return 25; // MountIdle -> Horse_Idle_01
 
-                // Mapping priority 2 (fallback requests)
+                // 映射优先级 2（后备请求）
                 if (action == 22) return 23; // BlockLeft -> Horse_Walk_01
                 if (action == 24) return 24; // TakeOff -> Horse_Run_01
                 if (action == 25) return 25; // GetHitInAir -> Horse_Idle_01
@@ -5216,7 +5217,7 @@ namespace UoFiddler.Controls.Forms
                 if (uopAnim != null && uopAnim.Frames.Count > 0)
                 {
                     int index = FramesTrackBar.Value;
-                    if (index >= uopAnim.Frames.Count) index = 0; // Loop or clamp?
+                    if (index >= uopAnim.Frames.Count) index = 0; // 循环或钳位？
                     var f = uopAnim.Frames[index];
                     frame = f.Image;
                     centerX = f.Header.CenterX;
@@ -5226,7 +5227,7 @@ namespace UoFiddler.Controls.Forms
             else
             {
                 // MUL
-                // Use AnimationEdit.GetAnimation with _secondAnimFileIndex
+                // 使用 _secondAnimFileIndex 调用 AnimationEdit.GetAnimation
                 AnimIdx edit = AnimationEdit.GetAnimation(_secondAnimFileIndex, _secondAnimID, mappedAction, _currentDir);
                 if (edit != null)
                 {
@@ -5252,12 +5253,12 @@ namespace UoFiddler.Controls.Forms
 
                 if (_secondAnimPseudoVisu)
                 {
-                    // Draw colored overlay (translucent)
+                    // 绘制彩色叠加层（半透明）
                     using (var attr = new ImageAttributes())
                     {
                         ColorMatrix matrix = new ColorMatrix(new float[][]{
                                 new float[] {0, 0, 0, 0, 0},
-                                new float[] {0, 1, 0, 0, 0}, // Green
+                                new float[] {0, 1, 0, 0, 0}, // 绿色
                                 new float[] {0, 0, 0, 0, 0},
                                 new float[] {0, 0, 0, 0.5f, 0}, // Alpha 0.5
                                 new float[] {0, 0, 0, 0, 1}
@@ -5274,12 +5275,12 @@ namespace UoFiddler.Controls.Forms
             }
         }
 
-        // Add Directions with Canvas ( CV5 style GIF )
+        // 带画布添加方向（CV5 样式 GIF）
         private void AddDirectionsAddWithCanvasUniqueImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_fileType == 6)
             {
-                MessageBox.Show("Unavailable for .UOP format", "Restricted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("UOP 格式不可用", "受限", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -5290,9 +5291,9 @@ namespace UoFiddler.Controls.Forms
                     using (OpenFileDialog dialog = new OpenFileDialog())
                     {
                         dialog.Multiselect = false;
-                        dialog.Title = "Choose 1 Gif ( with all directions in CV5 Style ) to add";
+                        dialog.Title = "选择 1 个 GIF（包含 CV5 样式的所有方向）添加";
                         dialog.CheckFileExists = true;
-                        dialog.Filter = "Gif files (*.gif;)|*.gif;";
+                        dialog.Filter = "Gif 文件 (*.gif;)|*.gif;";
 
                         if (dialog.ShowDialog() == DialogResult.OK)
                         {
@@ -5305,7 +5306,7 @@ namespace UoFiddler.Controls.Forms
 
                             if (edit != null)
                             {
-                                // Gif Especial Properties
+                                // Gif 特殊属性
                                 if (dialog.FileName.Contains(".gif"))
                                 {
                                     using (Bitmap bmpTemp = new Bitmap(dialog.FileName))
@@ -5316,7 +5317,7 @@ namespace UoFiddler.Controls.Forms
 
                                         FrameDimension dimension = new FrameDimension(bitmap.FrameDimensionsList[0]);
 
-                                        // Number of frames
+                                        // 帧数
                                         int frameCount = bitmap.GetFrameCount(dimension);
 
                                         ProgressBar.Maximum = frameCount;
@@ -5327,7 +5328,7 @@ namespace UoFiddler.Controls.Forms
 
                                         Bitmap[] bitBmp = new Bitmap[frameCount];
 
-                                        // Return an Image at a certain index
+                                        // 返回特定索引的图像
                                         for (int index = 0; index < frameCount; index++)
                                         {
                                             bitBmp[index] = new Bitmap(bitmap.Width, bitmap.Height, PixelFormat.Format16bppArgb1555);
@@ -5358,20 +5359,20 @@ namespace UoFiddler.Controls.Forms
                     }
                 }
 
-                // Refresh List after Canvas reduction
+                // 画布缩小后刷新列表
                 _currentDir = DirectionTrackBar.Value;
                 AfterSelectTreeView(null, null);
             }
             catch (NullReferenceException)
             {
-                // TODO: add logging or fix?
+                // TODO：添加日志记录或修复？
                 DirectionTrackBar.Enabled = true;
             }
         }
 
         private AnimIdx Cv5AnimIdxPositions(int frameCount, Bitmap[] bitBmp, FrameDimension dimension, AnimIdx edit, Bitmap bmp)
         {
-            // position 0
+            // 位置 0
             for (int index = frameCount / 8 * 4; index < frameCount / 8 * 5; index++)
             {
                 bitBmp[index].SelectActiveFrame(dimension, index);
@@ -5418,7 +5419,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // position 1
+            // 位置 1
             edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
             bmp.SelectActiveFrame(dimension, 0);
             UpdateGifPalette(bmp, edit);
@@ -5468,7 +5469,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // position 2
+            // 位置 2
             edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
             bmp.SelectActiveFrame(dimension, 0);
             UpdateGifPalette(bmp, edit);
@@ -5518,7 +5519,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // position 3
+            // 位置 3
             edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
             bmp.SelectActiveFrame(dimension, 0);
             UpdateGifPalette(bmp, edit);
@@ -5568,7 +5569,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // position 4
+            // 位置 4
             edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
             bmp.SelectActiveFrame(dimension, 0);
             UpdateGifPalette(bmp, edit);
@@ -5618,7 +5619,7 @@ namespace UoFiddler.Controls.Forms
 
         private static unsafe Bitmap ConvertBmpAnimCv5(Bitmap bmp, int red, int green, int blue)
         {
-            //Extra background
+            //额外背景
             int extraBack = (red / 8 * 1024) + (green / 8 * 32) + (blue / 8) + 32768;
 
             BitmapData bd = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format16bppArgb1555);
@@ -5637,18 +5638,18 @@ namespace UoFiddler.Controls.Forms
                 ushort* curNew = lineNew;
                 for (int x = 0; x < bmp.Width; ++x)
                 {
-                    //My Soulblighter Modification
-                    // Convert color 0,0,0 to 0,0,8
+                    //我的 Soulblighter 修改
+                    // 将颜色 0,0,0 转换为 0,0,8
                     if (cur[x] == 32768)
                     {
                         curNew[x] = 32769;
                     }
 
-                    if (cur[x] != 65535 && cur[x] != 54965 && cur[x] != extraBack && cur[x] > 32768) //True White == BackGround
+                    if (cur[x] != 65535 && cur[x] != 54965 && cur[x] != extraBack && cur[x] > 32768) //真白 == 背景
                     {
                         curNew[x] = cur[x];
                     }
-                    //End of Soulblighter Modification
+                    //Soulblighter 修改结束
                 }
             }
             bmp.UnlockBits(bd);
@@ -5660,26 +5661,26 @@ namespace UoFiddler.Controls.Forms
 
         private static void Cv5CanvasAlgorithm(Bitmap[] bitBmp, int frameCount, FrameDimension dimension, Color customConvert)
         {
-            // TODO: Needs better names
-            // TODO: This code needs documentation. This algorithm is not really readable
+            // TODO：需要更好的名称
+            // TODO：此代码需要文档。此算法不易阅读
 
-            // Order of calls looks important
-            // Looks like it is import for Gif/bmps from Diablo cv5 format
-            // Some materials about Diablo formats:
+            // 调用顺序很重要
+            // 看起来它对于来自 Diablo cv5 格式的 Gif/bmp 很重要
+            // 关于 Diablo 格式的一些资料：
             // - https://d2mods.info/resources/infinitum/tut_files/dcc_tutorial/
             // - https://d2mods.info/resources/infinitum/tut_files/dcc_tutorial/chapter4.html
             //
             const int frameDivider = 8;
 
-            // position 0
+            // 位置 0
             Cv5ProcessFrames(bitBmp, dimension, customConvert, GetInitialFrameIndex(frameCount, frameDivider, 4), GetMaximumFrameIndex(frameCount, frameDivider, 4));
-            // position 1
+            // 位置 1
             Cv5ProcessFrames(bitBmp, dimension, customConvert, GetInitialFrameIndex(frameCount, frameDivider, 0), GetMaximumFrameIndex(frameCount, frameDivider, 0));
-            // position 2
+            // 位置 2
             Cv5ProcessFrames(bitBmp, dimension, customConvert, GetInitialFrameIndex(frameCount, frameDivider, 5), GetMaximumFrameIndex(frameCount, frameDivider, 5));
-            // position 3
+            // 位置 3
             Cv5ProcessFrames(bitBmp, dimension, customConvert, GetInitialFrameIndex(frameCount, frameDivider, 1), GetMaximumFrameIndex(frameCount, frameDivider, 1));
-            // position 4
+            // 位置 4
             Cv5ProcessFrames(bitBmp, dimension, customConvert, GetInitialFrameIndex(frameCount, frameDivider, 6), GetMaximumFrameIndex(frameCount, frameDivider, 6));
         }
 
@@ -5708,7 +5709,7 @@ namespace UoFiddler.Controls.Forms
             bool var = true;
             bool breakOk = false;
 
-            // Top
+            // 顶部
             for (int yf = 0; yf < bitBmp[initialFrameIndex].Height; yf++)
             {
                 for (int frameIdx = initialFrameIndex; frameIdx < maximumFrameIndex; frameIdx++)
@@ -5777,7 +5778,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Bottom
+            // 底部
             for (int yf = bitBmp[initialFrameIndex].Height - 1; yf > 0; yf--)
             {
                 for (int frameIdx = initialFrameIndex; frameIdx < maximumFrameIndex; frameIdx++)
@@ -5846,7 +5847,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Left
+            // 左侧
             for (int xf = 0; xf < bitBmp[initialFrameIndex].Width; xf++)
             {
                 for (int frameIdx = initialFrameIndex; frameIdx < maximumFrameIndex; frameIdx++)
@@ -5917,7 +5918,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Right
+            // 右侧
             for (int xf = bitBmp[initialFrameIndex].Width - 1; xf > 0; xf--)
             {
                 for (int frameIdx = initialFrameIndex; frameIdx < maximumFrameIndex; frameIdx++)
@@ -6016,12 +6017,12 @@ namespace UoFiddler.Controls.Forms
             }
         }
 
-        // All directions Add KRFrameViewer
+        // 所有方向添加 KRFrameViewer
         private void AllDirectionsAddWithCanvasKRFrameEditorColorCorrectorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_fileType == 6)
             {
-                MessageBox.Show("Unavailable for .UOP format", "Restricted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("UOP 格式不可用", "受限", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -6033,7 +6034,7 @@ namespace UoFiddler.Controls.Forms
 
         private AnimIdx KrAnimIdxPositions(int frameCount, Bitmap[] bitBmp, FrameDimension dimension, AnimIdx edit, Bitmap bmp)
         {
-            // position 0
+            // 位置 0
             for (int index = frameCount / 5 * 0; index < frameCount / 5 * 1; index++)
             {
                 bitBmp[index].SelectActiveFrame(dimension, index);
@@ -6080,7 +6081,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // position 1
+            // 位置 1
             edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
             bmp.SelectActiveFrame(dimension, 0);
             UpdateGifPalette(bmp, edit);
@@ -6130,7 +6131,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // position 2
+            // 位置 2
             edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
             bmp.SelectActiveFrame(dimension, 0);
             UpdateGifPalette(bmp, edit);
@@ -6180,7 +6181,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // position 3
+            // 位置 3
             edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
             bmp.SelectActiveFrame(dimension, 0);
             UpdateGifPalette(bmp, edit);
@@ -6230,7 +6231,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // position 4
+            // 位置 4
             edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
             bmp.SelectActiveFrame(dimension, 0);
             UpdateGifPalette(bmp, edit);
@@ -6280,7 +6281,7 @@ namespace UoFiddler.Controls.Forms
 
         private static unsafe Bitmap ConvertBmpAnimKr(Bitmap bmp, int red, int green, int blue)
         {
-            // Extra background
+            // 额外背景
             int extraBack = (red / 8 * 1024) + (green / 8 * 32) + (blue / 8) + 32768;
 
             BitmapData bd = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format16bppArgb1555);
@@ -6301,7 +6302,7 @@ namespace UoFiddler.Controls.Forms
                 {
                     //if (cur[X] != 53235)
                     //{
-                    // Convert back to RGB
+                    // 转换回 RGB
                     int blueTemp = (cur[x] - 32768) / 32;
                     blueTemp *= 32;
                     blueTemp = cur[x] - 32768 - blueTemp;
@@ -6313,25 +6314,25 @@ namespace UoFiddler.Controls.Forms
 
                     int redTemp = (cur[x] - 32768) / 1024;
 
-                    // remove green colors
+                    // 移除绿色
                     if (greenTemp > blueTemp && greenTemp > redTemp && greenTemp > 10)
                     {
                         cur[x] = 65535;
                     }
                     //}
 
-                    //My Soulblighter Modification
-                    // Convert color 0,0,0 to 0,0,8
+                    //我的 Soulblighter 修改
+                    // 将颜色 0,0,0 转换为 0,0,8
                     if (cur[x] == 32768)
                     {
                         curNew[x] = 32769;
                     }
 
-                    if (cur[x] != 65535 && cur[x] != 54965 && cur[x] != extraBack && cur[x] > 32768) //True White == BackGround
+                    if (cur[x] != 65535 && cur[x] != 54965 && cur[x] != extraBack && cur[x] > 32768) //真白 == 背景
                     {
                         curNew[x] = cur[x];
                     }
-                    //End of Soulblighter Modification
+                    //Soulblighter 修改结束
                 }
             }
             bmp.UnlockBits(bd);
@@ -6342,17 +6343,17 @@ namespace UoFiddler.Controls.Forms
         private static void KrCanvasAlgorithm(Bitmap[] bitBmp, int frameCount, FrameDimension dimension, Color customConvert)
         {
             /*
-             * TODO: both methods needs better names.
+             * TODO：两种方法都需要更好的名称。
              *
-             *      Duplication here was huge. Now it is reduced to one method with parameter.
-             *      It still needs further reducing.
-             *      It may be possible to merge code with CV5 routines.
+             *      这里的重复很大。现在已简化为带参数的一个方法。
+             *      仍然需要进一步简化。
+             *      可能可以将代码与 CV5 例程合并。
              */
-            // TODO: Needs better names
-            // TODO: This code needs documentation. This algorithm is not really readable
+            // TODO：需要更好的名称
+            // TODO：此代码需要文档。此算法不易阅读
 
-            // Order of calls looks important
-            // Looks like it is import for Gif/bmps from KR client format
+            // 调用顺序很重要
+            // 看起来它对于来自 KR 客户端的 Gif/bmp 很重要
             const int frameDivider = 5;
 
             KrProcessFrames(bitBmp, dimension, customConvert, GetInitialFrameIndex(frameCount, frameDivider, 0), GetMaximumFrameIndex(frameCount, frameDivider, 0));
@@ -6377,7 +6378,7 @@ namespace UoFiddler.Controls.Forms
             bool var = true;
             bool breakOk = false;
 
-            // Top
+            // 顶部
             for (int yf = 0; yf < bitBmp[initialFrameIndex].Height; yf++)
             {
                 for (int frameIdx = initialFrameIndex; frameIdx < maximumFrameIndex; frameIdx++)
@@ -6446,7 +6447,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Bottom
+            // 底部
             for (int yf = bitBmp[initialFrameIndex].Height - 1; yf > 0; yf--)
             {
                 for (int frameIdx = initialFrameIndex; frameIdx < maximumFrameIndex; frameIdx++)
@@ -6515,7 +6516,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Left
+            // 左侧
             for (int xf = 0; xf < bitBmp[initialFrameIndex].Width; xf++)
             {
                 for (int frameIdx = initialFrameIndex; frameIdx < maximumFrameIndex; frameIdx++)
@@ -6586,7 +6587,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Right
+            // 右侧
             for (int xf = bitBmp[initialFrameIndex].Width - 1; xf > 0; xf--)
             {
                 for (int frameIdx = initialFrameIndex; frameIdx < maximumFrameIndex; frameIdx++)
@@ -6726,7 +6727,7 @@ namespace UoFiddler.Controls.Forms
             }
         }
 
-        // TODO: check why there is no RadioButton1_CheckedChanged event for selector 1?
+        // TODO：检查为什么没有选择器 1 的 RadioButton1_CheckedChanged 事件？
 
         private void RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
@@ -6760,7 +6761,7 @@ namespace UoFiddler.Controls.Forms
 
         private void ConvertAndSetPaletteWithReducer()
         {
-            // TODO: except calling reducer here the whole logic is the same as in ConvertAndSetPalette()
+            // TODO：除了调用 reducer 之外，这里的整个逻辑与 ConvertAndSetPalette() 相同
             for (int x = 0; x < 5; x++)
             {
                 AnimIdx edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
@@ -6803,7 +6804,7 @@ namespace UoFiddler.Controls.Forms
 
         public void UpdateGifPalette(Bitmap bit, AnimIdx animIdx)
         {
-            // Reset palette
+            // 重置调色板
             for (int k = 0; k < Animations.PaletteCapacity; k++)
             {
                 animIdx.Palette[k] = 0;
@@ -6812,7 +6813,7 @@ namespace UoFiddler.Controls.Forms
             List<Color> entries = new List<Color>();
             bool handled = false;
 
-            // Try to use WPF decoder for GIFs
+            // 尝试对 GIF 使用 WPF 解码器
             if (ImageFormat.Gif.Equals(bit.RawFormat))
             {
                 try
@@ -6834,14 +6835,14 @@ namespace UoFiddler.Controls.Forms
 
             if (!handled)
             {
-                // Use GDI+ palette if available and valid
+                // 如果有效，使用 GDI+ 调色板
                 if (bit.Palette != null && bit.Palette.Entries.Length > 0)
                 {
                     entries = bit.Palette.Entries.ToList();
                 }
                 else
                 {
-                    // Generate palette from image content
+                    // 从图像内容生成调色板
                     var generated = UoFiddler.Controls.Uop.VdExportHelper.GenerateProperPaletteFromImage(new UoFiddler.Controls.Models.Uop.Imaging.DirectBitmap(bit));
                     entries = generated.Select(c => Color.FromArgb(c.Alpha, c.R, c.G, c.B)).ToList();
                 }
@@ -7137,7 +7138,7 @@ namespace UoFiddler.Controls.Forms
                 return null;
             }
 
-            // Global coords are not available for MULs, so we pass 0.
+            // MUL 没有全局坐标，因此我们传递 0。
             return new Models.Uop.UOAnimation((uint)body, action, 0, 0, 0, 0, 0, 0, allFrames, finalPalette, totalFrames);
         }
 
@@ -7200,7 +7201,7 @@ namespace UoFiddler.Controls.Forms
                 if (foundNode != null)
                 {
                     treeView.SelectedNode = foundNode;
-                    // Ensure the selected node is visible
+                    // 确保所选节点可见
                     foundNode.EnsureVisible();
                     break;
                 }
@@ -7244,11 +7245,11 @@ namespace UoFiddler.Controls.Forms
             try
             {
                 _uopManager.CommitChanges(_currentBody, _currentAction);
-                System.Diagnostics.Debug.WriteLine($"✅ UpdateUopData: Commited changes for Body={_currentBody} Action={_currentAction}");
+                System.Diagnostics.Debug.WriteLine($"✅ UpdateUopData: 已提交 Body={_currentBody} Action={_currentAction} 的更改");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error updating UOP data in memory: {ex.Message}");
+                MessageBox.Show($"更新 UOP 内存数据时出错：{ex.Message}");
             }
         }
 
@@ -7259,7 +7260,7 @@ namespace UoFiddler.Controls.Forms
             string outputPath = Options.OutputPath;
             if (string.IsNullOrEmpty(outputPath))
             {
-                MessageBox.Show("Output path is not configured. Please set it in Options.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("未配置输出路径。请在选项中设置。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -7268,7 +7269,7 @@ namespace UoFiddler.Controls.Forms
                 Directory.CreateDirectory(outputPath);
             }
 
-            // Attempt to find the source file to construct the output filename (default value if unknown)
+            // 尝试查找源文件以构造输出文件名（如果未知则使用默认值）
             string uopFileName = "AnimationFrame1.uop";
             var fileInfo = _uopManager.GetAnimationData(_currentBody, _currentAction, 0);
             if (fileInfo != null && fileInfo.File != null)
@@ -7293,38 +7294,38 @@ namespace UoFiddler.Controls.Forms
             Cursor.Current = Cursors.WaitCursor;
             try
             {
-                // IMPORTANT: Do NOT call CommitAllChanges here BEFORE saving.
-                // The SaveModifiedAnimationsToUopHybrid method detects modified IDs
-                // (param + import-tracking + cache) and writes the grouped files.
+                // 重要：在保存前不要调用 CommitAllChanges。
+                // SaveModifiedAnimationsToUopHybrid 方法会检测修改的 ID
+                //（参数 + 导入跟踪 + 缓存）并写入分组文件。
                 bool success = VdImportHelper.SaveModifiedAnimationsToUopHybrid(_uopManager, -1, destinationUopFilePath);
 
                 if (success)
                 {
-                    // After writing, the internal state can be switched / reloaded if needed.
-                    // CommitAllChanges here ensures memory consistency if necessary.
+                    // 写入后，如果需要可以切换/重新加载内部状态。
+                    // 如果必要，这里的 CommitAllChanges 确保内存一致性。
                     try
                     {
                         _uopManager.CommitAllChanges();
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine($"Warning: CommitAllChanges after save failed: {ex.Message}");
+                        System.Diagnostics.Debug.WriteLine($"警告：保存后 CommitAllChanges 失败：{ex.Message}");
                     }
 
                     Options.ChangedUltimaClass["Animations"] = false;
-                    MessageBox.Show($"Animation(s) saved to {destinationUopFilePath}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"动画已保存到 {destinationUopFilePath}", "已保存", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Force reload to apply the written changes.
+                    // 强制重新加载以应用写入的更改。
                     try
                     {
                         _uopManager.ClearCache();
                         LoadUopAnimations();
                     }
-                    catch { /* best-effort reload */ }
+                    catch { /* 尽力重新加载 */ }
                 }
                 else
                 {
-                    MessageBox.Show("Failed to save animation(s). Check debug logs for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("保存动画失败。请检查调试日志以获取详细信息。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             finally
@@ -7343,9 +7344,9 @@ namespace UoFiddler.Controls.Forms
             {
                 if (form.ShowDialog() != DialogResult.OK) return;
 
-                // Ask for resize percentage
+                // 询问缩放百分比
                 double scale = 1.0;
-                string input = ShowInputDialog("Enter resize percentage (e.g. 100 for original size, 50 for half size):", "Resize Export", "100");
+                string input = ShowInputDialog("输入缩放百分比（例如 100 表示原始大小，50 表示一半大小）：", "缩放导出", "100");
                 if (int.TryParse(input, out int percentage) && percentage > 0 && percentage != 100)
                 {
                     scale = percentage / 100.0;
@@ -7364,20 +7365,20 @@ namespace UoFiddler.Controls.Forms
                             var frames = GetFramesForExport(_currentBody, action, form.SelectedDirections);
                             if (frames.Count > 0)
                             {
-                                if (scale != 1.0) ResizeFrames(frames, scale); // Use helper or inline logic
+                                if (scale != 1.0) ResizeFrames(frames, scale); // 使用辅助函数或内联逻辑
 
                                 string baseName = $"anim{_fileType}_{_currentBody}_{action:D2}";
                                 AnimationPacker.ExportToSpritesheet(frames, fbd.SelectedPath, baseName, form.MaxWidth, form.FrameSpacing, form.OneRowPerDirection);
                             }
                         }
-                        MessageBox.Show($"Batch Export complete. (Scale: {scale:P0})", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"批量导出完成。（缩放：{scale:P0}）", "导出", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         var frames = GetFramesForExport(_currentBody, _currentAction, form.SelectedDirections);
                         if (frames.Count == 0)
                         {
-                            MessageBox.Show("No frames to export.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("没有可导出的帧。", "导出", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
@@ -7385,7 +7386,7 @@ namespace UoFiddler.Controls.Forms
 
                         string baseName = $"anim{_fileType}_{_currentBody}_{_currentAction}";
                         AnimationPacker.ExportToSpritesheet(frames, fbd.SelectedPath, baseName, form.MaxWidth, form.FrameSpacing, form.OneRowPerDirection);
-                        MessageBox.Show($"Export complete. (Scale: {scale:P0})", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"导出完成。（缩放：{scale:P0}）", "导出", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -7418,13 +7419,13 @@ namespace UoFiddler.Controls.Forms
             {
                 using (var ofd = new OpenFileDialog())
                 {
-                    ofd.Filter = "JSON files (*.json)|*.json";
+                    ofd.Filter = "JSON 文件 (*.json)|*.json";
                     ofd.Multiselect = true;
                     if (ofd.ShowDialog() != DialogResult.OK) return;
 
                     try
                     {
-                        // Choose the target UOP file
+                        // 选择目标 UOP 文件
                         string targetUopPath = null;
                         using (var fileSelectForm = new UopFileSelectionForm(_uopManager.LoadedUopFiles))
                         {
@@ -7458,22 +7459,22 @@ namespace UoFiddler.Controls.Forms
                             catch (Exception ex)
                             {
                                 failCount++;
-                                System.Diagnostics.Debug.WriteLine($"Failed to import {file}: {ex.Message}");
+                                System.Diagnostics.Debug.WriteLine($"导入 {file} 失败：{ex.Message}");
                             }
                         }
 
                         if (successCount > 0)
                         {
-                            // Save in HYBRID mode
+                            // 以 HYBRID 模式保存
                             _uopManager.CommitAllChanges();
                             string destinationPath = Path.Combine(Options.OutputPath, Path.GetFileName(targetUopPath));
 
                             if (VdImportHelper.SaveModifiedAnimationsToUopHybrid(_uopManager, _currentBody, destinationPath))
                             {
                                 MessageBox.Show(
-                                    $"✅ {successCount} fichier(s) Spritesheet importés en mode HYBRIDE !\n" +
-                                    $"📁 Fichier : {destinationPath}",
-                                    "Import Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    $"✅ {successCount} 个 Spritesheet 文件已以 HYBRID 模式导入！\n" +
+                                    $"📁 文件：{destinationPath}",
+                                    "导入完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 _uopManager.ClearCache();
                                 LoadUopAnimations();
@@ -7481,8 +7482,8 @@ namespace UoFiddler.Controls.Forms
                             }
                             else
                             {
-                                MessageBox.Show("❌ Import successful but save failed. Check logs.",
-                                    "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("❌ 导入成功但保存失败。请检查日志。",
+                                    "保存错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 _uopManager.ClearCache();
                                 LoadUopAnimations();
                                 Options.ChangedUltimaClass["Animations"] = true;
@@ -7502,16 +7503,16 @@ namespace UoFiddler.Controls.Forms
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"❌ Error importing Spritesheet: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"❌ 导入 Spritesheet 时出错：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 return;
             }
 
-            // Fallback for MUL
+            // MUL 后备
             using (var ofd = new OpenFileDialog())
             {
-                ofd.Filter = "JSON files (*.json)|*.json";
+                ofd.Filter = "JSON 文件 (*.json)|*.json";
                 ofd.Multiselect = true;
                 if (ofd.ShowDialog() != DialogResult.OK) return;
 
@@ -7535,7 +7536,7 @@ namespace UoFiddler.Controls.Forms
                     catch (Exception ex)
                     {
                         failCount++;
-                        System.Diagnostics.Debug.WriteLine($"Failed to import {file}: {ex.Message}");
+                        System.Diagnostics.Debug.WriteLine($"导入 {file} 失败：{ex.Message}");
                     }
                 }
 
@@ -7558,11 +7559,11 @@ namespace UoFiddler.Controls.Forms
 
                 if (failCount == 0)
                 {
-                    MessageBox.Show($"Successfully imported {successCount} spritesheets.", "Import", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"成功导入 {successCount} 个 Spritesheet。", "导入", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show($"Imported {successCount} spritesheets.\nFailed to import {failCount} files.", "Import Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"已导入 {successCount} 个 Spritesheet。\n无法导入 {failCount} 个文件。", "导入警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -7578,13 +7579,13 @@ namespace UoFiddler.Controls.Forms
                 var frames = GetFramesForExport(_currentBody, _currentAction, new List<int> { 0, 1, 2, 3, 4 });
                 if (frames.Count == 0)
                 {
-                    MessageBox.Show("No frames to export.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("没有可导出的帧。", "导出", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 string baseName = $"anim{_fileType}_{_currentBody}_{_currentAction}";
                 AnimationPacker.ExportToFramesXml(frames, fbd.SelectedPath, baseName);
-                MessageBox.Show("Export complete.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("导出完成。", "导出", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -7596,9 +7597,9 @@ namespace UoFiddler.Controls.Forms
             {
                 if (fbd.ShowDialog() != DialogResult.OK) return;
 
-                // Ask for resize percentage
+                // 询问缩放百分比
                 double scale = 1.0;
-                string input = ShowInputDialog("Enter resize percentage (e.g. 100 for original size, 50 for half size):", "Resize Export", "100");
+                string input = ShowInputDialog("输入缩放百分比（例如 100 表示原始大小，50 表示一半大小）：", "缩放导出", "100");
                 if (int.TryParse(input, out int percentage) && percentage > 0 && percentage != 100)
                 {
                     scale = percentage / 100.0;
@@ -7611,7 +7612,7 @@ namespace UoFiddler.Controls.Forms
                     var frames = GetFramesForExport(_currentBody, action, new List<int> { 0, 1, 2, 3, 4 });
                     if (frames.Count > 0)
                     {
-                        // Apply scaling if requested
+                        // 如果需要应用缩放
                         if (scale != 1.0)
                         {
                             foreach (var frame in frames)
@@ -7622,17 +7623,17 @@ namespace UoFiddler.Controls.Forms
                                 var resized = new Bitmap(newWidth, newHeight, PixelFormat.Format32bppArgb);
                                 using (Graphics g = Graphics.FromImage(resized))
                                 {
-                                    // Use NearestNeighbor to preserve original palette colors and avoid blur/artifacts
+                                    // 使用最近邻插值以保留原始调色板颜色，避免模糊/伪影
                                     g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
                                     g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
                                     g.DrawImage(frame.Image, 0, 0, newWidth, newHeight);
                                 }
 
-                                // Features original clone and replace with resized
+                                // 释放原始图像并用缩放后的图像替换
                                 frame.Image.Dispose();
                                 frame.Image = resized;
 
-                                // Scale center coordinates
+                                // 缩放中心坐标
                                 frame.Center = new Point((int)(frame.Center.X * scale), (int)(frame.Center.Y * scale));
                             }
                         }
@@ -7641,7 +7642,7 @@ namespace UoFiddler.Controls.Forms
                         AnimationPacker.ExportToFramesXml(frames, fbd.SelectedPath, baseName);
                     }
                 }
-                MessageBox.Show($"Batch Export complete. (Scale: {scale:P0})", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"批量导出完成。（缩放：{scale:P0}）", "导出", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -7651,13 +7652,13 @@ namespace UoFiddler.Controls.Forms
             {
                 using (var ofd = new OpenFileDialog())
                 {
-                    ofd.Filter = "XML files (*.xml)|*.xml";
+                    ofd.Filter = "XML 文件 (*.xml)|*.xml";
                     ofd.Multiselect = true;
                     if (ofd.ShowDialog() != DialogResult.OK) return;
 
                     try
                     {
-                        // Choose the target UOP file
+                        // 选择目标 UOP 文件
                         string targetUopPath = null;
                         using (var fileSelectForm = new UopFileSelectionForm(_uopManager.LoadedUopFiles))
                         {
@@ -7691,31 +7692,31 @@ namespace UoFiddler.Controls.Forms
                             catch (Exception ex)
                             {
                                 failCount++;
-                                System.Diagnostics.Debug.WriteLine($"Failed to import {file}: {ex.Message}");
+                                System.Diagnostics.Debug.WriteLine($"导入 {file} 失败：{ex.Message}");
                             }
                         }
 
                         if (successCount > 0)
                         {
-                            // Save in HYBRID mode (as for the VD)
+                            // 以 HYBRID 模式保存（与 VD 相同）
                             _uopManager.CommitAllChanges();
                             string destinationPath = Path.Combine(Options.OutputPath, Path.GetFileName(targetUopPath));
 
                             if (VdImportHelper.SaveModifiedAnimationsToUopHybrid(_uopManager, _currentBody, destinationPath))
                             {
                                 MessageBox.Show(
-                                    $"✅ {successCount} fichier(s) Spritesheet importés en mode HYBRIDE !\n" +
-                                    $"📁 Fichier : {destinationPath}",
-                                    "Import Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    $"✅ {successCount} 个 Spritesheet 文件已以 HYBRID 模式导入！\n" +
+                                    $"📁 文件：{destinationPath}",
+                                    "导入完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                _uopManager.ClearCache(); // Force reload to update Bounding Boxes
+                                _uopManager.ClearCache(); // 强制重新加载以更新边界框
                                 LoadUopAnimations();
                                 Options.ChangedUltimaClass["Animations"] = false;
                             }
                             else
                             {
-                                MessageBox.Show("❌ Import successful but save failed. Check logs.",
-                                    "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("❌ 导入成功但保存失败。请检查日志。",
+                                    "保存错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 LoadUopAnimations();
                                 Options.ChangedUltimaClass["Animations"] = true;
                             }
@@ -7734,16 +7735,16 @@ namespace UoFiddler.Controls.Forms
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"❌ Error importing XML: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"❌ 导入 XML 时出错：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 return;
             }
 
-            // Fallback for MUL files (original behavior)
+            // MUL 文件的后备（原始行为）
             using (var ofd = new OpenFileDialog())
             {
-                ofd.Filter = "XML files (*.xml)|*.xml";
+                ofd.Filter = "XML 文件 (*.xml)|*.xml";
                 ofd.Multiselect = true;
                 if (ofd.ShowDialog() != DialogResult.OK) return;
 
@@ -7768,10 +7769,10 @@ namespace UoFiddler.Controls.Forms
                     catch (Exception ex)
                     {
                         failCount++;
-                        System.Diagnostics.Debug.WriteLine($"Failed to import {file}: {ex.Message}");
+                        System.Diagnostics.Debug.WriteLine($"导入 {file} 失败：{ex.Message}");
                         if (failCount == 1)
                         {
-                            MessageBox.Show($"Error importing file {Path.GetFileName(file)}:\n{ex.Message}\n\nStack Trace:\n{ex.StackTrace}", "Import Error Detail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"导入文件 {Path.GetFileName(file)} 时出错：\n{ex.Message}\n\n堆栈跟踪：\n{ex.StackTrace}", "导入错误详情", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -7795,11 +7796,11 @@ namespace UoFiddler.Controls.Forms
 
                 if (failCount == 0)
                 {
-                    MessageBox.Show($"Successfully imported {successCount} XML files.", "Import", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"成功导入 {successCount} 个 XML 文件。", "导入", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show($"Imported {successCount} XML files.\nFailed to import {failCount} files.", "Import Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"已导入 {successCount} 个 XML 文件。\n无法导入 {failCount} 个文件。", "导入警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -7881,7 +7882,7 @@ namespace UoFiddler.Controls.Forms
             int targetBody = (body != -1) ? body : _currentBody;
             int targetAction = (action != -1) ? action : _currentAction;
 
-            // STEP 1: Prepare the data (Grouping by direction for MUL)
+            // 步骤 1：准备数据（按方向分组）
             var framesByDir = frames.GroupBy(f => f.Direction).ToList();
 
             foreach (var group in framesByDir)
@@ -7890,7 +7891,7 @@ namespace UoFiddler.Controls.Forms
 
                 if (_fileType == 6) // UOP
                 {
-                    // UOP Logic (Existing)
+                    // UOP 逻辑（现有）
                     var uopAnim = _uopManager.GetUopAnimation(targetBody, targetAction, direction);
                     if (uopAnim == null)
                     {
@@ -7928,19 +7929,19 @@ namespace UoFiddler.Controls.Forms
                     AnimIdx anim = AnimationEdit.GetAnimation(_fileType, targetBody, targetAction, direction);
                     if (anim == null) continue;
 
-                    // PALETTE GENERATION (Fix for Empty Frames / Crash)
-                    // Check if we need a new palette (if current is empty/black)
+                    // 调色板生成（修复空帧/崩溃）
+                    // 检查是否需要新调色板（如果当前为空/黑色）
                     bool needsPalette = true;
                     for (int i = 0; i < 256; i++)
                     {
                         if (anim.Palette[i] != 0)
                         {
-                            needsPalette = false; // Palette exists, do not overwrite (unless forced? Let's assume strict append/replace uses existing)
+                            needsPalette = false; // 调色板存在，不要覆盖（除非强制？假设严格的附加/替换使用现有）
                             break;
                         }
                     }
 
-                    // If it's a new animation (empty palette), generate one from ALL frames in this group
+                    // 如果是新动画（空调色板），则从此组中的所有帧生成一个
                     if (needsPalette)
                     {
                         var allImages = group.Select(f => f.Image).ToList();
@@ -7948,18 +7949,18 @@ namespace UoFiddler.Controls.Forms
                         anim.ReplacePalette(newPalette);
                     }
 
-                    // Process Frames
+                    // 处理帧
                     foreach (var frame in group)
                     {
                         int currentCount = (anim.Frames != null) ? anim.Frames.Count : 0;
 
-                        // Convert to safe 16bpp
+                        // 转换为安全的 16bpp
                         using (Bitmap bmp16 = ConvertToUltima16Bpp(frame.Image))
                         {
                             if (frame.Index < currentCount)
                             {
-                                // Update Center BEFORE creating FrameEdit (ReplaceFrame uses current Center)
-                                // If we update after, the RawData offsets (baked with old center) + New Center causes GetFrames to write out of bounds.
+                                // 在创建 FrameEdit 之前更新中心（ReplaceFrame 使用当前中心）
+                                // 如果我们在之后更新，RawData 偏移量（使用旧中心烘焙） + 新中心会导致 GetFrames 越界写入。
                                 anim.Frames[frame.Index].Center = frame.Center;
                                 anim.ReplaceFrame(bmp16, frame.Index);
                             }
@@ -7981,21 +7982,21 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // STEP 2: Update the directory tree WITHOUT clearing the cache
+            // 步骤 2：更新目录树而不清除缓存
             if (_fileType == 6) // UOP
             {
                 Options.ChangedUltimaClass["Animations"] = true;
 
-                // NO LoadUopAnimations() here! We're just updating the nodes manually.
+                // 此处不调用 LoadUopAnimations()！我们只手动更新节点。
                 AnimationListTreeView.BeginUpdate();
                 try
                 {
-                    // Check if the Body already exists in the directory tree
+                    // 检查身体节点是否已存在于目录树中
                     TreeNode bodyNode = GetNode(targetBody);
 
                     if (bodyNode == null)
                     {
-                        // Create a new Body node if it does not already exist
+                        // 如果不存在，则创建新的身体节点
                         string mappingInfo = GetUopMulMapping(targetBody);
                         bodyNode = new TreeNode
                         {
@@ -8004,15 +8005,15 @@ namespace UoFiddler.Controls.Forms
                             ForeColor = Color.Black
                         };
                         AnimationListTreeView.Nodes.Add(bodyNode);
-                        System.Diagnostics.Debug.WriteLine($"✅ Created new Body node: {targetBody}");
+                        System.Diagnostics.Debug.WriteLine($"✅ 创建了新的身体节点：{targetBody}");
                     }
                     else
                     {
-                        // The bodysuit exists, switch to black (valid)
+                        // 身体存在，切换为黑色（有效）
                         bodyNode.ForeColor = Color.Black;
                     }
 
-                    // Check if the Action already exists in this Body
+                    // 检查此身体中是否已存在动作节点
                     TreeNode actionNode = null;
                     foreach (TreeNode child in bodyNode.Nodes)
                     {
@@ -8025,24 +8026,24 @@ namespace UoFiddler.Controls.Forms
 
                     if (actionNode == null)
                     {
-                        // CREATE a new Action node if it does not exist
+                        // 如果不存在，则创建新的动作节点
                         actionNode = new TreeNode
                         {
                             Tag = targetAction,
-                            Text = $"{targetAction:D2}_{GetActionDescription(targetBody, targetAction)} (Imported)",
+                            Text = $"{targetAction:D2}_{GetActionDescription(targetBody, targetAction)} (已导入)",
                             ForeColor = Color.Black
                         };
                         bodyNode.Nodes.Add(actionNode);
-                        System.Diagnostics.Debug.WriteLine($"✅ Created new Action node: {targetAction} for Body {targetBody}");
+                        System.Diagnostics.Debug.WriteLine($"✅ 为身体 {targetBody} 创建了新的动作节点：{targetAction}");
                     }
                     else
                     {
-                        // The action exists, switch to black (valid)
+                        // 动作存在，切换为黑色（有效）
                         actionNode.ForeColor = Color.Black;
-                        actionNode.Text = $"{targetAction:D2}_{GetActionDescription(targetBody, targetAction)} (Modified)";
+                        actionNode.Text = $"{targetAction:D2}_{GetActionDescription(targetBody, targetAction)} (已修改)";
                     }
 
-                    // Expand le Body node pour montrer la nouvelle action
+                    // 展开身体节点以显示新动作
                     bodyNode.Expand();
                 }
                 finally
@@ -8065,7 +8066,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // Refresh the display if this is the currently selected animation
+            // ✅ 步骤 3：如果这是当前选中的动画，则刷新显示
             if (targetBody == _currentBody && targetAction == _currentAction)
             {
                 DisplayUopAnimation();
@@ -8074,17 +8075,16 @@ namespace UoFiddler.Controls.Forms
             }
         }
 
-        #region [ GenerateMulPalette ] This method generates a 256-color palette for MUL animations by extracting unique colors from the provided list of Bitmap frames. It ensures that the palette includes all necessary colors while respecting the 256-color limit of MUL files. The method handles edge cases such as empty frames and optimizes performance by breaking early if the limit is reached.
         private ushort[] GenerateMulPalette(List<Bitmap> images)
         {
             HashSet<ushort> uniqueColors = new HashSet<ushort>();
-            uniqueColors.Add(0); // Ensure transparency is present
+            uniqueColors.Add(0); // 确保透明度存在
 
             foreach (var img in images)
             {
                 if (img == null) continue;
 
-                // Convert to 16bpp first to ensure we get the exact colors Ultima will see
+                // 先转换为 16bpp 以确保获得 Ultima 将看到的准确颜色
                 using (var bmp16 = ConvertToUltima16Bpp(img))
                 {
                     BitmapData bd = bmp16.LockBits(new Rectangle(0, 0, bmp16.Width, bmp16.Height), ImageLockMode.ReadOnly, PixelFormat.Format16bppArgb1555);
@@ -8097,7 +8097,7 @@ namespace UoFiddler.Controls.Forms
                             for (int x = 0; x < bmp16.Width; x++)
                             {
                                 ushort color = ptr[y * stride + x];
-                                if (color != 0) // Ignore transparent, already added
+                                if (color != 0) // 忽略透明，已经添加
                                 {
                                     uniqueColors.Add(color);
                                 }
@@ -8107,7 +8107,7 @@ namespace UoFiddler.Controls.Forms
                     bmp16.UnlockBits(bd);
                 }
 
-                if (uniqueColors.Count >= 256) break; // Limit reached (optimization)
+                if (uniqueColors.Count >= 256) break; // 达到限制（优化）
             }
 
             ushort[] palette = new ushort[256];
@@ -8118,9 +8118,7 @@ namespace UoFiddler.Controls.Forms
             }
             return palette;
         }
-        #endregion
 
-        #region [ ConvertToUltima16Bpp ] // This method safely converts any Bitmap to the 16bpp format used by Ultima, handling edge cases and ensuring compatibility with Indexed and 32bpp sources.
         private Bitmap ConvertToUltima16Bpp(Bitmap source)
         {
             if (source == null || source.Width == 0 || source.Height == 0)
@@ -8130,51 +8128,50 @@ namespace UoFiddler.Controls.Forms
 
             try
             {
-                // Use Clone to safely convert pixel formats (handles Indexed -> RGB and 32bpp -> 16bpp)
+                // 使用 Clone 安全转换像素格式（处理索引 -> RGB 和 32bpp -> 16bpp）
                 return source.Clone(new Rectangle(0, 0, source.Width, source.Height), PixelFormat.Format16bppArgb1555);
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error converting bitmap: {ex.Message}");
-                // Fallback: create a blank 16bpp bitmap and try to draw (slow but safe fallback, though Clone usually works)
+                System.Diagnostics.Debug.WriteLine($"转换位图时出错：{ex.Message}");
+                // 后备：创建一个空的 16bpp 位图并尝试绘制（较慢但安全的后备，尽管 Clone 通常有效）
                 Bitmap bmp = new Bitmap(source.Width, source.Height, PixelFormat.Format16bppArgb1555);
                 using (Graphics g = Graphics.FromImage(bmp))
                 {
                     g.Clear(Color.Transparent);
-                    // DrawImage handles format conversion too, but might OOM on Indexed source if we tried to create Graphics FROM source. 
-                    // Here we create Graphics FROM dest (16bpp), which is safe.
+                    // DrawImage 也处理格式转换，但如果我们在源上创建 Graphics，可能会在索引源上 OOM。
+                    // 这里我们在目标（16bpp）上创建 Graphics，这是安全的。
                     g.DrawImage(source, 0, 0, source.Width, source.Height);
                 }
                 return bmp;
             }
         }
-        #endregion
 
-        #region [ Edit Ultima Online Bodyconv.def and mobtypes.txt ]
+        #region [ 编辑 Ultima Online Bodyconv.def 和 mobtypes.txt ]
         private EditUoBodyconvMobtypes editUoBodyconvMobtypesForm;
 
         private void editUoBodyconvAndMobtypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Check if the form is already open
+            // 检查窗体是否已打开
             if (editUoBodyconvMobtypesForm == null || editUoBodyconvMobtypesForm.IsDisposed)
             {
-                // Open form if it is not already open
+                // 如果尚未打开，则打开窗体
                 editUoBodyconvMobtypesForm = new EditUoBodyconvMobtypes();
                 editUoBodyconvMobtypesForm.Show();
             }
             else
             {
-                // Bring form to foreground if it is already open
+                // 如果已打开，则将其置于前台
                 editUoBodyconvMobtypesForm.BringToFront();
             }
 
-            // Set the value of textBoxID in the EditUoBodyconvMobtypes form
+            // 在 EditUoBodyconvMobtypes 窗体中设置 textBoxID 的值
             editUoBodyconvMobtypesForm.TextBoxID = _currentBody.ToString(); // ID
-            editUoBodyconvMobtypesForm.TextBoxBody = BodyConverter.GetTrueBody(_fileType, _currentBody).ToString(); //Body ID
+            editUoBodyconvMobtypesForm.TextBoxBody = BodyConverter.GetTrueBody(_fileType, _currentBody).ToString(); //身体 ID
         }
         #endregion
 
-        #region [ Copy image to Clipboard ]
+        #region [ 将图像复制到剪贴板 ]
         private void copyFrameToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FramesListView.SelectedItems.Count == 0)
@@ -8192,14 +8189,14 @@ namespace UoFiddler.Controls.Forms
 
             Bitmap frame = frames[frameIndex];
 
-            // Frame in Zwischenablage kopieren
+            // 将帧复制到剪贴板
             Clipboard.SetImage(frame);
 
-            MessageBox.Show("The selected frame was successfully copied to the clipboard.", "Copy Frame", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("所选帧已成功复制到剪贴板。", "复制帧", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
 
-        #region [ Import Image from Clipboard ]
+        #region [ 从剪贴板导入图像 ]
         private void importImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Clipboard.ContainsImage() && FramesListView.SelectedItems.Count > 0)
@@ -8219,7 +8216,7 @@ namespace UoFiddler.Controls.Forms
 
                 Options.ChangedUltimaClass["Animations"] = true;
 
-                MessageBox.Show("Frame image imported from clipboard");
+                MessageBox.Show("帧图像已从剪贴板导入");
             }
         }
 
@@ -8237,7 +8234,7 @@ namespace UoFiddler.Controls.Forms
         }
         #endregion
 
-        #region [ Mirror Image ]
+        #region [ 镜像图像 ]
         private void mirrorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FramesListView.SelectedItems.Count > 0)
@@ -8247,19 +8244,19 @@ namespace UoFiddler.Controls.Forms
                 AnimIdx edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
                 if (edit == null) return;
 
-                // Bitmap loaded
+                // 加载位图
                 Bitmap frame = edit.GetFrames()[frameIndex];
 
-                // mirror image
+                // 镜像图像
                 frame.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
-                // replace frames
+                // 替换帧
                 edit.ReplaceFrame(frame, frameIndex);
 
-                // Rebuild ListView
+                // 重建列表视图
                 FramesListView.BeginUpdate();
                 FramesListView.Items.Clear();
-                // Reload all frames
+                // 重新加载所有帧
                 Bitmap[] frames = edit.GetFrames();
                 for (int i = 0; i < frames.Length; i++)
                 {
@@ -8272,18 +8269,18 @@ namespace UoFiddler.Controls.Forms
                 }
                 FramesListView.EndUpdate();
 
-                // update display
+                // 更新显示
                 FramesListView.Items[frameIndex].Selected = true;
                 FramesListView.Select();
 
                 Options.ChangedUltimaClass["Animations"] = true;
 
-                MessageBox.Show("Frame mirrored");
+                MessageBox.Show("帧已镜像");
             }
         }
         #endregion
 
-        #region [ RotateLeft90Degrees ]
+        #region [ 向左旋转90度 ]
         private void rotateLeft90DegreesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FramesListView.SelectedItems.Count > 0)
@@ -8305,12 +8302,12 @@ namespace UoFiddler.Controls.Forms
 
                 FramesListView.Invalidate();
             }
-            // Mark change
+            // 标记更改
             Options.ChangedUltimaClass["Animations"] = true;
         }
         #endregion
 
-        #region [ Search Animation ] toolStripTextBoxSearch_TextChanged
+        #region [ 搜索动画 ] toolStripTextBoxSearch_TextChanged
         private void toolStripTextBoxSearch_TextChanged(object sender, EventArgs e)
         {
             var searchText = toolStripTextBoxSearch.Text;
@@ -8325,33 +8322,33 @@ namespace UoFiddler.Controls.Forms
         }
         #endregion
 
-        #region [ Find IDs ]
+        #region [ 查找 ID ]
         private async void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Show progress bars
+            // 显示进度条
             ProgressBar.Visible = true;
             ProgressBar.Maximum = AnimationListTreeView.Nodes.Count;
             ProgressBar.Value = 0;
 
             await Task.Run(() =>
             {
-                // Iterate over TreeView Nodes
+                // 遍历 TreeView 节点
                 foreach (TreeNode node in AnimationListTreeView.Nodes)
                 {
                     int bodyIndex = (int)node.Tag;
 
-                    // Check Action 0
+                    // 检查动作 0
                     if (!AnimationEdit.IsActionDefined(_fileType, bodyIndex, 0))
                     {
-                        // Wenn undefined, ist Slot frei
+                        // 如果未定义，则槽位空闲
                         this.Invoke(new Action(() =>
                         {
                             node.ForeColor = Color.Blue;
-                            node.Text += " - FREE";
+                            node.Text += " - 空闲";
                         }));
                     }
 
-                    // Update progress bars
+                    // 更新进度条
                     this.Invoke(new Action(() =>
                     {
                         ProgressBar.Value++;
@@ -8359,33 +8356,33 @@ namespace UoFiddler.Controls.Forms
                 }
             });
 
-            // Hide progress bars
+            // 隐藏进度条
             ProgressBar.Visible = false;
 
             AnimationListTreeView.Invalidate();
         }
         #endregion
 
-        #region [ listsAllIDsToolStripMenuItem ]
+        #region [ 列出所有 ID ]
         private void listsAllIDsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string defaultFileName = "AminID.txt"; // Set default file name
+            string defaultFileName = "AminID.txt"; // 设置默认文件名
 
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 FileName = defaultFileName,
-                Filter = "Text file (*.txt)|*.txt",
-                Title = "Save the ID overview"
+                Filter = "文本文件 (*.txt)|*.txt",
+                Title = "保存 ID 概述"
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                DialogResult result = MessageBox.Show("Would you also like to list the free IDs?",
-                                                      "ID selection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("您是否还想列出空闲的 ID？",
+                                                      "ID 选择", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                bool includeFreeIDs = result == DialogResult.Yes; // If "Yes", free IDs are also listed
+                bool includeFreeIDs = result == DialogResult.Yes; // 如果“是”，则同时列出空闲 ID
 
-                // Counter for used and free IDs
+                // 已用和空闲 ID 的计数器
                 int occupiedCount = 0;
                 int freeCount = 0;
 
@@ -8393,10 +8390,10 @@ namespace UoFiddler.Controls.Forms
                 {
                     using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
                     {
-                        writer.WriteLine("Overview of IDs:");
+                        writer.WriteLine("ID 概述：");
                         writer.WriteLine("--------------------");
 
-                        // Looping through all nodes in the AnimationListTreeView
+                        // 遍历 AnimationListTreeView 中的所有节点
                         foreach (TreeNode node in AnimationListTreeView.Nodes)
                         {
                             if (node.Tag != null)
@@ -8404,50 +8401,50 @@ namespace UoFiddler.Controls.Forms
                                 int id = (int)node.Tag;
                                 bool valid = false;
 
-                                // Check all actions for this ID
+                                // 检查此 ID 的所有动作
                                 foreach (TreeNode actionNode in node.Nodes)
                                 {
                                     int actionId = (int)actionNode.Tag;
                                     if (AnimationEdit.IsActionDefined(_fileType, id, actionId))
                                     {
-                                        valid = true; // At least one action defined
+                                        valid = true; // 至少定义了一个动作
                                         break;
                                     }
                                 }
 
                                 if (valid)
                                 {
-                                    writer.WriteLine($"ID: {id} - Status: Occupied");
+                                    writer.WriteLine($"ID: {id} - 状态: 已占用");
                                     occupiedCount++;
                                 }
                                 else if (includeFreeIDs)
                                 {
-                                    writer.WriteLine($"ID: {id} - Status: Not occupied");
+                                    writer.WriteLine($"ID: {id} - 状态: 未占用");
                                     freeCount++;
                                 }
                             }
                         }
 
                         writer.WriteLine("\n--------------------");
-                        writer.WriteLine("Summary:");
-                        writer.WriteLine($"Occupied IDs: {occupiedCount}");
+                        writer.WriteLine("摘要：");
+                        writer.WriteLine($"已占用 ID: {occupiedCount}");
                         if (includeFreeIDs)
                         {
-                            writer.WriteLine($"Free IDs: {freeCount}");
+                            writer.WriteLine($"空闲 ID: {freeCount}");
                         }
                     }
 
-                    MessageBox.Show("The ID overview was saved successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("ID 概述已成功保存。", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error saving file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"保存文件时出错：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
         #endregion
 
-        #region [ showToolStripMenuItem ]
+        #region [ 显示 ]
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _showOnlyValid = !_showOnlyValid;
@@ -8477,7 +8474,7 @@ namespace UoFiddler.Controls.Forms
         }
         #endregion
 
-        #region [ saveToolStripMenuItem1 ] // Save current file
+        #region [ 保存当前文件 ]
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (_fileType == 0)
@@ -8488,12 +8485,12 @@ namespace UoFiddler.Controls.Forms
             AnimationEdit.Save(_fileType, Options.OutputPath);
             Options.ChangedUltimaClass["Animations"] = false;
 
-            MessageBox.Show($"AnimationFile saved to {Options.OutputPath}", "Saved", MessageBoxButtons.OK,
+            MessageBox.Show($"动画文件已保存到 {Options.OutputPath}", "已保存", MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
         #endregion
 
-        #region [ OnCheckBoxIDBlueChanged ] - Recheck for loadable animations and update TreeView accordingly
+        #region [ OnCheckBoxIDBlueChanged ] - 重新检查可加载的动画并相应更新 TreeView
         private void OnCheckBoxIDBlueChanged(object sender, EventArgs e)
         {
             if (_fileType == UOP_FILE_TYPE)
@@ -8519,23 +8516,23 @@ namespace UoFiddler.Controls.Forms
         {
             if (isAnimationVisible)
             {
-                // Animation ausblenden
+                // 隐藏动画
                 additionalAnimation = null;
-                buttonShow.Text = "Show";
+                buttonShow.Text = "显示";
             }
             else
             {
-                // Show animation based on selected gender
+                // 根据所选性别显示动画
                 string selectedGender = comboBoxMenWoman.SelectedItem.ToString();
                 int animId = selectedGender == "men" ? 400 : 401;
 
                 if (checkBoxMount.Checked)
                 {
-                    _currentAction = 24; // Riding animation ID
+                    _currentAction = 24; // 骑马动画 ID
                 }
 
                 additionalAnimation = AnimationEdit.GetAnimation(_fileType, animId, _currentAction, _currentDir);
-                buttonShow.Text = "Hide";
+                buttonShow.Text = "隐藏";
             }
 
             isAnimationVisible = !isAnimationVisible;
@@ -8543,28 +8540,28 @@ namespace UoFiddler.Controls.Forms
         }
         #endregion
 
-        #region [ buttonShow ] animation man woman
+        #region [ buttonShow ] 动画 男人/女人
         private void buttonShow_Click(object sender, EventArgs e)
         {
             if (isAnimationVisible)
             {
-                // Hide animation
+                // 隐藏动画
                 additionalAnimation = null;
-                buttonShow.Text = "Show";
+                buttonShow.Text = "显示";
             }
             else
             {
-                // Show animation based on selected gender
+                // 根据所选性别显示动画
                 string selectedGender = comboBoxMenWoman.SelectedItem.ToString();
                 int animId = selectedGender == "men" ? 400 : 401;
 
                 if (checkBoxMount.Checked)
                 {
-                    _currentAction = 24; // Sets the action to 24 when riding animation is selected
+                    _currentAction = 24; // 选择骑马动画时将动作设置为 24
                 }
 
                 additionalAnimation = AnimationEdit.GetAnimation(_fileType, animId, _currentAction, _currentDir);
-                buttonShow.Text = "Hide";
+                buttonShow.Text = "隐藏";
             }
 
             isAnimationVisible = !isAnimationVisible;
@@ -8572,7 +8569,7 @@ namespace UoFiddler.Controls.Forms
         }
         #endregion
 
-        #region [ comboBoxMenWoman_SelectedIndexChanged ] animation man woman
+        #region [ comboBoxMenWoman_SelectedIndexChanged ] 动画 男人/女人
         private void comboBoxMenWoman_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isAnimationVisible)
@@ -8582,7 +8579,7 @@ namespace UoFiddler.Controls.Forms
 
                 if (checkBoxMount.Checked)
                 {
-                    _currentAction = 24; // Sets the action to 24 when riding animation is selected
+                    _currentAction = 24; // 选择骑马动画时将动作设置为 24
                 }
 
                 additionalAnimation = AnimationEdit.GetAnimation(_fileType, animId, _currentAction, _currentDir);
@@ -8605,7 +8602,7 @@ namespace UoFiddler.Controls.Forms
             {
                 Offsets[direction][frame][1]--;
             }
-            AnimationPictureBox.Invalidate(); // Redraw image
+            AnimationPictureBox.Invalidate(); // 重绘图像
         }
         #endregion
 
@@ -8623,7 +8620,7 @@ namespace UoFiddler.Controls.Forms
             {
                 Offsets[direction][frame][1]++;
             }
-            AnimationPictureBox.Invalidate(); // Redraw image
+            AnimationPictureBox.Invalidate(); // 重绘图像
         }
         #endregion
 
@@ -8641,7 +8638,7 @@ namespace UoFiddler.Controls.Forms
             {
                 Offsets[direction][frame][0]--;
             }
-            AnimationPictureBox.Invalidate(); // Redraw image
+            AnimationPictureBox.Invalidate(); // 重绘图像
         }
         #endregion
 
@@ -8659,35 +8656,35 @@ namespace UoFiddler.Controls.Forms
             {
                 Offsets[direction][frame][0]++;
             }
-            AnimationPictureBox.Invalidate(); // Redraw image
+            AnimationPictureBox.Invalidate(); // 重绘图像
         }
         #endregion
 
         #region [ btn_ScreenShot ]
         private void btn_ScreenShot_Click(object sender, EventArgs e)
         {
-            // Define the path to save the screenshot
+            // 定义保存截图的路径
             string path = Options.OutputPath;
 
-            // Create a unique filename using the current date and time
+            // 使用当前日期和时间创建唯一文件名
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             string fileName = Path.Combine(path, $"AnimationScreenshot_{timestamp}.png");
 
-            // Create a bitmap of the same size as the AnimationPictureBox
+            // 创建与 AnimationPictureBox 大小相同的位图
             using (Bitmap bmp = new Bitmap(AnimationPictureBox.Width, AnimationPictureBox.Height))
             {
-                // Draw the AnimationPictureBox onto the bitmap
+                // 将 AnimationPictureBox 绘制到位图上
                 AnimationPictureBox.DrawToBitmap(bmp, new Rectangle(0, 0, AnimationPictureBox.Width, AnimationPictureBox.Height));
 
-                // Save the bitmap as a .png file
+                // 将位图保存为 .png 文件
                 bmp.Save(fileName, System.Drawing.Imaging.ImageFormat.Png);
             }
 
-            MessageBox.Show($"Screenshot saved to {fileName}");
+            MessageBox.Show($"截图已保存到 {fileName}");
         }
         #endregion
 
-        #region [ MapUopToolStripButton ] Toggle UOP Mapping and reload animations
+        #region [ MapUopToolStripButton ] 切换 UOP 映射并重新加载动画
         private void MapUopToolStripButton_Click(object sender, EventArgs e)
         {
             _useUopMapping = MapUopToolStripButton.Checked;
@@ -8699,7 +8696,8 @@ namespace UoFiddler.Controls.Forms
         }
         #endregion
 
-        #region [ ShowCrosshairtoolStripButton ] Toggle crosshair display on animation preview
+
+        #region [ ShowCrosshairtoolStripButton ] 在动画预览上切换十字线显示
         private void ShowCrosshairtoolStripButton_Click(object sender, EventArgs e)
         {
             _drawCrosshair = !_drawCrosshair;
@@ -8707,12 +8705,13 @@ namespace UoFiddler.Controls.Forms
         }
         #endregion
 
-        #region Sequence UOP Tab
+
+        #region 序列 UOP 选项卡
 
         private void InitializeSequenceTab()
         {
             _sequenceGrid.Columns.Clear();
-            // UOP columns as standard
+            // 标准 UOP 列
             AddUopColumns();
             _sequenceGrid.DataSource = _sequenceBindingSource;
             _sequenceTimer.Interval = 150;
@@ -8720,20 +8719,20 @@ namespace UoFiddler.Controls.Forms
             _gridIsInMulMode = false;
         }
 
-        // ── Grid-Modus ────────────────────────────────────────────────────────
+        // ── 网格模式 ────────────────────────────────────────────────────────
 
         private bool _gridIsInMulMode = false;
 
         /// <summary>
-        /// Switch the grid to MUL columns.
-        /// Always executed if _fileType is MUL — no early return.
+        /// 将网格切换到 MUL 列。
+        /// 如果 _fileType 是 MUL，总是执行此操作——没有提前返回。
         /// </summary>
         private void SetupSequenceGridForMul()
         {
             _sequenceGrid.DataSource = null;
             _sequenceGrid.Columns.Clear();
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ActionIndex", HeaderText = "Act", Width = 35, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ActionName", HeaderText = "Name", Width = 130, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ActionIndex", HeaderText = "动作", Width = 35, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ActionName", HeaderText = "名称", Width = 130, ReadOnly = true });
             _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "FramesDir0", HeaderText = "D0", Width = 35, ReadOnly = true });
             _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "FramesDir1", HeaderText = "D1", Width = 35, ReadOnly = true });
             _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "FramesDir2", HeaderText = "D2", Width = 35, ReadOnly = true });
@@ -8741,15 +8740,15 @@ namespace UoFiddler.Controls.Forms
             _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "FramesDir4", HeaderText = "D4", Width = 35, ReadOnly = true });
             _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "CenterX", HeaderText = "CX", Width = 40, ReadOnly = true });
             _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "CenterY", HeaderText = "CY", Width = 40, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "IdxOffset", HeaderText = "IDX-Off", Width = 80, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "IdxLength", HeaderText = "IDX-Len", Width = 70, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "StatusText", HeaderText = "Status", Width = 90, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "IdxOffset", HeaderText = "IDX 偏移", Width = 80, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "IdxLength", HeaderText = "IDX 长度", Width = 70, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "StatusText", HeaderText = "状态", Width = 90, ReadOnly = true });
             _gridIsInMulMode = true;
         }
 
         /// <summary>
-        /// Switch the grid to UOP columns.
-        /// Always executed if _fileType is UOP — no early return.
+        /// 将网格切换到 UOP 列。
+        /// 如果 _fileType 是 UOP，总是执行此操作——没有提前返回。
         /// </summary>
         private void SetupSequenceGridForUop()
         {
@@ -8762,22 +8761,22 @@ namespace UoFiddler.Controls.Forms
 
         private void AddUopColumns()
         {
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "UopGroupIndex", HeaderText = "UOP Group", Width = 60 });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "FrameCount", HeaderText = "Frames", Width = 50 });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "UopGroupIndex", HeaderText = "UOP 组", Width = 60 });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "FrameCount", HeaderText = "帧数", Width = 50 });
             _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MulGroupIndex", HeaderText = "MUL", Width = 60 });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Speed", HeaderText = "Speed", Width = 50 });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "BaseGroup", HeaderText = "Base", Width = 50, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "WarGroupId", HeaderText = "War", Width = 50, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "WarModifier", HeaderText = "Mod", Width = 40, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "PeaceGroupId", HeaderText = "Peace", Width = 50, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "PeaceModifier", HeaderText = "Mod", Width = 40, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MountPeaceGroupId", HeaderText = "M.Peace", Width = 50, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MountPeaceModifier", HeaderText = "Mod", Width = 40, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MountWarGroupId", HeaderText = "M.War", Width = 50, ReadOnly = true });
-            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MountWarModifier", HeaderText = "Mod", Width = 40, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Speed", HeaderText = "速度", Width = 50 });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "BaseGroup", HeaderText = "基础", Width = 50, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "WarGroupId", HeaderText = "战斗", Width = 50, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "WarModifier", HeaderText = "修正", Width = 40, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "PeaceGroupId", HeaderText = "和平", Width = 50, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "PeaceModifier", HeaderText = "修正", Width = 40, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MountPeaceGroupId", HeaderText = "骑和平", Width = 50, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MountPeaceModifier", HeaderText = "修正", Width = 40, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MountWarGroupId", HeaderText = "骑战斗", Width = 50, ReadOnly = true });
+            _sequenceGrid.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MountWarModifier", HeaderText = "修正", Width = 40, ReadOnly = true });
         }
 
-        // ── PopulateSequenceGrid — Dispatcher ────────────────────────────────
+        // ── PopulateSequenceGrid — 调度器 ────────────────────────────────
 
         private void PopulateSequenceGrid(int bodyId)
         {
@@ -8868,7 +8867,7 @@ namespace UoFiddler.Controls.Forms
             int animLength = Animations.GetAnimLength(bodyId, _fileType);
             if (animLength <= 0) animLength = 22;
 
-            // Remapping
+            // 重映射
             int resolvedBody = bodyId;
             int resolvedFileType = _fileType;
 
@@ -8884,20 +8883,20 @@ namespace UoFiddler.Controls.Forms
             { resolvedBody = bcBody; resolvedFileType = bcFt; }
 
             string[] nameTable = animLength == 13
-                ? new[] { "Walk","Run","Stand","Eat","Alert","Attack1","Attack2",
-                  "GetHit","Die1","Fidget1","Fidget2","LieDown","Die2" }
+                ? new[] { "行走","奔跑","站立","进食","警觉","攻击1","攻击2",
+                  "受击","死亡1","烦躁1","烦躁2","躺下","死亡2" }
                 : animLength == 22
-                ? new[] { "Walk","Stand","Die1","Die2","Attack1","Attack2","Attack3",
-                  "AttackBow","AttackCrossBow","AttackThrow","GetHit","Pillage",
-                  "Stomp","Cast2","Cast3","BlockRight","BlockLeft","Idle",
-                  "Fidget","Fly","TakeOff","GetHitInAir" }
-                : new[] { "Walk","WalkStaff","Run","RunStaff","Idle","Idle2","Fidget",
-                  "CombatIdle1H","CombatIdle1H2","AttackSlash1H","AttackPierce1H",
-                  "AttackBash1H","AttackBash2H","AttackSlash2H","AttackPierce2H",
-                  "CombatAdv1H","Spell1","Spell2","AttackBow","AttackCrossbow",
-                  "GetHit","DieFwd","DieBack","HorseWalk","HorseRun","HorseIdle",
-                  "HorseAtk1H","HorseAtkBow","HorseAtkXBow","HorseAtk2H",
-                  "BlockShield","PunchJab","BowLesser","Salute","Ingest" };
+                ? new[] { "行走","站立","死亡1","死亡2","攻击1","攻击2","攻击3",
+                  "弓攻击","弩攻击","投掷攻击","受击","掠夺",
+                  "踩踏","施法2","施法3","右格挡","左格挡","空闲",
+                  "烦躁","飞行","起飞","空中受击" }
+                : new[] { "行走","持杖行走","奔跑","持杖奔跑","空闲","空闲2","烦躁",
+                  "单手战斗空闲","单手战斗空闲2","单手挥砍攻击","单手穿刺攻击",
+                  "单手钝击攻击","双手钝击攻击","双手挥砍攻击","双手穿刺攻击",
+                  "单手战斗前进","法术1","法术2","弓攻击","弩攻击",
+                  "受击","前倒死亡","后倒死亡","骑马行走","骑马奔跑","骑马空闲",
+                  "骑马单手攻击","骑马弓攻击","骑马弩攻击","骑马双手攻击",
+                  "盾牌格挡","拳击刺拳","小鞠躬","武装敬礼","进食" };
 
             string ixName = resolvedFileType == 1 ? "anim.idx" : $"anim{resolvedFileType}.idx";
             string ixPath = Ultima.Files.GetFilePath(ixName);
@@ -8907,7 +8906,7 @@ namespace UoFiddler.Controls.Forms
                 var item = new MulSequenceViewItem
                 {
                     ActionIndex = action,
-                    ActionName = action < nameTable.Length ? nameTable[action] : $"Action{action}",
+                    ActionName = action < nameTable.Length ? nameTable[action] : $"动作{action}",
                 };
 
                 int totalFrames = 0;
@@ -8931,7 +8930,7 @@ namespace UoFiddler.Controls.Forms
                 item.TotalFrames = totalFrames;
                 item.HasData = hasAnyData;
 
-                // IDX-Eintrag lesen (alle 3 Felder: offset, length, extra)
+                // 读取 IDX 条目（所有 3 个字段：偏移量、长度、额外）
                 if (!string.IsNullOrEmpty(ixPath) && File.Exists(ixPath))
                 {
                     long pos = (long)(resolvedBody * 110 * 5 + action * 5) * 12;
@@ -8958,9 +8957,8 @@ namespace UoFiddler.Controls.Forms
                 items.Add(item);
             }
 
-            // Decouple event while DataSource is being set —
-            // Prevents NullReferenceException in OnSequenceGridSelectionChanged
-            // when the grid automatically selects rows during binding
+            // 在设置 DataSource 时分离事件——
+            // 防止在绑定期间网格自动选择行时发生 NullReferenceException
             _sequenceGrid.SelectionChanged -= OnSequenceGridSelectionChanged;
             try
             {
@@ -8972,7 +8970,7 @@ namespace UoFiddler.Controls.Forms
                 _sequenceGrid.SelectionChanged += OnSequenceGridSelectionChanged;
             }
 
-            // Select the first row containing data
+            // 选择包含数据的第一行
             _seqCurrentAction = -1;
             for (int i = 0; i < _sequenceGrid.Rows.Count; i++)
             {
@@ -9009,9 +9007,9 @@ namespace UoFiddler.Controls.Forms
             public bool OnlyInCache { get; set; }
 
             public string StatusText =>
-                !HasData ? "leer" :
-                OnlyInCache ? "nur Cache" :
-                InFile ? "in Datei" : "?";
+                !HasData ? "空" :
+                OnlyInCache ? "仅缓存" :
+                InFile ? "在文件中" : "?";
         }
 
         // ── TryFindAnimationForPreview ────────────────────────────────────────
@@ -9052,8 +9050,8 @@ namespace UoFiddler.Controls.Forms
                         var header = UopAnimationDataManager.ReadUopBinHeader(br);
                         if (header != null && header.FrameCount > 0)
                             System.Diagnostics.Debug.WriteLine(
-                                $"[SeqPreview] Body={body} Act={action} Dir={dir}: " +
-                                $"FrameCount={header.FrameCount} aber GetUopAnimation=null.");
+                                $"[序列预览] Body={body} Act={action} Dir={dir}: " +
+                                $"FrameCount={header.FrameCount} 但 GetUopAnimation=null。");
                     }
                     catch { }
                 }
@@ -9086,14 +9084,14 @@ namespace UoFiddler.Controls.Forms
 
         private void UpdateSequencePreviewMul()
         {
-            // Guard: intercept invalid states
+            // 防护：拦截无效状态
             if (_seqCurrentAction < 0 || _fileType == 0 || _currentBody < 0)
             {
                 _sequencePreviewBox.Image = null;
                 return;
             }
 
-            // If the currently selected row contains no data → cancel immediately
+            // 如果当前选中的行不包含数据 → 立即取消
             if (_gridIsInMulMode && _sequenceGrid.SelectedRows.Count > 0)
             {
                 var boundItem = _sequenceGrid.SelectedRows[0].DataBoundItem as MulSequenceViewItem;
@@ -9149,7 +9147,7 @@ namespace UoFiddler.Controls.Forms
             if (_fileType == UOP_FILE_TYPE)
             {
                 var vm = _sequenceGrid.SelectedRows[0].DataBoundItem as SequenceViewModelItem;
-                if (vm == null) return;  // ← leere Zeile angeklickt
+                if (vm == null) return;  // ← 点击了空行
                 _currentSeqEntry = vm.Entry;
                 _seqCurrentAction = (int)vm.UopGroupIndex;
                 _seqPreviewFrameIndex = 0;
@@ -9158,7 +9156,7 @@ namespace UoFiddler.Controls.Forms
             else
             {
                 var item = _sequenceGrid.SelectedRows[0].DataBoundItem as MulSequenceViewItem;
-                if (item == null) return;  // ← leere Zeile angeklickt
+                if (item == null) return;  // ← 点击了空行
                 _seqCurrentAction = item.ActionIndex;
                 _seqPreviewFrameIndex = 0;
                 UpdateSequencePreviewMul();
@@ -9218,59 +9216,59 @@ namespace UoFiddler.Controls.Forms
                 UpdateSequencePreviewUop();
             }
             catch (Exception ex)
-            { MessageBox.Show($"Error updating sequence entry: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            { MessageBox.Show($"更新序列条目时出错：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        // ── Save / Clone / MainMisc ───────────────────────────────────────────
+        // ── 保存 / 克隆 / MainMisc ───────────────────────────────────────────
 
         private void OnSaveSequenceClick(object sender, EventArgs e)
         {
             if (_uopManager == null || _sequenceViewModelList == null) return;
             using var dialog = new SaveFileDialog
-            { InitialDirectory = Options.OutputPath, FileName = "AnimationSequence.uop", Filter = "UOP Files (*.uop)|*.uop", Title = "Save Animation Sequence" };
+            { InitialDirectory = Options.OutputPath, FileName = "AnimationSequence.uop", Filter = "UOP 文件 (*.uop)|*.uop", Title = "保存动画序列" };
             if (dialog.ShowDialog() != DialogResult.OK) return;
             try
             {
                 _uopManager.SequenceEntries[(uint)_currentBody] = _sequenceViewModelList.Select(vm => vm.Entry).ToList();
                 _uopManager.SaveAnimationSequence(dialog.FileName);
-                MessageBox.Show($"Saved successfully to:\n{dialog.FileName}");
+                MessageBox.Show($"成功保存到：\n{dialog.FileName}");
             }
-            catch (Exception ex) { MessageBox.Show($"Error saving: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"保存时出错：{ex.Message}"); }
         }
 
         private void OnSaveBinClick(object sender, EventArgs e)
         {
             if (_uopManager == null || _sequenceViewModelList == null) return;
             using var dialog = new SaveFileDialog
-            { InitialDirectory = Options.OutputPath, FileName = $"Sequence_{_currentBody}.bin", Filter = "Binary Files (*.bin)|*.bin", Title = "Save Sequence Binary Data" };
+            { InitialDirectory = Options.OutputPath, FileName = $"Sequence_{_currentBody}.bin", Filter = "二进制文件 (*.bin)|*.bin", Title = "保存序列二进制数据" };
             if (dialog.ShowDialog() != DialogResult.OK) return;
             try
             {
                 File.WriteAllBytes(dialog.FileName, _uopManager.GetBinaryDataForAnimationId((uint)_currentBody));
-                MessageBox.Show($"Saved .bin successfully to:\n{dialog.FileName}");
+                MessageBox.Show($"成功保存 .bin 到：\n{dialog.FileName}");
             }
-            catch (Exception ex) { MessageBox.Show($"Error saving .bin: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"保存 .bin 时出错：{ex.Message}"); }
         }
 
         private void OnCloneSequenceIdClick(object sender, EventArgs e)
         {
             if (_uopManager == null) return;
-            string srcInput = ShowInputDialog("Enter Source Animation ID:", "Clone Sequence ID", "");
-            if (!uint.TryParse(srcInput, out uint srcId)) { MessageBox.Show("Invalid Source ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
-            if (!_uopManager.SequenceEntries.ContainsKey(srcId)) { MessageBox.Show($"Source ID {srcId} not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
-            string newInput = ShowInputDialog("Enter New Animation ID:", "Clone Sequence ID", "");
-            if (!uint.TryParse(newInput, out uint newId)) { MessageBox.Show("Invalid New ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            string srcInput = ShowInputDialog("输入源动画 ID：", "克隆序列 ID", "");
+            if (!uint.TryParse(srcInput, out uint srcId)) { MessageBox.Show("无效的源 ID。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            if (!_uopManager.SequenceEntries.ContainsKey(srcId)) { MessageBox.Show($"未找到源 ID {srcId}。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            string newInput = ShowInputDialog("输入新动画 ID：", "克隆序列 ID", "");
+            if (!uint.TryParse(newInput, out uint newId)) { MessageBox.Show("无效的新 ID。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
             if (_uopManager.SequenceEntries.ContainsKey(newId))
-                if (MessageBox.Show($"ID {newId} exists. Overwrite?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+                if (MessageBox.Show($"ID {newId} 已存在。是否覆盖？", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
             try
             {
                 _uopManager.CloneAnimationSequenceEntry(srcId, newId);
                 _uopManager.EnsureIdInMainMisc(newId, forceCreatureFlag: true);
                 RefreshMainMiscButtonState();
                 LoadUopAnimations();
-                MessageBox.Show($"Cloned {srcId} → {newId}.\nRemember to save MainMisc Table.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"已克隆 {srcId} → {newId}。\n记得保存 MainMisc 表。", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex) { MessageBox.Show($"Error cloning: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show($"克隆时出错：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void OnAddCurrentToMainMiscClick(object sender, EventArgs e)
@@ -9279,10 +9277,10 @@ namespace UoFiddler.Controls.Forms
             uint uid = (uint)_currentBody;
             const uint CREATURE_FLAG = 0x0C000000;
             if (_uopManager.IsIdInMainMisc(uid) && _uopManager.GetMainMiscFlag(uid) == CREATURE_FLAG)
-            { MessageBox.Show($"ID {uid} already present.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+            { MessageBox.Show($"ID {uid} 已存在。", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
             _uopManager.EnsureIdInMainMisc(uid, forceCreatureFlag: true);
             RefreshMainMiscButtonState();
-            MessageBox.Show($"ID {uid} added to MainMisc.\nDon't forget to save.", "ID Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"ID {uid} 已添加到 MainMisc。\n别忘了保存。", "ID 已添加", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void OnSyncMainMiscClick(object sender, EventArgs e)
@@ -9294,15 +9292,15 @@ namespace UoFiddler.Controls.Forms
                 int missing = _uopManager.CheckMissingMainMiscEntries(dryRun: true);
                 if (missing > 0)
                 {
-                    if (MessageBox.Show($"Found {missing} missing entries.\nAdd now?", "Sync", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show($"找到 {missing} 个缺失条目。\n立即添加？", "同步", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         int added = _uopManager.CheckMissingMainMiscEntries(dryRun: false);
                         RefreshMainMiscButtonState();
-                        MessageBox.Show($"{added} IDs added.", "Sync Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"已添加 {added} 个 ID。", "同步完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
-                    MessageBox.Show("MainMisc is up to date.", "Sync Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("MainMisc 是最新的。", "同步完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally { Cursor = Cursors.Default; }
         }
@@ -9312,7 +9310,7 @@ namespace UoFiddler.Controls.Forms
             if (_btnSaveMainMisc != null && _uopManager != null)
             {
                 _btnSaveMainMisc.Enabled = _uopManager.MainMiscModified;
-                System.Diagnostics.Debug.WriteLine($"[MainMisc] Enabled={_btnSaveMainMisc.Enabled}");
+                System.Diagnostics.Debug.WriteLine($"[MainMisc] 已启用={_btnSaveMainMisc.Enabled}");
             }
         }
 
@@ -9320,14 +9318,14 @@ namespace UoFiddler.Controls.Forms
         {
             if (_uopManager == null) return;
             using var dialog = new SaveFileDialog
-            { InitialDirectory = Options.OutputPath, FileName = "MainMisc.uop", Filter = "UOP Files (*.uop)|*.uop", Title = "Save MainMisc Table" };
+            { InitialDirectory = Options.OutputPath, FileName = "MainMisc.uop", Filter = "UOP 文件 (*.uop)|*.uop", Title = "保存 MainMisc 表" };
             if (dialog.ShowDialog() != DialogResult.OK) return;
             try
             {
                 _uopManager.SaveMainMisc(dialog.FileName);
-                MessageBox.Show($"MainMisc.uop saved to:\n{dialog.FileName}\n\nEntries: {_uopManager.GetMainMiscEntryCount()}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"MainMisc.uop 已保存到：\n{dialog.FileName}\n\n条目数：{_uopManager.GetMainMiscEntryCount()}", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex) { MessageBox.Show($"Error saving MainMisc: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show($"保存 MainMisc 时出错：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         // ── ShowInputDialog ───────────────────────────────────────────────────
@@ -9337,14 +9335,14 @@ namespace UoFiddler.Controls.Forms
             using var prompt = new Form { Width = 500, Height = 150, FormBorderStyle = FormBorderStyle.FixedDialog, Text = caption, StartPosition = FormStartPosition.CenterScreen };
             var lbl = new Label { Left = 50, Top = 20, Width = 400, Text = text };
             var tb = new TextBox { Left = 50, Top = 50, Width = 400, Text = defaultValue };
-            var btn = new Button { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+            var btn = new Button { Text = "确定", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
             btn.Click += (s, a) => prompt.Close();
             prompt.Controls.AddRange(new Control[] { lbl, tb, btn });
             prompt.AcceptButton = btn;
             return prompt.ShowDialog() == DialogResult.OK ? tb.Text : "";
         }
 
-        // ── Buttons ───────────────────────────────────────────────────────────
+        // ── 按钮 ───────────────────────────────────────────────────────────
 
         private void BtnSeqPlay_Click(object sender, EventArgs e) => _sequenceTimer.Start();
         private void BtnSeqStop_Click(object sender, EventArgs e) => _sequenceTimer.Stop();
@@ -9353,14 +9351,14 @@ namespace UoFiddler.Controls.Forms
         {
             var tb = (TrackBar)sender;
             _seqPreviewDirection = tb.Value;
-            _seqDirLabel.Text = $"Direction: {_seqPreviewDirection}";
+            _seqDirLabel.Text = $"方向：{_seqPreviewDirection}";
             _seqPreviewFrameIndex = 0;
             UpdateSequencePreview();
         }
 
         #endregion
 
-        #region [ Hex Editor ] - Button handler and logic to open the hex editor with the corresponding data
+        #region [ 十六进制编辑器 ] - 按钮处理程序和打开带有相应数据的十六进制编辑器的逻辑
 
         private AnimationHexEditorForm _hexEditor;
 
@@ -9368,15 +9366,15 @@ namespace UoFiddler.Controls.Forms
         {
             if (_fileType == 0)
             {
-                MessageBox.Show("Please select an animation file first.",
-                    "Hex Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请先选择一个动画文件。",
+                    "十六进制编辑器", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             if (AnimationListTreeView.SelectedNode == null)
             {
-                MessageBox.Show("Please select an animation first.",
-                    "Hex Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请先选择一个动画。",
+                    "十六进制编辑器", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -9389,7 +9387,7 @@ namespace UoFiddler.Controls.Forms
                     AnimationPictureBox.Invalidate();
                 };
 
-                // ── Wire up "Pin as A / Pin as B" from HexEditor to HexCompareForm
+                // ── 从 HexEditor 连接“固定为 A / 固定为 B”到 HexCompareForm
                 _hexEditor.OnPinAsA += buf =>
                 {
                     EnsureHexCompare();
@@ -9423,28 +9421,28 @@ namespace UoFiddler.Controls.Forms
         }
 
         // ──────────────────────────────────────────────────────────────────────
-        //  UOP – Retrieve raw data and regions from the UopManager
+        //  UOP – 从 UopManager 检索原始数据和区域
         // ──────────────────────────────────────────────────────────────────────
 
         private void OpenHexEditorUop()
         {
             if (_uopManager == null) return;
 
-            // Get raw data - try current direction first, then all others
+            // 获取原始数据 - 首先尝试当前方向，然后尝试所有其他方向
             var fileInfo = _uopManager.GetAnimationData(_currentBody, _currentAction, _currentDir);
             byte[] rawData = null;
-            long fileOffset = 0;          // ← use 0 since DataOffset doesn't exist
-            string filePath = "(UOP – memory)";
+            long fileOffset = 0;          // ← 使用 0，因为 DataOffset 不存在
+            string filePath = "(UOP – 内存)";
 
             if (fileInfo != null)
             {
                 rawData = fileInfo.GetData();
-                // fileInfo.DataOffset does NOT exist → use 0 as placeholder
+                // fileInfo.DataOffset 不存在 → 使用 0 作为占位符
                 fileOffset = 0;
                 filePath = fileInfo.File?.FilePath ?? filePath;
             }
 
-            // Fallback: try all directions
+            // 后备：尝试所有方向
             if (rawData == null || rawData.Length == 0)
             {
                 for (int dir = 0; dir < 5; dir++)
@@ -9455,7 +9453,7 @@ namespace UoFiddler.Controls.Forms
                     if (d != null && d.Length > 0)
                     {
                         rawData = d;
-                        fileOffset = 0;   // ← same here
+                        fileOffset = 0;   // ← 同样使用 0
                         filePath = fi.File?.FilePath ?? filePath;
                         break;
                     }
@@ -9464,8 +9462,8 @@ namespace UoFiddler.Controls.Forms
 
             if (rawData == null || rawData.Length == 0)
             {
-                MessageBox.Show("No raw data found for this animation.",
-                    "Hex Editor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("未找到此动画的原始数据。",
+                    "十六进制编辑器", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -9480,23 +9478,22 @@ namespace UoFiddler.Controls.Forms
         }
 
         // ──────────────────────────────────────────────────────────────────────
-        //  MUL – Read raw data directly from the idx/mul file
+        //  MUL – 直接从 idx/mul 文件读取原始数据
         // ──────────────────────────────────────────────────────────────────────       
 
         private void OpenHexEditorMul()
         {
-            //DebugBodyIdxEntry(_currentBody); // ← temporär, nach Debug wieder raus
+            //DebugBodyIdxEntry(_currentBody); // ← 临时，调试后移除
 
-            // 1. AnimIdx via SDK — exactly the same as when displaying frames
+            // 1. 通过 SDK 获取 AnimIdx — 与显示帧时完全相同
             AnimIdx edit = AnimationEdit.GetAnimation(
                 _fileType, _currentBody, _currentAction, _currentDir);
 
             if (edit == null)
             {
                 MessageBox.Show(
-                    $"No AnimIdx data for body {_currentBody}, " +
-                    $"Action {_currentAction}, Dir {_currentDir}.",
-                    "Hex Editor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    $"未找到身体 {_currentBody}、动作 {_currentAction}、方向 {_currentDir} 的 AnimIdx 数据。",
+                    "十六进制编辑器", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -9504,8 +9501,8 @@ namespace UoFiddler.Controls.Forms
             if (frames == null || frames.Length == 0)
             {
                 MessageBox.Show(
-                    $"AnimIdx for Body {_currentBody} has no frames.",
-                    "Hex Editor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    $"身体 {_currentBody} 的 AnimIdx 没有帧。",
+                    "十六进制编辑器", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -9515,7 +9512,7 @@ namespace UoFiddler.Controls.Forms
 
             rawData = TryFindRawDataForAnimIdx(edit, out dataOffset, out mulPath, out int mappedBody);
 
-            // 3. If raw data is found: Fill the hex editor with the actual MUL file.
+            // 3. 如果找到原始数据：用实际的 MUL 文件填充十六进制编辑器。
             if (rawData != null && rawData.Length > 0)
             {
                 var regions = BuildMulRegions(rawData, edit);
@@ -9531,18 +9528,18 @@ namespace UoFiddler.Controls.Forms
                 return;
             }
 
-            // 4. Fallback: Reconstructing data from AnimIdx frames
-            // (for bodies that only exist in the RAM cache, e.g., imported ones)
+            // 4. 后备：从 AnimIdx 帧重建数据
+            // （仅存在于 RAM 缓存中的身体，例如导入的身体）
             rawData = SerializeAnimIdxToMulFormat(edit);
             if (rawData == null)
             {
-                MessageBox.Show("Error serializing AnimIdx data.",
-                    "Hex Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("序列化 AnimIdx 数据时出错。",
+                    "十六进制编辑器", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            string pseudoPath = $"(RAM-Cache: Body {_currentBody} / " +
-                                $"anim{_fileType}.mul not found)";
+            string pseudoPath = $"(RAM-缓存：身体 {_currentBody} / " +
+                                $"anim{_fileType}.mul 未找到)";
             var regions2 = BuildMulRegions(rawData, edit);
             var preview2 = GetCurrentFrameBitmap();
 
@@ -9556,18 +9553,18 @@ namespace UoFiddler.Controls.Forms
         }
 
         /*
-         * This method is for debugging purposes only. It reads the corresponding IDX entry for the given body and logs all relevant information about it, including:
-         * - Calculated IDX entry position
-         * - Whether the entry is within the bounds of the IDX file
-         * - The raw offset, length, and extra fields from the IDX entry
-         * - Whether the offset appears valid (not negative or 0xFFFFFFFF)
-         * - Information from body.def and bodyconv.def related to this body
-         * - Reflection data from the AnimIdx instance returned by the SDK
+         * 此方法仅用于调试目的。它为给定的身体读取相应的 IDX 条目，并记录有关它的所有相关信息，包括：
+         * - 计算的 IDX 条目位置
+         * - 条目是否在 IDX 文件的边界内
+         * - IDX 条目的原始偏移量、长度和额外字段
+         * - 偏移量是否有效（不是负数或 0xFFFFFFFF）
+         * - 与此身体相关的 body.def 和 bodyconv.def 信息
+         * - SDK 返回的 AnimIdx 实例的反射数据
          */
         private void DebugBodyIdxEntry(int body)
         {
             var sb = new System.Text.StringBuilder();
-            sb.AppendLine($"=== DEBUG Body {body} FileType {_fileType} Action {_currentAction} Dir {_currentDir} ===");
+            sb.AppendLine($"=== 调试身体 {body} 文件类型 {_fileType} 动作 {_currentAction} 方向 {_currentDir} ===");
 
             string mulName = _fileType == 1 ? "anim.mul" : $"anim{_fileType}.mul";
             string idxName = _fileType == 1 ? "anim.idx" : $"anim{_fileType}.idx";
@@ -9575,14 +9572,14 @@ namespace UoFiddler.Controls.Forms
             string idxPath = Ultima.Files.GetFilePath(idxName);
 
             long idxEntry = (long)(body * 110 * 5 + _currentAction * 5 + _currentDir) * 12;
-            sb.AppendLine($"IDX Entry-Pos : {idxEntry} (0x{idxEntry:X})");
+            sb.AppendLine($"IDX 条目位置：{idxEntry} (0x{idxEntry:X})");
 
             try
             {
                 using var idxFs = new System.IO.FileStream(idxPath,
                     System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read);
-                sb.AppendLine($"IDX File size : {idxFs.Length} bytes");
-                sb.AppendLine($"IDX Entry in bounds: {idxEntry + 12 <= idxFs.Length}");
+                sb.AppendLine($"IDX 文件大小：{idxFs.Length} 字节");
+                sb.AppendLine($"IDX 条目在边界内：{idxEntry + 12 <= idxFs.Length}");
                 if (idxEntry + 12 <= idxFs.Length)
                 {
                     idxFs.Seek(idxEntry, System.IO.SeekOrigin.Begin);
@@ -9590,13 +9587,13 @@ namespace UoFiddler.Controls.Forms
                     int rawOff = br.ReadInt32();
                     int rawLen = br.ReadInt32();
                     int rawExt = br.ReadInt32();
-                    sb.AppendLine($"IDX Offset    : 0x{rawOff:X8} ({rawOff})");
-                    sb.AppendLine($"IDX Length    : {rawLen} (0x{rawLen:X})");
-                    sb.AppendLine($"IDX Extra     : {rawExt} (0x{rawExt:X})");
-                    sb.AppendLine($"Offset valid  : {rawOff >= 0 && rawOff != unchecked((int)0xFFFFFFFF)}");
+                    sb.AppendLine($"IDX 偏移量    : 0x{rawOff:X8} ({rawOff})");
+                    sb.AppendLine($"IDX 长度    : {rawLen} (0x{rawLen:X})");
+                    sb.AppendLine($"IDX 额外     : {rawExt} (0x{rawExt:X})");
+                    sb.AppendLine($"偏移量有效  : {rawOff >= 0 && rawOff != unchecked((int)0xFFFFFFFF)}");
                 }
             }
-            catch (Exception ex) { sb.AppendLine($"IDX read error: {ex.Message}"); }
+            catch (Exception ex) { sb.AppendLine($"IDX 读取错误：{ex.Message}"); }
 
             sb.AppendLine();
             sb.AppendLine("--- SDK AnimIdx ---");
@@ -9606,69 +9603,69 @@ namespace UoFiddler.Controls.Forms
                 editForReflection = AnimationEdit.GetAnimation(_fileType, body, _currentAction, _currentDir);
                 if (editForReflection == null)
                 {
-                    sb.AppendLine("SDK: edit == null");
+                    sb.AppendLine("SDK：edit == null");
                 }
                 else
                 {
                     var frames = editForReflection.GetFrames();
-                    sb.AppendLine($"SDK: edit != null");
-                    sb.AppendLine($"SDK: Frames.Count = {editForReflection.Frames?.Count}");
-                    sb.AppendLine($"SDK: GetFrames() = {frames?.Length} bitmaps");
+                    sb.AppendLine($"SDK：edit != null");
+                    sb.AppendLine($"SDK：Frames.Count = {editForReflection.Frames?.Count}");
+                    sb.AppendLine($"SDK：GetFrames() = {frames?.Length} 位图");
                     if (frames != null && frames.Length > 0 && frames[0] != null)
-                        sb.AppendLine($"SDK: Frame[0] size = {frames[0].Width}x{frames[0].Height}");
+                        sb.AppendLine($"SDK：Frame[0] 大小 = {frames[0].Width}x{frames[0].Height}");
                 }
             }
-            catch (Exception ex) { sb.AppendLine($"SDK error: {ex.Message}"); }
+            catch (Exception ex) { sb.AppendLine($"SDK 错误：{ex.Message}"); }
 
 
 
-            // ── body.def check ───────────────────────────────────────────────────
+            // ── body.def 检查 ───────────────────────────────────────────────────
             sb.AppendLine();
             sb.AppendLine("--- body.def (BodyTable) ---");
             if (Ultima.BodyTable.Entries != null
                 && Ultima.BodyTable.Entries.TryGetValue(body, out var btEntry))
-                sb.AppendLine($"body.def: Body {body} → OldId {btEntry.OldId}");
+                sb.AppendLine($"body.def：身体 {body} → OldId {btEntry.OldId}");
             else
-                sb.AppendLine($"body.def: Body {body} not listed");
+                sb.AppendLine($"body.def：身体 {body} 未列出");
 
-            // ── BodyConverter check ──────────────────────────────────────────────
+            // ── BodyConverter 检查 ──────────────────────────────────────────────
             sb.AppendLine();
             sb.AppendLine("--- BodyConverter (bodyconv.def) ---");
             int bcBody = body;
             int bcFileType = Ultima.BodyConverter.Convert(ref bcBody);
-            sb.AppendLine($"BodyConverter.Convert: Body {body} → resolvedBody {bcBody}  fileType {bcFileType}");
-            sb.AppendLine($"BodyConverter.Contains({body}): {Ultima.BodyConverter.Contains(body)}");
+            sb.AppendLine($"BodyConverter.Convert：身体 {body} → 解析后身体 {bcBody}  文件类型 {bcFileType}");
+            sb.AppendLine($"BodyConverter.Contains({body})：{Ultima.BodyConverter.Contains(body)}");
 
-            // ── AnimIdx Reflection ───────────────────────────────────────────────
+            // ── AnimIdx 反射 ───────────────────────────────────────────────
             sb.AppendLine();
-            sb.AppendLine("--- AnimIdx Reflection ---");
+            sb.AppendLine("--- AnimIdx 反射 ---");
             if (editForReflection != null)
             {
                 try
                 {
                     var type = editForReflection.GetType();
-                    sb.AppendLine($"Type: {type.FullName}");
-                    sb.AppendLine("Fields:");
+                    sb.AppendLine($"类型：{type.FullName}");
+                    sb.AppendLine("字段：");
                     foreach (var f in type.GetFields(
                         System.Reflection.BindingFlags.Instance |
                         System.Reflection.BindingFlags.NonPublic |
                         System.Reflection.BindingFlags.Public))
                     {
                         try { sb.AppendLine($"  [{f.FieldType.Name}] {f.Name} = {f.GetValue(editForReflection)}"); }
-                        catch { sb.AppendLine($"  {f.Name} = [error]"); }
+                        catch { sb.AppendLine($"  {f.Name} = [错误]"); }
                     }
-                    sb.AppendLine("Properties:");
+                    sb.AppendLine("属性：");
                     foreach (var p in type.GetProperties(
                         System.Reflection.BindingFlags.Instance |
                         System.Reflection.BindingFlags.NonPublic |
                         System.Reflection.BindingFlags.Public))
                     {
                         try { sb.AppendLine($"  [{p.PropertyType.Name}] {p.Name} = {p.GetValue(editForReflection)}"); }
-                        catch { sb.AppendLine($"  {p.Name} = [error]"); }
+                        catch { sb.AppendLine($"  {p.Name} = [错误]"); }
                     }
-                    // After the Properties block, but before writing to the file:
+                    // 在属性块之后但在写入文件之前：
                     sb.AppendLine();
-                    sb.AppendLine("--- FrameEdit Reflection (Frame[0]) ---");
+                    sb.AppendLine("--- FrameEdit 反射 (Frame[0]) ---");
                     try
                     {
                         var edit2 = AnimationEdit.GetAnimation(_fileType, body, _currentAction, _currentDir);
@@ -9676,51 +9673,51 @@ namespace UoFiddler.Controls.Forms
                         {
                             var frame0 = edit2.Frames[0];
                             var ftype = frame0.GetType();
-                            sb.AppendLine($"FrameEdit Type: {ftype.FullName}");
-                            sb.AppendLine("Fields:");
+                            sb.AppendLine($"FrameEdit 类型：{ftype.FullName}");
+                            sb.AppendLine("字段：");
                             foreach (var f in ftype.GetFields(
                                 System.Reflection.BindingFlags.Instance |
                                 System.Reflection.BindingFlags.NonPublic |
                                 System.Reflection.BindingFlags.Public))
                             {
                                 try { sb.AppendLine($"  [{f.FieldType.Name}] {f.Name} = {f.GetValue(frame0)}"); }
-                                catch { sb.AppendLine($"  {f.Name} = [error]"); }
+                                catch { sb.AppendLine($"  {f.Name} = [错误]"); }
                             }
-                            sb.AppendLine("Properties:");
+                            sb.AppendLine("属性：");
                             foreach (var p in ftype.GetProperties(
                                 System.Reflection.BindingFlags.Instance |
                                 System.Reflection.BindingFlags.NonPublic |
                                 System.Reflection.BindingFlags.Public))
                             {
                                 try { sb.AppendLine($"  [{p.PropertyType.Name}] {p.Name} = {p.GetValue(frame0)}"); }
-                                catch { sb.AppendLine($"  {p.Name} = [error]"); }
+                                catch { sb.AppendLine($"  {p.Name} = [错误]"); }
                             }
                         }
                     }
-                    catch (Exception ex) { sb.AppendLine($"FrameEdit reflection error: {ex.Message}"); }
+                    catch (Exception ex) { sb.AppendLine($"FrameEdit 反射错误：{ex.Message}"); }
                 }
-                catch (Exception ex) { sb.AppendLine($"Reflection error: {ex.Message}"); }
+                catch (Exception ex) { sb.AppendLine($"反射错误：{ex.Message}"); }
             }
             else
             {
-                sb.AppendLine("(edit == null, no reflection possible)");
+                sb.AppendLine("(edit == null，无法反射)");
             }
 
-            // ── Write to file + MessageBox ──────────────────────────────────
+            // ── 写入文件 + MessageBox ──────────────────────────────────
             string dumpPath = System.IO.Path.Combine(
                 System.IO.Path.GetTempPath(),
                 $"AnimIdxDump_Body{body}_FT{_fileType}_A{_currentAction}_D{_currentDir}.txt");
             System.IO.File.WriteAllText(dumpPath, sb.ToString());
 
             MessageBox.Show(
-                $"Dump gespeichert:\n{dumpPath}\n\n" +
+                $"转储已保存：\n{dumpPath}\n\n" +
                 sb.ToString().Substring(0, Math.Min(1000, sb.Length)),
-                $"Debug Body {body}",
+                $"调试身体 {body}",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         // ──────────────────────────────────────────────────────────────────────
-        //  Searches for the raw data for an AnimIdx in all anim files.
-        //  Compares FrameCount from the IDX with edit.Frames.Count.
+        //  为 AnimIdx 在所有动画文件中搜索原始数据。
+        //  将 IDX 中的帧数与 edit.Frames.Count 进行比较。
         // ──────────────────────────────────────────────────────────────────────
 
         private byte[] TryFindRawDataForAnimIdx(AnimIdx edit, out long foundOffset, out string foundMulPath, out int foundMappedBody)
@@ -9738,8 +9735,8 @@ namespace UoFiddler.Controls.Forms
             bool idxExists = !string.IsNullOrEmpty(idxPathFb) && System.IO.File.Exists(idxPathFb);
             if (!mulExists || !idxExists) return null;
 
-            // ── Retrieve fingerprint from SDK-FrameEdit ─────────────────────────────
-            // Nur W + H + frameCount — kein CX/CY da SDK-Center != MUL-Header CX/CY
+            // ── 从 SDK-FrameEdit 检索指纹 ─────────────────────────────────────────────
+            // 仅使用 W + H + frameCount — 不使用 CX/CY，因为 SDK 中心 != MUL 标头 CX/CY
             int refW = -1, refH = -1;
             int refCount = edit?.Frames?.Count ?? -1;
             if (edit?.Frames != null && edit.Frames.Count > 0)
@@ -9756,7 +9753,7 @@ namespace UoFiddler.Controls.Forms
                 if (fH != null) refH = (int)fH.GetValue(f0);
             }
 
-            // ── Step 1: _currentBody directly + verify ────────────────────
+            // ── 步骤 1：直接使用 _currentBody 并验证 ────────────────────
             var candidate = ReadRawFromIdx(_currentBody, _fileType, idxPathFb, mulPathFb,
                 out long off1, out string path1);
             if (candidate != null && VerifyBlockEx(candidate, refW, refH, refCount))
@@ -9766,7 +9763,7 @@ namespace UoFiddler.Controls.Forms
                 return candidate;
             }
 
-            // ── Step 2: bodyconv.def ───────────────────────────────────────────
+            // ── 步骤 2：bodyconv.def ───────────────────────────────────────────
             string bodyconvPath = Ultima.Files.GetFilePath("bodyconv.def");
             if (!string.IsNullOrEmpty(bodyconvPath) && System.IO.File.Exists(bodyconvPath))
             {
@@ -9803,7 +9800,7 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // ── Step 3: body.def ───────────────────────────────────────────────
+            // ── 步骤 3：body.def ───────────────────────────────────────────────
             if (Ultima.BodyTable.Entries != null
                 && Ultima.BodyTable.Entries.TryGetValue(_currentBody, out Ultima.BodyTableEntry btEntry))
             {
@@ -9817,9 +9814,9 @@ namespace UoFiddler.Controls.Forms
                 }
             }
 
-            // ── Step 4: Scan the entire IDX ──────────────────────────────────
-            // Only if all other steps have failed.
-            // Read only 600 bytes per entry — Frame[0] can be at an offset >530.
+            // ── 步骤 4：扫描整个 IDX ──────────────────────────────────
+            // 仅当所有其他步骤都失败时。
+            // 每个条目读取 600 字节 — Frame[0] 可以在 >530 的偏移量处。
             if (refW > 0 && refH > 0)
             {
                 try
@@ -9861,7 +9858,7 @@ namespace UoFiddler.Controls.Forms
                         ushort h = (ushort)(hdr[absOff + 6] | (hdr[absOff + 7] << 8));
                         if (w != refW || h != refH) continue;
 
-                        // Match — Load entire block
+                        // 匹配 — 加载整个块
                         mulFs.Seek(rawOff, System.IO.SeekOrigin.Begin);
                         var buf = new byte[rawLen];
                         int read = mulFs.Read(buf, 0, buf.Length);
@@ -9942,8 +9939,8 @@ namespace UoFiddler.Controls.Forms
 
 
         // ──────────────────────────────────────────────────────────────────────
-        //  Serializes AnimIdx frames to MUL format (fallback for RAM cache)
-        //  Format: Palette(512) + FrameCount(2) + Lookup(N*4) + FrameData
+        //  将 AnimIdx 帧序列化为 MUL 格式（RAM 缓存的后备）
+        //  格式：调色板(512) + 帧计数(2) + 查找表(N*4) + 帧数据
         // ──────────────────────────────────────────────────────────────────────
 
         private byte[] SerializeAnimIdxToMulFormat(AnimIdx edit)
@@ -9955,19 +9952,19 @@ namespace UoFiddler.Controls.Forms
                 using var ms = new System.IO.MemoryStream();
                 using var bw = new System.IO.BinaryWriter(ms);
 
-                // Palette (256 × uint16 = 512 Bytes)
+                // 调色板 (256 × uint16 = 512 字节)
                 for (int i = 0; i < 256; i++)
                     bw.Write(i < edit.Palette.Length ? edit.Palette[i] : (ushort)0x8000);
 
-                // FrameCount
+                // 帧计数
                 ushort fc = (ushort)edit.Frames.Count;
                 bw.Write(fc);
 
-                // Lookup table: Placeholder, will be filled later
+                // 查找表：占位符，稍后填充
                 long lookupStart = ms.Position;
                 for (int i = 0; i < fc; i++) bw.Write((int)0);
 
-                // Write frame data and store offsets
+                // 写入帧数据并存储偏移量
                 var offsets = new int[fc];
                 var bitmaps = edit.GetFrames();
 
@@ -9978,7 +9975,7 @@ namespace UoFiddler.Controls.Forms
                     var frame = edit.Frames[i];
                     var bmp = (bitmaps != null && i < bitmaps.Length) ? bitmaps[i] : null;
 
-                    // Frame-Header: CX (int16), CY (int16), Width (uint16), Height (uint16)
+                    // 帧标头：CX (int16), CY (int16), 宽度 (uint16), 高度 (uint16)
                     bw.Write((short)(frame?.Center.X ?? 0));
                     bw.Write((short)(frame?.Center.Y ?? 0));
 
@@ -9987,8 +9984,8 @@ namespace UoFiddler.Controls.Forms
                         bw.Write((ushort)bmp.Width);
                         bw.Write((ushort)bmp.Height);
 
-                        // Pixel data (simplified: RLE would be too complex)
-                        // We simply write the pixel values ​​as uint16
+                        // 像素数据（简化：RLE 太复杂）
+                        // 我们只需将像素值作为 uint16 写入
                         for (int y = 0; y < bmp.Height; y++)
                             for (int x = 0; x < bmp.Width; x++)
                             {
@@ -10008,7 +10005,7 @@ namespace UoFiddler.Controls.Forms
                     }
                 }
 
-                // Fill lookup table with real offsets
+                // 用实际偏移量填充查找表
                 long endPos = ms.Position;
                 ms.Seek(lookupStart, System.IO.SeekOrigin.Begin);
                 for (int i = 0; i < fc; i++) bw.Write(offsets[i]);
@@ -10020,8 +10017,8 @@ namespace UoFiddler.Controls.Forms
         }
 
         // ──────────────────────────────────────────────────────────────────────
-        //  Building regions for UOP
-        //  Analyzes the raw data block and marks header and frame starts.
+        //  为 UOP 构建区域
+        //  分析原始数据块并标记标头和帧起始位置。
         // ──────────────────────────────────────────────────────────────────────
 
         private List<HexRegion> BuildUopRegions(byte[] data)
@@ -10029,7 +10026,7 @@ namespace UoFiddler.Controls.Forms
             var regions = new List<HexRegion>();
             if (data == null || data.Length < 8) return regions;
 
-            // Colors for the 28 sequences (cyclical)
+            // 28 个序列的颜色（循环）
             System.Drawing.Color[] palette =
             {
         System.Drawing.Color.FromArgb(60, 100, 200, 255),
@@ -10046,7 +10043,7 @@ namespace UoFiddler.Controls.Forms
                 using var ms = new System.IO.MemoryStream(data);
                 using var br = new System.IO.BinaryReader(ms);
 
-                // UOP-Header (24 Bytes fest laut UopAnimationDataManager)
+                // UOP 标头（根据 UopAnimationDataManager 固定为 24 字节）
                 int headerLen = 24;
                 if (data.Length >= headerLen)
                 {
@@ -10054,8 +10051,8 @@ namespace UoFiddler.Controls.Forms
                     {
                         Offset = 0,
                         Length = headerLen,
-                        Label = "UOP Header",
-                        Tooltip = $"Body:{_currentBody}  Action:{_currentAction}",
+                        Label = "UOP 标头",
+                        Tooltip = $"身体:{_currentBody}  动作:{_currentAction}",
                         HighlightColor = System.Drawing.Color.FromArgb(80, 255, 215, 0),
                         IsSequenceStart = true,
                         SequenceIndex = 0,
@@ -10063,8 +10060,8 @@ namespace UoFiddler.Controls.Forms
                     });
                 }
 
-                // Frame table: from offset 24, 12 bytes per frame (offset + length + extra)
-                // FrameCount steht in Bytes 8–11 (int32)
+                // 帧表：从偏移量 24 开始，每帧 12 字节（偏移量 + 长度 + 额外）
+                // 帧计数存储在字节 8-11（int32）
                 if (data.Length >= 12)
                 {
                     br.BaseStream.Seek(8, System.IO.SeekOrigin.Begin);
@@ -10081,19 +10078,19 @@ namespace UoFiddler.Controls.Forms
                             {
                                 Offset = tableOffset,
                                 Length = tableLen,
-                                Label = $"Frame-Tabelle ({frameCount} Frames)",
-                                Tooltip = "Offset/Länge je Frame (12 B pro Eintrag)",
+                                Label = $"帧表 ({frameCount} 帧)",
+                                Tooltip = "每帧的偏移量/长度（每条目 12 B）",
                                 HighlightColor = System.Drawing.Color.FromArgb(50, 100, 255, 100),
                                 IsSequenceStart = false
                             });
 
-                            // Marking individual frame data
+                            // 标记各个帧数据
                             br.BaseStream.Seek(tableOffset, System.IO.SeekOrigin.Begin);
                             for (int i = 0; i < frameCount && i < 28; i++)
                             {
                                 int fOff = br.ReadInt32();
                                 int fLen = br.ReadInt32();
-                                br.ReadInt32(); // extra
+                                br.ReadInt32(); // 额外
 
                                 if (fOff < 0 || fLen <= 0) continue;
                                 if (fOff + fLen > data.Length) continue;
@@ -10105,8 +10102,8 @@ namespace UoFiddler.Controls.Forms
                                 {
                                     Offset = fOff,
                                     Length = fLen,
-                                    Label = $"Frame {i}  Dir {_currentDir}",
-                                    Tooltip = $"Länge: {fLen} Bytes  Offset: 0x{fOff:X}",
+                                    Label = $"帧 {i}  方向 {_currentDir}",
+                                    Tooltip = $"长度：{fLen} 字节  偏移量：0x{fOff:X}",
                                     HighlightColor = color,
                                     IsSequenceStart = (i == 0),
                                     SequenceIndex = _currentAction,
@@ -10119,14 +10116,14 @@ namespace UoFiddler.Controls.Forms
                     }
                 }
             }
-            catch { /* best-effort – partial regions sind ok */ }
+            catch { /* 尽力而为 – 部分区域也没问题 */ }
 
             return regions;
         }
 
         // ──────────────────────────────────────────────────────────────────────
-        //  Establish regions for MUL
-        //  MUL format: Palette (512 B) + FrameCount (2 B) + Frames
+        //  为 MUL 建立区域
+        //  MUL 格式：调色板 (512 B) + 帧计数 (2 B) + 帧
         // ──────────────────────────────────────────────────────────────────────
 
         private List<HexRegion> BuildMulRegions(byte[] data, Ultima.AnimIdx edit)
@@ -10145,20 +10142,20 @@ namespace UoFiddler.Controls.Forms
         System.Drawing.Color.FromArgb(60, 220, 220,  50),
     };
 
-            // Palette: 256 × 2 Bytes = 512 Bytes
+            // 调色板：256 × 2 字节 = 512 字节
             regions.Add(new HexRegion
             {
                 Offset = 0,
                 Length = 512,
-                Label = "Palette (256 × uint16)",
-                Tooltip = "16bpp ARGB1555 color palette",
+                Label = "调色板 (256 × uint16)",
+                Tooltip = "16bpp ARGB1555 颜色调色板",
                 HighlightColor = System.Drawing.Color.FromArgb(80, 255, 215, 0),
                 IsSequenceStart = true,
                 SequenceIndex = 0,
                 DirectionIndex = _currentDir
             });
 
-            // FrameCount: 2 Bytes bei Offset 512
+            // 帧计数：偏移量 512 处的 2 字节
             if (data.Length >= 514)
             {
                 ushort frameCount = (ushort)(data[512] | (data[513] << 8));
@@ -10167,11 +10164,11 @@ namespace UoFiddler.Controls.Forms
                     Offset = 512,
                     Length = 2,
                     Label = $"FrameCount = {frameCount}",
-                    Tooltip = "Number of frames in this direction",
+                    Tooltip = "此方向上的帧数",
                     HighlightColor = System.Drawing.Color.FromArgb(80, 200, 100, 255)
                 });
 
-                // Frame-Lookup-Tabelle: frameCount × 4 Bytes (Offset je Frame)
+                // 帧查找表：frameCount × 4 字节（每帧偏移量）
                 long lookupLen = frameCount * 4L;
                 if (514 + lookupLen <= data.Length)
                 {
@@ -10179,24 +10176,24 @@ namespace UoFiddler.Controls.Forms
                     {
                         Offset = 514,
                         Length = lookupLen,
-                        Label = $"Frame-Lookup ({frameCount} × 4 B)",
-                        Tooltip = "Byte offsets of the individual frames",
+                        Label = $"帧查找表 ({frameCount} × 4 B)",
+                        Tooltip = "各帧的字节偏移量",
                         HighlightColor = System.Drawing.Color.FromArgb(50, 100, 255, 100)
                     });
 
-                    // Individual frame data areas
+                    // 各个帧数据区域
                     if (edit?.Frames != null)
                     {
                         for (int i = 0; i < edit.Frames.Count && i < 28; i++)
                         {
-                            //Read frame offset from lookup table
+                            //从查找表读取帧偏移量
                             int lookupPos = 514 + i * 4;
                             if (lookupPos + 4 > data.Length) break;
 
                             int fOff = System.BitConverter.ToInt32(data, lookupPos);
                             if (fOff <= 0 || fOff >= data.Length) continue;
 
-                            // Frame length = next offset – current offset (or end of file)
+                            // 帧长度 = 下一偏移量 - 当前偏移量（或文件结尾）
                             int nextOff = data.Length;
                             if (i + 1 < edit.Frames.Count)
                             {
@@ -10218,8 +10215,8 @@ namespace UoFiddler.Controls.Forms
                             {
                                 Offset = fOff,
                                 Length = fLen,
-                                Label = $"Frame {i}  Dir {_currentDir}",
-                                Tooltip = $"CenterX:{edit.Frames[i].Center.X}  CenterY:{edit.Frames[i].Center.Y}  Länge:{fLen} B",
+                                Label = $"帧 {i}  方向 {_currentDir}",
+                                Tooltip = $"CenterX:{edit.Frames[i].Center.X}  CenterY:{edit.Frames[i].Center.Y}  长度:{fLen} B",
                                 HighlightColor = color,
                                 IsSequenceStart = (i == 0),
                                 SequenceIndex = _currentAction,
@@ -10236,7 +10233,7 @@ namespace UoFiddler.Controls.Forms
         }
 
         // ──────────────────────────────────────────────────────────────────────
-        //  Helper: Get the current frame preview image
+        //  辅助函数：获取当前帧预览图像
         // ──────────────────────────────────────────────────────────────────────
 
         private System.Drawing.Bitmap GetCurrentFrameBitmap()
@@ -10262,14 +10259,14 @@ namespace UoFiddler.Controls.Forms
                         return new System.Drawing.Bitmap(bits[frameIndex]);
                 }
             }
-            catch { /* Vorschau optional */ }
+            catch { /* 预览可选 */ }
             return null;
         }
 
         // ──────────────────────────────────────────────────────────────────────
-        //  Call when selection changes (Direction / Frame / Action)
-        //  This line in OnDirectionChanged, AfterSelectTreeView and
-        //  Insert OnFrameCountBarChanged at the end:
+        //  当选择更改时调用（方向 / 帧 / 动作）
+        //  在 OnDirectionChanged、AfterSelectTreeView 和
+        //  OnFrameCountBarChanged 末尾添加此行：
         //
         //  NotifyHexEditor();
         // ──────────────────────────────────────────────────────────────────────
@@ -10279,9 +10276,8 @@ namespace UoFiddler.Controls.Forms
             if (_hexEditor == null || _hexEditor.IsDisposed || !_hexEditor.Visible)
                 return;
 
-            // Immer vollständig neu laden damit _data, _bodyId und _dataOffset
-            // zum aktuell gewählten Body passen.
-            // UpdateSelection() würde _data nie tauschen → falscher Body im RLE Decoder.
+            // 总是完全重新加载，使 _data、_bodyId 和 _dataOffset 与当前选中的身体匹配。
+            // UpdateSelection() 永远不会交换 _data → 导致 RLE 解码器使用错误的身体。
             if (_fileType == 6)
                 OpenHexEditorUop();
             else
@@ -10300,7 +10296,7 @@ namespace UoFiddler.Controls.Forms
             var edit = AnimationEdit.GetAnimation(_fileType, _currentBody, _currentAction, _currentDir);
             if (edit == null) return new List<HexRegion>();
 
-            // Reread raw data (briefly, as the file is cached)
+            // 重新读取原始数据（短暂，因为文件被缓存）
             string mulFileName = _fileType == 1 ? "anim.mul" : $"anim{_fileType}.mul";
             string idxFileName = _fileType == 1 ? "anim.idx" : $"anim{_fileType}.idx";
             string mulPath = Ultima.Files.GetFilePath(mulFileName);
@@ -10333,10 +10329,10 @@ namespace UoFiddler.Controls.Forms
         }
         #endregion
 
-        #region [ Diagnosen ] - Button-Handler zum Aufrufen der Diagnose-Dialogs
+        #region [ 诊断 ] - 调用诊断对话框的按钮处理程序
         /// <summary>
-        /// Displays complete IDX diagnostics for the currently selected body.
-        /// Good to see why certain actions are red.
+        /// 显示当前选中身体的完整 IDX 诊断。
+        /// 有助于了解为什么某些动作显示为红色。
         /// </summary>
         private void btnDiagSingle_Click(object sender, EventArgs e)
         {
@@ -10345,19 +10341,19 @@ namespace UoFiddler.Controls.Forms
         }
 
         /// <summary>
-        /// Compare a functioning body to a broken one.
-        /// Shows exactly where the difference lies (BodyConverter, IDX, etc.)
+        /// 将功能正常的身体与有问题的身体进行比较。
+        /// 准确显示差异所在（BodyConverter、IDX 等）。
         /// </summary>
         private void btnDiagCompare_Click(object sender, EventArgs e)
         {
             if (_fileType == 0 || _fileType == 6) return;
 
-            // Works with the current body as "broken"
-            // Ask about the functioning body
+            // 将当前身体视为“有问题的”
+            // 询问功能正常的身体
             string input = Microsoft.VisualBasic.Interaction.InputBox(
-                $"Comparison: Body {_currentBody} (currently) with which functioning body?\n\n" +
-                "Enter the Body ID of the working body:",
-                "comparative diagnosis", "0");
+                $"比较：身体 {_currentBody}（当前）与哪个功能正常的身体？\n\n" +
+                "输入功能正常身体的身体 ID：",
+                "比较诊断", "0");
 
             if (string.IsNullOrEmpty(input)) return;
             if (!int.TryParse(input, out int workingBody)) return;
@@ -10366,17 +10362,17 @@ namespace UoFiddler.Controls.Forms
         }
 
         /// <summary>
-        /// Scans ALL bodies of the loaded file and lists all those with problems.
-        /// Please note: this may take some time with large files (~1-2 seconds).
+        /// 扫描加载文件中的所有身体，并列出所有有问题的身体。
+        /// 请注意：对于大文件，这可能需要一些时间（约 1-2 秒）。
         /// </summary>
         private void btnDiagMassScan_Click(object sender, EventArgs e)
         {
             if (_fileType == 0 || _fileType == 6) return;
 
             var result = MessageBox.Show(
-                $"Alle Bodies in anim{_fileType}.mul scannen?\n" +
-                "Only bodies with problems (PARTIAL/BROKEN) are output.",
-                "Bulk scan", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                $"扫描 anim{_fileType}.mul 中的所有身体？\n" +
+                "仅输出有问题的身体（部分/损坏）。",
+                "批量扫描", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result != DialogResult.Yes) return;
 
@@ -10386,9 +10382,9 @@ namespace UoFiddler.Controls.Forms
         }
         #endregion
 
-        #region [  Action Map Diagnosen Mul ]
+        #region [ 动作映射诊断 Mul ]
 
-        #region [ Diagnosen Mul ]
+        #region [ 诊断 Mul ]
 
         private void BtnAnimMap_Click(object sender, EventArgs e)
         {
@@ -10397,22 +10393,22 @@ namespace UoFiddler.Controls.Forms
         }
 
         /// <summary>
-        /// Full animation map for a body:
-        /// Body → Action → Dir → Block info → frameCount → Frame dimensions
-        /// Shows what is valid / empty / corrupt and which action name belongs to it.
-        /// Resolves physical body index via bodyconv.def for FileType 2-5.
-        /// Includes full diagnostics when OOB is detected.
+        /// 身体的完整动画映射：
+        /// 身体 → 动作 → 方向 → 块信息 → 帧数 → 帧尺寸
+        /// 显示哪些有效 / 空 / 损坏以及属于哪个动作名称。
+        /// 对于 FileType 2-5，通过 bodyconv.def 解析物理身体索引。
+        /// 当检测到 OOB 时，包含完整的诊断信息。
         /// </summary>
 
         #region [ ShowBodyAnimationMap ]
 
         /// <summary>
-        /// Full animation map for a body:
-        /// Body → Action → Dir → Block info → frameCount → Frame dimensions
-        /// Shows what is valid / empty / corrupt and which action name belongs to it.
-        /// Resolves physical body index via bodyconv.def for FileType 2-5.
-        /// Falls back to Translate(), body.def and a full anim*.idx scan when OOB.
-        /// Includes extended debug output per entry when checkBoxDiagInfo is checked.
+        /// 身体的完整动画映射：
+        /// 身体 → 动作 → 方向 → 块信息 → 帧数 → 帧尺寸
+        /// 显示哪些有效 / 空 / 损坏以及属于哪个动作名称。
+        /// 对于 FileType 2-5，通过 bodyconv.def 解析物理身体索引。
+        /// 当 OOB 时，回退到 Translate()、body.def 和完整的 anim*.idx 扫描。
+        /// 当 checkBoxDiagInfo 被选中时，包含每个条目的扩展调试输出。
         /// </summary>
         private void ShowBodyAnimationMap(int body, int fileType)
         {
@@ -10422,53 +10418,53 @@ namespace UoFiddler.Controls.Forms
             string idxPath = Ultima.Files.GetFilePath(idxName);
             if (string.IsNullOrEmpty(idxPath) || !System.IO.File.Exists(idxPath))
             {
-                MessageBox.Show($"{idxName} not found.", "Action Map");
+                MessageBox.Show($"{idxName} 未找到。", "动作映射");
                 return;
             }
 
-            // ── Diag-Info flag ───────────────────────────────────────────────────
+            // ── Diag-Info 标志 ───────────────────────────────────────────────────
             bool diagInfoEnabled = checkBoxDiagInfo != null && checkBoxDiagInfo.Checked;
 
-            // ── Action names by type ─────────────────────────────────────────────
+            // ── 按类型的动作名称 ─────────────────────────────────────────────
             int animLength = Animations.GetAnimLength(body, fileType);
             string typLabel;
             string[] actionNames;
 
             if (animLength == 22)
             {
-                typLabel = "H (Monster)";
+                typLabel = "H (怪物)";
                 actionNames = new[] {
-                    "Walk","Stand","Die1","Die2","Attack1","Attack2","Attack3",
-                    "AttackBow","AttackCrossBow","AttackThrow","GetHit","Pillage",
-                    "Stomp","Cast2","Cast3","BlockRight","BlockLeft","Idle",
-                    "Fidget","Fly","TakeOff","GetHitInAir"
+                    "行走","站立","死亡1","死亡2","攻击1","攻击2","攻击3",
+                    "弓攻击","弩攻击","投掷攻击","受击","掠夺",
+                    "踩踏","施法2","施法3","右格挡","左格挡","空闲",
+                    "烦躁","飞行","起飞","空中受击"
                 };
             }
             else if (animLength == 13)
             {
-                typLabel = "L (Animal)";
+                typLabel = "L (动物)";
                 actionNames = new[] {
-                    "Walk","Run","Idle","Eat","Alert","Attack1","Attack2",
-                    "GetHit","Die1","Fidget1","Fidget2","LieDown","Die2"
+                    "行走","奔跑","空闲","进食","警觉","攻击1","攻击2",
+                    "受击","死亡1","烦躁1","烦躁2","躺下","死亡2"
                 };
             }
             else
             {
-                typLabel = "P (Human/Equipment)";
+                typLabel = "P (人类/装备)";
                 actionNames = new[] {
-                    "Walk_01","WalkStaff_01","Run_01","RunStaff_01","Idle_01",
-                    "Idle_01b","Fidget_Yawn","CombatIdle1H","CombatIdle1Hb",
-                    "AttackSlash1H","AttackPierce1H","AttackBash1H","AttackBash2H",
-                    "AttackSlash2H","AttackPierce2H","CombatAdvance1H","Spell1",
-                    "Spell2","AttackBow","AttackCrossbow","GetHit_Fr_Hi",
-                    "Die_Hard_Fwd","Die_Hard_Back","Horse_Walk","Horse_Run",
-                    "Horse_Idle","Horse_Attack1H","Horse_AttackBow",
-                    "Horse_AttackCrossbow","Horse_Attack2H","Block_Shield",
-                    "Punch_Jab","Bow_Lesser","Salute_Armed","Ingest_Eat"
+                    "行走_01","持杖行走_01","奔跑_01","持杖奔跑_01","空闲_01",
+                    "空闲_01b","烦躁_打哈欠","单手战斗空闲","单手战斗空闲b",
+                    "单手挥砍攻击","单手穿刺攻击","单手钝击攻击","双手钝击攻击",
+                    "双手挥砍攻击","双手穿刺攻击","单手战斗前进","法术1",
+                    "法术2","弓攻击","弩攻击","受击_前/高",
+                    "死亡_硬直前倒","死亡_硬直后倒","骑马行走","骑马奔跑",
+                    "骑马空闲","骑马单手攻击","骑马弓攻击",
+                    "骑马弩攻击","骑马双手攻击","盾牌格挡",
+                    "拳击_刺拳","鞠躬_小","武装敬礼","进食"
                 };
             }
 
-            // ── Resolve physical body index via bodyconv.def ─────────────────────
+            // ── 通过 bodyconv.def 解析物理身体索引 ─────────────────────
             int physicalBody = body;
             int physicalFileType = fileType;
             string bodyconvPath = Ultima.Files.GetFilePath("bodyconv.def");
@@ -10502,13 +10498,13 @@ namespace UoFiddler.Controls.Forms
                 catch { }
             }
 
-            // ── IDX file size check ──────────────────────────────────────────────
+            // ── IDX 文件大小检查 ──────────────────────────────────────────────
             long idxFileLen = 0;
             try { idxFileLen = new System.IO.FileInfo(idxPath).Length; } catch { }
             (long idxRangeStart, long idxRangeEnd) = GetIdxBodyRange(physicalBody, animLength, physicalFileType);
             bool willBeOob = idxRangeEnd > idxFileLen;
 
-            // ── Try Animations.Translate for OOB cases ───────────────────────────
+            // ── 对于 OOB 情况，尝试 Animations.Translate ───────────────────────────
             int translatedBody = body;
             int translatedFileType = fileType;
             bool translateAvailable = false;
@@ -10534,7 +10530,7 @@ namespace UoFiddler.Controls.Forms
             }
             catch { }
 
-            // ── Try body.def (BodyTable) for OOB cases ───────────────────────────
+            // ── 对于 OOB 情况，尝试 body.def (BodyTable) ───────────────────────────
             int bodyDefOldId = -1;
             bool bodyDefHelps = false;
             Ultima.BodyTableEntry btEntry = null;
@@ -10548,7 +10544,7 @@ namespace UoFiddler.Controls.Forms
                 if (bodyDefHelps) physicalBody = bodyDefOldId;
             }
 
-            // ── If Translate gives a different file, switch to that ──────────────
+            // ── 如果 Translate 给出不同的文件，则切换到该文件 ──────────────
             if (willBeOob && translateAvailable && translateHelps
                 && translatedFileType != fileType)
             {
@@ -10571,9 +10567,9 @@ namespace UoFiddler.Controls.Forms
                 willBeOob = idxRangeEnd > idxFileLen;
             }
 
-            // ── Fallback: scan all anim*.idx files + MUL verification with frame size + visible size ─────
-            // Bodies like 290 or 631 exist in a different anim file but have no
-            // entry in bodyconv.def / body.def and Translate() returns them unchanged.
+            // ── 后备：扫描所有 anim*.idx 文件 + 通过帧大小 + 可见大小验证 MUL ─────
+            // 像 290 或 631 这样的身体存在于不同的 anim 文件中，但
+            // bodyconv.def / body.def 中没有条目，并且 Translate() 原样返回。
 
             string animScanNote = null;
             bool needsRedirect = willBeOob;
@@ -10620,7 +10616,7 @@ namespace UoFiddler.Controls.Forms
                         int chkLen = scanBr.ReadInt32();
                         if (chkOff <= 0 || chkOff == unchecked((int)0xFFFFFFFF) || chkLen <= 0) continue;
 
-                        // === MUL-VERIFY + visible size ===
+                        // === MUL 验证 + 可见大小 ===
                         string scanMulName = ft == 1 ? "anim.mul" : $"anim{ft}.mul";
                         string scanMulPath = Ultima.Files.GetFilePath(scanMulName);
                         bool verified = false;
@@ -10654,11 +10650,11 @@ namespace UoFiddler.Controls.Forms
                                         headerW = w;
                                         headerH = h;
 
-                                        // Approximate visible size (remove padding – fits perfectly)
+                                        // 近似可见大小（移除填充 – 完美匹配）
                                         visibleW = Math.Max(1, w - 4);
                                         visibleH = Math.Max(1, h - 10);
 
-                                        // Mini-Hash der ersten 64 Bytes
+                                        // 前 64 字节的迷你哈希
                                         if (chkOff + absOff + 64 <= mulVerify.Length)
                                         {
                                             mulVerify.Seek(chkOff + absOff, System.IO.SeekOrigin.Begin);
@@ -10687,35 +10683,35 @@ namespace UoFiddler.Controls.Forms
                         idxRangeEnd = scanRangeEnd;
                         willBeOob = false;
 
-                        animScanNote = $"anim-scan: body {body} found in {idxName} (FT{ft}) " +
-                                       $"→ Verified fc={verifiedFc} ({headerW}×{headerH} visible ~{visibleW}×{visibleH}) " +
-                                       $"Hash=0x{miniHash:X8} in {mulName}";
+                        animScanNote = $"anim-scan：身体 {body} 在 {idxName} (FT{ft}) 中找到 " +
+                                       $"→ 已验证 fc={verifiedFc} ({headerW}×{headerH} 可见 ~{visibleW}×{visibleH}) " +
+                                       $"哈希=0x{miniHash:X8} 位于 {mulName}";
                         break;
                     }
                     catch { }
                 }
 
                 if (willBeOob)
-                    animScanNote = $"anim-scan: no valid file found for body {body}";
+                    animScanNote = $"anim-scan：未为身体 {body} 找到有效文件";
             }
 
-            // ── Write diagnostics file ───────────────────────────────────────────
+            // ── 写入诊断文件 ───────────────────────────────────────────
             string diagPath = null;
             if (diagInfoEnabled)
             {
                 var diagSb = new System.Text.StringBuilder();
-                diagSb.AppendLine($"=== DIAGNOSTICS: Body {body} FileType {fileType} ===");
+                diagSb.AppendLine($"=== 诊断：身体 {body} 文件类型 {fileType} ===");
                 diagSb.AppendLine();
-                diagSb.AppendLine($"IDX file : {idxName}");
-                diagSb.AppendLine($"IDX file size : {idxFileLen} bytes ({idxFileLen / 12} entries)");
-                diagSb.AppendLine($"Physical body : {physicalBody}");
-                diagSb.AppendLine($"IDX range needed : [{idxRangeStart}..{idxRangeEnd}] " +
-                                  $"({idxRangeEnd - idxRangeStart} bytes)");
-                diagSb.AppendLine($"IDX range fits : {(!willBeOob ? "YES ✓" : "NO — OOB ✗")}");
+                diagSb.AppendLine($"IDX 文件：{idxName}");
+                diagSb.AppendLine($"IDX 文件大小：{idxFileLen} 字节 ({idxFileLen / 12} 条目)");
+                diagSb.AppendLine($"物理身体：{physicalBody}");
+                diagSb.AppendLine($"IDX 范围所需：[{idxRangeStart}..{idxRangeEnd}] " +
+                                  $"({idxRangeEnd - idxRangeStart} 字节)");
+                diagSb.AppendLine($"IDX 范围适合：{(!willBeOob ? "是 ✓" : "否 — 越界 ✗")}");
                 if (animScanNote != null)
-                    diagSb.AppendLine($"Anim-scan result : {animScanNote}");
+                    diagSb.AppendLine($"Anim-scan 结果：{animScanNote}");
                 diagSb.AppendLine();
-                diagSb.AppendLine($"bodyconv.def lookup for body {body}:");
+                diagSb.AppendLine($"身体 {body} 的 bodyconv.def 查找：");
                 string bcDiagPath = Ultima.Files.GetFilePath("bodyconv.def");
                 if (!string.IsNullOrEmpty(bcDiagPath) && System.IO.File.Exists(bcDiagPath))
                 {
@@ -10730,29 +10726,29 @@ namespace UoFiddler.Controls.Forms
                             string[] parts = clean.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
                             if (parts.Length < 2) continue;
                             if (!int.TryParse(parts[0], out int lb) || lb != body) continue;
-                            diagSb.AppendLine($" Line : {string.Join(" ", parts)}");
-                            diagSb.AppendLine($" Cols : [0]=body [1]=anim2 [2]=anim3 [3]=anim4 [4]=anim5");
+                            diagSb.AppendLine($" 行：{string.Join(" ", parts)}");
+                            diagSb.AppendLine($" 列：[0]=身体 [1]=anim2 [2]=anim3 [3]=anim4 [4]=anim5");
                             found = true;
                             break;
                         }
                     }
                     catch { }
-                    if (!found) diagSb.AppendLine(" Not found in bodyconv.def");
+                    if (!found) diagSb.AppendLine(" 在 bodyconv.def 中未找到");
                 }
-                else diagSb.AppendLine(" bodyconv.def not found");
+                else diagSb.AppendLine(" bodyconv.def 未找到");
                 diagSb.AppendLine();
-                diagSb.AppendLine($"body.def (BodyTable) lookup for body {body}:");
+                diagSb.AppendLine($"身体 {body} 的 body.def (BodyTable) 查找：");
                 if (bodyDefOldId >= 0 && btEntry != null)
-                    diagSb.AppendLine($" Found : {body} → OldId={bodyDefOldId} fits={bodyDefHelps}");
+                    diagSb.AppendLine($" 找到：{body} → OldId={bodyDefOldId} 适合={bodyDefHelps}");
                 else
-                    diagSb.AppendLine(" Not found in body.def");
+                    diagSb.AppendLine(" 在 body.def 中未找到");
                 diagSb.AppendLine();
-                diagSb.AppendLine($"Animations.Translate({body}, {fileType}):");
+                diagSb.AppendLine($"Animations.Translate({body}, {fileType})：");
                 if (translateAvailable)
-                    diagSb.AppendLine($" Result: body={translatedBody} fileType={translatedFileType}" +
-                                      $" helps={translateHelps}");
+                    diagSb.AppendLine($" 结果：身体={translatedBody} 文件类型={translatedFileType}" +
+                                      $" 有帮助={translateHelps}");
                 else
-                    diagSb.AppendLine(" Not available");
+                    diagSb.AppendLine(" 不可用");
 
                 diagPath = System.IO.Path.Combine(
                     System.IO.Path.GetTempPath(),
@@ -10760,51 +10756,51 @@ namespace UoFiddler.Controls.Forms
                 System.IO.File.WriteAllText(diagPath, diagSb.ToString());
             }
 
-            // ── Build report ─────────────────────────────────────────────────────
+            // ── 构建报告 ─────────────────────────────────────────────────────
             var sb = new System.Text.StringBuilder();
-            sb.AppendLine($"=== Action Map: Body {body} [{typLabel}] FileType {fileType} ===");
-            sb.AppendLine($"File: {idxName} / {mulName}");
-            sb.AppendLine($"Physical body index in IDX: {physicalBody}" +
+            sb.AppendLine($"=== 动作映射：身体 {body} [{typLabel}] 文件类型 {fileType} ===");
+            sb.AppendLine($"文件：{idxName} / {mulName}");
+            sb.AppendLine($"IDX 中的物理身体索引：{physicalBody}" +
                           (physicalBody != body
-                              ? $" (mapped from {body} via " +
-                                (bodyDefHelps ? "body.def" : "bodyconv.def") + ")"
+                              ? $" (从 {body} 通过 " +
+                                (bodyDefHelps ? "body.def" : "bodyconv.def") + " 映射)"
                               : ""));
             if (physicalFileType != fileType)
-                sb.AppendLine($"Redirected to FileType {physicalFileType} ({idxName} / {mulName})");
+                sb.AppendLine($"重定向到文件类型 {physicalFileType} ({idxName} / {mulName})");
             if (animScanNote != null)
                 sb.AppendLine($"ℹ {animScanNote}");
-            sb.AppendLine($"AnimLength: {animLength} → {animLength * 5} IDX entries" +
-                          $" ({animLength * 5 * 12} bytes in IDX)");
+            sb.AppendLine($"动画长度：{animLength} → {animLength * 5} 个 IDX 条目" +
+                          $" ({animLength * 5 * 12} 字节在 IDX 中)");
             if (diagInfoEnabled)
-                sb.AppendLine("[DiagInfo: ENABLED — extended debug output per entry active]");
+                sb.AppendLine("[DiagInfo：已启用 — 每个条目的扩展调试输出处于活动状态]");
             if (willBeOob)
             {
                 sb.AppendLine();
-                sb.AppendLine($"⚠ WARNING: IDX range [{idxRangeStart}..{idxRangeEnd}] exceeds" +
-                              $" IDX file size {idxFileLen} — all entries will be OOB");
-                sb.AppendLine($" bodyconv.def : {(physicalBody != body ? $"{body}→{physicalBody}" : "no mapping")}");
-                sb.AppendLine($" body.def : {(bodyDefOldId >= 0 ? $"{body}→{bodyDefOldId} (fits={bodyDefHelps})" : "no entry")}");
-                sb.AppendLine($" Translate() : {(translateAvailable ? $"{body}→{translatedBody} ft={translatedFileType} (helps={translateHelps})" : "n/a")}");
-                sb.AppendLine($" anim-scan : {animScanNote ?? "not run"}");
+                sb.AppendLine($"⚠ 警告：IDX 范围 [{idxRangeStart}..{idxRangeEnd}] 超出" +
+                              $" IDX 文件大小 {idxFileLen} — 所有条目都将越界");
+                sb.AppendLine($" bodyconv.def：{(physicalBody != body ? $"{body}→{physicalBody}" : "无映射")}");
+                sb.AppendLine($" body.def：{(bodyDefOldId >= 0 ? $"{body}→{bodyDefOldId} (适合={bodyDefHelps})" : "无条目")}");
+                sb.AppendLine($" Translate()：{(translateAvailable ? $"{body}→{translatedBody} ft={translatedFileType} (有帮助={translateHelps})" : "不可用")}");
+                sb.AppendLine($" anim-scan：{animScanNote ?? "未运行"}");
                 sb.AppendLine(diagInfoEnabled && diagPath != null
-                    ? $" Diagnostics : {diagPath}"
-                    : $" Diagnostics : (enable checkBoxDiagInfo to save diagnostics file)");
+                    ? $" 诊断：{diagPath}"
+                    : $" 诊断：（启用 checkBoxDiagInfo 以保存诊断文件）");
             }
 
             sb.AppendLine();
-            sb.AppendLine($"{"Act",-4} {"Name",-24} {"Dir0",10} {"Dir1",10} {"Dir2",10}" +
-                          $" {"Dir3",10} {"Dir4",10} {"Status",-8}");
+            sb.AppendLine($"{"动作",-4} {"名称",-24} {"方向0",10} {"方向1",10} {"方向2",10}" +
+                          $" {"方向3",10} {"方向4",10} {"状态",-8}");
             sb.AppendLine(new string('─', 90));
             int totalOk = 0, totalEmpty = 0, totalCorrupt = 0;
 
-            // ── Extended debug StringBuilder (diagInfoEnabled only) ──────────────
+            // ── 扩展调试 StringBuilder（仅在 diagInfoEnabled 时） ──────────────
             var extDbgSb = diagInfoEnabled ? new System.Text.StringBuilder() : null;
             if (diagInfoEnabled)
             {
-                extDbgSb.AppendLine($"=== EXTENDED DEBUG: Body {body} FileType {fileType} ===");
-                extDbgSb.AppendLine($"Physical body: {physicalBody} | File: {idxName}");
+                extDbgSb.AppendLine($"=== 扩展调试：身体 {body} 文件类型 {fileType} ===");
+                extDbgSb.AppendLine($"物理身体：{physicalBody} | 文件：{idxName}");
                 if (animScanNote != null)
-                    extDbgSb.AppendLine($"Anim-scan: {animScanNote}");
+                    extDbgSb.AppendLine($"Anim-scan：{animScanNote}");
                 extDbgSb.AppendLine();
             }
 
@@ -10818,7 +10814,7 @@ namespace UoFiddler.Controls.Forms
 
                 for (int action = 0; action < animLength; action++)
                 {
-                    string actName = action < actionNames.Length ? actionNames[action] : $"Action{action:D2}";
+                    string actName = action < actionNames.Length ? actionNames[action] : $"动作{action:D2}";
                     var dirInfos = new string[5];
                     var dirDetails = new System.Text.StringBuilder();
                     bool anyValid = false, anyCorrupt = false, anyEmpty = false;
@@ -10830,12 +10826,12 @@ namespace UoFiddler.Controls.Forms
 
                         if (idxPos + 12 > idxFs.Length)
                         {
-                            dirInfos[dir] = "OOB";
+                            dirInfos[dir] = "越界";
                             anyCorrupt = true;
                             if (diagInfoEnabled)
                             {
-                                extDbgSb.AppendLine($"--- Act={action:D2} ({actName}) Dir={dir} ---");
-                                extDbgSb.AppendLine($" IDX position : byte {idxPos} → OOB (file size={idxFs.Length})");
+                                extDbgSb.AppendLine($"--- 动作={action:D2} ({actName}) 方向={dir} ---");
+                                extDbgSb.AppendLine($" IDX 位置：字节 {idxPos} → 越界（文件大小={idxFs.Length}）");
                                 extDbgSb.AppendLine();
                             }
                             continue;
@@ -10846,47 +10842,47 @@ namespace UoFiddler.Controls.Forms
                         int rawLen = br.ReadInt32();
                         int rawExt = br.ReadInt32();
 
-                        // ── Extended debug ────────────────────────────────────────
+                        // ── 扩展调试 ────────────────────────────────────────
                         if (diagInfoEnabled)
                         {
-                            // ── Extended debug (your complete original block) ─────
-                            extDbgSb.AppendLine($"--- Act={action:D2} ({actName}) Dir={dir} ---");
-                            extDbgSb.AppendLine($" IDX position : byte {idxPos} (= {physicalBody}*110*5*12 + {action}*5*12 + {dir}*12)");
-                            extDbgSb.AppendLine($" IDX raw : off=0x{rawOff:X8} ({rawOff}) len=0x{rawLen:X8} ({rawLen}) ext=0x{rawExt:X8}");
-                            extDbgSb.AppendLine($" off==-1 : {rawOff == -1} off==0xFFFFFFFF : {rawOff == unchecked((int)0xFFFFFFFF)} len<=0 : {rawLen <= 0}");
+                            // ── 扩展调试（您完整的原始块） ─────
+                            extDbgSb.AppendLine($"--- 动作={action:D2} ({actName}) 方向={dir} ---");
+                            extDbgSb.AppendLine($" IDX 位置：字节 {idxPos} (= {physicalBody}*110*5*12 + {action}*5*12 + {dir}*12)");
+                            extDbgSb.AppendLine($" IDX 原始：off=0x{rawOff:X8} ({rawOff}) len=0x{rawLen:X8} ({rawLen}) ext=0x{rawExt:X8}");
+                            extDbgSb.AppendLine($" off==-1：{rawOff == -1} off==0xFFFFFFFF：{rawOff == unchecked((int)0xFFFFFFFF)} len<=0：{rawLen <= 0}");
 
-                            // Surrounding bodies — once per action with you=0
+                            // 周围的身体 — 每动作一次，your=0
                             if (dir == 0)
                             {
-                                extDbgSb.AppendLine($" Surrounding IDX entries (physBody±2, Act={action} Dir=0):");
+                                extDbgSb.AppendLine($" 周围 IDX 条目（physBody±2，动作={action} 方向=0）：");
                                 for (int scanBody = Math.Max(0, physicalBody - 2); scanBody <= physicalBody + 2; scanBody++)
                                 {
                                     long scanPos = GetIdxOffset(scanBody, action, 0, physicalFileType);
                                     if (scanPos + 12 > idxFs.Length)
                                     {
-                                        extDbgSb.AppendLine($" Body {scanBody,4}: OOB");
+                                        extDbgSb.AppendLine($" 身体 {scanBody,4}：越界");
                                         continue;
                                     }
                                     idxFs.Seek(scanPos, System.IO.SeekOrigin.Begin);
                                     int sOff = br.ReadInt32();
                                     int sLen = br.ReadInt32();
                                     br.ReadInt32();
-                                    string valid = (sOff > 0 && sOff != unchecked((int)0xFFFFFFFF) && sLen > 0) ? "VALID" : "empty/invalid";
-                                    extDbgSb.AppendLine($" Body {scanBody,4}: off=0x{sOff:X8} len={sLen,8} [{valid}]");
+                                    string valid = (sOff > 0 && sOff != unchecked((int)0xFFFFFFFF) && sLen > 0) ? "有效" : "空/无效";
+                                    extDbgSb.AppendLine($" 身体 {scanBody,4}：off=0x{sOff:X8} len={sLen,8} [{valid}]");
                                 }
                             }
 
-                            // All anim*.idx cross-scan — einmal bei Act=0 Dir=0
+                            // 所有 anim*.idx 交叉扫描 — 在动作=0 方向=0 时执行一次
                             if (action == 0 && dir == 0)
                             {
-                                extDbgSb.AppendLine($" Scanning all anim*.idx for body {body} Act=0 Dir=0:");
+                                extDbgSb.AppendLine($" 扫描身体 {body} 的所有 anim*.idx 动作=0 方向=0：");
                                 for (int ft = 1; ft <= 5; ft++)
                                 {
                                     string scanIdxName2 = ft == 1 ? "anim.idx" : $"anim{ft}.idx";
                                     string scanIdxPath2 = Ultima.Files.GetFilePath(scanIdxName2);
                                     if (string.IsNullOrEmpty(scanIdxPath2) || !System.IO.File.Exists(scanIdxPath2))
                                     {
-                                        extDbgSb.AppendLine($" FT{ft}: {scanIdxName2} not found");
+                                        extDbgSb.AppendLine($" FT{ft}：{scanIdxName2} 未找到");
                                         continue;
                                     }
                                     try
@@ -10900,21 +10896,21 @@ namespace UoFiddler.Controls.Forms
                                             scanFs2.Seek(scanPos2, System.IO.SeekOrigin.Begin);
                                             int sOff = scanBr2.ReadInt32();
                                             int sLen = scanBr2.ReadInt32();
-                                            string valid = (sOff > 0 && sOff != unchecked((int)0xFFFFFFFF) && sLen > 0) ? "VALID ✓" : "empty";
-                                            extDbgSb.AppendLine($" FT{ft}: {scanIdxName2,-16} body={body} off=0x{sOff:X8} len={sLen,8} [{valid}]");
+                                            string valid = (sOff > 0 && sOff != unchecked((int)0xFFFFFFFF) && sLen > 0) ? "有效 ✓" : "空";
+                                            extDbgSb.AppendLine($" FT{ft}：{scanIdxName2,-16} 身体={body} off=0x{sOff:X8} len={sLen,8} [{valid}]");
                                         }
                                         else
                                         {
-                                            extDbgSb.AppendLine($" FT{ft}: {scanIdxName2,-16} body={body} → OOB (file={scanFileLen2})");
+                                            extDbgSb.AppendLine($" FT{ft}：{scanIdxName2,-16} 身体={body} → 越界（文件={scanFileLen2}）");
                                         }
                                     }
                                     catch (Exception ex2)
                                     {
-                                        extDbgSb.AppendLine($" FT{ft}: error — {ex2.Message}");
+                                        extDbgSb.AppendLine($" FT{ft}：错误 — {ex2.Message}");
                                     }
                                 }
 
-                                extDbgSb.AppendLine($" UOP check for body {body}:");
+                                extDbgSb.AppendLine($" 身体 {body} 的 UOP 检查：");
                                 if (_uopManager != null)
                                 {
                                     int uopFoundAct = -1, uopFoundDir = -1;
@@ -10922,20 +10918,20 @@ namespace UoFiddler.Controls.Forms
                                         for (int d = 0; d < 5 && uopFoundAct < 0; d++)
                                             if (_uopManager.GetAnimationData(body, a, d) != null)
                                             { uopFoundAct = a; uopFoundDir = d; }
-                                    extDbgSb.AppendLine(uopFoundAct >= 0 ? $" Found in UOP at Act={uopFoundAct} Dir={uopFoundDir} ✓" : " Not found in UOP");
+                                    extDbgSb.AppendLine(uopFoundAct >= 0 ? $" 在 UOP 中找到，位于 动作={uopFoundAct} 方向={uopFoundDir} ✓" : " 在 UOP 中未找到");
                                 }
                                 else
                                 {
-                                    extDbgSb.AppendLine(" UOP manager not available");
+                                    extDbgSb.AppendLine(" UOP 管理器不可用");
                                 }
                             }
                             extDbgSb.AppendLine();
                         }
-                        // ── End extended debug ────────────────────────────────────
+                        // ── 扩展调试结束 ────────────────────────────────────
 
                         if (rawOff < 0 || rawOff == unchecked((int)0xFFFFFFFF) || rawLen <= 0)
                         {
-                            dirInfos[dir] = "empty";
+                            dirInfos[dir] = "空";
                             anyEmpty = true;
                             continue;
                         }
@@ -10970,7 +10966,7 @@ namespace UoFiddler.Controls.Forms
                                 int w = mulFs.ReadByte() | (mulFs.ReadByte() << 8);
                                 int h = mulFs.ReadByte() | (mulFs.ReadByte() << 8);
                                 dirInfos[dir] = $"fc={fc}";
-                                dirDetails.AppendLine($" Dir{dir}: offset=0x{rawOff:X8} len={rawLen,7} frames={fc,3} F0: {w,4}×{h,-4} CX={cx,4} CY={cy,4}");
+                                dirDetails.AppendLine($" 方向{dir}：偏移量=0x{rawOff:X8} 长度={rawLen,7} 帧数={fc,3} F0：{w,4}×{h,-4} CX={cx,4} CY={cy,4}");
                                 anyValid = true;
                                 continue;
                             }
@@ -10984,7 +10980,7 @@ namespace UoFiddler.Controls.Forms
                     if (anyEmpty && !anyValid) totalEmpty++;
                     if (anyCorrupt) totalCorrupt++;
 
-                    string status = anyCorrupt ? "CORRUPT" : !anyValid ? "MISSING" : anyEmpty ? "PARTIAL" : "OK";
+                    string status = anyCorrupt ? "损坏" : !anyValid ? "缺失" : anyEmpty ? "部分" : "正常";
                     sb.Append($"{action:D2} {actName,-24}");
                     foreach (var d in dirInfos) sb.Append($" {d,10}");
                     sb.AppendLine($" {status,-8}");
@@ -10993,15 +10989,15 @@ namespace UoFiddler.Controls.Forms
             }
             catch (Exception ex)
             {
-                sb.AppendLine($"\nError reading files: {ex.Message}");
+                sb.AppendLine($"\n读取文件时出错：{ex.Message}");
             }
 
             sb.AppendLine();
             sb.AppendLine(new string('─', 90));
-            sb.AppendLine($"Summary: OK={totalOk} PARTIAL/MISSING={totalEmpty} CORRUPT={totalCorrupt}");
+            sb.AppendLine($"摘要：正常={totalOk} 部分/缺失={totalEmpty} 损坏={totalCorrupt}");
             string fullText = sb.ToString();
 
-            // ── Save main report ─────────────────────────────────────────────────
+            // ── 保存主报告 ─────────────────────────────────────────────────
             string dumpPath = null;
             if (diagInfoEnabled)
             {
@@ -11009,7 +11005,7 @@ namespace UoFiddler.Controls.Forms
                 System.IO.File.WriteAllText(dumpPath, fullText);
             }
 
-            // ── Save extended debug file (only when diagInfoEnabled) ─────────────
+            // ── 保存扩展调试文件（仅在 diagInfoEnabled 时） ─────────────
             string extDbgPath = null;
             if (diagInfoEnabled && extDbgSb != null)
             {
@@ -11017,10 +11013,10 @@ namespace UoFiddler.Controls.Forms
                 System.IO.File.WriteAllText(extDbgPath, extDbgSb.ToString());
             }
 
-            // ── Build dialog ─────────────────────────────────────────────────────
+            // ── 构建对话框 ─────────────────────────────────────────────────────
             var dlg = new Form
             {
-                Text = $"Action Map — Body {body} [{typLabel}] FileType {fileType}" + (diagInfoEnabled ? " [DiagInfo ON]" : ""),
+                Text = $"动作映射 — 身体 {body} [{typLabel}] 文件类型 {fileType}" + (diagInfoEnabled ? " [DiagInfo 开启]" : ""),
                 Size = new System.Drawing.Size(960, 660),
                 MinimumSize = new System.Drawing.Size(700, 400),
                 StartPosition = FormStartPosition.CenterParent,
@@ -11036,7 +11032,7 @@ namespace UoFiddler.Controls.Forms
 
             var btnCopyText = new Button
             {
-                Text = "Copy text",
+                Text = "复制文本",
                 FlatStyle = FlatStyle.Flat,
                 BackColor = System.Drawing.Color.FromArgb(0, 90, 150),
                 ForeColor = System.Drawing.Color.White,
@@ -11050,7 +11046,7 @@ namespace UoFiddler.Controls.Forms
 
             var btnCopyScreen = new Button
             {
-                Text = "Copy screenshot",
+                Text = "复制截图",
                 FlatStyle = FlatStyle.Flat,
                 BackColor = System.Drawing.Color.FromArgb(60, 60, 80),
                 ForeColor = System.Drawing.Color.White,
@@ -11064,7 +11060,7 @@ namespace UoFiddler.Controls.Forms
 
             var btnDiag = new Button
             {
-                Text = "Open diagnostics",
+                Text = "打开诊断",
                 FlatStyle = FlatStyle.Flat,
                 BackColor = System.Drawing.Color.FromArgb(80, 50, 20),
                 ForeColor = System.Drawing.Color.White,
@@ -11081,10 +11077,10 @@ namespace UoFiddler.Controls.Forms
                 catch { }
             };
 
-            // ── "Open ExtDebug" button — nur sichtbar wenn diagInfoEnabled ────────
+            // ── “打开扩展调试”按钮 — 仅在 diagInfoEnabled 时可见 ────────
             var btnExtDbg = new Button
             {
-                Text = "Open ExtDebug",
+                Text = "打开扩展调试",
                 FlatStyle = FlatStyle.Flat,
                 BackColor = System.Drawing.Color.FromArgb(30, 70, 30),
                 ForeColor = System.Drawing.Color.White,
@@ -11105,12 +11101,12 @@ namespace UoFiddler.Controls.Forms
 
             var lblInfo = new Label
             {
-                Text = $"Body {body}  ·  {typLabel}  ·  FileType {fileType}" +
-                       $"  ·  {animLength} actions × 5 dirs" +
-                       (physicalBody != body ? $"  ·  phys={physicalBody}" : "") +
+                Text = $"身体 {body}  ·  {typLabel}  ·  文件类型 {fileType}" +
+                       $"  ·  {animLength} 个动作 × 5 个方向" +
+                       (physicalBody != body ? $"  ·  物理={physicalBody}" : "") +
                        (physicalFileType != fileType ? $"  ·  FT{physicalFileType}" : "") +
-                       (animScanNote != null && !willBeOob ? $"  ·  scan→FT{physicalFileType}" : "") +
-                       (diagInfoEnabled ? "  ·  DiagInfo ON" : ""),
+                       (animScanNote != null && !willBeOob ? $"  ·  扫描→FT{physicalFileType}" : "") +
+                       (diagInfoEnabled ? "  ·  DiagInfo 开启" : ""),
                 ForeColor = diagInfoEnabled
                     ? System.Drawing.Color.FromArgb(100, 220, 130)
                     : System.Drawing.Color.FromArgb(140, 140, 160),
@@ -11143,29 +11139,29 @@ namespace UoFiddler.Controls.Forms
                 txt.AppendText(line + "\n");
 
                 System.Drawing.Color col;
-                if (line.Contains("  OK"))
+                if (line.Contains(" 正常"))
                     col = System.Drawing.Color.FromArgb(100, 220, 130);
-                else if (line.Contains("CORRUPT"))
+                else if (line.Contains("损坏"))
                     col = System.Drawing.Color.FromArgb(255, 100, 100);
-                else if (line.Contains("MISSING") || line.Contains("PARTIAL"))
+                else if (line.Contains("缺失") || line.Contains("部分"))
                     col = System.Drawing.Color.FromArgb(255, 200, 80);
-                else if (line.TrimStart().StartsWith("Dir"))
+                else if (line.TrimStart().StartsWith("方向"))
                     col = System.Drawing.Color.FromArgb(140, 180, 255);
                 else if (line.StartsWith("==="))
                     col = System.Drawing.Color.FromArgb(200, 180, 255);
-                else if (line.StartsWith("Summary"))
+                else if (line.StartsWith("摘要"))
                     col = System.Drawing.Color.FromArgb(200, 200, 100);
-                else if (line.Contains("⚠") || line.Contains("WARNING"))
+                else if (line.Contains("⚠") || line.Contains("警告"))
                     col = System.Drawing.Color.FromArgb(255, 140, 40);
-                else if (line.Contains("ℹ") || line.Contains("anim-scan") || line.Contains("Redirected"))
+                else if (line.Contains("ℹ") || line.Contains("anim-scan") || line.Contains("重定向"))
                     col = System.Drawing.Color.FromArgb(100, 210, 255);
-                else if (line.Contains("mapped from"))
+                else if (line.Contains("从映射"))
                     col = System.Drawing.Color.FromArgb(255, 180, 80);
                 else if (line.Contains("DiagInfo"))
                     col = System.Drawing.Color.FromArgb(100, 220, 130);
-                else if (line.TrimStart().StartsWith("body") ||
+                else if (line.TrimStart().StartsWith("身体") ||
                          line.TrimStart().StartsWith("Translate") ||
-                         line.TrimStart().StartsWith("Diagnostics"))
+                         line.TrimStart().StartsWith("诊断"))
                     col = System.Drawing.Color.FromArgb(160, 200, 255);
                 else
                     col = System.Drawing.Color.FromArgb(220, 220, 220);
@@ -11180,14 +11176,14 @@ namespace UoFiddler.Controls.Forms
             {
                 Dock = DockStyle.Bottom,
                 Height = 22,
-                Text = $"  Saved: {dumpPath}" +
+                Text = $"  保存：{dumpPath}" +
                        (diagInfoEnabled && extDbgPath != null
-                           ? $"  |  ExtDebug: {extDbgPath}" : "") +
-                       $"  |  OK={totalOk}" +
-                       $"  MISSING/PARTIAL={totalEmpty}  CORRUPT={totalCorrupt}" +
-                       (physicalBody != body ? $"  |  mapped: {body}→{physicalBody}" : "") +
+                           ? $"  |  扩展调试：{extDbgPath}" : "") +
+                       $"  |  正常={totalOk}" +
+                       $"  缺失/部分={totalEmpty}  损坏={totalCorrupt}" +
+                       (physicalBody != body ? $"  |  映射：{body}→{physicalBody}" : "") +
                        (physicalFileType != fileType ? $"  |  FT{fileType}→FT{physicalFileType}" : "") +
-                       (willBeOob ? "  |  ⚠ OOB — check diagnostics" : ""),
+                       (willBeOob ? "  |  ⚠ 越界 — 检查诊断" : ""),
                 Font = new System.Drawing.Font("Segoe UI", 8f),
                 ForeColor = System.Drawing.Color.FromArgb(140, 140, 160),
                 BackColor = System.Drawing.Color.FromArgb(38, 38, 50)
@@ -11196,9 +11192,9 @@ namespace UoFiddler.Controls.Forms
             btnCopyText.Click += (s, ev) =>
             {
                 Clipboard.SetText(fullText);
-                btnCopyText.Text = "Copied!";
+                btnCopyText.Text = "已复制！";
                 var t = new System.Windows.Forms.Timer { Interval = 1500 };
-                t.Tick += (_, __) => { btnCopyText.Text = "Copy text"; t.Stop(); t.Dispose(); };
+                t.Tick += (_, __) => { btnCopyText.Text = "复制文本"; t.Stop(); t.Dispose(); };
                 t.Start();
             };
 
@@ -11207,9 +11203,9 @@ namespace UoFiddler.Controls.Forms
                 var bmp = new System.Drawing.Bitmap(dlg.Width, dlg.Height);
                 dlg.DrawToBitmap(bmp, new System.Drawing.Rectangle(0, 0, bmp.Width, bmp.Height));
                 Clipboard.SetImage(bmp);
-                btnCopyScreen.Text = "Copied!";
+                btnCopyScreen.Text = "已复制！";
                 var t = new System.Windows.Forms.Timer { Interval = 1500 };
-                t.Tick += (_, __) => { btnCopyScreen.Text = "Copy screenshot"; t.Stop(); t.Dispose(); };
+                t.Tick += (_, __) => { btnCopyScreen.Text = "复制截图"; t.Stop(); t.Dispose(); };
                 t.Start();
             };
 
@@ -11220,13 +11216,12 @@ namespace UoFiddler.Controls.Forms
         }
 
         /// <summary>
-        /// Returns the correct byte offset in anim.idx / anim2.idx etc. for a given
-        /// physical body + action + dir combination.
-        /// UO anim.idx layout (FileType 1):
-        ///   Bodies   0–199 → Human/Equipment  (35 actions × 5 dirs)
-        ///   Bodies 200–399 → Animal           (13 actions × 5 dirs)
-        ///   Bodies 400+    → Monster          (22 actions × 5 dirs)
-        /// For anim2–anim5 the stride is always 22 (Monster-only files).
+        /// 为给定的物理身体 + 动作 + 方向组合返回 anim.idx / anim2.idx 等中的正确字节偏移量。
+        /// UO anim.idx 布局（文件类型 1）：
+        ///   身体   0–199 → 人类/装备（35 个动作 × 5 个方向）
+        ///   身体 200–399 → 动物（13 个动作 × 5 个方向）
+        ///   身体 400+    → 怪物（22 个动作 × 5 个方向）
+        /// 对于 anim2–anim5，步长始终为 22（仅限怪物文件）。
         /// </summary>
         private static long GetIdxOffset(int body, int action, int dir, int fileType)
         {
@@ -11240,7 +11235,7 @@ namespace UoFiddler.Controls.Forms
                 else
                     baseOffset = (long)(200 * 35 * 5 + 200 * 13 * 5 + (body - 400) * 22 * 5) * 12;
             }
-            else // anim2–anim5: Monster only
+            else // anim2–anim5：仅怪物
             {
                 baseOffset = (long)body * 22 * 5 * 12;
             }
@@ -11248,7 +11243,7 @@ namespace UoFiddler.Controls.Forms
         }
 
         /// <summary>
-        /// Returns the byte range [start, end) in anim.idx for all actions of a body.
+        /// 返回一个身体的所有动作在 anim.idx 中的字节范围 [起始, 结束)。
         /// </summary>
         private static (long start, long end) GetIdxBodyRange(int body, int animLength, int fileType)
         {
@@ -11263,42 +11258,42 @@ namespace UoFiddler.Controls.Forms
 
         #endregion
 
-        #region [ Diagnosen UOP ]
+        #region [ 诊断 UOP ]
         private void BtnAnimMapUop_Click(object sender, EventArgs e)
         {
             if (_fileType != 6 || _uopManager == null)
             {
-                MessageBox.Show("Please load a UOP animation file first.", "Action Map UOP");
+                MessageBox.Show("请先加载 UOP 动画文件。", "动作映射 UOP");
                 return;
             }
             ShowBodyAnimationMapUop(_currentBody);
         }
 
         /// <summary>
-        /// Full animation map for a UOP body:
-        /// Body → Action → Dir → UOP block info → frameCount → Frame dimensions
-        /// Shows what is valid / empty / missing and which action name belongs to it.
+        /// UOP 身体的完整动画映射：
+        /// 身体 → 动作 → 方向 → UOP 块信息 → 帧数 → 帧尺寸
+        /// 显示哪些有效 / 空 / 缺失以及属于哪个动作名称。
         /// </summary>
 
         private void ShowBodyAnimationMapUop(int body)
         {
             if (_uopManager == null)
             {
-                MessageBox.Show("UOP manager not initialized.", "Action Map UOP");
+                MessageBox.Show("UOP 管理器未初始化。", "动作映射 UOP");
                 return;
             }
 
-            // ── Action names ─────────────────────────────────────────────────────────
+            // ── 动作名称 ─────────────────────────────────────────────────────────
             int animLength = 26;
-            string typLabel = "UOP Creature";
+            string typLabel = "UOP 生物";
             string[] actionNames = new[] {
-        "Walk","Run","Idle","Eat","Alert","Attack1","Attack2","GetHit",
-        "Die1","Idle2","Fidget","LieDown","Die2","Attack3","AttackBow",
-        "AttackCrossBow","AttackThrow","Pillage","Stomp","Cast2","Cast3",
-        "BlockRight","BlockLeft","Fly","TakeOff","GetHitInAir"
+        "行走","奔跑","空闲","进食","警觉","攻击1","攻击2","受击",
+        "死亡1","空闲2","烦躁","躺下","死亡2","攻击3","弓攻击",
+        "弩攻击","投掷攻击","掠夺","踩踏","施法2","施法3",
+        "右格挡","左格挡","飞行","起飞","空中受击"
     };
 
-            // ── Detect actual action count ───────────────────────────────────────────
+            // ── 检测实际动作计数 ───────────────────────────────────────────
             int detectedLength = 0;
             for (int a = 0; a < 35; a++)
             {
@@ -11313,11 +11308,11 @@ namespace UoFiddler.Controls.Forms
             if (detectedLength > 0) animLength = detectedLength;
 
             var sb = new System.Text.StringBuilder();
-            sb.AppendLine($"=== Action Map UOP: Body {body}  [{typLabel}] ===");
-            sb.AppendLine($"UOP Manager: {_uopManager.GetType().Name}");
-            sb.AppendLine($"Detected actions: {animLength}  (scanned 0–{animLength - 1})");
+            sb.AppendLine($"=== 动作映射 UOP：身体 {body}  [{typLabel}] ===");
+            sb.AppendLine($"UOP 管理器：{_uopManager.GetType().Name}");
+            sb.AppendLine($"检测到的动作：{animLength}  （扫描 0–{animLength - 1}）");
             sb.AppendLine();
-            sb.AppendLine($"{"Act",-4} {"Name",-24} {"Dir0",12} {"Dir1",12} {"Dir2",12} {"Dir3",12} {"Dir4",12}  {"Status",-8}");
+            sb.AppendLine($"{"动作",-4} {"名称",-24} {"方向0",12} {"方向1",12} {"方向2",12} {"方向3",12} {"方向4",12}  {"状态",-8}");
             sb.AppendLine(new string('─', 100));
 
             int totalOk = 0, totalEmpty = 0, totalCorrupt = 0;
@@ -11325,7 +11320,7 @@ namespace UoFiddler.Controls.Forms
             for (int action = 0; action < animLength; action++)
             {
                 string actName = action < actionNames.Length
-                    ? actionNames[action] : $"Action{action:D2}";
+                    ? actionNames[action] : $"动作{action:D2}";
 
                 var dirInfos = new string[5];
                 var dirDetails = new System.Text.StringBuilder();
@@ -11333,36 +11328,36 @@ namespace UoFiddler.Controls.Forms
 
                 for (int dir = 0; dir < 5; dir++)
                 {
-                    // ── Step 1: get UOP entry ────────────────────────────────────────
+                    // ── 步骤 1：获取 UOP 条目 ────────────────────────────────────────
                     var fileInfo = _uopManager.GetAnimationData(body, action, dir);
                     if (fileInfo == null)
                     {
-                        dirInfos[dir] = "missing";
+                        dirInfos[dir] = "缺失";
                         anyEmpty = true;
                         continue;
                     }
 
-                    // ── Step 2: load raw data ────────────────────────────────────────
+                    // ── 步骤 2：加载原始数据 ────────────────────────────────────────
                     byte[] raw = null;
                     try { raw = fileInfo.GetData(); }
                     catch { }
 
                     if (raw == null || raw.Length < 30)
                     {
-                        dirInfos[dir] = raw == null ? "no data" : "too short";
+                        dirInfos[dir] = raw == null ? "无数据" : "太短";
                         anyCorrupt = true;
                         continue;
                     }
 
-                    // ── Step 3: verify Magic "AMOU" ──────────────────────────────────
+                    // ── 步骤 3：验证 Magic "AMOU" ──────────────────────────────────
                     if (raw[0] != 0x41 || raw[1] != 0x4D || raw[2] != 0x4F || raw[3] != 0x55)
                     {
-                        dirInfos[dir] = "!magic";
+                        dirInfos[dir] = "!魔术";
                         anyCorrupt = true;
                         continue;
                     }
 
-                    // ── Step 4: read frameCount @ Byte 28 (uint16 LE) ───────────────
+                    // ── 步骤 4：在字节 28 处读取 frameCount（uint16 LE）───────────────
                     int fc = raw[28] | (raw[29] << 8);
 
                     if (fc <= 0 || fc > 256)
@@ -11372,7 +11367,7 @@ namespace UoFiddler.Controls.Forms
                         continue;
                     }
 
-                    // ── Step 5: read Frame[0] dimensions from UOP header ─────────────
+                    // ── 步骤 5：从 UOP 标头读取 Frame[0] 尺寸 ─────────────
                     // [16..17] CX  [18..19] CY  [20..21] W  [22..23] H
                     int cx = (short)(raw[16] | (raw[17] << 8));
                     int cy = (short)(raw[18] | (raw[19] << 8));
@@ -11380,14 +11375,14 @@ namespace UoFiddler.Controls.Forms
                     int h = raw[22] | (raw[23] << 8);
                     bool gotFrame = (w > 0 && w < 2048 && h > 0 && h < 2048);
 
-                    string filePath = fileInfo.File?.FilePath ?? "(memory)";
-                    string fileShort = System.IO.Path.GetFileName(filePath) ?? "(memory)";
+                    string filePath = fileInfo.File?.FilePath ?? "(内存)";
+                    string fileShort = System.IO.Path.GetFileName(filePath) ?? "(内存)";
 
                     dirInfos[dir] = $"fc={fc}";
                     dirDetails.AppendLine(
-                        $"         Dir{dir}: file={fileShort,-28}  size={raw.Length,7}B" +
-                        $"  frames={fc,3}" +
-                        (gotFrame ? $"  F0: {w,4}×{h,-4}  CX={cx,4}  CY={cy,4}" : "  F0: n/a"));
+                        $"         方向{dir}：文件={fileShort,-28}  大小={raw.Length,7}B" +
+                        $"  帧数={fc,3}" +
+                        (gotFrame ? $"  F0：{w,4}×{h,-4}  CX={cx,4}  CY={cy,4}" : "  F0：不可用"));
                     anyValid = true;
                 }
 
@@ -11395,10 +11390,10 @@ namespace UoFiddler.Controls.Forms
                 if (anyEmpty && !anyValid) totalEmpty++;
                 if (anyCorrupt) totalCorrupt++;
 
-                string status = anyCorrupt ? "CORRUPT"
-                              : !anyValid ? "MISSING"
-                              : anyEmpty ? "PARTIAL"
-                              : "OK";
+                string status = anyCorrupt ? "损坏"
+                              : !anyValid ? "缺失"
+                              : anyEmpty ? "部分"
+                              : "正常";
 
                 sb.Append($"{action:D2}   {actName,-24}");
                 foreach (var d in dirInfos) sb.Append($" {d,12}");
@@ -11410,20 +11405,20 @@ namespace UoFiddler.Controls.Forms
 
             sb.AppendLine();
             sb.AppendLine(new string('─', 100));
-            sb.AppendLine($"Summary:  OK={totalOk}  PARTIAL/MISSING={totalEmpty}  CORRUPT={totalCorrupt}");
+            sb.AppendLine($"摘要：  正常={totalOk}  部分/缺失={totalEmpty}  损坏={totalCorrupt}");
 
             string fullText = sb.ToString();
 
-            // ── Save to temp file ────────────────────────────────────────────────────
+            // ── 保存到临时文件 ────────────────────────────────────────────────────
             string dumpPath = System.IO.Path.Combine(
                 System.IO.Path.GetTempPath(),
                 $"ActionMapUOP_Body{body}.txt");
             System.IO.File.WriteAllText(dumpPath, fullText);
 
-            // ── Build dialog ─────────────────────────────────────────────────────────
+            // ── 构建对话框 ─────────────────────────────────────────────────────────
             var dlg = new Form
             {
-                Text = $"Action Map UOP — Body {body}  [{typLabel}]",
+                Text = $"动作映射 UOP — 身体 {body}  [{typLabel}]",
                 Size = new System.Drawing.Size(1060, 660),
                 MinimumSize = new System.Drawing.Size(700, 400),
                 StartPosition = FormStartPosition.CenterParent,
@@ -11439,7 +11434,7 @@ namespace UoFiddler.Controls.Forms
 
             var btnCopyText = new Button
             {
-                Text = "Copy text",
+                Text = "复制文本",
                 FlatStyle = FlatStyle.Flat,
                 BackColor = System.Drawing.Color.FromArgb(0, 90, 150),
                 ForeColor = System.Drawing.Color.White,
@@ -11453,7 +11448,7 @@ namespace UoFiddler.Controls.Forms
 
             var btnCopyScreen = new Button
             {
-                Text = "Copy screenshot",
+                Text = "复制截图",
                 FlatStyle = FlatStyle.Flat,
                 BackColor = System.Drawing.Color.FromArgb(60, 60, 80),
                 ForeColor = System.Drawing.Color.White,
@@ -11467,7 +11462,7 @@ namespace UoFiddler.Controls.Forms
 
             var lblInfo = new Label
             {
-                Text = $"Body {body}  ·  {typLabel}  ·  {animLength} actions × 5 dirs  ·  UOP",
+                Text = $"身体 {body}  ·  {typLabel}  ·  {animLength} 个动作 × 5 个方向  ·  UOP",
                 ForeColor = System.Drawing.Color.FromArgb(140, 140, 160),
                 Font = new System.Drawing.Font("Segoe UI", 8.5f),
                 AutoSize = true,
@@ -11496,12 +11491,12 @@ namespace UoFiddler.Controls.Forms
                 txt.AppendText(line + "\n");
 
                 System.Drawing.Color col;
-                if (line.Contains("  OK")) col = System.Drawing.Color.FromArgb(100, 220, 130);
-                else if (line.Contains("CORRUPT")) col = System.Drawing.Color.FromArgb(255, 100, 100);
-                else if (line.Contains("MISSING") || line.Contains("PARTIAL")) col = System.Drawing.Color.FromArgb(255, 200, 80);
-                else if (line.TrimStart().StartsWith("Dir")) col = System.Drawing.Color.FromArgb(140, 180, 255);
+                if (line.Contains(" 正常")) col = System.Drawing.Color.FromArgb(100, 220, 130);
+                else if (line.Contains("损坏")) col = System.Drawing.Color.FromArgb(255, 100, 100);
+                else if (line.Contains("缺失") || line.Contains("部分")) col = System.Drawing.Color.FromArgb(255, 200, 80);
+                else if (line.TrimStart().StartsWith("方向")) col = System.Drawing.Color.FromArgb(140, 180, 255);
                 else if (line.StartsWith("===")) col = System.Drawing.Color.FromArgb(200, 180, 255);
-                else if (line.StartsWith("Summary")) col = System.Drawing.Color.FromArgb(200, 200, 100);
+                else if (line.StartsWith("摘要")) col = System.Drawing.Color.FromArgb(200, 200, 100);
                 else col = System.Drawing.Color.FromArgb(220, 220, 220);
 
                 txt.Select(start, line.Length);
@@ -11514,7 +11509,7 @@ namespace UoFiddler.Controls.Forms
             {
                 Dock = DockStyle.Bottom,
                 Height = 22,
-                Text = $"  Saved: {dumpPath}  |  OK={totalOk}  MISSING/PARTIAL={totalEmpty}  CORRUPT={totalCorrupt}",
+                Text = $"  保存：{dumpPath}  |  正常={totalOk}  缺失/部分={totalEmpty}  损坏={totalCorrupt}",
                 Font = new System.Drawing.Font("Segoe UI", 8f),
                 ForeColor = System.Drawing.Color.FromArgb(140, 140, 160),
                 BackColor = System.Drawing.Color.FromArgb(38, 38, 50)
@@ -11523,9 +11518,9 @@ namespace UoFiddler.Controls.Forms
             btnCopyText.Click += (s, ev) =>
             {
                 Clipboard.SetText(fullText);
-                btnCopyText.Text = "Copied!";
+                btnCopyText.Text = "已复制！";
                 var t = new System.Windows.Forms.Timer { Interval = 1500 };
-                t.Tick += (_, __) => { btnCopyText.Text = "Copy text"; t.Stop(); t.Dispose(); };
+                t.Tick += (_, __) => { btnCopyText.Text = "复制文本"; t.Stop(); t.Dispose(); };
                 t.Start();
             };
 
@@ -11534,9 +11529,9 @@ namespace UoFiddler.Controls.Forms
                 var bmp = new System.Drawing.Bitmap(dlg.Width, dlg.Height);
                 dlg.DrawToBitmap(bmp, new System.Drawing.Rectangle(0, 0, bmp.Width, bmp.Height));
                 Clipboard.SetImage(bmp);
-                btnCopyScreen.Text = "Copied!";
+                btnCopyScreen.Text = "已复制！";
                 var t = new System.Windows.Forms.Timer { Interval = 1500 };
-                t.Tick += (_, __) => { btnCopyScreen.Text = "Copy screenshot"; t.Stop(); t.Dispose(); };
+                t.Tick += (_, __) => { btnCopyScreen.Text = "复制截图"; t.Stop(); t.Dispose(); };
                 t.Start();
             };
 
@@ -11548,38 +11543,35 @@ namespace UoFiddler.Controls.Forms
 
         #endregion
 
-        #region [ comboBoxBackground: Background image selection ]
         private void comboBoxBackground_SelectedIndexChanged(object sender, EventArgs e)
         {
             _backgroundImage?.Dispose();
             _backgroundImage = null;
 
-            _backgroundMode = comboBoxBackground.SelectedItem?.ToString() ?? "None";
+            _backgroundMode = comboBoxBackground.SelectedItem?.ToString() ?? "无";
 
             switch (_backgroundMode)
             {
-                case "Grass":
+                case "草地":
                     _backgroundImage = new Bitmap(
                         UoFiddler.Controls.Properties.Resources.Grass);
                     break;
-                case "Water":
+                case "水":
                     _backgroundImage = new Bitmap(
                         UoFiddler.Controls.Properties.Resources.Water);
                     break;
-                    // "None" → _backgroundImage bleibt null
+                    // “无” → _backgroundImage 保持 null
             }
 
             AnimationPictureBox.Invalidate();
         }
-        #endregion
 
-        #region [ OnFormClosed: Dispose background image ]
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             _backgroundImage?.Dispose();
             base.OnFormClosed(e);
         }
-        #endregion
+
 
     }
 }

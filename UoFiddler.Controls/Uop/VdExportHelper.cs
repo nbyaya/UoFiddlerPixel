@@ -7,6 +7,8 @@ using System.Linq;
 using UoFiddler.Controls.Models.Uop;
 using UoFiddler.Controls.Models.Uop.Imaging;
 
+#nullable enable annotations
+
 namespace UoFiddler.Controls.Uop
 {
     public static class VdExportHelper

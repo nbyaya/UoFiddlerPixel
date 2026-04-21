@@ -1,3 +1,5 @@
+#nullable enable annotations
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -95,6 +97,11 @@ namespace UoFiddler.Controls.Uop
                     }
                     else
                     {
+                        if (entry.Data == null)
+                        {
+                            throw new InvalidOperationException("UOP writer error: Data is required when PrecompressedData is not supplied.");
+                        }
+
                         decompressedSize = (uint)entry.Data.Length;
                         isCompressed = entry.IsCompressed;
 

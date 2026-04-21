@@ -838,7 +838,7 @@ namespace UoFiddler.Controls.Uop
 
                             if (action == 0)
                             {
-                                ulong numericHash = 0x000C000000000000UL | (ulong)id;
+                                ulong numericHash = 0x000C000000000000UL | (uint)id;
                                 finalFileDataList.Add(new UopFileData
                                 {
                                     Hash = numericHash,

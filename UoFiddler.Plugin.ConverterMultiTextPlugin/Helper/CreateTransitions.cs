@@ -35,7 +35,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Helper
         private ClsTerrain _selectedGroupA;
         private ClsTerrain _selectedGroupB;
         private ClsTerrain _selectedGroupC;
-        private bool _iSelected;
         private Transition.Transition _iTransition;
         private TransitionTable _iTransitionTable;
 
@@ -82,7 +81,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Helper
             this.Load += new EventHandler(this.TEdit_Load);
             this._imageTest = false;
             this._iGroups = new ClsTerrainTable();
-            this._iSelected = false;
             this._iTransition = new Transition.Transition();
             this._iTransitionTable = new TransitionTable();
         }

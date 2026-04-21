@@ -50,8 +50,6 @@ namespace UoFiddler.Plugin.Compare.UserControls
 
         // [3] Version token – discard results from superseded async runs
         private int _diffVersion;
-        private bool _calculatingDiffs;
-
         // [4] Tooltip cache
         private string _lastDiff = string.Empty;
 
@@ -687,14 +685,12 @@ namespace UoFiddler.Plugin.Compare.UserControls
                 _diffBlockSet = new HashSet<Point>();
                 _diffTileSet = new HashSet<Point>();
                 _diffBlocks = new List<Point>();
-                _calculatingDiffs = false;
                 SetLoadingState(false);
                 UpdateDiffStats(0);
                 NotifyDiffListDialog();
                 return;
             }
 
-            _calculatingDiffs = true;
             SetLoadingState(true);
 
             // [3] Increment version – any in-flight run with an older version will discard its result
@@ -783,7 +779,6 @@ namespace UoFiddler.Plugin.Compare.UserControls
             catch (Exception ex)
             {
                 Debug.WriteLine($"CalculateDiffsAsync failed: {ex}");
-                _calculatingDiffs = false;
                 SetLoadingState(false);
                 return;
             }
@@ -791,7 +786,6 @@ namespace UoFiddler.Plugin.Compare.UserControls
             // [3] A newer run has started – discard this result; let the newer run own the UI state
             if (version != _diffVersion) { return; }
 
-            _calculatingDiffs = false;
             SetLoadingState(false);
 
             _diffBlockSet = diffSet.blockSet;

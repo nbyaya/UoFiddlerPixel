@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -100,8 +100,8 @@ namespace UoFiddler.Controls.Models.Uop.Imaging
             
             int index = x + (y * Width);
             
-            // Double vérification de sécurité
-            if (index < 0 || index >= Bits.Length)
+            // Double vï¿½rification de sï¿½curitï¿½
+            if ((uint)index >= (uint)Bits.Length)
             {
                 System.Diagnostics.Debug.WriteLine($"ERROR: Calculated index {index} out of bounds. x={x}, y={y}, Width={Width}, Height={Height}, Bits.Length={Bits.Length}");
                 return Color.Transparent;
@@ -120,7 +120,7 @@ namespace UoFiddler.Controls.Models.Uop.Imaging
         {
             OctreeQuantizer quantizer = new OctreeQuantizer();
             
-            // Vérifier que Width et Height correspondent à la taille de Bits
+            // Vï¿½rifier que Width et Height correspondent ï¿½ la taille de Bits
             int expectedLength = Width * Height;
             if (Bits.Length != expectedLength)
             {

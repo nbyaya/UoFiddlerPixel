@@ -1205,27 +1205,23 @@ ON=@CreateLoot
                 }
 
                 int indexOffset, readLength;
-                byte cAnimType;
 
                 if (creatureID <= 199)
                 {
                     indexOffset = creatureID * 110;
                     readLength = 110 * 12;
-                    cAnimType = cHighDetailOLd;
                     tbProcessAminidx.AppendText("High Detail Critter\n");
                 }
                 else if (creatureID <= 399)
                 {
                     indexOffset = (creatureID - 200) * 65 + 22000;
                     readLength = 65 * 12;
-                    cAnimType = cLowDetailOld;
                     tbProcessAminidx.AppendText("Low Detail Critter\n");
                 }
                 else
                 {
                     indexOffset = (creatureID - 400) * 175 + 35000;
                     readLength = 175 * 12;
-                    cAnimType = cHumanOld;
                     tbProcessAminidx.AppendText("Human / Accessory\n");
                 }
 

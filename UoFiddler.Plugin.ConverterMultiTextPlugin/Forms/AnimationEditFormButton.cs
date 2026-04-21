@@ -30,7 +30,6 @@ namespace UoFiddler.Controls.Forms
                     zoomLevel5 = 0, zoomLevel6 = 0, zoomLevel7 = 0, zoomLevel8 = 0,
                     zoomLevel9 = 0, zoomLevel10 = 0;
 
-        private SelectablePictureBox[] pictureBoxes;
         public static SelectablePictureBox[] boxes = new SelectablePictureBox[10];
 
         // --- Clipboard Animation ---
@@ -52,8 +51,6 @@ namespace UoFiddler.Controls.Forms
         private Timer animBrowserTimer;
 
         // --- Art Browser ---
-        private int artSearchIndex = 0;
-        private bool artShowStatic = true;
         private List<int> artSearchResults = new List<int>();
 
         // FIX: Guard flag to prevent CheckedChanged during initialization

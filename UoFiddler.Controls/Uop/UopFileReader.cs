@@ -1,3 +1,5 @@
+#nullable enable annotations
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -50,9 +52,6 @@ namespace UoFiddler.Controls.Uop
                     reader.ReadUInt32(); // Total files count
 
                     _uopEntries.Clear();
-                    int blockCount = 0;
-                    int totalEntriesFound = 0;
-
                     while (nextBlockOffset != 0)
                     {
                         System.Diagnostics.Debug.WriteLine($"🔍 [UOPReader] Reading TOC block at {nextBlockOffset:X16}");

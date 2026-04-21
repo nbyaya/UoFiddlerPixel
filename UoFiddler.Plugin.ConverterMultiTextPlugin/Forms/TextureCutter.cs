@@ -40,7 +40,6 @@ namespace UoFiddler.Plugin.ConverterMultiTextPlugin.Forms
         private Point _startPoint;
         private Rectangle _cropArea;
         private bool _isDragging = false;
-        private bool _showGrid2;
         //private Rectangle selectedRectangle; // The selected range.
         private List<Point> _points = new List<Point>();
 
